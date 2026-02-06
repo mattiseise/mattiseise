@@ -62,13 +62,13 @@ export function Hero() {
                     </div>
 
                     <div className="relative lg:h-auto">
-                        <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-indigo-200/50 border border-slate-100 bg-slate-50 aspect-[4/5] lg:aspect-auto lg:h-[700px]">
+                        <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-indigo-200/50 border border-slate-100 bg-slate-50 aspect-[3/4] sm:aspect-[4/5] lg:aspect-auto lg:h-[700px]">
                             <Image
                                 src="/images/mattivaaka.jpg"
                                 alt="Matti Seise"
                                 fill
                                 priority
-                                className="object-cover"
+                                className="object-cover object-top"
                                 sizes="(max-width: 768px) 100vw, 50vw"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
