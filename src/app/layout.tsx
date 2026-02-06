@@ -33,7 +33,7 @@ export default function RootLayout({
         )}
       >
         {/* Netlify Form Definition for Build Bot Detection */}
-        <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+        <form name="contact" data-netlify="true" hidden>
           <input type="text" name="name" />
           <input type="email" name="email" />
           <textarea name="message"></textarea>
