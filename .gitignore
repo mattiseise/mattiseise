@@ -1,4 +1,12 @@
 node_modules
 
+# Next.js build output
+.next
+out
+
 # Local Netlify folder
 .netlify
+
+# OS
+.DS_Store
+*.log

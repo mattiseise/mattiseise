@@ -2,10 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+:root {
+  color-scheme: dark;
 }
 
-* {
-  -webkit-tap-highlight-color: transparent;
+html, body {
+  background: #0d0f12;
+  color: #e7e9ee;
+}
+
+::selection { background: #ec4899; color: #0d0f12; }
+
+a { @apply transition-colors; }
+
+.section-pad { @apply py-20 md:py-28 px-6 md:px-10; }
+.container-narrow { @apply max-w-5xl mx-auto; }
+.eyebrow { @apply uppercase tracking-[0.18em] text-xs font-medium text-accent-400; }
+.h1 { @apply text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05]; }
+.h2 { @apply text-3xl md:text-4xl font-semibold tracking-tight; }
+.h3 { @apply text-xl md:text-2xl font-semibold; }
+.lead { @apply text-lg md:text-xl text-ink-200 leading-relaxed; }
+.muted { @apply text-ink-400; }
+
+.card {
+  @apply rounded-2xl border border-ink-600/50 bg-ink-800/60 backdrop-blur
+         p-6 md:p-7 transition-colors hover:border-accent-500/40;
+}
+
+.tag {
+  @apply inline-flex items-center rounded-full border border-ink-600/60
+         bg-ink-800/40 px-2.5 py-1 text-xs text-ink-200;
 }

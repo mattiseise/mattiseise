@@ -1,85 +1,67 @@
-"use client";
-
 import Image from "next/image";
-import { LINKS } from "@/data/content";
-import { Container } from "./Container";
-import { SocialButton } from "./SocialButton";
-import { Facebook, ExternalLink } from "lucide-react";
 
+export default function Hero() {
+  return (
+    <section className="section-pad relative overflow-hidden">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10 opacity-70"
+        style={{
+          background:
+            "radial-gradient(60% 50% at 15% 0%, rgba(236,72,153,0.22), transparent 60%), radial-gradient(50% 40% at 85% 30%, rgba(244,114,182,0.14), transparent 60%)",
+        }}
+      />
+      <div className="container-narrow grid md:grid-cols-12 gap-10 md:gap-12 items-center">
+        <div className="md:col-span-6">
+          <p className="eyebrow">Helsinki · 2026</p>
+          <h1 className="h1 mt-4 text-ink-50">
+            Rakennan tekoälystä<br />
+            <span className="text-accent-400">arjen työkaluja.</span>
+          </h1>
+          <p className="lead mt-6 max-w-2xl">
+            ICT-erityisopettaja ja AI-kehittäjä. Suunnittelen ja koodaan
+            tekoäly­agentteja, jotka säästävät tunteja viikossa — ratkaisuja,
+            jotka eivät jää demoasteelle vaan tulevat osaksi päivittäistä työtä.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="#projektit"
+              className="rounded-xl bg-accent-500 text-ink-900 px-5 py-3 text-sm font-semibold hover:bg-accent-400"
+            >
+              Katso projektit
+            </a>
+            <a
+              href="#koulutukset"
+              className="rounded-xl border border-ink-600/60 px-5 py-3 text-sm font-semibold text-ink-100 hover:border-accent-500/50 hover:text-accent-400"
+            >
+              Tilaa koulutus
+            </a>
+          </div>
+          <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-ink-400">
+            <span>· Tekoälykoulutukset</span>
+            <span>· Multi-agent-järjestelmät</span>
+            <span>· Selainautomaatio</span>
+            <span>· Pedagoginen suunnittelu</span>
+          </div>
+        </div>
 
-export function Hero() {
-    return (
-        <section id="etusivu" className="py-20 sm:py-28 overflow-hidden">
-            <Container>
-                <div className="grid items-center gap-12 lg:grid-cols-2">
-                    <div>
-                        <div className="inline-flex items-center gap-2 rounded-full border border-highlight/50 bg-highlight/20 px-3 py-1 text-xs font-bold text-slate-900 mb-6">
-                            OAJ:n valtuustovaalit 2026 • Numero 13
-                        </div>
-
-                        <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-6xl mb-6 leading-tight">
-                            Kun mokataan, pyydetään anteeksi – <span className="text-[#d876d8]">ja korjataan.</span>
-                        </h1>
-
-                        <p className="text-lg leading-8 text-slate-600 mb-8 max-w-lg">
-                            OAJ:n pitää uskaltaa toimia. Nyt liitossa varotaan liikaa — ja silti joskus sössitään.
-                            Ero on siinä, mitä tapahtuu sen jälkeen: myönnetäänkö virhe, pyydetäänkö anteeksi ja opitaanko siitä.
-                        </p>
-
-                        <div className="p-6 rounded-2xl bg-white border border-slate-100 shadow-xl shadow-slate-200/50 mb-8 relative overflow-hidden">
-                            <div className="absolute top-0 left-0 w-1 h-full bg-highlight" />
-                            <div className="text-sm font-bold text-slate-900 mb-2">Minä sanon suoraan</div>
-                            <p className="text-sm text-slate-600 leading-relaxed">
-                                Ajan liittoa kohti kulttuuria, jossa ei selitellä, vaan korjataan.
-                                Kulttuuria, jossa kentän ääni kuuluu oikeasti — ja jossa opettajat saavat tukea myös työn jatkuvaan muutokseen.
-                            </p>
-                        </div>
-
-
-
-                        <div className="flex flex-wrap gap-4 mb-8">
-                            <a
-                                href={LINKS.facebookGroup}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-base font-bold text-white transition hover:bg-slate-800 hover:scale-105"
-                            >
-                                Liity keskusteluun
-                            </a>
-                            <a
-                                href="#kysy"
-                                className="inline-flex items-center justify-center rounded-full border-2 border-slate-200 bg-white px-6 py-3 text-base font-bold text-slate-900 transition hover:border-slate-300 hover:bg-slate-50"
-                            >
-                                Kysy suoraan
-                            </a>
-                        </div>
-
-                        <div className="flex flex-wrap gap-3">
-                            <SocialButton href={LINKS.linkedin} label="LinkedIn" type="linkedin" />
-                            <SocialButton href={LINKS.threads} label="Threads" type="threads" />
-                            <SocialButton href={LINKS.youtube} label="YouTube" type="youtube" />
-                        </div>
-                    </div>
-
-                    <div className="relative lg:h-auto">
-                        <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-indigo-200/50 border border-slate-100 bg-slate-50 aspect-[3/4] sm:aspect-[4/5] lg:aspect-auto lg:h-[700px]">
-                            <Image
-                                src="/images/mattivaaka.jpg"
-                                alt="Matti Seise"
-                                fill
-                                priority
-                                className="object-cover object-top"
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
-                            <div className="absolute bottom-6 left-6 right-6 text-white">
-                                <div className="font-bold text-lg">Matti Seise</div>
-                                <div className="text-sm text-slate-200">Ammatillinen erityisopettaja</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </Container>
-        </section>
-    );
+        <div className="md:col-span-6">
+          <div className="relative aspect-[3/2] w-full rounded-2xl overflow-hidden border border-accent-500/30 shadow-2xl shadow-accent-500/10">
+            <Image
+              src="/images/mattivaaka.jpg"
+              alt="Matti Seise"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-gradient-to-tr from-ink-900/50 via-transparent to-accent-500/10 mix-blend-multiply"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
