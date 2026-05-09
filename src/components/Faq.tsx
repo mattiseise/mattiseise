@@ -10,12 +10,12 @@ const items: Item[] = [
     a: "Käytännönläheistä työpajatyöskentelyä: tehtävien suunnittelua, arviointia ja eriyttämistä tekoälyn aikakaudella. Saavutettavuus ja erityispedagogiikka mukana koko ajan. Sisältö räätälöidään koulutusasteen ja kohderyhmän mukaan.",
   },
   {
-    q: "Mitä AI-agentti tekee organisaatiossa?",
-    a: "Tekoälyagentti hoitaa toistuvia työnkulkuja, kirjoittaa luonnoksia, tarkistaa rutiinitehtäviä ja kommunikoi muiden työkalujen kanssa rajapintojen kautta. Se eroaa chatbotista siinä, että se voi käyttää työkaluja, päättää seuraavasta askeleesta ja palauttaa tulokset osaksi prosessia. Hyvin rakennettu agentti säästää tunteja viikossa, ei vain vastaa kysymyksiin.",
+    q: "Mitä tekoälyagentti tekee organisaatiossa?",
+    a: "Tekoälyagentti hoitaa toistuvia työnkulkuja, kirjoittaa luonnoksia, tarkistaa rutiinitehtäviä ja keskustelee muiden työkalujen kanssa rajapintojen kautta. Se eroaa chatbotista siinä, että se osaa käyttää työkaluja, päättää seuraavasta askeleesta ja palauttaa tulokset osaksi prosessia. Hyvin rakennettu agentti säästää tunteja viikossa eikä vain vastaa kysymyksiin.",
   },
   {
     q: "Miten tekoälyä voi käyttää arvioinnissa?",
-    a: "Tekoäly soveltuu hyvin arvioinnin tukivälineeksi: nopea palaute oppilaalle, kriteerien sanallistus, eriyttäminen ja saavutettavuuden parantaminen. Tärkeintä on suunnitella arviointi siten, että opettaja säilyttää ammatillisen viimeisen sanan ja tekoäly toimii laadun varmistajana — ei korvaajana. Constructive alignment ja Bloomin taksonomia toimivat suunnittelun runkona.",
+    a: "Tekoäly soveltuu hyvin arvioinnin tukivälineeksi: nopea palaute oppilaalle, arviointikriteerien sanallistaminen, eriyttäminen ja saavutettavuuden parantaminen. Tärkeintä on suunnitella arviointi niin, että opettajalla säilyy ammatillinen päätösvalta ja tekoäly toimii laadun varmistajana, ei korvaajana. Bloomin taksonomia ja linjakas opetus (constructive alignment) toimivat suunnittelun runkona.",
   },
   {
     q: "Mikä on minimiveloitus ja matkakustannukset?",
@@ -23,7 +23,7 @@ const items: Item[] = [
   },
   {
     q: "Toimiiko etänä toteutettu koulutus?",
-    a: "Kyllä — etäkoulutukset toimivat hyvin, kun ryhmä on enintään noin 20 osallistujaa ja sisältö on suunniteltu vuorovaikutteiseksi. Etätoteutus mahdollistaa hands-on-harjoitukset omilla työkaluilla ja säästää matkakulut.",
+    a: "Kyllä — etäkoulutus toimii hyvin, kun ryhmä on enintään noin 20 osallistujaa ja sisältö on suunniteltu vuorovaikutteiseksi. Etätoteutus mahdollistaa käytännön harjoitukset osallistujien omilla työkaluilla ja säästää matkakulut.",
   },
   {
     q: "Miten varaan koulutuksen tai tarjouksen?",

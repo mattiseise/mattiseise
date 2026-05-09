@@ -2,6 +2,14 @@ import type { MetadataRoute } from "next";
 
 const BASE = "https://seise.org";
 
+const cases = [
+  "openclaw",
+  "tekoalyn-perusteet",
+  "moodle-kurssiauditointi",
+  "wilma-itslearning-automaatiot",
+  "urheiluhallit-booker",
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
@@ -31,10 +39,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${BASE}/#faq`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${BASE}/#yhteys`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
+    ...cases.map((slug) => ({
+      url: `${BASE}/caset/${slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
   ];
 }

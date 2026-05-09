@@ -5,12 +5,12 @@ export default function Contact() {
         <div className="md:col-span-7">
           <p className="eyebrow">Yhteys</p>
           <h2 className="h2 mt-3 text-ink-50">
-            AI-projekti, jonka pitää toimia tuotannossa?
+            Tekoälyprojekti, jonka pitää toimia tuotannossa?
           </h2>
           <p className="lead mt-5">
             Otan vastaan koulutus-, konsultointi- ja toteutuspyyntöjä.
-            Erityisesti silloin, kun ratkaisun on tarkoitus istua oikeaan työhön
-            ja jäädä päivittäiseen käyttöön.
+            Erityisesti silloin, kun ratkaisun on tarkoitus sopia oikeaan
+            työhön ja jäädä päivittäiseen käyttöön — ei vain demoksi.
           </p>
         </div>
         <div className="md:col-span-5 space-y-4">
