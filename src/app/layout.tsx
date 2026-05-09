@@ -36,6 +36,9 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: "https://seise.org" },
   icons: { icon: "/favicon.svg" },
+  verification: {
+    google: "-23DgluogoMo06iYHsIqPBAIDfS1DXo5l6B6LOuSrig",
+  },
 };
 
 export default function RootLayout({
