@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 type Project = {
@@ -11,6 +12,7 @@ type Project = {
   stack: string[];
   status?: string;
   highlights?: string[];
+  caseUrl?: string;
   links?: { label: string; href: string }[];
 };
 
@@ -19,108 +21,129 @@ const projects: Project[] = [
     title: "OpenClaw",
     tag: "Multi-agent",
     year: "2025–",
+    caseUrl: "/caset/openclaw",
     blurb:
-      "Tuotannossa pyörivä multi-agent-järjestelmä — yli kymmenen erikoistunutta agenttia hoitavat keskustelut, suunnittelun, koodauksen ja auditoinnit Slackissa ja Telegramissa.",
+      "Kymmenen erikoistuneen tekoälyagentin järjestelmä, joka pyörii tuotannossa ja hoitaa keskustelut, suunnittelun, koodauksen sekä auditoinnit Slackissa ja Telegramissa.",
     details:
-      "Pyörii Mac mini -kotipalvelimella gateway-palvelun kautta. Mallivalinta on tehtäväkohtainen: OpenAI Codex pääajossa, OpenRouter raskaammille pyynnöille ja paikallinen Ollama embeddingille ja heartbeatille — kustannukset hallinnassa, latenssi ennakoitava. Ajastettu launchd:llä, kanavat Slack (socket mode) ja Telegram.",
+      "Järjestelmä toimii kotipalvelimella oman gateway-palvelun kautta. Mallit valitaan tehtäväkohtaisesti niin, että kustannukset pysyvät hallinnassa ja vasteajat ennakoitavina. Ajastetut työnkulut ja kanavat toimivat 24/7 ilman jatkuvaa valvontaa.",
     stack: [
-      "Node.js",
-      "Python",
-      "OpenAI Codex",
-      "OpenRouter",
-      "Ollama",
-      "Slack Socket Mode",
-      "Telegram Bot API",
-      "launchd",
+      "Multi-agent",
+      "Slack & Telegram",
+      "Ajastetut työnkulut",
+      "Paikallinen varamalli",
+      "Knowledge graph",
     ],
     status: "Jatkuvassa kehityksessä",
     highlights: [
-      "Yli kymmenen erikoistunutta agenttia: pääagentti, henkilökohtainen aliagentti, planner, builder, coder, pedagogy, auditor, finisher",
-      "Ajastetut työnkulut: aamubriifit, viikkokatsaukset, terveys­tarkistukset",
-      "RAG-muistihaku paikallisella Ollamalla; Gemini-fallback rate-limit-tilanteissa",
-      "Mempalace-muistikerros: rakenteinen knowledge graph, diary ja semanttinen haku",
-      "Cowork-bridge: agenttien välinen JSONL-pohjainen kommunikaatio audit-jäljellä",
+      "Yli kymmenen erikoistunutta agenttia: pääagentti, henkilökohtainen aliagentti sekä suunnittelija-, rakentaja-, koodari-, pedagogi-, auditori- ja viimeistelyagentit",
+      "Ajastetut tehtävät: aamubriifit, viikkokatsaukset ja säännölliset terveys­tarkistukset",
+      "Semanttinen muistihaku omasta historiasta — agentit muistavat aiemmat keskustelut",
+      "Strukturoitu muistikerros (knowledge graph), joka erottaa faktat, tehtävät ja päivämerkinnät",
+      "Agenttien välinen tarkastusjälki: jokaisesta vuorovaikutuksesta jää tieto siitä, kuka teki ja miksi",
     ],
   },
   {
     title: "Tekoälyn perusteet -kurssi",
-    tag: "Koulutus · 3 osp",
+    tag: "Koulutus · 27 oppituntia",
     year: "2025–",
+    caseUrl: "/caset/tekoalyn-perusteet",
     blurb:
-      "Kolmen opintopisteen kurssi generatiivisen tekoälyn käytöstä — kolmella vaikeustasolla opettajille, aikuisopiskelijoille ja nuorille.",
+      "Helsinki Business Collegelle suunniteltu 27 oppitunnin kurssi tekoälyn perusteista — kolmessa kokonaisuudessa: teoria, käyttö ja agentit.",
     details:
-      "Tekemällä oppimista: työkalujen käyttö, promptauksen perusteet ja kriittinen lukutaito. Sisältö kattaa myös agenttien rakenteen — pipelines, tools, skills — koska tekoälyn ymmärtäminen vaatii enemmän kuin chatbotin koukuttamisen. Käytössä Helsinki Business Collegella, jatkokehitys aktiivinen.",
-    stack: ["Pedagoginen suunnittelu", "Bloom", "Constructive alignment", "Generatiivinen AI"],
-    status: "Julkaistu, jatkokehitys",
+      "Kurssi opettaa käytännön taitoja tekemällä, ei kalvoilla. Sisältää opiskelija- ja opettajamateriaalit kaikille oppitunneille sekä automaattisen sivuston­generaattorin. Lähdekoodi ja sisältö ovat avoimia GitHubissa.",
+    stack: [
+      "Pedagoginen suunnittelu",
+      "Bloomin taksonomia",
+      "Linjakas opetus",
+      "Generatiivinen tekoäly",
+      "Avoin lähdekoodi",
+    ],
+    status: "Julkaistu, jatkokehitys aktiivinen",
     highlights: [
-      "Kolme vaikeustasoa kohderyhmittäin: opettajat, aikuisopiskelijat ja nuoret",
-      "Painotus työkalujen käytössä — kalvojen sijaan harjoitukset",
-      "Agenttien rakenne osana sisältöä: pipelines, tools, skills",
-      "Suunnitteilla englanninkielinen versio koulutusvientiä varten",
+      "27 oppituntia jaettuna kolmeen kokonaisuuteen: teoria, käytännön työkalut ja agentit",
+      "Erilliset opiskelija- ja opettajamateriaalit jokaiselle oppitunnille",
+      "Painopiste työkalujen käytössä — kalvojen sijaan harjoituksia",
+      "Sisältö kattaa myös agenttien rakenteen, ei pelkkää chatbotin käyttöä",
+      "Avoin lähdekoodi GitHubissa, julkinen sivusto ai-perusteet.netlify.app",
+    ],
+    links: [
+      {
+        label: "Avoin sivusto",
+        href: "https://ai-perusteet.netlify.app/",
+      },
+      {
+        label: "Lähdekoodi GitHubissa",
+        href: "https://github.com/mattiseise/ai-perusteet",
+      },
     ],
   },
   {
     title: "Moodle-kurssiauditointi",
     tag: "Pedagoginen analyysi",
     year: "2025",
+    caseUrl: "/caset/moodle-kurssiauditointi",
     blurb:
-      "Yhden komennon pedagoginen auditointi Moodle-kursseille: parsii .mbz-varmuuskopion ja tuottaa PDF-raportin Bloom-tasoista, OPS-linjasta ja kurssin koherenssista.",
+      "Yhden komennon pedagoginen auditointi Moodle-kursseille: lukee varmuuskopion ja tuottaa PDF-raportin Bloom-tasoista, ePerusteiden kattavuudesta ja kurssin koherenssista.",
     details:
-      "Skillipipeline lukee Moodle-varmuuskopion, ajaa rakenne-, sisältö- ja linjakkuusanalyysit ja priorisoi toimenpiteet. Opettaja saa konkreettisen tehtävälistan — ei essee­arviota. Käytössä omassa opetustyössäni ja koulutuskonsultoinnissa.",
-    stack: ["Python", "Claude/Gemini", "PDF-raportointi", "MBZ-parsinta"],
+      "Auditointiagentti jäsentää Moodlen .mbz-varmuuskopion, ajaa rakenne-, sisältö- ja linjakkuusanalyysit ja priorisoi havainnot toimenpidelistaksi. Opettaja saa konkreettiset korjausehdotukset aika-arvioineen — ei pitkää sanallista raporttia.",
+    stack: ["Python", "Pedagoginen analyysi", "Moodle .mbz", "PDF-raportointi"],
     highlights: [
-      "Yhden komennon pipeline: .mbz → analyysit → PDF-raportti",
-      "Bloomin taksonomian etenemisen tarkistus tavoitteista tehtäviin",
-      "Constructive alignment: tavoitteet ↔ opetus ↔ arviointi",
-      "Punaisen langan ja kurssin sisäisen koherenssin arviointi",
-      "Priorisoidut toimenpide-ehdotukset, ei pelkkää kuvailua",
+      "Yksi komento → analyysi → PDF-raportti, ei manuaalista työtä",
+      "Bloomin taksonomian tasapainon tarkistus tavoitteista tehtäviin",
+      "Linjakkaan opetuksen tarkistus: tavoitteet ↔ opetus ↔ arviointi",
+      "ePerusteiden ammattitaitovaatimusten kattavuuden vertailu",
+      "Priorisoidut toimenpide-ehdotukset aika-arvioineen, ei pelkkää kuvailua",
     ],
   },
   {
     title: "Urheiluhallit-booker",
     tag: "Selainautomaatio",
     year: "2025",
+    caseUrl: "/caset/urheiluhallit-booker",
     blurb:
-      "Playwright-automaatio, joka varaa ryhmäliikuntatunnit puolestani — kirjautuminen, haku, varaus ja peruutus.",
+      "Selainautomaatio, joka varaa ryhmäliikuntatunnit puolestani — kirjautumisesta varaukseen ja peruutukseen.",
     details:
-      "Discovery-pohjainen toteutus: skripti mappaa sisäänkirjautumisen ja varauspolun automaattisesti, tallentaa auth-tilan ja ajaa varauksen ajastetusti. Logitus ja kuvakaappaukset jokaisesta ajosta tekevät debuggaamisesta nopean — ja tuovat selkeyden, kun jokin järjestelmäpäivityksen jälkeen muuttuu.",
-    stack: ["Python", "Playwright", "launchd-cron", "JSONL-logit"],
+      "Toteutus tunnistaa kirjautumis- ja varauspolut automaattisesti, tallentaa kirjautumistilan ja ajaa varauksen ajastetusti. Lokit ja kuvakaappaukset jokaisesta ajosta nopeuttavat vianetsintää, kun varausjärjestelmä päivittyy.",
+    stack: ["Python", "Playwright", "Ajastettu cron", "JSONL-loki"],
     highlights: [
-      "Login-flow discovery automaattisesti — ei kovakoodattuja selektoreita",
-      "Auth-state tallennetaan kertakirjautumisen jälkeen, varauksia ei keskeytä uudelleenkirjautuminen",
-      "Manuaalinen capture-tila headed-selaimessa varauspolun mappaamiseen",
+      "Tunnistaa kirjautumis- ja varauspolut automaattisesti — ei kovakoodattuja selektoreita",
+      "Tallentaa kirjautumistilan, joten varauksia ei keskeytä uudelleenkirjautuminen",
       "Erilliset skriptit varaukselle, listaukselle ja peruutukselle",
-      "Kuvakaappaukset ja JSONL-loki jokaisesta ajosta",
+      "Manuaalinen tallennustila näkyvässä selaimessa, kun varauspolku muuttuu",
+      "Kuvakaappaukset ja JSONL-loki jokaisesta ajosta vianetsintää varten",
     ],
   },
   {
-    title: "Selenium-koulujärjestelmäautomaatiot",
-    tag: "Wilma · itslearning",
+    title: "Wilma- ja itslearning-automaatiot",
+    tag: "Selenium · opetustyö",
     year: "2024–",
+    caseUrl: "/caset/wilma-itslearning-automaatiot",
     blurb:
-      "Wilman ja itslearningin rutiinit Seleniumilla: poissaolot, viestit, arvioinnit ja materiaalin synkkaus.",
+      "Selainautomaatioita, jotka säästävät opettajan aikaa Wilman ja itslearningin kömpelöissä rutiineissa: opintosuunnitelmat, suorituslistat, poissaolot ja palautusten seuranta.",
     details:
-      "Tunteja per viikko takaisin opettajalle — ei klikkailuun vaan opettamiseen. Skriptit kestävät tuotantokäytön: virhetilanteet hoidetaan, lokit kertyvät, ja ihminen tietää milloin pitää astua väliin.",
-    stack: ["Python", "Selenium", "scheduled jobs"],
+      "Skriptit korvaavat toistuvan klikkailun: täydentävät opintosuunnitelmia, värikoodaavat suorituslistat, korostavat poissaolodatan ja lataavat itslearningistä kurssidatat eräajona. Tunteja työaikaa viikossa takaisin opettajalle — keskittymistä opettamiseen, ei käyttöliittymän kanssa kamppailuun.",
+    stack: ["Python", "Selenium", "Wilma", "itslearning"],
     highlights: [
-      "Rinnakkaiset automaatiot Wilma- ja itslearning-järjestelmiin",
-      "Useita tunteja työaikaa säästyy viikoittain per skripti",
-      "Tuotantotason virhe­käsittely ja automaattinen uudelleen­yritys",
+      "Opintosuunnitelman täydentäminen automaattisesti opiskelijakohtaisesti",
+      "Opiskelijan suorituslistan värikoodaaminen tilanteen perusteella",
+      "Poissaolodatan korostaminen näkyvämmin kuin Wilman oma näkymä",
+      "Kurssidatan automaattinen lataaminen itslearningistä eräajona",
+      "Palautusten seuranta itslearningissä — työkalut, jotka oletustyökalusta puuttuvat",
     ],
   },
   {
     title: "GPT-pohjaiset opetustyökalut",
-    tag: "Generatiivinen AI",
+    tag: "Generatiivinen tekoäly",
     year: "2024–",
     blurb:
-      "Räätälöityjä GPT-assistentteja ja agentteja opetuksen tueksi: tehtävien tarkistus, materiaalin tuottaminen ja eriyttäminen.",
+      "Räätälöityjä assistentteja ja agentteja opetuksen tueksi: tehtävien tarkistus, materiaalin tuottaminen ja eriyttäminen.",
     details:
-      "Toimivat opettajan parina, eivät korvaa häntä. Saavutettavuus ja erityispedagogiikan periaatteet ovat suunnittelun lähtökohta — ei jälkikäteen lisätty kerros.",
-    stack: ["GPT", "Custom GPTs", "Prompt engineering", "RAG"],
+      "Työkalut toimivat opettajan parina, eivät korvaa häntä. Saavutettavuus ja erityispedagogiikan periaatteet ovat suunnittelun lähtökohta — ei jälkikäteen lisätty kerros.",
+    stack: ["GPT", "Promptaus", "RAG", "Saavutettavuus"],
     highlights: [
       "Tehtävien tarkistus eri vaikeustasoilla — opettaja säilyttää viimeisen sanan",
-      "Eriyttäminen ja saavutettavuus rakennettu promptaukseen sisään",
-      "RAG-pohjainen haku omiin opetussisältöihin: oppilas saa oman aineiston, ei yleistä webin kaikua",
+      "Eriyttäminen ja saavutettavuus rakennettu mukaan jo promptaukseen",
+      "RAG-haku omiin opetussisältöihin: oppilas saa oman aineiston, ei yleistä webistä poimittua",
     ],
   },
   {
@@ -128,12 +151,12 @@ const projects: Project[] = [
     tag: "Pelinkehitys",
     year: "2014–2026",
     blurb:
-      "Pelifirma 2014–2026, yksi julkaistu mobiilipeli Unityllä.",
+      "Pelifirma vuosilta 2014–2026, yksi julkaistu mobiilipeli Unityllä.",
     details:
       "Yrittäjyyskokemus suunnittelusta julkaisuun: tuotteistus, julkaisukanavat ja käyttäjäkokemus opittu kantapään kautta. Pohja, jolle myöhempi tuotekehitys ja konsultointi rakentuvat.",
-    stack: ["Unity", "C#", "Mobile"],
+    stack: ["Unity", "C#", "Mobiili"],
     highlights: [
-      "Mobiilipelin koko elinkaari: konsepti → suunnittelu → toteutus → julkaisu",
+      "Mobiilipelin koko elinkaari: konseptista suunnittelun ja toteutuksen kautta julkaisuun",
       "Yrittäjyyskokemus tuotteistuksesta, julkaisukanavista ja käyttäjäkokemuksesta",
       "Toiminta päättyy 2026 — Y-tunnus jatkuu Ukko.fin kautta laskutuskäyttöön",
     ],
@@ -161,11 +184,13 @@ export default function Projects() {
     <section id="projektit" className="section-pad border-t border-ink-600/30">
       <div className="container-narrow">
         <p className="eyebrow">Projektit</p>
-        <h2 className="h2 mt-3 text-ink-50">Toteutettuja, ei vain suunniteltuja.</h2>
+        <h2 className="h2 mt-3 text-ink-50">
+          Toteutettuja, ei vain suunniteltuja.
+        </h2>
         <p className="lead mt-4 max-w-2xl">
-          Tekoäly­agentit, selainautomaatio ja pedagogiset työkalut.
-          Tuotantoon päässeitä tai aktiivisessa kehityksessä —
-          klikkaa korttia, niin näet miten ja miksi.
+          Tekoälyagentit, selainautomaatiot ja pedagogiset työkalut — joko
+          tuotantokäytössä tai aktiivisessa kehityksessä. Klikkaa korttia,
+          niin näet miten ja miksi.
         </p>
 
         <div className="mt-12 grid md:grid-cols-2 gap-5">
@@ -189,7 +214,9 @@ export default function Projects() {
               <p className="mt-3 text-ink-100">{p.blurb}</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {p.stack.slice(0, 4).map((s) => (
-                  <span key={s} className="tag">{s}</span>
+                  <span key={s} className="tag">
+                    {s}
+                  </span>
                 ))}
                 {p.stack.length > 4 && (
                   <span className="tag">+{p.stack.length - 4}</span>
@@ -197,7 +224,12 @@ export default function Projects() {
               </div>
               <span className="mt-5 text-sm text-accent-400 font-medium inline-flex items-center gap-1.5">
                 Lue lisää
-                <span aria-hidden className="transition-transform group-hover:translate-x-1">→</span>
+                <span
+                  aria-hidden
+                  className="transition-transform group-hover:translate-x-1"
+                >
+                  →
+                </span>
               </span>
             </button>
           ))}
@@ -237,14 +269,13 @@ function ProjectModal({
           aria-label="Sulje"
           className="absolute top-4 right-4 rounded-full w-9 h-9 flex items-center justify-center text-ink-200 hover:text-ink-50 hover:bg-ink-600/40 transition-colors"
         >
-          <span className="text-xl leading-none" aria-hidden>×</span>
+          <span className="text-xl leading-none" aria-hidden>
+            ×
+          </span>
         </button>
 
         <p className="eyebrow">{project.tag}</p>
-        <h3
-          id="project-title"
-          className="h2 mt-2 text-ink-50 pr-10"
-        >
+        <h3 id="project-title" className="h2 mt-2 text-ink-50 pr-10">
           {project.title}
         </h3>
         <p className="text-sm muted mt-2">{project.year}</p>
@@ -257,8 +288,13 @@ function ProjectModal({
             <p className="eyebrow">Kohokohdat</p>
             <ul className="mt-3 space-y-2.5">
               {project.highlights.map((h) => (
-                <li key={h} className="flex gap-3 text-ink-100 leading-relaxed">
-                  <span aria-hidden className="text-accent-400 mt-1.5">▸</span>
+                <li
+                  key={h}
+                  className="flex gap-3 text-ink-100 leading-relaxed"
+                >
+                  <span aria-hidden className="text-accent-400 mt-1.5">
+                    ▸
+                  </span>
                   <span>{h}</span>
                 </li>
               ))}
@@ -267,33 +303,43 @@ function ProjectModal({
         )}
 
         <div className="mt-7">
-          <p className="eyebrow">Teknologiat</p>
+          <p className="eyebrow">Mitä projekti hyödyntää</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {project.stack.map((s) => (
-              <span key={s} className="tag">{s}</span>
+              <span key={s} className="tag">
+                {s}
+              </span>
             ))}
           </div>
         </div>
 
-        {(project.status || (project.links && project.links.length > 0)) && (
+        {(project.caseUrl ||
+          project.status ||
+          (project.links && project.links.length > 0)) && (
           <div className="mt-7 pt-6 border-t border-ink-600/40 flex flex-wrap gap-x-6 gap-y-3 items-center justify-between text-sm">
-            {project.status && (
-              <span className="muted">Status: {project.status}</span>
-            )}
-            {project.links && project.links.length > 0 && (
-              <div className="flex gap-4">
-                {project.links.map((l) => (
-                  <a
-                    key={l.href}
-                    href={l.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-accent-400 hover:underline"
-                  >
-                    {l.label} ↗
-                  </a>
-                ))}
-              </div>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+              {project.status && (
+                <span className="muted">Tila: {project.status}</span>
+              )}
+              {project.links?.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent-400 hover:underline"
+                >
+                  {l.label} ↗
+                </a>
+              ))}
+            </div>
+            {project.caseUrl && (
+              <Link
+                href={project.caseUrl}
+                className="rounded-xl bg-accent-500 text-ink-900 px-4 py-2.5 text-sm font-semibold hover:bg-accent-400"
+              >
+                Lue koko case →
+              </Link>
             )}
           </div>
         )}

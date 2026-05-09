@@ -10,22 +10,23 @@ export default function Pricing() {
           Tekoälykoulutukset opettajille, asiantuntijoille ja organisaatioille.
         </h2>
         <p className="lead mt-4 max-w-2xl">
-          Sisältö muotoillaan kohderyhmälle: konkreettiset työkalut, oikeat
-          esimerkit ja taidot, jotka jäävät käyttöön koulutuksen jälkeenkin.
-          Aloita kevyestä johdannosta tai tilaa kokonainen agentti­sprintti.
+          Sisältö räätälöidään kohderyhmälle: konkreettiset työkalut, oikeat
+          esimerkit ja taidot, jotka jäävät käyttöön myös koulutuksen
+          jälkeen. Aloita kevyestä johdannosta tai tilaa kokonainen
+          agentti­sprintti.
         </p>
 
         <div className="mt-12 grid md:grid-cols-3 gap-5">
           <Package
             tier="Aloitus"
-            title="2h johdanto"
+            title="2 tunnin johdanto"
             price="300 €"
-            unit="kiinteä, + alv"
-            text="Tiivis työpaja: mitä tekoäly osaa, miten siitä saa hyödyn omaan rooliin ja mitä riskejä on. Soveltuu tiimeille, jotka aloittavat."
+            unit="kiinteä hinta, + alv"
+            text="Tiivis työpaja: mitä tekoäly osaa, miten siitä saa hyödyn omaan rooliin ja mitä riskejä on. Sopii tiimeille, joiden tekoälymatka on alkuvaiheessa."
             includes={[
               "Etänä tai paikan päällä Helsingissä",
-              "Hands-on -harjoituksia osallistujien työkaluilla",
-              "Räätälöinti tilaajan tarpeisiin",
+              "Käytännön harjoituksia osallistujien omilla työkaluilla",
+              "Sisällön räätälöinti tilaajan tarpeisiin",
             ]}
           />
           <Package
@@ -33,20 +34,20 @@ export default function Pricing() {
             highlight
             title="Puolen päivän työpaja"
             price="600 €"
-            unit="4 h, + alv"
-            text="Syvempi sukellus: promptaus, työkalujen vertailu, agenttien rakenne ja konkreettinen suunnitelma siitä, mitä tiimi voi ottaa käyttöön huomenna."
+            unit="4 tuntia, + alv"
+            text="Syvempi sukellus: promptaus, työkalujen vertailu, agenttien rakenne ja konkreettinen suunnitelma siitä, mitä tiimi voi ottaa käyttöön heti seuraavana päivänä."
             includes={[
-              "Räätälöity case-kierros tilaajan toimialalle",
-              "Materiaalit ja tehtävät jakoon",
+              "Tilaajan toimialaan räätälöity esimerkki­kierros",
+              "Materiaalit ja harjoitukset jakoon",
               "Etätallenne sopimuksen mukaan",
             ]}
           />
           <Package
             tier="Toteutus"
-            title="1–2 päivän agenttisprintti"
+            title="1–2 päivän agentti­sprintti"
             price="alkaen 1 800 €"
-            unit="päivä, + alv"
-            text="Suunnittelemme ja rakennamme teidän ensimmäisen tekoäly­agentin yhdessä. Lähtötilanne, työkalut, RAG-rakenne ja toimiva pilotti."
+            unit="per päivä, + alv"
+            text="Suunnittelemme ja rakennamme yhdessä ensimmäisen tekoäly­agenttinne: lähtötilanteen kartoituksen, työkalujen valinnan, tietolähde­rakenteen ja toimivan pilotin."
             includes={[
               "Tarvekartoitus ja arkkitehtuuri",
               "Toimiva pilotti tilaajan ympäristössä",
