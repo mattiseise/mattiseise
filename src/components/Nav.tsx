@@ -3,6 +3,7 @@ export default function Nav() {
     { href: "#osaaminen", label: "Osaaminen" },
     { href: "#projektit", label: "Projektit" },
     { href: "#koulutukset", label: "Koulutukset" },
+    { href: "#faq", label: "FAQ" },
     { href: "#yhteys", label: "Yhteys" },
   ];
   return (

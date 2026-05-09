@@ -19,9 +19,9 @@ export default function Hero() {
             <span className="text-accent-400">arjen työkaluja.</span>
           </h1>
           <p className="lead mt-6 max-w-2xl">
-            ICT-erityisopettaja ja AI-kehittäjä. Suunnittelen ja koodaan
-            tekoäly­agentteja, jotka säästävät tunteja viikossa — ratkaisuja,
-            jotka eivät jää demoasteelle vaan tulevat osaksi päivittäistä työtä.
+            Koulutan ja rakennan opettajille sekä organisaatioille tekoäly­ratkaisuja,
+            jotka säästävät aikaa, parantavat opetusta ja kestävät arjen käytössä.
+            Vähemmän kalvoja, enemmän käsillä tekemistä.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a

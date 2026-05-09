@@ -1,14 +1,29 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import JsonLd from "@/components/JsonLd";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://seise.org"),
-  title: "Matti Seise — Tekoälykouluttaja & rakentaja",
+  title: "Matti Seise — Tekoälykouluttaja & AI-kehittäjä",
   description:
-    "ICT-erityisopettaja ja AI-kehittäjä. Suunnittelen tekoälyagentteja, automatisoin asiantuntijatyötä ja koulutan tekoälyä Suomessa.",
+    "ICT-erityisopettaja ja AI-kehittäjä. Räätälöityjä tekoälykoulutuksia opettajille, asiantuntijoille ja organisaatioille — sekä konkreettisia agentti- ja automaatiototeutuksia tuotantoon.",
+  keywords: [
+    "tekoälykoulutus",
+    "tekoälykouluttaja",
+    "AI-koulutus",
+    "tekoäly opetuksessa",
+    "AI-agentti",
+    "multi-agent",
+    "selainautomaatio",
+    "Helsinki Business College",
+    "ICT-erityisopettaja",
+    "Matti Seise",
+  ],
+  authors: [{ name: "Matti Seise", url: "https://seise.org" }],
+  creator: "Matti Seise",
   openGraph: {
     title: "Matti Seise — Tekoälykouluttaja & rakentaja",
     description:
@@ -42,6 +57,7 @@ export default function RootLayout({
         >
           Hyppää sisältöön
         </a>
+        <JsonLd />
         {children}
       </body>
     </html>
