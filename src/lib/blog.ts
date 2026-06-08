@@ -63,11 +63,29 @@ export function getAdjacent(slug: string): { prev?: Post; next?: Post } {
   return { prev: posts[i - 1], next: posts[i + 1] };
 }
 
-/** fi-FI-muotoiltu päivämäärä, esim. "9.6.2026". */
+/** fi-FI-muotoiltu päivämäärä, esim. "9.6.2026" (Helsingin aika). */
 export function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString("fi-FI", {
     day: "numeric",
     month: "numeric",
     year: "numeric",
+    timeZone: "Europe/Helsinki",
   });
+}
+
+/** fi-FI päivä + kellonaika, esim. "11.6.2026 klo 8.00" (Helsingin aika). */
+export function formatDateTime(iso: string): string {
+  const d = new Date(iso);
+  const date = d.toLocaleDateString("fi-FI", {
+    day: "numeric",
+    month: "numeric",
+    year: "numeric",
+    timeZone: "Europe/Helsinki",
+  });
+  const time = d.toLocaleTimeString("fi-FI", {
+    hour: "numeric",
+    minute: "2-digit",
+    timeZone: "Europe/Helsinki",
+  });
+  return `${date} klo ${time}`;
 }

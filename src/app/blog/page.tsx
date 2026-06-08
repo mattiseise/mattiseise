@@ -3,7 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import BlogHeader from "@/components/BlogHeader";
-import { getAllPosts, formatDate } from "@/lib/blog";
+import { getAllPosts, formatDate, formatDateTime } from "@/lib/blog";
+import { CardStatus } from "@/components/BlogLock";
 
 const seriesTitle = "Oman AI-agentin rakentaminen";
 const seriesDesc =
@@ -62,15 +63,14 @@ export default function BlogIndex() {
                     <p className="mt-2 text-ink-200 leading-relaxed">
                       {p.description}
                     </p>
-                    <p className="mt-3 text-sm muted flex flex-wrap gap-x-3 gap-y-1 items-center">
-                      <time dateTime={p.date}>{formatDate(p.date)}</time>
-                      <span aria-hidden>·</span>
-                      <span>{p.readingMinutes} min</span>
-                      <span aria-hidden>·</span>
-                      <span className="text-accent-400 group-hover:text-accent-300">
-                        Lue osa {p.part} →
-                      </span>
-                    </p>
+                    <CardStatus
+                      publishAt={p.date}
+                      initialLocked={Date.now() < new Date(p.date).getTime()}
+                      publishLabel={formatDateTime(p.date)}
+                      dateLabel={formatDate(p.date)}
+                      readingMinutes={p.readingMinutes}
+                      part={p.part}
+                    />
                   </div>
                 </Link>
               </li>

@@ -3,7 +3,8 @@ import Image from "next/image";
 import Footer from "@/components/Footer";
 import BlogHeader from "@/components/BlogHeader";
 import Markdown from "@/components/Markdown";
-import { formatDate, type Post } from "@/lib/blog";
+import { PublishGate } from "@/components/BlogLock";
+import { formatDate, formatDateTime, type Post } from "@/lib/blog";
 
 function BlogPostingSchema({ post }: { post: Post }) {
   const url = `https://seise.org/blog/${post.slug}`;
@@ -92,7 +93,13 @@ export default function PostLayout({
           )}
 
           <div className="mt-12 max-w-2xl text-[1.0625rem]">
-            <Markdown>{post.content}</Markdown>
+            <PublishGate
+              publishAt={post.date}
+              initialLocked={Date.now() < new Date(post.date).getTime()}
+              publishLabel={formatDateTime(post.date)}
+            >
+              <Markdown>{post.content}</Markdown>
+            </PublishGate>
           </div>
 
           <nav
