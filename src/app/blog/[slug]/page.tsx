@@ -17,12 +17,14 @@ export async function generateMetadata({
   if (!post) return {};
 
   const url = `https://seise.org/blog/${post.slug}`;
-  const images = post.cover
+  // LinkedIn/OG: oma 1200×630-rajaus (1.91:1) kansikuvasta.
+  const ogImage = post.cover?.replace("/images/blog/", "/images/blog/og/");
+  const images = ogImage
     ? [
         {
-          url: post.cover,
-          width: 1600,
-          height: 900,
+          url: ogImage,
+          width: 1200,
+          height: 630,
           alt: post.coverAlt ?? post.title,
           type: "image/jpeg",
         },
@@ -46,7 +48,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images: post.cover ? [post.cover] : undefined,
+      images: ogImage ? [ogImage] : undefined,
     },
   };
 }
