@@ -130,6 +130,40 @@ export default function Page() {
             ),
           },
           {
+            heading: "Rehellisesti: kurssi on tehty tekoälyllä",
+            body: (
+              <>
+                <p>
+                  Kurssin materiaali on tuotettu kokonaan tekoälyllä,
+                  tekoälyagentteja hyödyntäen. Lopputulokseen on jätetty
+                  tarkoituksella pieniä kummallisuuksia — hassuja kielellisiä
+                  rakenteita ja artefakteja kuvissa. Niitä ei ole siivottu
+                  pois, koska ne ovat osa oppisisältöä: ne osoittavat, että
+                  laadukaskin kielimalli tuottaa ammattitaitoisen promptaajan
+                  käsissä silti virheitä. Kriittinen lukutaito on kurssin
+                  ydintä, ei jälkihuomautus.
+                </p>
+                <p>
+                  Ala muuttuu nopeasti, joten osa sisällöstä voi olla jo
+                  julkaisuhetkellä vanhentunutta — ydinasiat pätevät silti.
+                  Jokainen tehtävä on lisäksi suunniteltu tehtäväksi tekoälyn
+                  kanssa: jos tehtävä tuntuu epäselvältä, ensimmäinen kysymys
+                  kuuluu tekoälylle — “mitä minun pitää tässä oikein tehdä?”
+                </p>
+                <p className="eyebrow mt-6">
+                  Kurssin luonnissa käytetyt työkalut
+                </p>
+                <CaseList
+                  items={[
+                    "Kielimallit: GPT 5.5 Pro, Claude Opus 4.6 & 4.7, ChatGPT 5.4 auto",
+                    "Agenttikehikot: OpenClaw, Hermes, n8n, Claude Cowork",
+                    "Muut työkalut: Google NotebookLM, GitHub Copilot",
+                  ]}
+                />
+              </>
+            ),
+          },
+          {
             heading: "Tulokset",
             body: (
               <>

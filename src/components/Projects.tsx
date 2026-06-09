@@ -67,6 +67,7 @@ const projects: Project[] = [
       "Painopiste työkalujen käytössä — kalvojen sijaan harjoituksia",
       "Sisältö kattaa myös agenttien rakenteen, ei pelkkää chatbotin käyttöä",
       "Avoin lähdekoodi GitHubissa, julkinen sivusto ai-perusteet.netlify.app",
+      "Materiaali tuotettu kokonaan tekoälyllä, agentteja hyödyntäen — pienet virheet jätetty tarkoituksella näkyviin kriittisen lukutaidon harjoitukseksi",
     ],
     links: [
       {
