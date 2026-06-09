@@ -16,7 +16,17 @@ export const metadata: Metadata = {
     description,
     url: `https://seise.org/caset/${slug}`,
     type: "article",
-    images: ["/images/og-default.jpg"],
+    siteName: "Matti Seise",
+    locale: "fi_FI",
+    images: [
+      {
+        url: "/images/og-default.jpg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: title,
+      },
+    ],
   },
 };
 

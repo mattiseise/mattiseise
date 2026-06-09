@@ -22,7 +22,17 @@ export const metadata: Metadata = {
     description: seriesMetaDesc,
     url: "https://seise.org/blog",
     type: "website",
-    images: ["/images/blog/og/01-aamubriiffi.jpg"],
+    siteName: "Matti Seise",
+    locale: "fi_FI",
+    images: [
+      {
+        url: "/images/blog/og/01-aamubriiffi.jpg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: "Oman AI-agentin rakentaminen — kuusiosainen blogisarja",
+      },
+    ],
   },
 };
 

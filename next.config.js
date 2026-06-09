@@ -10,6 +10,8 @@ const nextConfig = {
         destination: '/blog/openclaw-arkkitehtuuri',
         permanent: true,
       },
+      { source: '/blogi', destination: '/blog', permanent: true },
+      { source: '/blogi/:slug', destination: '/blog/:slug', permanent: true },
     ];
   },
 };

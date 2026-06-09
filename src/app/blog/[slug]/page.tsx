@@ -43,6 +43,8 @@ export async function generateMetadata({
       description: post.description,
       url,
       type: "article",
+      siteName: "Matti Seise",
+      locale: "fi_FI",
       publishedTime: post.date,
       authors: ["Matti Seise"],
       images,
