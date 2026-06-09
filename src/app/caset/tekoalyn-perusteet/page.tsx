@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     description,
     url: `https://seise.org/caset/${slug}`,
     type: "article",
+    images: ["/images/og-default.jpg"],
   },
 };
 

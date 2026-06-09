@@ -4,7 +4,7 @@ import CaseLayout, { CaseList, CaseArticleSchema } from "@/components/CaseLayout
 const slug = "moodle-kurssiauditointi";
 const title = "Moodle-kurssiauditointi — yhden komennon pedagoginen analyysi";
 const description =
-  "Tekoälyagentti, joka jäsentää Moodle-kurssin varmuuskopion ja tuottaa PDF-raportin Bloomin taksonomian, ePerusteiden ja kurssin koherenssin näkökulmista. Konkreettiset toimenpide-ehdotukset aika-arvioineen.";
+  "Tekoälyagentti jäsentää Moodle-kurssin varmuuskopion ja tuottaa PDF-raportin Bloom-tasoista, ePerusteiden kattavuudesta ja kurssin koherenssista.";
 
 export const metadata: Metadata = {
   title: title + " · Matti Seise",
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     description,
     url: `https://seise.org/caset/${slug}`,
     type: "article",
+    images: ["/images/og-default.jpg"],
   },
 };
 

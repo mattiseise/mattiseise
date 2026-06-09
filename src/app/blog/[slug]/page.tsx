@@ -17,6 +17,8 @@ export async function generateMetadata({
   if (!post) return {};
 
   const url = `https://seise.org/blog/${post.slug}`;
+  // Lukittu (tuleva) osa: ei indeksoida ennen julkaisuaikaa.
+  const locked = new Date(post.date).getTime() > Date.now();
   // LinkedIn/OG: oma 1200×630-rajaus (1.91:1) kansikuvasta.
   const ogImage = post.cover?.replace("/images/blog/", "/images/blog/og/");
   const images = ogImage
@@ -35,6 +37,7 @@ export async function generateMetadata({
     description: post.description,
     keywords: [post.keyword, "AI-agentti", "tekoäly", "Matti Seise"],
     alternates: { canonical: url },
+    robots: locked ? { index: false, follow: true } : undefined,
     openGraph: {
       title: post.title,
       description: post.description,

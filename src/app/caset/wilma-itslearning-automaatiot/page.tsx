@@ -4,7 +4,7 @@ import CaseLayout, { CaseList, CaseArticleSchema } from "@/components/CaseLayout
 const slug = "wilma-itslearning-automaatiot";
 const title = "Wilma- ja itslearning-automaatiot — opettajan ajansäästö";
 const description =
-  "Selainautomaatioita, jotka korvaavat Wilman ja itslearningin kömpelöt rutiinit: opintosuunnitelmien täydennys, suorituslistan värikoodaus, poissaolojen korostaminen ja palautusten seuranta itslearningissä.";
+  "Selainautomaatioita Wilman ja itslearningin rutiineihin: opintosuunnitelmat, suorituslistat ja palautusten seuranta — tunteja työaikaa takaisin opetukseen.";
 
 export const metadata: Metadata = {
   title: title + " · Matti Seise",
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     description,
     url: `https://seise.org/caset/${slug}`,
     type: "article",
+    images: ["/images/og-default.jpg"],
   },
 };
 
@@ -45,9 +46,9 @@ export default function Page() {
                 <p>
                   Opettaja viettää viikoittain useita tunteja Wilmassa ja
                   itslearningissä tehtävissä, jotka olisi voitu suunnitella
-                  paremmin: opintosuunnitelmien täydentäminen opiskelija­kohtaisesti,
-                  suorituslistojen läpikäynti, poissaolojen seuranta ja
-                  palautusten arviointi.
+                  paremmin: opintosuunnitelmien täydentäminen
+                  opiskelijakohtaisesti, suorituslistojen läpikäynti,
+                  poissaolojen seuranta ja palautusten arviointi.
                 </p>
                 <p>
                   Käyttöliittymät on suunniteltu ennen kaikkea hallinnon
@@ -67,7 +68,9 @@ export default function Page() {
                   Selenium-pohjaiset skriptit suorittavat toistuvat
                   rutiinit kerralla kaikille opiskelijoille. Skriptit
                   eivät korvaa opettajan harkintaa — ne hoitavat sen
-                  osan työstä, joka on luonteeltaan mekaanista.
+                  osan työstä, joka on luonteeltaan mekaanista. Automaatio
+                  ei tee pedagogisia päätöksiä eikä siirrä opiskelijadataa
+                  ulos tilaajan hyväksymästä ympäristöstä.
                 </p>
                 <p>
                   Konkreettiset käyttötapaukset:
@@ -91,7 +94,7 @@ export default function Page() {
                 items={[
                   "Python + Selenium: vakiintunut, hyvin dokumentoitu yhdistelmä, jota oppilaitoksen IT-tuki pystyy ylläpitämään",
                   "Kirjautumistila tallennetaan, joten skripti ei tarvitse uudelleenkirjautumista jokaisen ajon yhteydessä",
-                  "Virhetilanteiden hallinta ja automaattinen uudelleen­yritys — skriptit eivät kaadu yksittäisen virheen takia",
+                  "Virhetilanteiden hallinta ja automaattinen uudelleenyritys — skriptit eivät kaadu yksittäisen virheen takia",
                   "Lokit jokaisesta ajosta: jos jokin menee väärin, opettaja näkee mitä tapahtui",
                   "Skriptit on suunniteltu niin, että ihminen tietää milloin pitää astua väliin — automaatio ei tee päätöksiä, jotka kuuluvat opettajalle",
                 ]}
@@ -104,6 +107,8 @@ export default function Page() {
               <>
                 <p>
                   Skriptit tuovat tunteja työaikaa takaisin viikossa.
+                  Esimerkiksi 30 opiskelijan toistuvat päivitykset muuttuvat
+                  tuntien klikkailusta yhdeksi tarkistettavaksi ajoksi.
                   Tärkeintä ei ole pelkkä ajansäästö, vaan se, että
                   opettaja voi käyttää aikansa siihen, mihin häntä
                   oikeasti tarvitaan: opetuksen suunnitteluun,
@@ -113,7 +118,7 @@ export default function Page() {
                   Saavutettavuus on lähtökohta myös automaatioissa:
                   esimerkiksi värikoodattu suorituslista täydennetään
                   aina myös tekstuaalisella tilatiedolla, jotta
-                  näkönäkymättömät käyttäjät pärjäävät.
+                  näkövammaiset käyttäjät pärjäävät.
                 </p>
               </>
             ),
@@ -124,7 +129,7 @@ export default function Page() {
               <CaseList
                 items={[
                   "Yhden tai useamman rutiinin automatisointi tilaajan ympäristössä",
-                  "Konsultointi: mitkä oppilaitos­työn rutiineista kannattaa automatisoida ja mitkä ei",
+                  "Konsultointi: mitkä oppilaitostyön rutiineista kannattaa automatisoida ja mitkä ei",
                   "Olemassa olevien manuaalisten työnkulkujen kartoitus ja priorisointi",
                   "Skriptien dokumentointi ja käyttöönotto myös muille opettajille",
                 ]}

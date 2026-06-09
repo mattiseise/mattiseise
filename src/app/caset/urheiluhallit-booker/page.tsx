@@ -4,7 +4,7 @@ import CaseLayout, { CaseList, CaseArticleSchema } from "@/components/CaseLayout
 const slug = "urheiluhallit-booker";
 const title = "Urheiluhallit-booker — varauksen automatisointi";
 const description =
-  "Selainautomaatio, joka kirjautuu, etsii halutun ryhmäliikuntatunnin ja varaa sen ajastetusti. Toteutus tunnistaa kirjautumis- ja varauspolut automaattisesti — eikä siten kaadu pieneen käyttöliittymä­muutokseen.";
+  "Selainautomaatio, joka kirjautuu, etsii ryhmäliikuntatunnin ja varaa sen ajastetusti — esimerkki kirjautumista vaativan oman rutiinin hallitusta automatisoinnista.";
 
 export const metadata: Metadata = {
   title: title + " · Matti Seise",
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     description,
     url: `https://seise.org/caset/${slug}`,
     type: "article",
+    images: ["/images/og-default.jpg"],
   },
 };
 
@@ -30,7 +31,7 @@ export default function Page() {
       <CaseLayout
         eyebrow="Case · Selainautomaatio"
         title="Urheiluhallit-booker — varauksen automatisointi kirjautumisesta peruutukseen"
-        lead="Ryhmäliikuntatuntien varausjärjestelmä avautuu kerralla — ja täyttyy minuuteissa. Selainautomaatio, joka kirjautuu, etsii halutun tunnin ja tekee varauksen ilman manuaalista työtä. Esimerkki kirjautumista vaativan järjestelmän automatisoinnista, jota voi soveltaa myös yritys­käyttöön."
+        lead="Ryhmäliikuntatuntien varausjärjestelmä avautuu kerralla — ja täyttyy minuuteissa. Selainautomaatio, joka kirjautuu, etsii halutun tunnin ja tekee varauksen ilman manuaalista työtä. Esimerkki kirjautumista vaativan järjestelmän automatisoinnista, jota voi soveltaa myös yrityskäyttöön."
         facts={[
           { label: "Aikaväli", value: "2025" },
           { label: "Toteutus", value: "Playwright" },
@@ -51,11 +52,16 @@ export default function Page() {
                   rytmiin.
                 </p>
                 <p>
-                  Ratkaisu, jota harkittiin: muistuttaa puhelimesta ja
-                  varaata käsin. Tämä toimii satunnaisesti mutta ei
+                  Ratkaisu, jota harkittiin: asettaa puhelimeen muistutus
+                  ja varata käsin. Tämä toimii satunnaisesti mutta ei
                   skaalaudu. Tarvittiin automaatio, joka hoitaa
                   varauksen taustalla niinä iltoina, kun käyttäjä on
                   itse kiireinen.
+                </p>
+                <p>
+                  Esimerkki ei ole ohitus- tai kuormitustyökalu, vaan malli
+                  siitä, miten käyttäjän oma toistuva kirjautumisrutiini
+                  voidaan automatisoida hallitusti.
                 </p>
               </>
             ),
@@ -103,8 +109,8 @@ export default function Page() {
                 tarvitse muistaa milloin varaus avautuu — tunteja
                 varataan joka tapauksessa. Tärkeämpää on, että ratkaisun
                 runko on suoraan sovellettavissa muihinkin kirjautumista
-                vaativiin järjestelmiin: lippu­varauksiin, sisäänkirjautumis­polun
-                seurantaan, asiointi­palvelujen rutiinitehtäviin.
+                vaativiin järjestelmiin: lippuvarauksiin, sisäänkirjautumispolun
+                seurantaan, asiointipalvelujen rutiinitehtäviin.
               </p>
             ),
           },
@@ -113,9 +119,9 @@ export default function Page() {
             body: (
               <CaseList
                 items={[
-                  "Vastaava varaus- tai asiointi­automaatio organisaatiollesi",
+                  "Vastaava varaus- tai asiointiautomaatio organisaatiollesi",
                   "Olemassa olevan rutiinin kartoitus: mikä on automatisoitavissa, mikä ei",
-                  "Kirjautumis- ja työnkulun tunnistus tutkimuspohjaisesti — kestää käyttöliittymä­päivityksiä paremmin",
+                  "Kirjautumis- ja työnkulun tunnistus tutkimuspohjaisesti — kestää käyttöliittymäpäivityksiä paremmin",
                   "Kestävä toteutus: virhetilanteiden hallinta, lokitus ja ihmisen rajapinta päätöksiin, jotka eivät kuulu automaatiolle",
                 ]}
               />

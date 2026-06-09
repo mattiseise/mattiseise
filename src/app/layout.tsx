@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     locale: "fi_FI",
     type: "website",
   },
-  alternates: { canonical: "https://seise.org" },
+  alternates: { canonical: "https://seise.org/" },
   icons: { icon: "/favicon.svg" },
   verification: {
     google: "-23DgluogoMo06iYHsIqPBAIDfS1DXo5l6B6LOuSrig",
@@ -48,7 +48,7 @@ export default function RootLayout({
     <html lang="fi" className={`scroll-smooth ${inter.variable}`}>
       <body className="antialiased">
         {/* Netlify Form Definition for Build Bot Detection */}
-        <form name="contact" data-netlify="true" hidden>
+        <form name="contact" method="POST" data-netlify="true" hidden>
           <input type="text" name="name" />
           <input type="email" name="email" />
           <textarea name="message"></textarea>

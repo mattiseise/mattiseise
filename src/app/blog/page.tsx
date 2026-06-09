@@ -10,15 +10,19 @@ const seriesTitle = "Oman AI-agentin rakentaminen";
 const seriesDesc =
   "Kuusiosainen sarja oman tekoälyagentin rakentamisesta tuotantoon: chatbotin ja agentin ero, yliarkkitehtointi, kahdeksan kallista virhettä, autonomian rajat ja migraatio OpenClaw'sta Hermekseen — rehellisesti, ilman AI-hypeä.";
 
+const seriesMetaDesc =
+  "Kuusiosainen, rehellinen sarja oman tekoälyagentin rakentamisesta tuotantoon — chatbotista agenttiin, kalliit virheet ja migraatio Hermekseen.";
+
 export const metadata: Metadata = {
   title: "Blogi: Oman AI-agentin rakentaminen · Matti Seise",
-  description: seriesDesc,
+  description: seriesMetaDesc,
   alternates: { canonical: "https://seise.org/blog" },
   openGraph: {
     title: "Oman AI-agentin rakentaminen — blogisarja",
-    description: seriesDesc,
+    description: seriesMetaDesc,
     url: "https://seise.org/blog",
     type: "website",
+    images: ["/images/blog/og/01-aamubriiffi.jpg"],
   },
 };
 
@@ -46,7 +50,7 @@ export default function BlogIndex() {
                     <div className="relative aspect-[16/9] w-full shrink-0 self-start overflow-hidden rounded-xl border border-ink-600/40 bg-ink-800 sm:w-56">
                       <Image
                         src={p.cover}
-                        alt=""
+                        alt={p.coverAlt ?? ""}
                         fill
                         sizes="(max-width: 640px) 100vw, 224px"
                         className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
