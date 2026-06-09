@@ -1,7 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import JsonLd from "@/components/JsonLd";
+import ConsentBanner from "@/components/ConsentBanner";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -46,6 +49,17 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fi" className={`scroll-smooth ${inter.variable}`}>
+      <Script id="ga-consent-default" strategy="beforeInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied',
+  wait_for_update: 500
+});`}
+      </Script>
       <body className="antialiased">
         {/* Netlify Form Definition for Build Bot Detection */}
         <form name="contact" method="POST" data-netlify="true" hidden>
@@ -62,7 +76,9 @@ export default function RootLayout({
         </a>
         <JsonLd />
         {children}
+        <ConsentBanner />
       </body>
+      <GoogleAnalytics gaId="G-VVGP87MCL3" />
     </html>
   );
 }
