@@ -13,33 +13,35 @@ type Project = {
   status?: string;
   highlights?: string[];
   caseUrl?: string;
+  caseLabel?: string;
   links?: { label: string; href: string }[];
 };
 
 const projects: Project[] = [
   {
-    title: "OpenClaw",
-    tag: "Multi-agent",
+    title: "Hermes-agentti",
+    tag: "Henkilökohtainen AI-agentti",
     year: "2025–",
-    caseUrl: "/caset/openclaw",
+    caseUrl: "/blog",
+    caseLabel: "Lue koko tarina →",
     blurb:
-      "Kymmenen erikoistuneen tekoälyagentin järjestelmä, joka pyörii tuotannossa ja hoitaa keskustelut, suunnittelun, koodauksen sekä auditoinnit Slackissa ja Telegramissa.",
+      "Oma henkilökohtainen AI-agentti, joka hoitaa päivittäiset rutiinit taustalla: aamubriiffit, sähköpostien luokittelun, kalenterin ja jumppavaraukset. Aloitti OpenClaw'lla, sittemmin migratoitu Hermes-frameworkille — kolmestakymmenestä taustapalvelusta yhteen gatewayhin ja selattavaan muistiin.",
     details:
-      "Järjestelmä toimii kotipalvelimella oman gateway-palvelun kautta. Mallit valitaan tehtäväkohtaisesti niin, että kustannukset pysyvät hallinnassa ja vasteajat ennakoitavina. Ajastetut työnkulut ja kanavat toimivat 24/7 ilman jatkuvaa valvontaa.",
+      "Ensimmäinen versio kasvoi liian monimutkaiseksi: 30 launchd-palvelua, kolme rinnakkaista tehtävälistaa ja kasa watchdogeja. Migraatio Hermekseen (Nous Researchin avoin agenttiframework) yksinkertaisti kaiken — yksi gateway hoitaa Telegramin, Slackin ja ajastukset, ja muisti on selattavaa markdownia mustan laatikon sijaan. Suunnitteluperiaate on luotettavuus ennen näyttävyyttä: agentti pysyy hiljaa kun kaikki on kunnossa ja kertoo selkokielellä kun ei ole.",
     stack: [
-      "Multi-agent",
-      "Slack & Telegram",
-      "Ajastetut työnkulut",
-      "Paikallinen varamalli",
-      "Knowledge graph",
+      "Hermes",
+      "Telegram & Slack",
+      "Selattava muisti",
+      "Luonnollisen kielen cron",
+      "Playwright",
     ],
-    status: "Jatkuvassa kehityksessä",
+    status: "Tuotantokäytössä, jatkuva kehitys",
     highlights: [
-      "Yli kymmenen erikoistunutta agenttia: pääagentti, henkilökohtainen aliagentti sekä suunnittelija-, rakentaja-, koodari-, pedagogi-, auditori- ja viimeistelyagentit",
-      "Ajastetut tehtävät: aamubriifit, viikkokatsaukset ja säännölliset terveys­tarkistukset",
-      "Semanttinen muistihaku omasta historiasta — agentit muistavat aiemmat keskustelut",
-      "Strukturoitu muistikerros (knowledge graph), joka erottaa faktat, tehtävät ja päivämerkinnät",
-      "Agenttien välinen tarkastusjälki: jokaisesta vuorovaikutuksesta jää tieto siitä, kuka teki ja miksi",
+      "Aamu- ja iltabriiffi: yksi tiivis viesti, vain se mihin pitää reagoida — ei dashboardia",
+      "Jumppavaraukset, sähköpostien luokittelu ja matkavalmistelut hoituvat itsestään",
+      "Selattava markdown-muisti: voin avata ja lukea, mitä agentti “muistaa” minusta",
+      "Luotettavuusprotokolla: “korjattu” vaatii todisteen — optimismi ei ole todiste",
+      "Turvarajat: riskialttiit toimet (sammutus, maksu, poisto) kulkevat hyväksynnän kautta",
     ],
   },
   {
@@ -338,7 +340,7 @@ function ProjectModal({
                 href={project.caseUrl}
                 className="rounded-xl bg-accent-500 text-ink-900 px-4 py-2.5 text-sm font-semibold hover:bg-accent-400"
               >
-                Lue koko case →
+                {project.caseLabel ?? "Lue koko case →"}
               </Link>
             )}
           </div>

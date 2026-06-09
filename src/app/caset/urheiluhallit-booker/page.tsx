@@ -131,7 +131,10 @@ export default function Page() {
           label: "Wilma- ja itslearning-automaatiot",
           href: "/caset/wilma-itslearning-automaatiot",
         }}
-        next={{ label: "OpenClaw", href: "/caset/openclaw" }}
+        next={{
+          label: "Hermes-agentti (blogisarja)",
+          href: "/blog/openclaw-arkkitehtuuri",
+        }}
       />
     </>
   );

@@ -169,7 +169,10 @@ export default function Page() {
             "Räätälöidään koulutus tai työpaja tarpeesi mukaan — yhden työpajan kestosta useamman päivän ohjelmaan.",
           href: "/#yhteys",
         }}
-        prev={{ label: "OpenClaw", href: "/caset/openclaw" }}
+        prev={{
+          label: "Hermes-agentti (blogisarja)",
+          href: "/blog/openclaw-arkkitehtuuri",
+        }}
         next={{
           label: "Moodle-kurssiauditointi",
           href: "/caset/moodle-kurssiauditointi",

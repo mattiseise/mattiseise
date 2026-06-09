@@ -4,7 +4,6 @@ import { getAllPosts } from "@/lib/blog";
 const BASE = "https://seise.org";
 
 const cases = [
-  "openclaw",
   "tekoalyn-perusteet",
   "moodle-kurssiauditointi",
   "wilma-itslearning-automaatiot",

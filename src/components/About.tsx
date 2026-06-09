@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function About() {
   return (
@@ -21,19 +22,26 @@ export default function About() {
 
         <div className="md:col-span-7 space-y-5 lead">
           <p>
-            Opetan tieto- ja viestintätekniikkaa Helsinki Business Collegen
-            Joustava-ryhmässä — yhdistämällä ohjelmointia (web, Python),
+            Opetan tieto- ja viestintätekniikkaa Helsinki Business
+            Collegessa. Opetuksessani yhdistän ohjelmointia (web, Python),
             kyberturvallisuutta ja IT-tukea erityispedagogiikan keinoihin.
             Taustalla tietojenkäsittelytieteen maisterin tutkinto vuodelta
-            2011 ja yli kymmenen vuoden kokemus ammatillisesta opetuksesta.
+            2011 ja yli 15 vuoden kokemus ammatillisesta opetuksesta.
           </p>
           <p>
             Tekoäly on minulle työkalu, ei pelkkä aihe. Olen rakentanut
-            tuotantokäyttöön oman multi-agent-järjestelmän, automatisoinut
-            Wilman ja itslearningin rutiineja Seleniumilla ja kehittänyt
-            jatkuvasti GPT-pohjaisia opetustyökaluja. Olen mukana
-            Opetushallituksen työryhmässä, joka linjaa tekoälyn käyttöä
-            suomalaisessa opetuksessa.
+            tuotantokäyttöön oman AI-agentin, joka pyörii nykyään
+            Hermes-frameworkilla, automatisoinut Wilman ja itslearningin
+            rutiineja Seleniumilla ja kehittänyt jatkuvasti GPT-pohjaisia
+            opetustyökaluja. Olen mukana Opetushallituksen työryhmässä, joka
+            linjaa tekoälyn käyttöä suomalaisessa opetuksessa.{" "}
+            <Link
+              href="/blog"
+              className="text-accent-400 underline underline-offset-4 hover:text-accent-300"
+            >
+              Kirjoitin koko matkasta 6-osaisen blogisarjan
+            </Link>
+            .
           </p>
           <p className="muted">
             Pätevyydet: ammatillinen opettaja (Haaga-Helia, 2013) ·
