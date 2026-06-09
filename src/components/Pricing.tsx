@@ -16,6 +16,17 @@ export default function Pricing() {
           agentti­sprintti.
         </p>
 
+        <p className="mt-4 max-w-2xl text-ink-100">
+          Sopii organisaatiolle, joka haluaa konkreettisen tekoälykoulutuksen,
+          pedagogisen auditoinnin tai toimivan automaation — ei
+          inspiraatioluentoa.
+        </p>
+        <p className="mt-3 max-w-2xl text-sm muted">
+          <span className="font-medium text-ink-100">Mitä jää käteen:</span>{" "}
+          oma promptipohja, arvioinnin tarkistuslista ja käytännössä testatut
+          työkalut.
+        </p>
+
         <div className="mt-12 grid md:grid-cols-3 gap-5">
           <Package
             tier="Aloitus"
@@ -107,6 +118,15 @@ export default function Pricing() {
               <span aria-hidden>→</span>
             </a>
           </div>
+        </div>
+
+        <div className="mt-6 card border-accent-500/30">
+          <p className="eyebrow">Tietosuoja</p>
+          <p className="mt-2 text-ink-100 leading-relaxed">
+            Työ tehdään tietosuojalähtöisesti: minimidatalla, tilaajan
+            ympäristössä ja ilman opiskelijatietojen tarpeetonta siirtämistä
+            ulkopuolisiin palveluihin.
+          </p>
         </div>
       </div>
     </section>

@@ -40,7 +40,7 @@ export default function Hero() {
           </div>
           <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-ink-400">
             <span>· Tekoälykoulutukset</span>
-            <span>· Multi-agent-järjestelmät</span>
+            <span>· Tekoälyagentit</span>
             <span>· Selainautomaatio</span>
             <span>· Pedagoginen suunnittelu</span>
           </div>
