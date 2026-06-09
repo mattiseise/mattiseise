@@ -50,7 +50,7 @@ const projects: Project[] = [
     year: "2025–",
     caseUrl: "/caset/tekoalyn-perusteet",
     blurb:
-      "Helsinki Business Collegelle suunniteltu 27 oppitunnin kurssi tekoälyn perusteista — kolmessa kokonaisuudessa: teoria, käyttö ja agentit.",
+      "27 oppitunnin kurssi tekoälyn perusteista kolmessa kokonaisuudessa: teoria, käyttö ja agentit. Materiaali on tuotettu kokonaan tekoälyllä, agentteja hyödyntäen.",
     details:
       "Kurssi opettaa käytännön taitoja tekemällä, ei kalvoilla. Sisältää opiskelija- ja opettajamateriaalit kaikille oppitunneille sekä automaattisen sivuston­generaattorin. Lähdekoodi ja sisältö ovat avoimia GitHubissa.",
     stack: [

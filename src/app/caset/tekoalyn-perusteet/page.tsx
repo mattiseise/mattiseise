@@ -5,7 +5,7 @@ import CaseLayout, { CaseList, CaseArticleSchema } from "@/components/CaseLayout
 const slug = "tekoalyn-perusteet";
 const title = "Tekoälyn perusteet — 27 oppitunnin kurssi";
 const description =
-  "Helsinki Business Collegelle suunniteltu 27 oppitunnin kurssi tekoälyn perusteista. Kolme kokonaisuutta: teoria, käyttö ja agentit. Avoin lähdekoodi GitHubissa.";
+  "27 oppitunnin kurssi tekoälyn perusteista. Kolme kokonaisuutta: teoria, käyttö ja agentit. Avoin lähdekoodi GitHubissa.";
 
 export const metadata: Metadata = {
   title: title + " · Matti Seise",
@@ -42,7 +42,7 @@ export default function Page() {
       <CaseLayout
         eyebrow="Case · Koulutus"
         title="Tekoälyn perusteet — 27 oppitunnin kurssi käytäntöön"
-        lead="Helsinki Business Collegelle suunniteltu kurssi, joka opettaa tekoälyä tekemällä — ei kalvoilla. Sisältää opiskelija- ja opettajamateriaalit jokaiselle 27 oppitunnille, automaattisen sivuston­generaattorin ja avoimen lähdekoodin."
+        lead="Kurssi, joka opettaa tekoälyä tekemällä — ei kalvoilla. Sisältää opiskelija- ja opettajamateriaalit jokaiselle 27 oppitunnille, automaattisen sivuston­generaattorin ja avoimen lähdekoodin."
         facts={[
           { label: "Aikaväli", value: "2025–" },
           { label: "Oppitunteja", value: "27" },
@@ -168,7 +168,7 @@ export default function Page() {
             body: (
               <>
                 <p>
-                  Kurssi on käytössä Helsinki Business Collegella ja
+                  Kurssi on käytössä ammatillisessa koulutuksessa ja
                   jatkokehitys on aktiivista. Sisältö on jaettavissa
                   oppitunneittain — tilaaja voi ottaa käyttöön koko paketin
                   tai poimia siitä työpajaan sopivat osat.
