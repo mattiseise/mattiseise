@@ -1,4 +1,12 @@
 import Link from "next/link";
+import MobileNav from "@/components/MobileNav";
+
+const items = [
+  { href: "/#projektit", label: "Projektit" },
+  { href: "/#koulutukset", label: "Koulutukset" },
+  { href: "/blog", label: "Blogi" },
+  { href: "/#yhteys", label: "Yhteys" },
+];
 
 /** Sticky-yläpalkki blogisivuille — samaa linjaa CaseLayoutin headerin kanssa. */
 export default function BlogHeader() {
@@ -22,6 +30,7 @@ export default function BlogHeader() {
             Yhteys
           </Link>
         </div>
+        <MobileNav items={items} />
       </nav>
     </header>
   );

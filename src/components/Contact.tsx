@@ -1,7 +1,9 @@
+import ContactForm from "@/components/ContactForm";
+
 export default function Contact() {
   return (
     <section id="yhteys" className="section-pad border-t border-ink-600/30">
-      <div className="container-narrow grid md:grid-cols-12 gap-10 items-end">
+      <div className="container-narrow grid md:grid-cols-12 gap-10 items-start">
         <div className="md:col-span-7">
           <p className="eyebrow">Yhteys</p>
           <h2 className="h2 mt-3 text-ink-50">
@@ -12,6 +14,9 @@ export default function Contact() {
             Erityisesti silloin, kun ratkaisun on tarkoitus sopia oikeaan
             työhön ja jäädä päivittäiseen käyttöön — ei vain demoksi.
           </p>
+          <div className="mt-8">
+            <ContactForm />
+          </div>
         </div>
         <div className="md:col-span-5 space-y-4">
           <a

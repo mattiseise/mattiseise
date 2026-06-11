@@ -40,7 +40,7 @@ export default function BlogIndex() {
   const posts = getAllPosts();
 
   return (
-    <main className="min-h-screen">
+    <main id="sisalto" className="min-h-screen">
       <BlogHeader />
 
       <section className="section-pad">

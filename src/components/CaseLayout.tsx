@@ -1,5 +1,13 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import MobileNav from "@/components/MobileNav";
+
+const navItems = [
+  { href: "/#projektit", label: "Projektit" },
+  { href: "/#koulutukset", label: "Koulutukset" },
+  { href: "/blog", label: "Blogi" },
+  { href: "/#yhteys", label: "Yhteys" },
+];
 
 type Section = {
   heading: string;
@@ -26,7 +34,7 @@ export default function CaseLayout({
   next?: { label: string; href: string };
 }) {
   return (
-    <main className="min-h-screen">
+    <main id="sisalto" className="min-h-screen">
       <header className="border-b border-ink-600/30 bg-ink-900/80 backdrop-blur sticky top-0 z-30">
         <nav className="container-narrow flex items-center justify-between py-4 px-6 md:px-10">
           <Link
@@ -42,10 +50,14 @@ export default function CaseLayout({
             <Link href="/#koulutukset" className="hover:text-accent-400">
               Koulutukset
             </Link>
+            <Link href="/blog" className="hover:text-accent-400">
+              Blogi
+            </Link>
             <Link href="/#yhteys" className="hover:text-accent-400">
               Yhteys
             </Link>
           </div>
+          <MobileNav items={navItems} />
         </nav>
       </header>
 

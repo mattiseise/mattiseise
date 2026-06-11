@@ -1,3 +1,5 @@
+import { faqItems } from "@/lib/faq";
+
 /**
  * Structured data (JSON-LD) for Google and AI search engines (GEO).
  * Renders Person + ProfessionalService + WebSite + FAQPage entities,
@@ -132,51 +134,16 @@ export default function JsonLd() {
     publisher: { "@id": "https://seise.org/#person" },
   };
 
+  // Sama data kuin näkyvässä FAQ-osiossa (src/lib/faq.ts) — Google
+  // edellyttää, että FAQPage-rakennedata vastaa sivulla näkyvää sisältöä.
   const faq = {
     "@type": "FAQPage",
     "@id": "https://seise.org/#faq",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "Mitä tekoälykoulutus opettajille sisältää?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Käytännönläheistä työpajatyöskentelyä: tehtävien suunnittelua, arviointia ja eriyttämistä tekoälyn aikakaudella. Saavutettavuus ja erityispedagogiikka mukana koko ajan. Sisältö räätälöidään koulutusasteen ja kohderyhmän mukaan.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Mitä AI-agentti tekee organisaatiossa?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Tekoälyagentti hoitaa toistuvia työnkulkuja, kirjoittaa luonnoksia, tarkistaa rutiinitehtäviä ja kommunikoi muiden työkalujen kanssa rajapintojen kautta. Se eroaa chatbotista siinä, että se voi käyttää työkaluja, päättää seuraavasta askeleesta ja palauttaa tulokset osaksi prosessia. Hyvin rakennettu agentti säästää tunteja viikossa, ei vain vastaa kysymyksiin.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Miten tekoälyä voi käyttää arvioinnissa?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Tekoäly soveltuu hyvin arvioinnin tukivälineeksi: nopea palaute oppilaalle, kriteerien sanallistus, eriyttäminen ja saavutettavuuden parantaminen. Tärkeintä on suunnitella arviointi siten, että opettaja säilyttää ammatillisen viimeisen sanan ja tekoäly toimii laadun varmistajana — ei korvaajana. Constructive alignment ja Bloomin taksonomia toimivat suunnittelun runkona.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Mikä on minimiveloitus ja matkakustannukset?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Tuntiveloitus on 150 €/h + alv ja minimiveloitus on 2 tuntia. Matkakulut Helsingin ulkopuolelle veloitetaan erikseen Verohallinnon päivärahojen ja kilometrikorvausten mukaan. Toteutus joko paikan päällä tai etänä sopimuksen mukaan.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Toimiiko etänä toteutettu koulutus?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Kyllä — etäkoulutukset toimivat hyvin, kun ryhmä on enintään noin 20 osallistujaa ja sisältö on suunniteltu vuorovaikutteiseksi. Etätoteutus mahdollistaa hands-on-harjoitukset omilla työkaluilla ja säästää matkakulut.",
-        },
-      },
-    ],
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
   };
 
   const data = {

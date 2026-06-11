@@ -41,7 +41,7 @@ export default function PostLayout({
   next?: Post;
 }) {
   return (
-    <main className="min-h-screen">
+    <main id="sisalto" className="min-h-screen">
       <BlogHeader />
       <BlogPostingSchema post={post} />
 

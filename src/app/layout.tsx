@@ -37,7 +37,10 @@ export const metadata: Metadata = {
     locale: "fi_FI",
     type: "website",
   },
-  alternates: { canonical: "https://seise.org/" },
+  alternates: {
+    canonical: "https://seise.org/",
+    types: { "application/rss+xml": "https://seise.org/rss.xml" },
+  },
   icons: { icon: "/favicon.svg" },
   verification: {
     google: "-23DgluogoMo06iYHsIqPBAIDfS1DXo5l6B6LOuSrig",

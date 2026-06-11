@@ -26,16 +26,16 @@ export default function Hero() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="#projektit"
+              href="#koulutukset"
               className="rounded-xl bg-accent-500 text-ink-900 px-5 py-3 text-sm font-semibold hover:bg-accent-400"
             >
-              Katso projektit
+              Tilaa koulutus
             </a>
             <a
-              href="#koulutukset"
+              href="#projektit"
               className="rounded-xl border border-ink-600/60 px-5 py-3 text-sm font-semibold text-ink-100 hover:border-accent-500/50 hover:text-accent-400"
             >
-              Tilaa koulutus
+              Katso projektit
             </a>
           </div>
           <div className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-ink-400">
@@ -63,6 +63,26 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      <div className="container-narrow mt-14 px-0">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-7 border-t border-ink-600/30 pt-8">
+          <Stat value="15+" label="vuotta ammatillista opetusta" />
+          <Stat value="27" label="oppituntia avointa tekoälymateriaalia" />
+          <Stat value="19 000+" label="opettajan yhteisön ylläpitäjä" />
+          <Stat value="OPH" label="tekoälytyöryhmän jäsen" />
+        </div>
+      </div>
     </section>
+  );
+}
+
+function Stat({ value, label }: { value: string; label: string }) {
+  return (
+    <div>
+      <p className="text-2xl md:text-3xl font-semibold tracking-tight text-ink-50">
+        {value}
+      </p>
+      <p className="mt-1 text-sm muted leading-snug">{label}</p>
+    </div>
   );
 }

@@ -1,3 +1,5 @@
+import MobileNav from "@/components/MobileNav";
+
 export default function Nav() {
   const items = [
     { href: "#osaaminen", label: "Osaaminen" },
@@ -22,6 +24,7 @@ export default function Nav() {
             </li>
           ))}
         </ul>
+        <MobileNav items={items} />
       </nav>
     </header>
   );
