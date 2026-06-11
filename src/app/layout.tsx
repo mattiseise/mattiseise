@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://seise.org"),
   title: "Matti Seise — Tekoälykouluttaja & AI-kehittäjä",
   description:
-    "ICT-erityisopettaja ja AI-kehittäjä. Räätälöityjä tekoälykoulutuksia opettajille, asiantuntijoille ja organisaatioille — sekä konkreettisia agentti- ja automaatiototeutuksia tuotantoon.",
+    "ICT-erityisopettaja ja AI-kehittäjä Helsingistä. Tekoälykoulutukset opettajille ja organisaatioille sekä agentti- ja automaatiototeutukset tuotantoon.",
   keywords: [
     "tekoälykoulutus",
     "tekoälykouluttaja",

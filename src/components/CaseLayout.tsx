@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import MobileNav from "@/components/MobileNav";
+import { BASE, PERSON, breadcrumbLd } from "@/lib/schema";
 
 const navItems = [
   { href: "/#projektit", label: "Projektit" },
@@ -201,7 +202,7 @@ export function CaseArticleSchema({
   datePublished: string;
   dateModified?: string;
 }) {
-  const url = `https://seise.org/caset/${slug}`;
+  const url = `${BASE}/caset/${slug}`;
   const data = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -209,16 +210,28 @@ export function CaseArticleSchema({
     description,
     url,
     mainEntityOfPage: url,
+    image: [`${BASE}/images/og-default.jpg`],
     datePublished,
     dateModified: dateModified ?? datePublished,
-    author: { "@id": "https://seise.org/#person" },
-    publisher: { "@id": "https://seise.org/#person" },
+    author: PERSON,
+    publisher: PERSON,
     inLanguage: "fi-FI",
   };
+  const breadcrumb = breadcrumbLd([
+    { name: "Etusivu", item: `${BASE}/` },
+    { name: "Projektit", item: `${BASE}/#projektit` },
+    { name: title },
+  ]);
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+    </>
   );
 }

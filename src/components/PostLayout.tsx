@@ -5,9 +5,11 @@ import BlogHeader from "@/components/BlogHeader";
 import Markdown from "@/components/Markdown";
 import { PublishGate } from "@/components/BlogLock";
 import { formatDate, formatDateTime, type Post } from "@/lib/blog";
+import { BASE, PERSON, breadcrumbLd } from "@/lib/schema";
 
 function BlogPostingSchema({ post }: { post: Post }) {
-  const url = `https://seise.org/blog/${post.slug}`;
+  const url = `${BASE}/blog/${post.slug}`;
+  const ogImage = post.cover?.replace("/images/blog/", "/images/blog/og/");
   const data = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -15,19 +17,31 @@ function BlogPostingSchema({ post }: { post: Post }) {
     description: post.description,
     url,
     mainEntityOfPage: url,
+    ...(ogImage ? { image: [`${BASE}${ogImage}`] } : {}),
     datePublished: post.date,
     dateModified: post.date,
-    author: { "@id": "https://seise.org/#person" },
-    publisher: { "@id": "https://seise.org/#person" },
+    author: PERSON,
+    publisher: PERSON,
     inLanguage: "fi-FI",
     isPartOf: { "@type": "CreativeWorkSeries", name: post.series },
     keywords: post.keyword,
   };
+  const breadcrumb = breadcrumbLd([
+    { name: "Etusivu", item: `${BASE}/` },
+    { name: "Blogi", item: `${BASE}/blog` },
+    { name: `Osa ${post.part}: ${post.title}` },
+  ]);
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
+    </>
   );
 }
 
@@ -70,6 +84,8 @@ export default function PostLayout({
             <h1 className="h1 mt-4 text-ink-50">{post.title}</h1>
             <p className="lead mt-6">{post.description}</p>
             <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm muted">
+              <span className="text-ink-100">Matti Seise</span>
+              <span aria-hidden>·</span>
               <time dateTime={post.date}>{formatDate(post.date)}</time>
               <span aria-hidden>·</span>
               <span>{post.readingMinutes} min lukuaika</span>

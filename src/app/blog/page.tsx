@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import BlogHeader from "@/components/BlogHeader";
 import { getAllPosts, formatDate, formatDateTime } from "@/lib/blog";
 import { CardStatus } from "@/components/BlogLock";
+import { BASE, PERSON, breadcrumbLd } from "@/lib/schema";
 
 const seriesTitle = "Oman AI-agentin rakentaminen";
 const seriesDesc =
@@ -39,8 +40,42 @@ export const metadata: Metadata = {
 export default function BlogIndex() {
   const posts = getAllPosts();
 
+  // Schema vain julkaistuista osista — lukitut ovat noindex.
+  const published = posts.filter(
+    (p) => new Date(p.date).getTime() <= Date.now(),
+  );
+  const blogLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${BASE}/blog#blog`,
+    name: seriesTitle,
+    url: `${BASE}/blog`,
+    description: seriesMetaDesc,
+    inLanguage: "fi-FI",
+    author: PERSON,
+    publisher: PERSON,
+    blogPost: published.map((p) => ({
+      "@type": "BlogPosting",
+      headline: p.title,
+      url: `${BASE}/blog/${p.slug}`,
+      datePublished: p.date,
+    })),
+  };
+  const breadcrumb = breadcrumbLd([
+    { name: "Etusivu", item: `${BASE}/` },
+    { name: "Blogi" },
+  ]);
+
   return (
     <main id="sisalto" className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <BlogHeader />
 
       <section className="section-pad">
