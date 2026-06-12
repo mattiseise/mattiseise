@@ -13,9 +13,9 @@ coverAlt: "Läppärin terminaalissa pitkä lista launchd-palveluita, osa punaise
 nosto: "Rakensin ensimmäisen AI-assistenttini 30 taustapalvelusta ja kolmesta rinnakkaisesta tehtävälistasta. Lopulta jokaisella osalla oli oma tapansa hajota — ja yksi unohtunut watchdog lähetti 63 turhaa hälytystä peräkkäin. Osa 2 kertoo, miksi liian monimutkainen arkkitehtuuri voi olla agentin pahin vihollinen. 👇"
 ---
 
-Edellisessä osassa kuvasin agentin, joka herää ennen minua ja pysyy hiljaa, kun kaikki toimii. Tässä osassa kerron, mitä rakensin ensimmäiseksi **OpenClaw'lla** — ja miksi kokonaisuus karkasi lopulta käsistä.
+Edellisessä osassa kuvasin agentin, joka herää ennen minua ja pysyy hiljaa, kun kaikki toimii. Tässä osassa kerron, mitä rakensin ensimmäiseksi **OpenClaw'lla** — ja miksi se karkasi lopulta käsistä.
 
-Ongelma ei ollut se, ettei tekoäly olisi osannut. Ongelma oli se, että rakensin järjestelmän liian monesta liikkuvasta osasta.
+Ongelma ei ollut se, ettei tekoäly olisi osannut. Ongelma oli se, että rakensin järjestelmän liian monesta liikkuvasta osasta. Tämä ei ole kovin ylevä tarina. Lähinnä sellainen, jossa ihminen tekee itselleen lisää ylläpitotyötä ja kutsuu sitä hetken arkkitehtuuriksi.
 
 ## Hyvä alusta: OpenClaw
 
@@ -31,7 +31,7 @@ Käyn Urheiluhalleilla **Les Mills** -tunneilla: **BodyCombatissa** sunnuntaisin
 
 Tämä on juuri sellainen pieni rutiini, joka ei ole vaikea mutta joka unohtuu helposti — usein juuri silloin, kun tunti ehtii täyttyä.
 
-Tämän olisi voinut tehdä heti alusta alkaen yksinkertaisella skriptillä. Silti tein siitä ensin agentin tehtävän. Jälkikäteen ajatellen se oli hyvä ratkaisu, koska ongelmaa ei vielä alussa tunnettu tarpeeksi hyvin.
+Tämän olisi voinut tehdä heti alusta alkaen yksinkertaisella skriptillä. Silti tein siitä ensin agentin tehtävän. Jälkikäteen se oli ihan järkevää, koska ongelmaa ei vielä alussa tunnettu tarpeeksi hyvin.
 
 ## Vaihe 1 — agentti selvittää sivuston toiminnan
 
@@ -39,7 +39,7 @@ Varausjärjestelmässä ei ollut valmista rajapintaa. Siksi laitoin agentin selv
 
 Agentti kävi läpi kirjautumisen, tallensi istunnon, etsi oikean varauspolun ja poimi talteen ne verkkopyynnöt, joilla varaus tehdään ja perutaan.
 
-Tätä vaihetta ei olisi ollut järkevää kovakoodata etukäteen. Ensin piti ymmärtää, mitä sivusto oikeasti tekee. Tällaisessa epäselvässä alkuvaiheessa agentti on parhaimmillaan: se auttaa tutkimaan, kokeilemaan ja kokoamaan toimivan mallin sotkuisesta järjestelmästä.
+Tätä vaihetta ei olisi ollut järkevää kovakoodata etukäteen. Ensin piti ymmärtää, mitä sivusto oikeasti tekee. Tällaisessa epäselvässä alkuvaiheessa agentti on hyödyllinen: se tutkii, kokeilee ja kokoaa toimivan mallin sotkuisesta järjestelmästä.
 
 ## Vaihe 2 — agentti tekee varaukset keskustellen
 
@@ -56,15 +56,15 @@ Yhden turvallisuussäännön kirjasin heti alussa. Peruutusta ei voi perua. Siks
 
 ## Vaihe 3 — agentista tulee valvoja
 
-Tässä vaiheessa syntyi tärkein oivallus.
+Tässä vaiheessa huomasin olennaisen asian.
 
 Kun varaaminen oli saatu toimimaan, purin ratkaisun takaisin tavalliseksi automaatioksi. Lopputuloksena oli neljä ajastettua taustatyötä, jotka eivät tarvitse kielimallia lainkaan. Esimerkiksi lauantaina kello 17.01 kone varaa seuraavan sunnuntain BodyCombatin ja kello 18.11 saman päivän BodyPumpin.
 
-Tällainen ratkaisu on halpa, nopea ja luotettava. Se ei kuluta tokeneita eikä tarvitse päättelyä joka viikko uudelleen.
+Tällainen ratkaisu on halpa, nopea ja luotettava. Se ei kuluta tokeneita eikä tarvitse päättelyä joka viikko uudelleen. Kone tekee saman tylsän asian samaan aikaan. Siinä se on parhaimmillaan, eikä se vaadi nimeksi Claus.
 
 Agentti ei kuitenkaan kadonnut. Sen rooli muuttui. Se siirtyi varsinaisen automaation yläpuolelle valvomaan lopputulosta.
 
-Joka maanantai kello 10 erillinen tarkistus käy varaushistorian läpi ja varmistaa, että viikon tunnit on todella varattu. Agentti siis suorittaa logiikan, tarkistaa tuloksen ja vertaa sitä odotettuun lopputulokseen. Jos kaikki täsmää, se pysyy hiljaa. Viesti tulee vain, jos jokin poikkeaa odotetusta.
+Joka maanantai kello 10 erillinen tarkistus käy varaushistorian läpi ja varmistaa, että viikon tunnit on todella varattu. Agentti suorittaa logiikan, tarkistaa tuloksen ja vertaa sitä odotettuun lopputulokseen. Jos kaikki täsmää, se pysyy hiljaa. Viesti tulee vain, jos jokin poikkeaa odotetusta.
 
 Tästä tuli malli, jota olen käyttänyt myöhemminkin:
 
@@ -72,11 +72,11 @@ Tästä tuli malli, jota olen käyttänyt myöhemminkin:
 - muuta valmis ratkaisu tavalliseksi automaatioksi,
 - jätä agentti valvomaan, että lopputulos on oikea.
 
-Agentti on liian kallis tekemään saman rutiinivarauksen joka viikko. Se on kuitenkin erittäin hyödyllinen silloin, kun jokin menee vikaan ja poikkeama pitää tunnistaa.
+Agentti on liian kallis tekemään saman rutiinivarauksen joka viikko. Se on hyödyllinen silloin, kun jokin menee vikaan ja poikkeama pitää tunnistaa.
 
 ## Mutta en pysähtynyt tähän: kolmekymmentä palvelua
 
-Alkuperäinen tavoite oli rakentaa assistentti. Vähitellen siitä kasvoi pieni käyttöjärjestelmä, jolla oli yksi käyttäjä ja yksi ylläpitäjä: minä.
+Alkuperäinen tavoite oli rakentaa assistentti. Vähitellen siitä kasvoi pieni käyttöjärjestelmä, jolla oli yksi käyttäjä ja yksi ylläpitäjä: minä. Erinomainen organisaatiomalli, jos pitää yksin kokouksista itsensä kanssa.
 
 Kaikki pyöri **macOS:n launchd-palveluina**. Se on sama mekanismi, jolla käyttöjärjestelmä käynnistää taustaprosesseja. Mukana oli watchdogeja, kalenterisynkronointeja, sähköpostisynkronointeja, Notion-synkronointeja ja varmuuskopioita.
 
@@ -96,7 +96,7 @@ Käytännössä minulla oli kolme inboxia samaa työtä varten. Järjestelmät e
 
 Kun päivitin yhden paikan, muut jäivät vanhentuneiksi. Tehtävienhallinnan piti vähentää muistamista, mutta se lisäsi uuden kerroksen kirjanpitoa.
 
-Tästä tuli sarjan ensimmäinen kova opetus: **jos agentilla on monta inboxia, ihmiselle syntyy enemmän työtä, ei vähemmän**.
+Tästä jäi selvä sääntö: **jos agentilla on monta inboxia, ihmiselle syntyy enemmän työtä, ei vähemmän**.
 
 ## Vanha koira, joka haukkui omaa ruumistaan
 
@@ -108,7 +108,7 @@ Sen jälkeen se lähetti Telegramiin viestin: "🔴 OpenClaw Gateway alhaalla!".
 
 Vanha koira haukkui omaa ruumistaan, eikä kukaan ollut kertonut sille, että se oli jo kuollut.
 
-Opetus oli yksinkertainen: **automaation purkaminen on yhtä tärkeää kuin sen rakentaminen**. Kun järjestelmä korvataan uudella, vanha pitää sammuttaa kokonaan. Muuten ympärille jää zombeja valvomaan haamuja.
+Tästä jäi yksinkertainen sääntö: **automaation purkaminen on yhtä tärkeää kuin sen rakentaminen**. Kun järjestelmä korvataan uudella, vanha pitää sammuttaa kunnolla. Muuten ympärille jää zombeja valvomaan haamuja.
 
 ## Konfiguraatio ei aina ole lähdekoodi
 
@@ -133,18 +133,18 @@ Yksikään näistä ongelmista ei johtunut siitä, ettei tekoäly olisi osannut.
 - hajautettu totuus,
 - liian monta paikkaa samalle tiedolle.
 
-Agenttijärjestelmässä tällaiset virheet ovat tavallista hankalampia, koska ne tapahtuvat taustalla. Tavallinen sovellus kaatuu usein näkyvästi käyttäjän edessä. Agentti voi hajota yöllä, jatkaa näennäisesti toimintaansa ja kertoa ongelmasta aamulla joko 63 viestillä tai ei ollenkaan.
+Agenttijärjestelmässä tällaiset virheet ovat tavallista hankalampia, koska ne tapahtuvat taustalla. Tavallinen sovellus kaatuu usein näkyvästi käyttäjän edessä. Agentti voi hajota yöllä, jatkaa näennäisesti toimintaansa ja kertoa ongelmasta aamulla joko 63 viestillä tai ei ollenkaan. Molemmat ovat huonoja käyttöliittymiä.
 
-## Yhteenveto
+## Mitä tästä jäi käteen
 
-OpenClaw oli hyvä alusta, mutta rakensin sen päälle liian suuren kokonaisuuden: 30 palvelua, kolme tehtävälistaa ja joukon watchdogeja, joista jokaisella oli oma tapansa epäonnistua.
+OpenClaw oli hyvä alusta, mutta rakensin sen päälle liikaa: 30 palvelua, kolme tehtävälistaa ja joukon watchdogeja, joista jokaisella oli oma tapansa epäonnistua.
 
-Mitä enemmän liikkuvia osia lisäsin, sitä enemmän syntyi paikkoja hiljaiselle hajoamiselle. Monimutkaisuus ei ollut tehosta maksettava hinta. Se oli vain hinta, jonka järjestelmä alkoi periä joka päivä.
+Mitä enemmän liikkuvia osia lisäsin, sitä enemmän syntyi paikkoja hiljaiselle hajoamiselle. Monimutkaisuus ei ollut pakollinen hinta tehokkuudesta. Se oli lasku, jonka järjestelmä alkoi lähettää joka päivä.
 
-**Agentti kannattaa rakentaa niin yksinkertaiseksi kuin mahdollista — ja jättää monimutkaisuus vain sinne, missä siitä on oikeasti hyötyä.**
+**Agentti kannattaa rakentaa niin yksinkertaiseksi kuin mahdollista — ja lisätä monimutkaisuutta vain sinne, missä siitä on oikeasti hyötyä.**
 
 Seuraavassa osassa mennään konkreettisiin virheisiin: kahdeksaan tilanteeseen, joissa tämä koneisto oli vähällä tyhjentää lompakon tai hajottaa itsensä. Aloitan kalleimmasta — siitä, miten 22 prosenttia viikon tekoälybudjetista kului yhdessä yössä.
 
 ---
 
-**Onko sinullakin oma 30 palvelun hirviö?** Suunnittelen ja yksinkertaistan agenttiarkkitehtuureja tuotantoon: tutustu [OpenClaw-projektiin](https://seise.org/#projektit) ja [agenttisprinttiin](https://seise.org/#koulutukset).
+**Onko sinullakin oma 30 palvelun hirviö?** Voin auttaa purkamaan agenttiarkkitehtuuria yksinkertaisemmaksi ennen kuin se alkaa lähettää sinulle omia terveisiä yöllä. Nykyinen työkaluni tähän on Hermes-agenttijärjestelmä: [agenttisprintti](https://seise.org/#koulutukset).

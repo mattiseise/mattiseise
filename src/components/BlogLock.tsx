@@ -9,8 +9,14 @@ import Link from "next/link";
  * varten; client tarkistaa oikean kellonajan ja avaa lukon automaattisesti.
  */
 function useUnlocked(publishAt: string, initialLocked: boolean): boolean {
-  const [locked, setLocked] = useState(initialLocked);
+  const previewUnlocked = process.env.NODE_ENV !== "production";
+  const [locked, setLocked] = useState(previewUnlocked ? false : initialLocked);
   useEffect(() => {
+    if (previewUnlocked) {
+      setLocked(false);
+      return;
+    }
+
     const target = new Date(publishAt).getTime();
     const tick = () => setLocked(Date.now() < target);
     tick();
@@ -18,7 +24,7 @@ function useUnlocked(publishAt: string, initialLocked: boolean): boolean {
       const id = setInterval(tick, 20000);
       return () => clearInterval(id);
     }
-  }, [publishAt]);
+  }, [publishAt, previewUnlocked]);
   return !locked;
 }
 
