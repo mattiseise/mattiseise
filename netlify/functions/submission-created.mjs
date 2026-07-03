@@ -22,6 +22,12 @@ export const handler = async (event) => {
     return { statusCode: 400, body: "Bad request" };
   }
   const data = submission.data ?? {};
+  const hasContent = [data.name, data.email, data.message].some(
+    (v) => typeof v === "string" && v.trim() !== "",
+  );
+  if (!hasContent) {
+    return { statusCode: 400, body: "Bad request" };
+  }
   const body = JSON.stringify({
     event: "form_submission",
     form: submission.form_name ?? "contact",
