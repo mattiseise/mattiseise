@@ -15,7 +15,12 @@ export const handler = async (event) => {
     return { statusCode: 200 };
   }
 
-  const submission = JSON.parse(event.body ?? "{}").payload ?? {};
+  let submission;
+  try {
+    submission = JSON.parse(event.body || "{}").payload ?? {};
+  } catch {
+    return { statusCode: 400, body: "Bad request" };
+  }
   const data = submission.data ?? {};
   const body = JSON.stringify({
     event: "form_submission",
