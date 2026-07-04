@@ -4,7 +4,7 @@ import PostLayout from "@/components/PostLayout";
 import { getAllPosts, getPostBySlug, getAdjacent } from "@/lib/blog";
 
 export function generateStaticParams() {
-  return getAllPosts("fi").map((p) => ({ slug: p.slug }));
+  return getAllPosts("en").map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -13,14 +13,12 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug, "fi");
+  const post = getPostBySlug(slug, "en");
   if (!post) return {};
 
-  const url = `https://seise.org/blog/${post.slug}`;
-  const enPost = getAllPosts("en").find((p) => p.part === post.part);
-  // Lukittu (tuleva) osa: ei indeksoida ennen julkaisuaikaa.
+  const url = `https://seise.org/en/blog/${post.slug}`;
+  const fiPost = getAllPosts("fi").find((p) => p.part === post.part);
   const locked = new Date(post.date).getTime() > Date.now();
-  // LinkedIn/OG: oma 1200×630-rajaus (1.91:1) kansikuvasta.
   const ogImage = post.cover?.replace("/images/blog/", "/images/blog/og/");
   const images = ogImage
     ? [
@@ -36,12 +34,12 @@ export async function generateMetadata({
   return {
     title: `${post.title} · Matti Seise`,
     description: post.description,
-    keywords: [post.keyword, "AI-agentti", "tekoäly", "Matti Seise"],
+    keywords: [post.keyword, "AI agent", "artificial intelligence", "Matti Seise"],
     alternates: {
       canonical: url,
       languages: {
-        fi: url,
-        en: enPost ? `https://seise.org/en/blog/${enPost.slug}` : "https://seise.org/en/blog",
+        fi: fiPost ? `https://seise.org/blog/${fiPost.slug}` : "https://seise.org/blog",
+        en: url,
       },
     },
     robots: locked ? { index: false, follow: true } : undefined,
@@ -51,8 +49,8 @@ export async function generateMetadata({
       url,
       type: "article",
       siteName: "Matti Seise",
-      locale: "fi_FI",
-      alternateLocale: ["en_US"],
+      locale: "en_US",
+      alternateLocale: ["fi_FI"],
       publishedTime: post.date,
       authors: ["Matti Seise"],
       images,
@@ -72,18 +70,18 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug, "fi");
+  const post = getPostBySlug(slug, "en");
   if (!post) notFound();
 
-  const { prev, next } = getAdjacent(slug, "fi");
-  const enPost = getAllPosts("en").find((p) => p.part === post.part);
+  const { prev, next } = getAdjacent(slug, "en");
+  const fiPost = getAllPosts("fi").find((p) => p.part === post.part);
   return (
     <PostLayout
       post={post}
       prev={prev}
       next={next}
-      locale="fi"
-      alternateHref={enPost ? `/en/blog/${enPost.slug}` : "/en/blog"}
+      locale="en"
+      alternateHref={fiPost ? `/blog/${fiPost.slug}` : "/blog"}
     />
   );
 }

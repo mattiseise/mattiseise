@@ -28,17 +28,36 @@ function useUnlocked(publishAt: string, initialLocked: boolean): boolean {
   return !locked;
 }
 
+export type PublishGateLabels = {
+  publishes: string;
+  backToSeries: string;
+};
+
+export type CardStatusLabels = {
+  readPart: string;
+  publishesAt: string;
+};
+
+const defaultPublishGateLabels: PublishGateLabels = {
+  publishes: "Julkaistaan",
+  backToSeries: "← Sarjan etusivulle",
+};
+
 /** Lukitsee artikkelin sisällön julkaisuaikaan asti (overlay + sumennettu sisältö). */
 export function PublishGate({
   publishAt,
   initialLocked,
   publishLabel,
   children,
+  backHref = "/blog",
+  labels = defaultPublishGateLabels,
 }: {
   publishAt: string;
   initialLocked: boolean;
   publishLabel: string;
   children: React.ReactNode;
+  backHref?: string;
+  labels?: PublishGateLabels;
 }) {
   const unlocked = useUnlocked(publishAt, initialLocked);
   if (unlocked) return <>{children}</>;
@@ -56,15 +75,15 @@ export function PublishGate({
           <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-accent-500/40 bg-ink-900/60 text-xl">
             🔒
           </div>
-          <p className="eyebrow mt-4">Julkaistaan</p>
+          <p className="eyebrow mt-4">{labels.publishes}</p>
           <p className="mt-1 text-lg font-semibold text-ink-50">
             {publishLabel}
           </p>
           <Link
-            href="/blog"
+            href={backHref}
             className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-accent-400 hover:text-accent-300"
           >
-            ← Sarjan etusivulle
+            {labels.backToSeries}
           </Link>
         </div>
       </div>
@@ -80,6 +99,7 @@ export function CardStatus({
   dateLabel,
   readingMinutes,
   part,
+  labels,
 }: {
   publishAt: string;
   initialLocked: boolean;
@@ -87,6 +107,7 @@ export function CardStatus({
   dateLabel: string;
   readingMinutes: number;
   part: number;
+  labels?: CardStatusLabels;
 }) {
   const unlocked = useUnlocked(publishAt, initialLocked);
   if (unlocked) {
@@ -97,7 +118,7 @@ export function CardStatus({
         <span>{readingMinutes} min</span>
         <span aria-hidden>·</span>
         <span className="text-accent-400 group-hover:text-accent-300">
-          Lue osa {part} →
+          {labels?.readPart ?? `Lue osa ${part} →`}
         </span>
       </p>
     );
@@ -105,7 +126,7 @@ export function CardStatus({
   return (
     <p className="mt-3 flex flex-wrap items-center gap-x-2 text-sm text-accent-400/90">
       <span aria-hidden>🔒</span>
-      <span>Julkaistaan {publishLabel}</span>
+      <span>{labels?.publishesAt ?? `Julkaistaan ${publishLabel}`}</span>
     </p>
   );
 }
