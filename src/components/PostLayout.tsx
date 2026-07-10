@@ -3,6 +3,7 @@ import Image from "next/image";
 import Footer from "@/components/Footer";
 import BlogHeader from "@/components/BlogHeader";
 import Markdown from "@/components/Markdown";
+import VideoEmbed from "@/components/VideoEmbed";
 import { PublishGate, type PublishGateLabels } from "@/components/BlogLock";
 import {
   blogPath,
@@ -32,6 +33,7 @@ const text = {
     ctaTitlePedagogy: "Haluatko tästä koulutuksen omalle porukallesi?",
     ctaBodyPedagogy: "Pidän aiheesta käytännönläheisiä työpajoja opettajille ja organisaatioille — harjoitukset tehdään omilla työkaluilla ja sisältö räätälöidään kohderyhmälle. Katso koulutuspaketit tai verkostoidutaan LinkedInissä.",
     ctaBtn: "Katso koulutukset",
+    videoHeading: "Katso toteutus videolta",
     lock: {
       publishes: "Julkaistaan",
       backToSeries: "← Blogin etusivulle",
@@ -53,6 +55,7 @@ const text = {
     ctaTitlePedagogy: "Want a training on this for your team?",
     ctaBodyPedagogy: "I run hands-on workshops on this topic for teachers and organizations — exercises with your own tools, content tailored to your audience. See the training packages or let's network on LinkedIn.",
     ctaBtn: "See training",
+    videoHeading: "Watch the build on video",
     lock: {
       publishes: "Publishing",
       backToSeries: "← Back to the blog",
@@ -190,6 +193,18 @@ export default function PostLayout({
             labels={t.lock}
           >
             <Markdown>{post.content}</Markdown>
+            {post.videoId && (
+              <section className="mt-12">
+                <h2 className="mb-4 font-display text-[26px] font-semibold text-cream-50 md:text-[27px]">
+                  {t.videoHeading}
+                </h2>
+                <VideoEmbed
+                  videoId={post.videoId}
+                  title={post.videoTitle ?? post.title}
+                  locale={locale}
+                />
+              </section>
+            )}
           </PublishGate>
         </div>
 

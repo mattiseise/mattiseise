@@ -11,7 +11,7 @@ plannedLabel: "Syksy 2026"
 description: "Kolme konkreettista esimerkkiä siitä, miten tekoäly keventää opettajan hallinnollista työtä: tarkistettavat asiat näkyviin, näkymän rauhoittaminen ja tiedonsiirto ilman käsin kopioimista — päätösvalta pysyy opettajalla."
 keyword: "tekoäly opettajan työssä"
 date: "2026-09-01T09:00:00+03:00"
-cover: "/images/blog/kausi-1-opettajan-hallintotyo/01-wilma-opintosuoritukset-ilman-korostusta.jpg"
+cover: "/images/blog/kausi-1-opettajan-hallintotyo/02-wilma-suoritus-kesken-vaaleanpunainen-korostus.jpg"
 coverAlt: "Wilman arviointinäkymä, jossa keskeneräinen suoritus on korostettu vaaleanpunaisella."
 ---
 Tämän sarjan ensimmäinen kausi käsittelee tekoälyn käyttöä opettajan hallinnollisen työn keventämisessä.

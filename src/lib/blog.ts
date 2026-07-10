@@ -42,6 +42,10 @@ export type PostMeta = {
   coverAlt?: string;
   /** LinkedIn-nosto — ei renderöidä sivulle, kulkee mukana julkaisua varten. */
   nosto?: string;
+  /** YouTube-videon id — renderöi vlogi-upotuksen artikkelin loppuun (click-to-load, nocookie). */
+  videoId?: string;
+  /** Videon otsikko upotuksen kanteen; puuttuessa postauksen otsikko. */
+  videoTitle?: string;
 };
 
 export type Post = PostMeta & {

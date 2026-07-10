@@ -4,9 +4,9 @@ import type { Locale } from "@/lib/blog";
 const strings = {
   fi: {
     eyebrow: "Helsinki · opetus · agentit",
-    title: "Rakennan tekoälystä",
+    title: "Rakennan tekoälyllä",
     words: ["arjen työkaluja.", "opetuksen tukea.", "luotettavia agentteja."],
-    lead: "Olen erityisopettaja, joka vie tekoälyagentit tuotantoon asti — ja kertoo rehellisesti, mikä toimi ja mikä maksoi liikaa. Koulutukset, automaatiot ja pedagogiikka samasta osoitteesta.",
+    lead: "Olen erityisopettaja, joka vie tekoälytuotteet ja -agentit tuotantoon asti. Sivustollani kerron, mikä toimi ja mikä maksoi liikaa. Halutessasi saat koulutukset, automaatiot ja tekoälypedagogiikan samasta osoitteesta.",
     cta1: "Tilaa koulutus",
     cta2: "Katso projektit",
     tags: [
@@ -28,7 +28,7 @@ const strings = {
     eyebrow: "Helsinki · teaching · agents",
     title: "I turn AI into",
     words: ["everyday tools.", "teaching support.", "reliable agents."],
-    lead: "I'm a special education teacher who takes AI agents all the way to production — and honestly reports what worked and what cost too much. Training, automation and pedagogy from one place.",
+    lead: "I'm a special education teacher who takes AI products and agents all the way to production. On this site I share what worked and what cost too much. And if you need it: training, automation and AI pedagogy from one place.",
     cta1: "Book a training",
     cta2: "See projects",
     tags: ["AI training", "AI agents", "Browser automation", "Pedagogical design"],
