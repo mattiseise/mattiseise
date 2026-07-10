@@ -5,7 +5,7 @@ import type { Locale } from "@/lib/blog";
 const strings = {
   fi: {
     eyebrow: "Profiili",
-    title: "Tekninen opettaja, joka koodaa.",
+    title: "Koodaava erkkaope",
     p1: "Opetan tieto- ja viestintätekniikkaa Helsinki Business Collegessa. Yhdistän opetuksessa ohjelmointia, kyberturvallisuutta ja IT-tukea erityispedagogiikan keinoihin. Taustalla tietojenkäsittelytieteen maisterin tutkinto vuodelta 2011 ja yli 15 vuoden kokemus ammatillisesta opetuksesta.",
     p2: "Tekoäly on minulle työkalu, ei pelkkä puheenaihe. Olen rakentanut tuotantokäyttöön oman AI-agentin, automatisoinut Wilman ja itslearningin rutiineja ja kehitän jatkuvasti GPT-pohjaisia opetustyökaluja. Olen mukana Opetushallituksen työryhmässä, joka linjaa tekoälyn käyttöä suomalaisessa opetuksessa.",
     blogLink: "Kirjoitin koko matkasta kuusiosaisen blogisarjan",
@@ -31,7 +31,7 @@ const strings = {
   },
   en: {
     eyebrow: "Profile",
-    title: "A technical teacher who codes.",
+    title: "A special ed teacher who codes",
     p1: "I teach information and communication technology at Helsinki Business College, combining programming, cybersecurity and IT support with special education methods. Behind it: an MSc in Computer Science (2011) and over 15 years of vocational teaching.",
     p2: "AI is a tool for me, not just a topic. I've built my own AI agent for production use, automated Wilma and itslearning routines, and continuously develop GPT-based teaching tools. I'm a member of the Finnish National Agency for Education working group on AI in education.",
     blogLink: "I wrote a six-part blog series about the whole journey",
