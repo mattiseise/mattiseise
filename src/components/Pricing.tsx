@@ -17,6 +17,9 @@ const strings = {
     eyebrow: "Koulutukset & hinnasto",
     title: "Tekoälykoulutukset, joista jää käteen työkaluja — ei kalvopinoa.",
     lead: "Sisältö räätälöidään kohderyhmälle: konkreettiset työkalut, oikeat esimerkit ja taidot, jotka jäävät käyttöön koulutuksen jälkeenkin. Aloita kevyellä johdannolla tai tilaa kokonainen agenttisprintti.",
+    courseNote: "Haluatko kokeilla ensin itse?",
+    courseLink: "Tekoälyn perusteet",
+    courseRest: "on avoin ja maksuton 27 oppitunnin kurssini. Koulutuksissa sama sisältö räätälöidään teidän työhönne.",
     packages: [
       {
         tier: "Aloitus",
@@ -82,6 +85,9 @@ const strings = {
     eyebrow: "Training & pricing",
     title: "AI training that leaves you with tools — not a slide deck.",
     lead: "Content is tailored to your audience: concrete tools, real examples, and skills that stay in use after the training. Start with a light introduction or book a full agent sprint.",
+    courseNote: "Want to try it yourself first?",
+    courseLink: "AI Fundamentals",
+    courseRest: "is my open, free 27-lesson course (in Finnish). In trainings, the same content is tailored to your work.",
     packages: [
       {
         tier: "Starter",
@@ -154,6 +160,18 @@ export default function Pricing({ locale = "fi" }: { locale?: Locale }) {
         <p className="eyebrow">{t.eyebrow}</p>
         <h2 className="h2 mt-3.5 max-w-[22em] text-cream-50">{t.title}</h2>
         <p className="lead mt-[18px] max-w-[38em]">{t.lead}</p>
+        <p className="mt-3 max-w-[38em] text-[15px] leading-[1.65] text-cream-300">
+          {t.courseNote}{" "}
+          <a
+            href="https://ai-perusteet.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-amber-400 underline underline-offset-4 hover:text-amber-300"
+          >
+            {t.courseLink}
+          </a>{" "}
+          {t.courseRest}
+        </p>
 
         <div className="mt-12 grid gap-[22px] md:grid-cols-3">
           {t.packages.map((p) => (

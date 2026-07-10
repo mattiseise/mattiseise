@@ -19,7 +19,7 @@ const strings = {
     liveMsg: "Aamubriiffi lähetetty klo 6.30 ✓",
     stats: [
       { value: "15+ v", label: "ammatillista opetusta" },
-      { value: "27", label: "avointa oppituntia tekoälystä" },
+      { value: "27", label: "avointa oppituntia tekoälystä", href: "https://ai-perusteet.netlify.app/" },
       { value: "19 000+", label: "opettajan yhteisön ylläpitäjä" },
       { value: "OPH", label: "tekoälytyöryhmän jäsen" },
     ],
@@ -36,7 +36,7 @@ const strings = {
     liveMsg: "Morning brief sent at 6:30 AM ✓",
     stats: [
       { value: "15+ yrs", label: "of vocational teaching" },
-      { value: "27", label: "open AI lessons published" },
+      { value: "27", label: "open AI lessons published", href: "https://ai-perusteet.netlify.app/" },
       { value: "19,000+", label: "teacher community admin" },
       { value: "EDUFI", label: "national AI working group member" },
     ],
@@ -120,16 +120,32 @@ export default function Hero({ locale = "fi" }: { locale?: Locale }) {
 
       <div className="container-narrow relative mt-16">
         <div className="grid grid-cols-2 gap-x-7 gap-y-7 border-t border-cream-50/10 pt-[30px] md:grid-cols-4">
-          {t.stats.map((s) => (
-            <div key={s.label}>
-              <p className="font-display text-3xl font-semibold text-cream-50">
-                {s.value}
-              </p>
-              <p className="mt-1 text-[13.5px] leading-[1.45] text-cream-400">
-                {s.label}
-              </p>
-            </div>
-          ))}
+          {t.stats.map((s) => {
+            const body = (
+              <>
+                <p className="font-display text-3xl font-semibold text-cream-50">
+                  {s.value}
+                </p>
+                <p className="mt-1 text-[13.5px] leading-[1.45] text-cream-400">
+                  {s.label}
+                </p>
+              </>
+            );
+            return "href" in s ? (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <span className="sr-only">Tekoälyn perusteet -kurssi</span>
+                {body}
+              </a>
+            ) : (
+              <div key={s.label}>{body}</div>
+            );
+          })}
         </div>
       </div>
     </section>
