@@ -9,7 +9,13 @@ const description =
 export const metadata: Metadata = {
   title: title + " · Matti Seise",
   description,
-  alternates: { canonical: `https://seise.org/caset/${slug}` },
+  alternates: {
+    canonical: `https://seise.org/caset/${slug}`,
+    languages: {
+      fi: `https://seise.org/caset/${slug}`,
+      en: `https://seise.org/en/caset/${slug}`,
+    },
+  },
   openGraph: {
     title,
     description,
@@ -39,6 +45,7 @@ export default function Page() {
         datePublished="2026-05-08"
       />
       <CaseLayout
+        alternateHref={`/en/caset/${slug}`}
         eyebrow="Case · Selainautomaatio"
         title="Wilma- ja itslearning-automaatiot — tunteja takaisin opettajalle"
         lead="Wilman ja itslearningin käyttöliittymät eivät ole rakennettu opettajan päivittäisten rutiinien tehokkaaseen suorittamiseen. Skriptit, jotka korvaavat toistuvan klikkailun, tuovat tunteja työaikaa takaisin viikossa — keskittyminen voi siirtyä käyttöliittymän kanssa kamppailusta opettamiseen."

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { sendGAEvent } from "@next/third-parties/google";
 import type { Locale } from "@/lib/blog";
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -61,6 +62,13 @@ export default function ContactForm({ locale = "fi" }: { locale?: Locale }) {
       if (!res.ok) throw new Error(String(res.status));
       setStatus("sent");
       form.reset();
+      // Konversiomittaus: lomakelähetys GA4-liidiksi. Consent Mode
+      // ratkaisee, lähteekö tapahtuma eteenpäin — try/catch varalta.
+      try {
+        sendGAEvent("event", "generate_lead", { form: "contact", locale });
+      } catch {
+        // Analytiikan puuttuminen ei saa rikkoa lomaketta.
+      }
     } catch {
       setStatus("error");
     }

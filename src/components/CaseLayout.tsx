@@ -2,6 +2,12 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import { BASE, PERSON, breadcrumbLd } from "@/lib/schema";
+import type { Locale } from "@/lib/blog";
+
+const labels = {
+  fi: { prev: "Edellinen", next: "Seuraava", cta: "Ota yhteyttä", nav: "Muut caset" },
+  en: { prev: "Previous", next: "Next", cta: "Get in touch", nav: "Other cases" },
+} as const;
 
 type Section = {
   heading: string;
@@ -17,6 +23,9 @@ export default function CaseLayout({
   cta,
   prev,
   next,
+  locale = "fi",
+  alternateHref,
+  banner,
 }: {
   eyebrow: string;
   title: string;
@@ -26,13 +35,26 @@ export default function CaseLayout({
   cta?: { label: string; href: string };
   prev?: { label: string; href: string };
   next?: { label: string; href: string };
+  locale?: Locale;
+  alternateHref?: string;
+  banner?: React.ReactNode;
 }) {
+  const t = labels[locale];
   return (
-    <main id="sisalto" className="min-h-screen">
-      <Nav locale="fi" active="projects" alternateHref="/en" />
+    <main id="sisalto" className="min-h-screen" lang={locale === "en" ? "en" : undefined}>
+      <Nav
+        locale={locale}
+        active="projects"
+        alternateHref={alternateHref ?? (locale === "en" ? "/" : "/en")}
+      />
 
       <article className="px-5 pb-0 pt-14 md:px-10 md:pt-[72px]">
         <div className="container-case">
+          {banner && (
+            <div className="mb-7 rounded-xl border border-amber-400/40 bg-amber-400/[0.08] px-5 py-3.5 text-[14.5px] text-amber-400">
+              {banner}
+            </div>
+          )}
           <p className="text-[12.5px] font-bold uppercase tracking-[0.14em] text-amber-400">
             {eyebrow}
           </p>
@@ -78,14 +100,14 @@ export default function CaseLayout({
                 {cta.label}
               </p>
               <Link href={cta.href} className="btn-primary-sm shrink-0">
-                Ota yhteyttä <span aria-hidden>→</span>
+                {t.cta} <span aria-hidden>→</span>
               </Link>
             </div>
           )}
 
           {(prev || next) && (
             <nav
-              aria-label="Muut caset"
+              aria-label={t.nav}
               className="mt-6 grid gap-4 sm:grid-cols-2"
             >
               {prev ? (
@@ -94,7 +116,7 @@ export default function CaseLayout({
                   className="rounded-[14px] border border-cream-50/10 bg-bark-800 px-6 py-5 transition-colors hover:border-amber-400/50"
                 >
                   <span className="block text-xs font-bold uppercase tracking-[0.11em] text-cream-400">
-                    Edellinen
+                    {t.prev}
                   </span>
                   <span className="mt-1.5 block text-[15px] font-bold text-cream-50">
                     {prev.label}
@@ -109,7 +131,7 @@ export default function CaseLayout({
                   className="rounded-[14px] border border-cream-50/10 bg-bark-800 px-6 py-5 text-right transition-colors hover:border-amber-400/50"
                 >
                   <span className="block text-xs font-bold uppercase tracking-[0.11em] text-cream-400">
-                    Seuraava
+                    {t.next}
                   </span>
                   <span className="mt-1.5 block text-[15px] font-bold text-cream-50">
                     {next.label}
@@ -122,7 +144,7 @@ export default function CaseLayout({
       </article>
 
       <div className="mt-[72px]">
-        <Footer locale="fi" />
+        <Footer locale={locale} />
       </div>
     </main>
   );

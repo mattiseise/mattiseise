@@ -17,7 +17,9 @@ export async function generateMetadata({
   if (!post) return {};
 
   const url = `https://seise.org/en/blog/${post.slug}`;
-  const fiPost = getAllPosts("fi").find((p) => p.part === post.part);
+  const fiPost = getAllPosts("fi").find(
+    (p) => p.seriesSlug === post.seriesSlug && p.part === post.part,
+  );
   const locked = !isPublished(post);
   const ogImage = post.cover?.replace("/images/blog/", "/images/blog/og/");
   const images = ogImage
@@ -74,7 +76,9 @@ export default async function Page({
   if (!post) notFound();
 
   const { prev, next } = getAdjacent(slug, "en");
-  const fiPost = getAllPosts("fi").find((p) => p.part === post.part);
+  const fiPost = getAllPosts("fi").find(
+    (p) => p.seriesSlug === post.seriesSlug && p.part === post.part,
+  );
   return (
     <PostLayout
       post={post}

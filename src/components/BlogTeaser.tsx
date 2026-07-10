@@ -5,7 +5,9 @@ import {
   isPublished,
   formatDate,
   blogPath,
+  topicLabels,
   type Locale,
+  type Post,
 } from "@/lib/blog";
 
 const strings = {
@@ -13,14 +15,16 @@ const strings = {
     eyebrow: "Blogi",
     title: "Rehellistä tuotantokokemusta — ilman hypeä.",
     desc: "Sarjat ja irtokirjoitukset agenteista, automaatiosta ja pedagogiikasta. Uusin sarja: Oman AI-agentin rakentaminen, 6 osaa.",
-    kicker: (part: number, total: number) => `Sarja · osa ${part}/${total}`,
+    seriesKicker: (part: number, total: number) => `Sarja · osa ${part}/${total}`,
+    standaloneKicker: (topic: string) => `Irtokirjoitus · ${topic}`,
     cta: "Kaikki kirjoitukset",
   },
   en: {
     eyebrow: "Blog",
     title: "Honest production experience — without the hype.",
     desc: "Series and standalone posts on agents, automation and pedagogy. Latest series: Building My Own AI Agent, 6 parts.",
-    kicker: (part: number, total: number) => `Series · part ${part}/${total}`,
+    seriesKicker: (part: number, total: number) => `Series · part ${part}/${total}`,
+    standaloneKicker: (topic: string) => `Standalone · ${topic}`,
     cta: "All posts",
   },
 } as const;
@@ -31,6 +35,10 @@ export default function BlogTeaser({ locale = "fi" }: { locale?: Locale }) {
   const published = getAllPosts(locale).filter(isPublished);
   const latest = published[published.length - 1];
   if (!latest) return null;
+  const kicker = (p: Post) =>
+    p.totalParts > 1
+      ? t.seriesKicker(p.part, p.totalParts)
+      : t.standaloneKicker(topicLabels[locale][p.topic ?? "agents"]);
 
   return (
     <section
@@ -64,7 +72,7 @@ export default function BlogTeaser({ locale = "fi" }: { locale?: Locale }) {
           )}
           <span className="block">
             <span className="block text-[11.5px] font-bold uppercase tracking-[0.1em] text-amber-400">
-              {t.kicker(latest.part, latest.totalParts)}
+              {kicker(latest)}
             </span>
             <span className="mt-1.5 block text-[14.5px] font-bold leading-[1.4] text-cream-50">
               {latest.title}

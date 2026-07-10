@@ -75,7 +75,7 @@ const strings = {
         blurb:
           "An open 27-lesson course in three parts: theory, practice and agents. The material was produced entirely with AI, using agents.",
         linkLabel: "Read case",
-        href: "/caset/tekoalyn-perusteet",
+        href: "/en/caset/tekoalyn-perusteet",
       },
       {
         tag: "Pedagogical analysis",
@@ -84,7 +84,7 @@ const strings = {
         blurb:
           "One-command pedagogical audit: reads a Moodle backup and produces a PDF report on Bloom levels, curriculum coverage and course coherence.",
         linkLabel: "Read case",
-        href: "/caset/moodle-kurssiauditointi",
+        href: "/en/caset/moodle-kurssiauditointi",
       },
       {
         tag: "Selenium · teaching",
@@ -93,7 +93,7 @@ const strings = {
         blurb:
           "Browser automations replacing repetitive clicking: study plans, completion lists, absences and submission tracking. Hours back every week.",
         linkLabel: "Read case",
-        href: "/caset/wilma-itslearning-automaatiot",
+        href: "/en/caset/wilma-itslearning-automaatiot",
       },
     ] as readonly ProjectCard[],
   },

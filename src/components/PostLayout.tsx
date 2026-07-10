@@ -9,6 +9,7 @@ import {
   formatDate,
   formatDateTime,
   isPublished,
+  topicLabels,
   type Locale,
   type Post,
 } from "@/lib/blog";
@@ -20,6 +21,7 @@ const text = {
     home: "Etusivu",
     blog: "Blogi",
     series: "Sarja",
+    standalone: "Irtokirjoitus",
     part: "Osa",
     readingTime: "min lukuaika",
     seriesNavigation: "Sarjan navigointi",
@@ -27,6 +29,8 @@ const text = {
     next: "Seuraava osa",
     ctaTitle: "Rakennatko omaa agenttia?",
     ctaBody: "Voin auttaa suunnittelemaan sen niin, ettei ensimmäinen versio muutu omaksi pikku käyttöjärjestelmäkseen. Katso koulutukset — tai verkostoidutaan LinkedInissä, jos haluat seurata sarjaa.",
+    ctaTitlePedagogy: "Haluatko tästä koulutuksen omalle porukallesi?",
+    ctaBodyPedagogy: "Pidän aiheesta käytännönläheisiä työpajoja opettajille ja organisaatioille — harjoitukset tehdään omilla työkaluilla ja sisältö räätälöidään kohderyhmälle. Katso koulutuspaketit tai verkostoidutaan LinkedInissä.",
     ctaBtn: "Katso koulutukset",
     lock: {
       publishes: "Julkaistaan",
@@ -38,6 +42,7 @@ const text = {
     home: "Home",
     blog: "Blog",
     series: "Series",
+    standalone: "Standalone",
     part: "Part",
     readingTime: "min read",
     seriesNavigation: "Series navigation",
@@ -45,6 +50,8 @@ const text = {
     next: "Next part",
     ctaTitle: "Building your own agent?",
     ctaBody: "I can help design it so your first version doesn't turn into its own little operating system. See my trainings — or let's network on LinkedIn if you want to follow the series.",
+    ctaTitlePedagogy: "Want a training on this for your team?",
+    ctaBodyPedagogy: "I run hands-on workshops on this topic for teachers and organizations — exercises with your own tools, content tailored to your audience. See the training packages or let's network on LinkedIn.",
     ctaBtn: "See training",
     lock: {
       publishes: "Publishing",
@@ -108,6 +115,9 @@ export default function PostLayout({
   const t = text[locale];
   const prefix = locale === "en" ? "/en" : "";
   const inSeries = post.totalParts > 1;
+  const pedagogy = post.topic === "pedagogy";
+  const ctaTitle = pedagogy ? t.ctaTitlePedagogy : t.ctaTitle;
+  const ctaBody = pedagogy ? t.ctaBodyPedagogy : t.ctaBody;
 
   return (
     <main id="sisalto" className="min-h-screen">
@@ -117,13 +127,17 @@ export default function PostLayout({
       <article className="px-5 pb-0 pt-14 md:px-10 md:pt-[72px]">
         <div className="container-article">
           <p className="text-[12.5px] font-bold uppercase tracking-[0.14em] text-amber-400">
-            <Link href={blogPath(locale)} className="text-amber-400 hover:text-amber-300">
-              {t.series}: {post.series}
-            </Link>
-            {inSeries && (
+            {inSeries ? (
               <>
+                <Link href={blogPath(locale)} className="text-amber-400 hover:text-amber-300">
+                  {t.series}: {post.series}
+                </Link>
                 {" "}· {t.part} {post.part}/{post.totalParts}
               </>
+            ) : (
+              <Link href={blogPath(locale)} className="text-amber-400 hover:text-amber-300">
+                {t.standalone} · {topicLabels[locale][post.topic ?? "agents"]}
+              </Link>
             )}
           </p>
           <h1 className="mt-[18px] font-display text-[32px] font-semibold leading-[1.15] tracking-[-0.015em] text-cream-50 md:text-[42px]">
@@ -229,10 +243,10 @@ export default function PostLayout({
 
         <div className="container-article card-glow mt-10 rounded-[18px] p-8">
           <h2 className="font-display text-[23px] font-semibold text-cream-50">
-            {t.ctaTitle}
+            {ctaTitle}
           </h2>
           <p className="mt-2.5 text-[15.5px] leading-[1.65] text-cream-300">
-            {t.ctaBody}
+            {ctaBody}
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link href={`${prefix}/#koulutukset`} className="btn-primary-sm">

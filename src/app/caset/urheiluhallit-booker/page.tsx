@@ -9,7 +9,13 @@ const description =
 export const metadata: Metadata = {
   title: title + " · Matti Seise",
   description,
-  alternates: { canonical: `https://seise.org/caset/${slug}` },
+  alternates: {
+    canonical: `https://seise.org/caset/${slug}`,
+    languages: {
+      fi: `https://seise.org/caset/${slug}`,
+      en: `https://seise.org/en/caset/${slug}`,
+    },
+  },
   openGraph: {
     title,
     description,
@@ -39,6 +45,7 @@ export default function Page() {
         datePublished="2026-05-08"
       />
       <CaseLayout
+        alternateHref={`/en/caset/${slug}`}
         eyebrow="Case · Selainautomaatio"
         title="Urheiluhallit-booker — varauksen automatisointi kirjautumisesta peruutukseen"
         lead="Ryhmäliikuntatuntien varausjärjestelmä avautuu kerralla — ja täyttyy minuuteissa. Selainautomaatio, joka kirjautuu, etsii halutun tunnin ja tekee varauksen ilman manuaalista työtä. Esimerkki kirjautumista vaativan järjestelmän automatisoinnista, jota voi soveltaa myös yrityskäyttöön."

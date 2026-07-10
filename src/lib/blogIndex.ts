@@ -114,9 +114,10 @@ export function buildBlogIndexData(locale: Locale): {
       .map((topic) => ({ id: topic, label: topicLabels[locale][topic] })),
   ];
 
-  // Sarjanosto: uusin sarja, jossa on julkaistuja osia.
-  const withPublished = getSeries(locale).filter((s) =>
-    s.posts.some(isPublished),
+  // Sarjanosto: uusin monivaiheinen sarja, jossa on julkaistuja osia.
+  // Irtokirjoitukset (yhden postauksen "sarjat") eivät syrjäytä nostoa.
+  const withPublished = getSeries(locale).filter(
+    (s) => s.posts.length > 1 && s.posts.some(isPublished),
   );
   const featuredSeries = withPublished
     .sort((a, b) => {

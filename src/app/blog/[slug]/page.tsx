@@ -17,7 +17,9 @@ export async function generateMetadata({
   if (!post) return {};
 
   const url = `https://seise.org/blog/${post.slug}`;
-  const enPost = getAllPosts("en").find((p) => p.part === post.part);
+  const enPost = getAllPosts("en").find(
+    (p) => p.seriesSlug === post.seriesSlug && p.part === post.part,
+  );
   // Lukittu (tuleva) osa: ei indeksoida ennen julkaisua.
   const locked = !isPublished(post);
   // LinkedIn/OG: oma 1200×630-rajaus (1.91:1) kansikuvasta.
@@ -76,7 +78,9 @@ export default async function Page({
   if (!post) notFound();
 
   const { prev, next } = getAdjacent(slug, "fi");
-  const enPost = getAllPosts("en").find((p) => p.part === post.part);
+  const enPost = getAllPosts("en").find(
+    (p) => p.seriesSlug === post.seriesSlug && p.part === post.part,
+  );
   return (
     <PostLayout
       post={post}

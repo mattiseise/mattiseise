@@ -10,7 +10,13 @@ const description =
 export const metadata: Metadata = {
   title: title + " · Matti Seise",
   description,
-  alternates: { canonical: `https://seise.org/caset/${slug}` },
+  alternates: {
+    canonical: `https://seise.org/caset/${slug}`,
+    languages: {
+      fi: `https://seise.org/caset/${slug}`,
+      en: `https://seise.org/en/caset/${slug}`,
+    },
+  },
   openGraph: {
     title,
     description,
@@ -40,6 +46,7 @@ export default function Page() {
         datePublished="2026-05-08"
       />
       <CaseLayout
+        alternateHref={`/en/caset/${slug}`}
         eyebrow="Case · Koulutus"
         title="Tekoälyn perusteet — 27 oppitunnin kurssi käytäntöön"
         lead="Kurssi, joka opettaa tekoälyä tekemällä — ei kalvoilla. Sisältää opiskelija- ja opettajamateriaalit jokaiselle 27 oppitunnille, automaattisen sivuston­generaattorin ja avoimen lähdekoodin."
