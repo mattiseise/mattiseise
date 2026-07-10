@@ -6,7 +6,7 @@ totalParts: 6
 series: "Oman AI-agentin rakentaminen"
 seriesSlug: "oman-ai-agentin-rakentaminen"
 description: "Vaihdoin agenttini OpenClaw'sta Hermekseen: yksi gateway, selattava muisti ja automaatiot, jotka vihdoin toimivat. Kaaoksesta kontrolliin."
-keyword: "AI-agenttiframework"
+keyword: "AI-agenttialusta"
 date: "2026-06-18T08:00:00+03:00"
 cover: "/images/blog/05-kaaos_kontrolli.jpg"
 coverAlt: "Kaksi läppäriä: vasemmalla OpenClawin sekava punainen järjestelmäkaavio, oikealla Hermeksen siisti vihreä dashboard."
@@ -19,7 +19,7 @@ Tässä osassa tullaan käännekohtaan. Jossain vaiheessa tajusin, etten enää 
 
 ## Yksi syy riitti
 
-Vaihdoin **OpenClaw'sta** **Hermekseen**. Hermes on Nous Researchin avoimen lähdekoodin agenttiframework, joka julkaistiin alkuvuodesta 2026. Se on mallista riippumaton, eli sen alla voi käyttää eri kielimalleja. Sen päälle on rakennettu muun muassa pysyvä muisti, automaattiset taidot, monikanavainen viestintä ja luonnollisen kielen ajastus.
+Vaihdoin **OpenClaw'sta** **Hermekseen**. Hermes on Nous Researchin avoimen lähdekoodin agenttialusta, joka julkaistiin alkuvuodesta 2026. Se on mallista riippumaton, eli sen alla voi käyttää eri kielimalleja. Sen päälle on rakennettu muun muassa pysyvä muisti, automaattiset taidot, monikanavainen viestintä ja luonnollisen kielen ajastus.
 
 Hyviä ominaisuuksia, kyllä. Ne eivät silti olleet varsinainen syy vaihtoon.
 

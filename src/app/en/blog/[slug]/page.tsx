@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PostLayout from "@/components/PostLayout";
-import { getAllPosts, getPostBySlug, getAdjacent } from "@/lib/blog";
+import { getAllPosts, getPostBySlug, getAdjacent, isPublished } from "@/lib/blog";
 
 export function generateStaticParams() {
   return getAllPosts("en").map((p) => ({ slug: p.slug }));
@@ -18,7 +18,7 @@ export async function generateMetadata({
 
   const url = `https://seise.org/en/blog/${post.slug}`;
   const fiPost = getAllPosts("fi").find((p) => p.part === post.part);
-  const locked = new Date(post.date).getTime() > Date.now();
+  const locked = !isPublished(post);
   const ogImage = post.cover?.replace("/images/blog/", "/images/blog/og/");
   const images = ogImage
     ? [

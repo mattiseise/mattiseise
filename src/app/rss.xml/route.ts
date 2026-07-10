@@ -1,4 +1,4 @@
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts, isPublished } from "@/lib/blog";
 
 export const dynamic = "force-static";
 
@@ -18,7 +18,7 @@ function escapeXml(s: string): string {
  */
 export async function GET() {
   const published = getAllPosts()
-    .filter((p) => new Date(p.date).getTime() <= Date.now())
+    .filter(isPublished)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   const items = published
@@ -36,10 +36,10 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Matti Seise — Oman AI-agentin rakentaminen</title>
+    <title>Matti Seise — Blogi</title>
     <link>${BASE}/blog</link>
     <atom:link href="${BASE}/rss.xml" rel="self" type="application/rss+xml" />
-    <description>Kuusiosainen, rehellinen blogisarja oman tekoälyagentin rakentamisesta tuotantoon.</description>
+    <description>Kirjoituksia agenteista, automaatiosta ja opettamisesta — tuotantokokemusta ilman hypeä.</description>
     <language>fi</language>
 ${items}
   </channel>

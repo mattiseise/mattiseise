@@ -9,26 +9,56 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: {
-          50: "#f5f6f8",
-          100: "#e7e9ee",
-          200: "#c7ccd5",
-          400: "#7a818f",
-          600: "#3b414c",
-          800: "#1a1d23",
-          900: "#0d0f12",
+        // Iltavalo-paletti: lämmin tumma neutraali + kerma + meripihka.
+        bark: {
+          800: "#241d18",
+          900: "#1a1512",
         },
-        accent: {
-          300: "#f9a8d4",
-          400: "#f472b6",
-          500: "#ec4899",
-          600: "#db2777",
+        cream: {
+          50: "#f2ece4",
+          100: "#d9cfc0",
+          200: "#c9bda9",
+          300: "#b8ab9a",
+          400: "#8f8272",
+          600: "#57503f",
+        },
+        amber: {
+          300: "#ecb96f",
+          400: "#e0a458",
+        },
+        copper: {
+          500: "#d97742",
         },
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        display: ["Inter", "system-ui", "sans-serif"],
+        display: ["var(--font-bricolage)", "system-ui", "sans-serif"],
+        sans: ["var(--font-atkinson)", "system-ui", "sans-serif"],
         mono: ["JetBrains Mono", "ui-monospace", "monospace"],
+      },
+      keyframes: {
+        fadeUp: {
+          from: { opacity: "0", transform: "translateY(18px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        pulseGlow: {
+          "0%, 100%": { opacity: "0.45" },
+          "50%": { opacity: "0.9" },
+        },
+        wordCycle: {
+          "0%, 26%": { transform: "translateY(0)" },
+          "33%, 59%": { transform: "translateY(-25%)" },
+          "66%, 92%": { transform: "translateY(-50%)" },
+          "100%": { transform: "translateY(-75%)" },
+        },
+        blinkDot: {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.25" },
+        },
+      },
+      animation: {
+        "pulse-glow": "pulseGlow 7s ease-in-out infinite",
+        "word-cycle": "wordCycle 9s steps(1) infinite",
+        "blink-dot": "blinkDot 2.2s ease-in-out infinite",
       },
     },
   },

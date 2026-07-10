@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts, isPublished } from "@/lib/blog";
 
 const BASE = "https://seise.org";
 
@@ -15,12 +15,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Vain julkaistut blogiosat — lukitut/tulevat jätetään pois,
   // ettei hakukone indeksoi lukittua teaser-versiota.
-  const publishedFiPosts = getAllPosts("fi").filter(
-    (post) => new Date(post.date).getTime() <= now.getTime(),
-  );
-  const publishedEnPosts = getAllPosts("en").filter(
-    (post) => new Date(post.date).getTime() <= now.getTime(),
-  );
+  const publishedFiPosts = getAllPosts("fi").filter(isPublished);
+  const publishedEnPosts = getAllPosts("en").filter(isPublished);
 
   return [
     {
@@ -28,6 +24,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "weekly",
       priority: 1.0,
+    },
+    {
+      url: `${BASE}/en`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.9,
     },
     ...cases.map((slug) => ({
       url: `${BASE}/caset/${slug}`,

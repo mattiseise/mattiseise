@@ -7,6 +7,14 @@ const PUBLIC_DIR = path.join(process.cwd(), "public");
 
 export type Locale = "fi" | "en";
 
+/** Blogin aiheet — listaussivun suodatuspillit. */
+export type Topic = "agents" | "automation" | "pedagogy";
+
+export const topicLabels: Record<Locale, Record<Topic, string>> = {
+  fi: { agents: "AI-agentit", automation: "Automaatio", pedagogy: "Pedagogiikka" },
+  en: { agents: "AI agents", automation: "Automation", pedagogy: "Pedagogy" },
+};
+
 export type PostMeta = {
   slug: string;
   part: number;
@@ -17,6 +25,15 @@ export type PostMeta = {
   description: string;
   keyword: string;
   date: string;
+  /** Aihe suodatusta varten. Puuttuessa "agents" (alkuperäinen sarja). */
+  topic?: Topic;
+  /**
+   * Tuleva sisältö: näkyy listauksessa "Tulossa"-korttina eikä julkaistu
+   * automaattisesti vaikka date menisi ohi. Poista lippu kun sarja julkaistaan.
+   */
+  upcoming?: boolean;
+  /** Vapaa aikataululupaus Tulossa-kortin metariville, esim. "Syksy 2026". */
+  plannedLabel?: string;
   /** Optional content language marker from frontmatter. Inferred from directory when missing. */
   lang?: Locale;
   /** Kansikuvan polku publicista, esim. "/images/blog/01-aamubriiffi.jpg". Näytetään vain jos tiedosto on olemassa. */
@@ -31,6 +48,14 @@ export type Post = PostMeta & {
   locale: Locale;
   content: string;
   readingMinutes: number;
+};
+
+/** Sarja johdettuna postauksista — listaussivun sarjanosto ja ryhmittely. */
+export type Series = {
+  slug: string;
+  title: string;
+  posts: Post[];
+  upcoming: boolean;
 };
 
 function dirForLocale(locale: Locale): string {
@@ -48,10 +73,18 @@ function readPost(file: string, locale: Locale): Post {
     meta.cover && fs.existsSync(path.join(PUBLIC_DIR, meta.cover))
       ? meta.cover
       : undefined;
-  return { ...meta, lang: meta.lang ?? locale, locale, cover, content, readingMinutes };
+  return {
+    ...meta,
+    topic: meta.topic ?? "agents",
+    lang: meta.lang ?? locale,
+    locale,
+    cover,
+    content,
+    readingMinutes,
+  };
 }
 
-/** Kaikki sarjan osat järjestyksessä (osa 1 → n). */
+/** Kaikki postaukset julkaisujärjestyksessä (vanhin ensin); tulevat lopussa. */
 export function getAllPosts(locale: Locale = "fi"): Post[] {
   const dir = dirForLocale(locale);
   if (!fs.existsSync(dir)) return [];
@@ -60,22 +93,54 @@ export function getAllPosts(locale: Locale = "fi"): Post[] {
     .readdirSync(dir, { withFileTypes: true })
     .filter((entry) => entry.isFile() && entry.name.endsWith(".md"))
     .map((entry) => readPost(entry.name, locale))
-    .sort((a, b) => a.part - b.part);
+    .sort((a, b) => {
+      if (!!a.upcoming !== !!b.upcoming) return a.upcoming ? 1 : -1;
+      const byDate = new Date(a.date).getTime() - new Date(b.date).getTime();
+      return byDate !== 0 ? byDate : a.part - b.part;
+    });
+}
+
+/** Onko postaus julkaistu (build-hetkellä): ei upcoming-lippua ja julkaisuaika ohitettu. */
+export function isPublished(post: Pick<Post, "date" | "upcoming">): boolean {
+  return !post.upcoming && new Date(post.date).getTime() <= Date.now();
+}
+
+/** Sarjat ryhmiteltynä; osat sarjan sisäisessä järjestyksessä. */
+export function getSeries(locale: Locale = "fi"): Series[] {
+  const groups = new Map<string, Post[]>();
+  for (const post of getAllPosts(locale)) {
+    const list = groups.get(post.seriesSlug) ?? [];
+    list.push(post);
+    groups.set(post.seriesSlug, list);
+  }
+  return Array.from(groups.entries()).map(([slug, posts]) => {
+    const sorted = [...posts].sort((a, b) => a.part - b.part);
+    return {
+      slug,
+      title: sorted[0].series,
+      posts: sorted,
+      upcoming: sorted.every((p) => !isPublished(p)),
+    };
+  });
 }
 
 export function getPostBySlug(slug: string, locale: Locale = "fi"): Post | undefined {
   return getAllPosts(locale).find((p) => p.slug === slug);
 }
 
-/** Edellinen ja seuraava osa sarjan järjestyksessä — sisäistä linkitystä varten. */
+/** Edellinen ja seuraava osa saman sarjan sisällä — sisäistä linkitystä varten. */
 export function getAdjacent(
   slug: string,
   locale: Locale = "fi",
 ): { prev?: Post; next?: Post } {
-  const posts = getAllPosts(locale);
-  const i = posts.findIndex((p) => p.slug === slug);
+  const post = getPostBySlug(slug, locale);
+  if (!post) return {};
+  const series = getAllPosts(locale)
+    .filter((p) => p.seriesSlug === post.seriesSlug)
+    .sort((a, b) => a.part - b.part);
+  const i = series.findIndex((p) => p.slug === slug);
   if (i === -1) return {};
-  return { prev: posts[i - 1], next: posts[i + 1] };
+  return { prev: series[i - 1], next: series[i + 1] };
 }
 
 /** fi-FI/en-US-muotoiltu päivämäärä. */

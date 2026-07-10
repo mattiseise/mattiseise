@@ -1,4 +1,4 @@
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts, isPublished } from "@/lib/blog";
 
 export const dynamic = "force-static";
 
@@ -19,10 +19,9 @@ function fmtDate(iso: string): string {
  * blogilistan ajan tasalla julkaisujen avautuessa.
  */
 export async function GET() {
-  const now = Date.now();
   const posts = getAllPosts();
-  const published = posts.filter((p) => new Date(p.date).getTime() <= now);
-  const upcoming = posts.filter((p) => new Date(p.date).getTime() > now);
+  const published = posts.filter(isPublished);
+  const upcoming = posts.filter((p) => !isPublished(p));
 
   const publishedList = published
     .map(
@@ -32,7 +31,12 @@ export async function GET() {
     .join("\n");
 
   const upcomingList = upcoming
-    .map((p) => `- Osa ${p.part}: ${p.title} — julkaistaan ${fmtDate(p.date)}`)
+    .map(
+      (p) =>
+        `- ${p.series}${p.totalParts > 1 ? ` (osa ${p.part})` : ""}: ${p.title} — ${
+          p.upcoming ? `tulossa ${p.plannedLabel ?? "myöhemmin"}` : `julkaistaan ${fmtDate(p.date)}`
+        }`,
+    )
     .join("\n");
 
   const body = `# Matti Seise — seise.org
@@ -46,13 +50,13 @@ Matti Seise on ammatillinen erityisopettaja (tietojenkäsittelytieteen maisteri 
 - [Koulutukset ja hinnasto](${BASE}/#koulutukset): 2 tunnin johdanto 300 €, puolen päivän työpaja 600 €, 1–2 päivän agenttisprintti alkaen 1 800 €/päivä, tuntiveloitus 150 €/h (+ alv).
 - [Yhteydenotto](${BASE}/#yhteys): seise@seise.org
 
-## Blogisarja: Oman AI-agentin rakentaminen
+## Blogi
 
-Kuusiosainen, rehellinen sarja oman tekoälyagentin rakentamisesta tuotantoon — chatbotin ja agentin ero, yliarkkitehtoinnin sudenkuopat, kahdeksan kallista virhettä, autonomian turvarajat ja migraatio OpenClaw'sta Hermekseen.
+Sarjoja ja irtokirjoituksia agenteista, automaatiosta ja pedagogiikasta. Ensimmäinen sarja (Oman AI-agentin rakentaminen) on kuusiosainen, rehellinen sarja oman tekoälyagentin rakentamisesta tuotantoon — chatbotin ja agentin ero, yliarkkitehtoinnin sudenkuopat, kahdeksan kallista virhettä, autonomian turvarajat ja migraatio OpenClaw'sta Hermekseen.
 
 ${publishedList}${upcomingList ? `\n\nTulossa:\n${upcomingList}` : ""}
 
-- [Sarjan koontisivu](${BASE}/blog)
+- [Blogin koontisivu](${BASE}/blog)
 - [RSS-syöte](${BASE}/rss.xml)
 
 ## Projektit ja caset

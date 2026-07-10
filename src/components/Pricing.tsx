@@ -1,193 +1,263 @@
-export default function Pricing() {
-  return (
-    <section
-      id="koulutukset"
-      className="section-pad border-t border-ink-600/30"
-    >
-      <div className="container-narrow">
-        <p className="eyebrow">Koulutukset & hinnasto</p>
-        <h2 className="h2 mt-3 text-ink-50">
-          Tekoälykoulutukset opettajille, asiantuntijoille ja organisaatioille.
-        </h2>
-        <p className="lead mt-4 max-w-2xl">
-          Sisältö räätälöidään kohderyhmälle: konkreettiset työkalut, oikeat
-          esimerkit ja taidot, jotka jäävät käyttöön myös koulutuksen
-          jälkeen. Aloita kevyestä johdannosta tai tilaa kokonainen
-          agentti­sprintti.
-        </p>
+import type { Locale } from "@/lib/blog";
 
-        <p className="mt-4 max-w-2xl text-ink-100">
-          Sopii organisaatiolle, joka haluaa konkreettisen tekoälykoulutuksen,
-          pedagogisen auditoinnin tai toimivan automaation — ei
-          inspiraatioluentoa.
-        </p>
-        <p className="mt-3 max-w-2xl text-sm muted">
-          <span className="font-medium text-ink-100">Mitä jää käteen:</span>{" "}
-          oma promptipohja, arvioinnin tarkistuslista ja käytännössä testatut
-          työkalut.
-        </p>
-
-        <div className="mt-12 grid md:grid-cols-3 gap-5">
-          <Package
-            tier="Aloitus"
-            title="2 tunnin johdanto"
-            price="300 €"
-            unit="kiinteä hinta, + alv"
-            text="Tiivis työpaja: mitä tekoäly osaa, miten siitä saa hyödyn omaan rooliin ja mitä riskejä on. Sopii tiimeille, joiden tekoälymatka on alkuvaiheessa."
-            includes={[
-              "Etänä tai paikan päällä Helsingissä",
-              "Käytännön harjoituksia osallistujien omilla työkaluilla",
-              "Sisällön räätälöinti tilaajan tarpeisiin",
-            ]}
-          />
-          <Package
-            tier="Suosituin"
-            highlight
-            title="Puolen päivän työpaja"
-            price="600 €"
-            unit="4 tuntia, + alv"
-            text="Syvempi sukellus: promptaus, työkalujen vertailu, agenttien rakenne ja konkreettinen suunnitelma siitä, mitä tiimi voi ottaa käyttöön heti seuraavana päivänä."
-            includes={[
-              "Tilaajan toimialaan räätälöity esimerkki­kierros",
-              "Materiaalit ja harjoitukset jakoon",
-              "Etätallenne sopimuksen mukaan",
-            ]}
-          />
-          <Package
-            tier="Toteutus"
-            title="1–2 päivän agentti­sprintti"
-            price="alkaen 1 800 €"
-            unit="per päivä, + alv"
-            text="Suunnittelemme ja rakennamme yhdessä ensimmäisen tekoäly­agenttinne: lähtötilanteen kartoituksen, työkalujen valinnan, tietolähde­rakenteen ja toimivan pilotin."
-            includes={[
-              "Tarvekartoitus ja arkkitehtuuri",
-              "Toimiva pilotti tilaajan ympäristössä",
-              "Dokumentaatio ja jatkopolku",
-            ]}
-          />
-        </div>
-
-        <div className="mt-10 grid md:grid-cols-12 gap-6 items-stretch">
-          <div className="md:col-span-7 card">
-            <p className="eyebrow">Yleiset ehdot</p>
-            <div className="mt-3 flex items-baseline gap-2">
-              <span className="text-3xl md:text-4xl font-semibold text-ink-50 tracking-tight">
-                150 €
-              </span>
-              <span className="text-ink-200 text-base">
-                / tunti tuntiveloituksena
-              </span>
-            </div>
-            <p className="muted text-sm mt-1">+ alv 25,5 %</p>
-            <ul className="mt-5 grid sm:grid-cols-2 gap-x-6 gap-y-2 text-sm text-ink-100">
-              <li className="flex gap-2">
-                <span aria-hidden className="text-accent-400 mt-1">▸</span>
-                <span>Minimiveloitus 2 tuntia</span>
-              </li>
-              <li className="flex gap-2">
-                <span aria-hidden className="text-accent-400 mt-1">▸</span>
-                <span>Sisältää sisällön räätälöinnin</span>
-              </li>
-              <li className="flex gap-2">
-                <span aria-hidden className="text-accent-400 mt-1">▸</span>
-                <span>Etä- tai lähitoteutus sopimuksen mukaan</span>
-              </li>
-              <li className="flex gap-2">
-                <span aria-hidden className="text-accent-400 mt-1">▸</span>
-                <span>Matkakulut Helsingin ulkopuolelle erikseen</span>
-              </li>
-            </ul>
-          </div>
-
-          <div className="md:col-span-5 card flex flex-col justify-between">
-            <div>
-              <p className="eyebrow">Räätälöity ohjelma</p>
-              <h3 className="h3 mt-2 text-ink-50">
-                Useamman päivän koulutus­ohjelma
-              </h3>
-              <p className="muted text-sm mt-3 leading-relaxed">
-                Esim. AI-akatemia johdolle tai asiantuntijatiimille.
-                Suunnitellaan yhdessä tarpeen, aikataulun ja budjetin mukaan.
-              </p>
-            </div>
-            <a
-              href="#yhteys"
-              className="mt-6 inline-flex items-center gap-2 self-start rounded-xl bg-accent-500 text-ink-900 px-5 py-3 text-sm font-semibold hover:bg-accent-400"
-            >
-              Pyydä tarjous
-              <span aria-hidden>→</span>
-            </a>
-          </div>
-        </div>
-
-        <div className="mt-6 card border-accent-500/30">
-          <p className="eyebrow">Tietosuoja</p>
-          <p className="mt-2 text-ink-100 leading-relaxed">
-            Työ tehdään tietosuojalähtöisesti: minimidatalla, tilaajan
-            ympäristössä ja ilman opiskelijatietojen tarpeetonta siirtämistä
-            ulkopuolisiin palveluihin.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Package({
-  tier,
-  title,
-  price,
-  unit,
-  text,
-  includes,
-  highlight,
-}: {
+type PackageDef = {
   tier: string;
+  badge?: string;
+  highlight?: boolean;
   title: string;
   price: string;
   unit: string;
   text: string;
-  includes: string[];
-  highlight?: boolean;
-}) {
+  includes: readonly string[];
+  cta: string;
+};
+
+const strings = {
+  fi: {
+    eyebrow: "Koulutukset & hinnasto",
+    title: "Tekoälykoulutukset, joista jää käteen työkaluja — ei kalvopinoa.",
+    lead: "Sisältö räätälöidään kohderyhmälle: konkreettiset työkalut, oikeat esimerkit ja taidot, jotka jäävät käyttöön koulutuksen jälkeenkin. Aloita kevyellä johdannolla tai tilaa kokonainen agenttisprintti.",
+    packages: [
+      {
+        tier: "Aloitus",
+        title: "2 tunnin johdanto",
+        price: "300 €",
+        unit: "kiinteä hinta + alv",
+        text: "Tiivis työpaja: mitä tekoäly osaa, miten siitä saa hyödyn omaan rooliin ja mitä riskejä on. Sopii tiimeille, joiden tekoälymatka on alussa.",
+        includes: [
+          "Etänä tai paikan päällä Helsingissä",
+          "Käytännön harjoituksia omilla työkaluilla",
+          "Sisältö räätälöidään tilaajan tarpeisiin",
+        ],
+        cta: "Pyydä tarjous",
+      },
+      {
+        tier: "Suosituin",
+        highlight: true,
+        badge: "Suosituin",
+        title: "Puolen päivän työpaja",
+        price: "600 €",
+        unit: "4 tuntia + alv",
+        text: "Syvempi sukellus: promptaus, työkalujen vertailu, agenttien rakenne ja konkreettinen suunnitelma siitä, mitä tiimi ottaa käyttöön heti seuraavana päivänä.",
+        includes: [
+          "Toimialaan räätälöity esimerkkikierros",
+          "Materiaalit ja harjoitukset jakoon",
+          "Etätallenne sopimuksen mukaan",
+        ],
+        cta: "Pyydä tarjous",
+      },
+      {
+        tier: "Toteutus",
+        title: "1–2 päivän agenttisprintti",
+        price: "alk. 1 800 €",
+        unit: "per päivä + alv",
+        text: "Suunnittelemme ja rakennamme yhdessä ensimmäisen tekoälyagenttinne: lähtötilanteen kartoitus, työkalujen valinta, tietolähteet ja toimiva pilotti.",
+        includes: [
+          "Tarvekartoitus ja arkkitehtuuri",
+          "Toimiva pilotti tilaajan ympäristössä",
+          "Dokumentaatio ja jatkopolku",
+        ],
+        cta: "Pyydä tarjous",
+      },
+    ] as readonly PackageDef[],
+    termsEyebrow: "Yleiset ehdot",
+    termsUnit: "/ tunti tuntiveloituksena",
+    termsVat: "+ alv 25,5 %",
+    termsItems: [
+      "Minimiveloitus 2 tuntia",
+      "Sisältää sisällön räätälöinnin",
+      "Etä- tai lähitoteutus sopimuksen mukaan",
+      "Matkakulut Helsingin ulkopuolelle erikseen",
+    ],
+    customEyebrow: "Räätälöity ohjelma",
+    customTitle: "Useamman päivän koulutusohjelma",
+    customBody:
+      "Esimerkiksi AI-akatemia johdolle tai asiantuntijatiimille. Suunnitellaan yhdessä tarpeen, aikataulun ja budjetin mukaan.",
+    customCta: "Pyydä tarjous",
+    privacyLabel: "Tietosuoja:",
+    privacyBody:
+      "työ tehdään tietosuojalähtöisesti — minimidatalla, tilaajan ympäristössä ja ilman opiskelijatietojen tarpeetonta siirtämistä ulkopuolisiin palveluihin.",
+  },
+  en: {
+    eyebrow: "Training & pricing",
+    title: "AI training that leaves you with tools — not a slide deck.",
+    lead: "Content is tailored to your audience: concrete tools, real examples, and skills that stay in use after the training. Start with a light introduction or book a full agent sprint.",
+    packages: [
+      {
+        tier: "Starter",
+        title: "2-hour introduction",
+        price: "€300",
+        unit: "fixed price + VAT",
+        text: "A compact workshop: what AI can do, how to benefit in your own role, and what the risks are. For teams at the start of their AI journey.",
+        includes: [
+          "Remote or on-site in Helsinki",
+          "Hands-on exercises with your own tools",
+          "Content tailored to your needs",
+        ],
+        cta: "Request a quote",
+      },
+      {
+        tier: "Most popular",
+        highlight: true,
+        badge: "Popular",
+        title: "Half-day workshop",
+        price: "€600",
+        unit: "4 hours + VAT",
+        text: "A deeper dive: prompting, tool comparison, agent structure and a concrete plan for what your team can adopt the very next day.",
+        includes: [
+          "Industry-tailored example tour",
+          "Materials and exercises to keep",
+          "Recording by agreement",
+        ],
+        cta: "Request a quote",
+      },
+      {
+        tier: "Delivery",
+        title: "1–2 day agent sprint",
+        price: "from €1,800",
+        unit: "per day + VAT",
+        text: "We design and build your first AI agent together: current-state mapping, tool selection, data sources and a working pilot.",
+        includes: [
+          "Needs assessment & architecture",
+          "Working pilot in your environment",
+          "Documentation & next steps",
+        ],
+        cta: "Request a quote",
+      },
+    ] as readonly PackageDef[],
+    termsEyebrow: "General terms",
+    termsUnit: "/ hour, hourly billing",
+    termsVat: "+ VAT 25.5%",
+    termsItems: [
+      "Minimum billing 2 hours",
+      "Includes content tailoring",
+      "Remote or on-site by agreement",
+      "Travel outside Helsinki billed separately",
+    ],
+    customEyebrow: "Custom program",
+    customTitle: "Multi-day training program",
+    customBody:
+      "For example an AI academy for leadership or an expert team. Designed together around your needs, schedule and budget.",
+    customCta: "Request a quote",
+    privacyLabel: "Privacy:",
+    privacyBody:
+      "all work is privacy-first — minimal data, in your environment, and without unnecessary transfer of student data to external services.",
+  },
+} as const;
+
+export default function Pricing({ locale = "fi" }: { locale?: Locale }) {
+  const t = strings[locale];
+  const contact = locale === "en" ? "/en/#yhteys" : "#yhteys";
   return (
-    <div
-      className={
-        "card flex flex-col" +
-        (highlight ? " border-accent-500/60 bg-ink-800/80" : "")
-      }
-    >
-      <div className="flex items-center justify-between gap-2">
-        <p className="eyebrow">{tier}</p>
-        {highlight && (
-          <span className="rounded-full bg-accent-500 text-ink-900 text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5">
-            Suosituin
-          </span>
-        )}
+    <section id="koulutukset" className="section-pad border-t border-cream-50/[0.08]">
+      <div className="container-narrow">
+        <p className="eyebrow">{t.eyebrow}</p>
+        <h2 className="h2 mt-3.5 max-w-[22em] text-cream-50">{t.title}</h2>
+        <p className="lead mt-[18px] max-w-[38em]">{t.lead}</p>
+
+        <div className="mt-12 grid gap-[22px] md:grid-cols-3">
+          {t.packages.map((p) => (
+            <div
+              key={p.title}
+              className={
+                "relative flex flex-col rounded-2xl p-7 transition-transform duration-200 hover:-translate-y-[3px] " +
+                (p.highlight
+                  ? "border border-amber-400/50"
+                  : "border border-cream-50/[0.08] bg-bark-800")
+              }
+              style={
+                p.highlight
+                  ? {
+                      background:
+                        "linear-gradient(160deg, rgba(224,164,88,0.1), #241d18 55%)",
+                    }
+                  : undefined
+              }
+            >
+              <div className="flex items-center justify-between gap-2">
+                <p className="eyebrow-sm">{p.tier}</p>
+                {p.highlight && p.badge && (
+                  <span className="rounded-full bg-amber-400 px-2.5 py-[3px] text-[10.5px] font-bold uppercase tracking-[0.06em] text-bark-900">
+                    {p.badge}
+                  </span>
+                )}
+              </div>
+              <h3 className="mt-2.5 font-display text-[23px] font-semibold text-cream-50">
+                {p.title}
+              </h3>
+              <div className="mt-3.5 flex items-baseline gap-2">
+                <span className="whitespace-nowrap font-display text-[32px] font-semibold text-amber-400">
+                  {p.price}
+                </span>
+                <span className="text-[13.5px] text-cream-400">{p.unit}</span>
+              </div>
+              <p className="mt-3.5 text-[14.5px] leading-[1.65] text-cream-300">
+                {p.text}
+              </p>
+              <ul className="mt-[18px] flex flex-col gap-2 text-sm text-cream-200">
+                {p.includes.map((item) => (
+                  <li key={item} className="flex gap-2.5">
+                    <span aria-hidden className="text-amber-400">→</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={contact}
+                className="mt-[22px] inline-flex items-center gap-1.5 self-start text-[14.5px] font-bold text-amber-400 hover:text-amber-300"
+              >
+                {p.cta} <span aria-hidden>→</span>
+              </a>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-7 grid gap-[22px] md:grid-cols-12">
+          <div className="rounded-2xl border border-cream-50/[0.08] bg-bark-800 p-7 md:col-span-7">
+            <p className="eyebrow-sm">{t.termsEyebrow}</p>
+            <div className="mt-3 flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
+              <span className="font-display text-[34px] font-semibold text-cream-50">
+                150 €
+              </span>
+              <span className="text-[15px] text-cream-300">{t.termsUnit}</span>
+              <span className="text-[13.5px] text-cream-400">{t.termsVat}</span>
+            </div>
+            <ul className="mt-[18px] grid gap-x-6 gap-y-[9px] text-sm text-cream-200 sm:grid-cols-2">
+              {t.termsItems.map((item) => (
+                <li key={item} className="flex gap-2.5">
+                  <span aria-hidden className="text-amber-400">→</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div
+            className="flex flex-col justify-between rounded-2xl border border-amber-400/35 p-7 md:col-span-5"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(224,164,88,0.14), rgba(217,119,66,0.06))",
+            }}
+          >
+            <div>
+              <p className="eyebrow-sm">{t.customEyebrow}</p>
+              <h3 className="mt-2.5 font-display text-[22px] font-semibold text-cream-50">
+                {t.customTitle}
+              </h3>
+              <p className="mt-3 text-[14.5px] leading-[1.65] text-cream-200">
+                {t.customBody}
+              </p>
+            </div>
+            <a href={contact} className="btn-primary-sm mt-[22px] self-start">
+              {t.customCta} <span aria-hidden>→</span>
+            </a>
+          </div>
+        </div>
+
+        <p className="mt-[26px] text-sm leading-[1.65] text-cream-400">
+          <span className="font-bold text-amber-400">{t.privacyLabel}</span>{" "}
+          {t.privacyBody}
+        </p>
       </div>
-      <h3 className="h3 mt-2 text-ink-50">{title}</h3>
-      <div className="mt-3 flex items-baseline gap-2">
-        <span className="text-3xl font-semibold text-ink-50 tracking-tight">
-          {price}
-        </span>
-        <span className="muted text-sm">{unit}</span>
-      </div>
-      <p className="muted text-sm mt-3 leading-relaxed">{text}</p>
-      <ul className="mt-4 space-y-1.5 text-sm text-ink-100">
-        {includes.map((item) => (
-          <li key={item} className="flex gap-2">
-            <span aria-hidden className="text-accent-400 mt-1">▸</span>
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-      <a
-        href="#yhteys"
-        className="mt-5 inline-flex items-center gap-1.5 self-start text-sm text-accent-400 font-medium hover:underline"
-      >
-        Pyydä tarjous
-        <span aria-hidden>→</span>
-      </a>
-    </div>
+    </section>
   );
 }

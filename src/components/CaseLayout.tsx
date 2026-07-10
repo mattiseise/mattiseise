@@ -1,14 +1,7 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
-import MobileNav from "@/components/MobileNav";
+import Nav from "@/components/Nav";
 import { BASE, PERSON, breadcrumbLd } from "@/lib/schema";
-
-const navItems = [
-  { href: "/#projektit", label: "Projektit" },
-  { href: "/#koulutukset", label: "Koulutukset" },
-  { href: "/blog", label: "Blogi" },
-  { href: "/#yhteys", label: "Yhteys" },
-];
 
 type Section = {
   heading: string;
@@ -36,91 +29,56 @@ export default function CaseLayout({
 }) {
   return (
     <main id="sisalto" className="min-h-screen">
-      <header className="border-b border-ink-600/30 bg-ink-900/80 backdrop-blur sticky top-0 z-30">
-        <nav className="container-narrow flex items-center justify-between py-4 px-6 md:px-10">
-          <Link
-            href="/"
-            className="font-semibold tracking-tight text-ink-50"
-          >
-            Matti Seise
-          </Link>
-          <div className="hidden md:flex items-center gap-7 text-sm text-ink-200">
-            <Link href="/#projektit" className="hover:text-accent-400">
-              Projektit
-            </Link>
-            <Link href="/#koulutukset" className="hover:text-accent-400">
-              Koulutukset
-            </Link>
-            <Link href="/blog" className="hover:text-accent-400">
-              Blogi
-            </Link>
-            <Link href="/#yhteys" className="hover:text-accent-400">
-              Yhteys
-            </Link>
-          </div>
-          <MobileNav items={navItems} />
-        </nav>
-      </header>
+      <Nav locale="fi" active="projects" alternateHref="/en" />
 
-      <article className="section-pad">
-        <div className="container-narrow">
-          <nav aria-label="Murupolku" className="text-sm muted mb-8">
-            <Link href="/" className="hover:text-accent-400">
-              Etusivu
-            </Link>
-            <span aria-hidden className="mx-2">
-              ›
-            </span>
-            <Link href="/#projektit" className="hover:text-accent-400">
-              Projektit
-            </Link>
-            <span aria-hidden className="mx-2">
-              ›
-            </span>
-            <span className="text-ink-100">{title}</span>
-          </nav>
-
-          <p className="eyebrow">{eyebrow}</p>
-          <h1 className="h1 mt-4 text-ink-50 max-w-4xl">{title}</h1>
-          <p className="lead mt-6 max-w-3xl">{lead}</p>
+      <article className="px-5 pb-0 pt-14 md:px-10 md:pt-[72px]">
+        <div className="container-case">
+          <p className="text-[12.5px] font-bold uppercase tracking-[0.14em] text-amber-400">
+            {eyebrow}
+          </p>
+          <h1 className="mt-[18px] font-display text-[32px] font-semibold leading-[1.12] tracking-[-0.015em] text-cream-50 md:text-[44px]">
+            {title}
+          </h1>
+          <p className="mt-[22px] max-w-[40em] text-lg leading-[1.7] text-cream-200">
+            {lead}
+          </p>
 
           {facts.length > 0 && (
-            <dl className="mt-10 grid sm:grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-4 border-y border-ink-600/40 py-6">
+            <dl className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
               {facts.map((f) => (
-                <div key={f.label}>
-                  <dt className="eyebrow">{f.label}</dt>
-                  <dd className="mt-1 text-ink-50 font-medium">{f.value}</dd>
+                <div
+                  key={f.label}
+                  className="rounded-[14px] border border-cream-50/[0.08] bg-bark-800 px-5 py-[18px]"
+                >
+                  <dt className="text-[11.5px] font-bold uppercase tracking-[0.11em] text-cream-400">
+                    {f.label}
+                  </dt>
+                  <dd className="mt-1.5 font-display text-[19px] font-semibold text-amber-400">
+                    {f.value}
+                  </dd>
                 </div>
               ))}
             </dl>
           )}
 
-          <div className="mt-12 grid md:grid-cols-12 gap-x-12 gap-y-12">
+          <div className="mt-14 flex flex-col gap-12 text-[17px] leading-[1.75] text-cream-100">
             {sections.map((s) => (
-              <section
-                key={s.heading}
-                className="md:col-span-12 grid md:grid-cols-12 gap-x-12 gap-y-4"
-              >
-                <h2 className="h2 text-ink-50 md:col-span-4">{s.heading}</h2>
-                <div className="md:col-span-8 space-y-5 text-ink-100 leading-relaxed">
-                  {s.body}
-                </div>
+              <section key={s.heading}>
+                <h2 className="mb-4 font-display text-[26px] font-semibold text-cream-50">
+                  {s.heading}
+                </h2>
+                <div className="space-y-4">{s.body}</div>
               </section>
             ))}
           </div>
 
           {cta && (
-            <div className="mt-16 rounded-2xl border border-accent-500/40 bg-ink-800/60 p-8 md:p-10 text-center">
-              <h3 className="h3 text-ink-50">
-                Onko sinulla samankaltainen tarve?
-              </h3>
-              <p className="lead mt-3 max-w-xl mx-auto">{cta.label}</p>
-              <Link
-                href={cta.href}
-                className="mt-6 inline-flex items-center gap-2 rounded-xl bg-accent-500 text-ink-900 px-5 py-3 text-sm font-semibold hover:bg-accent-400"
-              >
-                Pyydä tarjous
-                <span aria-hidden>→</span>
+            <div className="card-glow mt-14 flex flex-wrap items-center justify-between gap-7 rounded-[18px] p-8">
+              <p className="max-w-[34em] text-base leading-[1.65] text-cream-200">
+                {cta.label}
+              </p>
+              <Link href={cta.href} className="btn-primary-sm shrink-0">
+                Ota yhteyttä <span aria-hidden>→</span>
               </Link>
             </div>
           )}
@@ -128,22 +86,19 @@ export default function CaseLayout({
           {(prev || next) && (
             <nav
               aria-label="Muut caset"
-              className="mt-16 grid md:grid-cols-2 gap-4"
+              className="mt-6 grid gap-4 sm:grid-cols-2"
             >
               {prev ? (
                 <Link
                   href={prev.href}
-                  className="card flex items-center gap-3 hover:border-accent-500/50"
+                  className="rounded-[14px] border border-cream-50/10 bg-bark-800 px-6 py-5 transition-colors hover:border-amber-400/50"
                 >
-                  <span aria-hidden className="text-accent-400">
-                    ←
+                  <span className="block text-xs font-bold uppercase tracking-[0.11em] text-cream-400">
+                    Edellinen
                   </span>
-                  <div>
-                    <p className="eyebrow">Edellinen case</p>
-                    <p className="mt-1 text-ink-50 font-medium">
-                      {prev.label}
-                    </p>
-                  </div>
+                  <span className="mt-1.5 block text-[15px] font-bold text-cream-50">
+                    {prev.label}
+                  </span>
                 </Link>
               ) : (
                 <span />
@@ -151,16 +106,13 @@ export default function CaseLayout({
               {next && (
                 <Link
                   href={next.href}
-                  className="card flex items-center justify-end gap-3 text-right hover:border-accent-500/50"
+                  className="rounded-[14px] border border-cream-50/10 bg-bark-800 px-6 py-5 text-right transition-colors hover:border-amber-400/50"
                 >
-                  <div>
-                    <p className="eyebrow">Seuraava case</p>
-                    <p className="mt-1 text-ink-50 font-medium">
-                      {next.label}
-                    </p>
-                  </div>
-                  <span aria-hidden className="text-accent-400">
-                    →
+                  <span className="block text-xs font-bold uppercase tracking-[0.11em] text-cream-400">
+                    Seuraava
+                  </span>
+                  <span className="mt-1.5 block text-[15px] font-bold text-cream-50">
+                    {next.label}
                   </span>
                 </Link>
               )}
@@ -169,20 +121,19 @@ export default function CaseLayout({
         </div>
       </article>
 
-      <Footer />
+      <div className="mt-[72px]">
+        <Footer locale="fi" />
+      </div>
     </main>
   );
 }
 
 export function CaseList({ items }: { items: string[] }) {
   return (
-    <ul className="space-y-2.5">
+    <ul className="flex list-disc flex-col gap-2.5 pl-6 marker:text-amber-400">
       {items.map((i) => (
-        <li key={i} className="flex gap-3">
-          <span aria-hidden className="text-accent-400 mt-1.5 shrink-0">
-            ▸
-          </span>
-          <span>{i}</span>
+        <li key={i} className="pl-1">
+          {i}
         </li>
       ))}
     </ul>

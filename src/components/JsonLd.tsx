@@ -40,7 +40,7 @@ export default function JsonLd() {
     ],
     knowsAbout: [
       "Generatiivinen tekoäly",
-      "Multi-agent-järjestelmät",
+      "Monen agentin järjestelmät (multi-agent)",
       "RAG (Retrieval-Augmented Generation)",
       "Selainautomaatio (Playwright, Selenium)",
       "Pedagoginen suunnittelu",
@@ -117,7 +117,7 @@ export default function JsonLd() {
             "@type": "Course",
             name: "Agentit ja automaatio",
             description:
-              "Multi-agent-arkkitehtuurit, työkalut ja RAG. Työpajan jälkeen mukaan lähtee suunnitelma ensimmäisestä omasta agentista.",
+              "Monen agentin arkkitehtuurit, työkalut ja RAG. Työpajan jälkeen mukaan lähtee suunnitelma ensimmäisestä omasta agentista.",
             provider: { "@id": "https://seise.org/#person" },
           },
         },

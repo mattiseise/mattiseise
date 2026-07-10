@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PostLayout from "@/components/PostLayout";
-import { getAllPosts, getPostBySlug, getAdjacent } from "@/lib/blog";
+import { getAllPosts, getPostBySlug, getAdjacent, isPublished } from "@/lib/blog";
 
 export function generateStaticParams() {
   return getAllPosts("fi").map((p) => ({ slug: p.slug }));
@@ -18,8 +18,8 @@ export async function generateMetadata({
 
   const url = `https://seise.org/blog/${post.slug}`;
   const enPost = getAllPosts("en").find((p) => p.part === post.part);
-  // Lukittu (tuleva) osa: ei indeksoida ennen julkaisuaikaa.
-  const locked = new Date(post.date).getTime() > Date.now();
+  // Lukittu (tuleva) osa: ei indeksoida ennen julkaisua.
+  const locked = !isPublished(post);
   // LinkedIn/OG: oma 1200×630-rajaus (1.91:1) kansikuvasta.
   const ogImage = post.cover?.replace("/images/blog/", "/images/blog/og/");
   const images = ogImage

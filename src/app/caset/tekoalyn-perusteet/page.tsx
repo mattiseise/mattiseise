@@ -77,7 +77,7 @@ export default function Page() {
               <>
                 <p>
                   Kurssi on jaettu kolmeen kokonaisuuteen: ensin teoria
-                  (mitä tekoäly on, miten se toimii ja millaisia rajat
+                  (mitä tekoäly on, miten se toimii ja millaiset rajat
                   sillä on), sitten käytäntö (työkalut, promptaus,
                   kriittinen arviointi) ja lopuksi agentit (miten
                   yksinkertaisia automaatioita voi rakentaa itse).
@@ -109,7 +109,7 @@ export default function Page() {
                 <p className="mt-5 text-sm muted">
                   Avoin sivusto:{" "}
                   <a
-                    className="text-accent-400 hover:underline"
+                    className="text-amber-400 hover:text-amber-300 hover:underline"
                     href="https://ai-perusteet.netlify.app/"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -118,7 +118,7 @@ export default function Page() {
                   </a>{" "}
                   · Lähdekoodi:{" "}
                   <a
-                    className="text-accent-400 hover:underline"
+                    className="text-amber-400 hover:text-amber-300 hover:underline"
                     href="https://github.com/mattiseise/ai-perusteet"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -199,7 +199,7 @@ export default function Page() {
                   Katso{" "}
                   <Link
                     href="/#koulutukset"
-                    className="text-accent-400 hover:underline"
+                    className="text-amber-400 hover:text-amber-300 hover:underline"
                   >
                     koulutuspaketit ja hinnasto
                   </Link>{" "}

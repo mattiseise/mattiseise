@@ -1,17 +1,20 @@
+import fs from "node:fs";
+import path from "node:path";
 import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 
 /**
- * Renderöi markdownin sivuston brändityyleillä (ink/accent-paletti, .h*-luokat).
- * remark-gfm = listat/taulukot, rehype-slug = otsikoiden id:t ankkurilinkkejä varten.
+ * Renderöi markdownin Iltavalo-tyyleillä (bark/cream/amber-paletti,
+ * display-otsikot, blockquote-nosto). remark-gfm = listat/taulukot,
+ * rehype-slug = otsikoiden id:t ankkurilinkkejä varten.
  */
 const components: Components = {
   h2: ({ children, id }) => (
     <h2
       id={id}
-      className="text-2xl md:text-3xl font-semibold tracking-tight text-ink-50 mt-12 mb-4 scroll-mt-28"
+      className="mb-4 mt-12 scroll-mt-28 font-display text-[26px] font-semibold text-cream-50 md:text-[27px]"
     >
       {children}
     </h2>
@@ -19,20 +22,20 @@ const components: Components = {
   h3: ({ children, id }) => (
     <h3
       id={id}
-      className="text-xl font-semibold text-ink-50 mt-8 mb-3 scroll-mt-28"
+      className="mb-3 mt-8 scroll-mt-28 font-display text-xl font-semibold text-cream-50"
     >
       {children}
     </h3>
   ),
   p: ({ children }) => (
-    <p className="text-ink-100 leading-relaxed my-5">{children}</p>
+    <p className="my-6 text-[17.5px] leading-[1.8] text-cream-100">{children}</p>
   ),
   a: ({ href, children }) => {
     const external = href?.startsWith("http");
     return (
       <a
         href={href}
-        className="text-accent-400 underline underline-offset-4 decoration-accent-500/40 hover:text-accent-300 hover:decoration-accent-400"
+        className="text-amber-400 underline underline-offset-4 decoration-amber-400/40 hover:text-amber-300 hover:decoration-amber-300"
         {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
         {children}
@@ -40,36 +43,53 @@ const components: Components = {
     );
   },
   ul: ({ children }) => (
-    <ul className="my-5 space-y-2.5 list-disc pl-5 text-ink-100 marker:text-accent-400">
+    <ul className="my-6 list-disc space-y-3 pl-6 text-[17.5px] leading-[1.8] text-cream-100 marker:text-amber-400">
       {children}
     </ul>
   ),
   ol: ({ children }) => (
-    <ol className="my-5 space-y-3 list-decimal pl-5 text-ink-100 marker:text-accent-400 marker:font-semibold">
+    <ol className="my-6 list-decimal space-y-3 pl-6 text-[17.5px] leading-[1.8] text-cream-100 marker:font-semibold marker:text-amber-400">
       {children}
     </ol>
   ),
-  li: ({ children }) => <li className="leading-relaxed pl-1">{children}</li>,
+  li: ({ children }) => <li className="pl-1">{children}</li>,
   strong: ({ children }) => (
-    <strong className="font-semibold text-ink-50">{children}</strong>
+    <strong className="font-bold text-cream-50">{children}</strong>
   ),
-  em: ({ children }) => <em className="italic text-ink-200">{children}</em>,
+  em: ({ children }) => <em className="italic text-cream-200">{children}</em>,
   code: ({ children }) => (
-    <code className="rounded border border-ink-600/50 bg-ink-800 px-1.5 py-0.5 text-[0.85em] font-mono text-accent-300">
+    <code className="rounded border border-cream-50/10 bg-bark-800 px-1.5 py-0.5 font-mono text-[0.85em] text-amber-300">
       {children}
     </code>
   ),
   pre: ({ children }) => (
-    <pre className="my-6 overflow-x-auto rounded-xl border border-ink-600/50 bg-ink-800/80 p-5 text-sm font-mono text-ink-100">
+    <pre className="my-6 overflow-x-auto rounded-xl border border-cream-50/10 bg-bark-800/80 p-5 font-mono text-sm text-cream-100">
       {children}
     </pre>
   ),
   blockquote: ({ children }) => (
-    <blockquote className="my-6 border-l-2 border-accent-500/60 pl-5 text-ink-200 italic">
+    <blockquote className="my-8 border-l-[3px] border-amber-400 py-1 pl-6 font-display text-[21px] leading-[1.5] text-cream-50 [&_p]:my-0 [&_p]:text-[21px] [&_p]:leading-[1.5] [&_p]:text-cream-50 [&_strong]:font-semibold">
       {children}
     </blockquote>
   ),
-  hr: () => <hr className="my-10 border-ink-600/40" />,
+  hr: () => <hr className="my-10 border-cream-50/10" />,
+  img: ({ src, alt }) => {
+    // Näytä paikallinen kuva vain jos tiedosto on oikeasti olemassa publicissa —
+    // tulevien sarjojen kuvitus voi puuttua vielä julkaisuvaiheessa.
+    if (typeof src === "string" && src.startsWith("/")) {
+      if (!fs.existsSync(path.join(process.cwd(), "public", src))) return null;
+    }
+    if (!src || typeof src !== "string") return null;
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={src}
+        alt={alt ?? ""}
+        loading="lazy"
+        className="my-8 w-full rounded-[18px] border border-cream-50/[0.08]"
+      />
+    );
+  },
 };
 
 export default function Markdown({ children }: { children: string }) {

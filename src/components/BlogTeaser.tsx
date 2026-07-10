@@ -1,80 +1,84 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getAllPosts, formatDate, formatDateTime } from "@/lib/blog";
+import {
+  getAllPosts,
+  isPublished,
+  formatDate,
+  blogPath,
+  type Locale,
+} from "@/lib/blog";
 
-/**
- * Etusivun blogi-nosto: 2–3 uusinta julkaistua osaa + seuraavan osan
- * julkaisuaika. Julkaisutila lasketaan build-aikana; päivittäinen
- * Netlify-rebuild (hermes cron) pitää noston ajan tasalla.
- */
-export default function BlogTeaser() {
-  const posts = getAllPosts();
-  const now = Date.now();
-  const published = posts
-    .filter((p) => new Date(p.date).getTime() <= now)
-    .sort((a, b) => b.part - a.part)
-    .slice(0, 3);
-  const nextUp = posts
-    .filter((p) => new Date(p.date).getTime() > now)
-    .sort((a, b) => a.part - b.part)[0];
+const strings = {
+  fi: {
+    eyebrow: "Blogi",
+    title: "Rehellistä tuotantokokemusta — ilman hypeä.",
+    desc: "Sarjat ja irtokirjoitukset agenteista, automaatiosta ja pedagogiikasta. Uusin sarja: Oman AI-agentin rakentaminen, 6 osaa.",
+    kicker: (part: number, total: number) => `Sarja · osa ${part}/${total}`,
+    cta: "Kaikki kirjoitukset",
+  },
+  en: {
+    eyebrow: "Blog",
+    title: "Honest production experience — without the hype.",
+    desc: "Series and standalone posts on agents, automation and pedagogy. Latest series: Building My Own AI Agent, 6 parts.",
+    kicker: (part: number, total: number) => `Series · part ${part}/${total}`,
+    cta: "All posts",
+  },
+} as const;
 
-  if (published.length === 0) return null;
+/** Etusivun kompakti blogi-nosto: yksi rivi, uusin julkaistu postaus keskellä. */
+export default function BlogTeaser({ locale = "fi" }: { locale?: Locale }) {
+  const t = strings[locale];
+  const published = getAllPosts(locale).filter(isPublished);
+  const latest = published[published.length - 1];
+  if (!latest) return null;
 
   return (
-    <section id="blogi" className="section-pad border-t border-ink-600/30">
-      <div className="container-narrow">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <p className="eyebrow">Blogi · Oman AI-agentin rakentaminen</p>
-            <h2 className="h2 mt-3 text-ink-50">
-              Rehellinen sarja oman AI-agentin rakentamisesta.
-            </h2>
-            <p className="lead mt-4 max-w-2xl">
-              Kuusi osaa tuotantokokemusta ilman hypeä: kalliit virheet,
-              autonomian rajat ja migraatio OpenClaw&apos;sta Hermekseen.
-            </p>
-          </div>
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-sm font-medium text-accent-400 hover:text-accent-300"
-          >
-            Katso koko sarja <span aria-hidden>→</span>
+    <section
+      id="blogi"
+      className="border-t border-cream-50/[0.08] px-5 py-14 md:px-10 md:py-[72px]"
+    >
+      <div className="container-narrow grid items-center gap-9 rounded-[20px] border border-cream-50/[0.08] bg-bark-800 p-7 md:grid-cols-12 md:px-10 md:py-9">
+        <div className="md:col-span-5">
+          <p className="eyebrow-sm">{t.eyebrow}</p>
+          <h2 className="mt-2.5 font-display text-[26px] font-semibold leading-[1.25] text-cream-50">
+            {t.title}
+          </h2>
+          <p className="mt-3 text-[15px] leading-[1.65] text-cream-300">
+            {t.desc}
+          </p>
+        </div>
+        <Link
+          href={blogPath(locale, latest.slug)}
+          className="flex items-center gap-4 rounded-[14px] border border-cream-50/10 p-3.5 transition-colors hover:border-amber-400/45 md:col-span-4"
+        >
+          {latest.cover && (
+            <span className="relative block w-[92px] shrink-0 overflow-hidden rounded-[9px]" style={{ aspectRatio: "16/11" }}>
+              <Image
+                src={latest.cover}
+                alt=""
+                fill
+                sizes="92px"
+                className="object-cover"
+              />
+            </span>
+          )}
+          <span className="block">
+            <span className="block text-[11.5px] font-bold uppercase tracking-[0.1em] text-amber-400">
+              {t.kicker(latest.part, latest.totalParts)}
+            </span>
+            <span className="mt-1.5 block text-[14.5px] font-bold leading-[1.4] text-cream-50">
+              {latest.title}
+            </span>
+            <span className="mt-1.5 block text-[12.5px] text-cream-400">
+              {formatDate(latest.date, locale)} · {latest.readingMinutes} min
+            </span>
+          </span>
+        </Link>
+        <div className="md:col-span-3 md:justify-self-end">
+          <Link href={blogPath(locale)} className="btn-outline-amber">
+            {t.cta} <span aria-hidden>→</span>
           </Link>
         </div>
-
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {published.map((p) => (
-            <Link key={p.slug} href={`/blog/${p.slug}`} className="card group">
-              {p.cover && (
-                <div className="relative mb-4 aspect-[16/9] w-full overflow-hidden rounded-xl border border-ink-600/40 bg-ink-900">
-                  <Image
-                    src={p.cover}
-                    alt={p.coverAlt ?? ""}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 320px"
-                    className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                  />
-                </div>
-              )}
-              <p className="eyebrow">
-                Osa {p.part}/{p.totalParts} · {formatDate(p.date)}
-              </p>
-              <h3 className="mt-2 text-lg font-semibold text-ink-50 group-hover:text-accent-300 transition-colors">
-                {p.title}
-              </h3>
-              <p className="mt-2 text-sm text-ink-200 leading-relaxed">
-                {p.description}
-              </p>
-            </Link>
-          ))}
-        </div>
-
-        {nextUp && (
-          <p className="mt-6 text-sm muted">
-            <span aria-hidden>🔒</span> Seuraava osa julkaistaan{" "}
-            {formatDateTime(nextUp.date)}.
-          </p>
-        )}
       </div>
     </section>
   );
