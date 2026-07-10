@@ -9,6 +9,8 @@ topic: "pedagogy"
 description: "Käytän tekoälyä palautteen luonnosteluun, kriteerien selkokielistämiseen ja eriyttämiseen. Arvosanasta päättää opettaja — kerron, miten raja pysyy paikallaan käytännössä."
 keyword: "tekoäly arvioinnissa"
 date: "2026-07-10T12:00:00+03:00"
+cover: "/images/blog/rakentaja-kadet.jpg"
+coverAlt: "Kädet näppäimistöllä ja hiirellä työpöydän ääressä."
 nosto: "Kun aloin käyttää tekoälyä arvioinnin tukena, tein heti alussa yhden säännön: arvioinnista päätän minä. Sen jälkeen tekoälystä tuli oikeasti hyödyllinen. Kirjoitin auki, mihin käytän sitä omassa arviointityössäni, mitä en anna sille ikinä — ja miksi omat tehtävät kannattaa kokeilla kielimallilla ennen kuin ne antaa opiskelijoille. 👇"
 ---
 

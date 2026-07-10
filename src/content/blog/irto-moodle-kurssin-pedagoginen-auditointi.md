@@ -9,6 +9,8 @@ topic: "pedagogy"
 description: "Rakensin agentin, joka lukee Moodle-kurssin varmuuskopion ja tarkistaa rakenteen, Bloomin tasot ja ePerusteiden kattavuuden. Oma kurssini sai rehellisen raportin: 289 aktiviteettia, 83 duplikaattia ja yksi 137 aktiviteetin osio."
 keyword: "Moodle-kurssin auditointi"
 date: "2026-07-10T12:30:00+03:00"
+cover: "/images/blog/rakentaja-tyopiste.jpg"
+coverAlt: "Työpiste ylhäältä kuvattuna: kädet näppäimistöllä ja laajakuvanäyttö."
 nosto: "Auditoin oman Moodle-kurssini agentilla. Löytyi 83 duplikaattia, yksi 137 aktiviteetin osio ja analysointitason tehtäviä noin prosentti. Mikään näistä ei näkynyt minulle Moodlessa — oman kurssin puutteita on vaikea nähdä samasta syystä kuin oman tekstin virheitä. Kirjoitin auki, miten auditointi toimii ja mitä se ei saa päättää. 👇"
 ---
 

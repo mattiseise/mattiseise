@@ -11,3 +11,6 @@ out
 # OS
 .DS_Store
 *.log
+
+# Alkuperäiset valokuvat (vain lähdemateriaali, prosessoidut versiot publicissa)
+/img

@@ -9,6 +9,8 @@ topic: "pedagogy"
 description: "I use AI to draft feedback, translate criteria into plain language and differentiate assignments. The teacher decides the grade — here's how I keep that line in place in practice."
 keyword: "AI in assessment"
 date: "2026-07-10T12:00:00+03:00"
+cover: "/images/blog/rakentaja-kadet.jpg"
+coverAlt: "Hands on a keyboard and mouse at a desk."
 ---
 
 Assessment is one of the heaviest parts of a teacher's job. Not because it's hard, but because there's so much of it: thirty students' assignments, feedback and grades in the same week, on top of everything else.

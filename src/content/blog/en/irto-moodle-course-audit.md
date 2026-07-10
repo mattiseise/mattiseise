@@ -9,6 +9,8 @@ topic: "pedagogy"
 description: "I built an agent that reads a Moodle course backup and checks structure, Bloom levels and curriculum coverage. My own course got an honest report: 289 activities, 83 duplicates and one 137-activity section."
 keyword: "Moodle course audit"
 date: "2026-07-10T12:30:00+03:00"
+cover: "/images/blog/rakentaja-tyopiste.jpg"
+coverAlt: "A desk seen from above: hands on a keyboard and an ultrawide display."
 ---
 
 Moodle courses in vocational education are rarely the result of a single design. They grow in layers: new activities get added, old ones are too dear to delete, and a couple of years later nobody remembers why section seven has three versions of the same assignment.
