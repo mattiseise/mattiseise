@@ -40,6 +40,7 @@ export type BlogIndexStrings = {
   ctaBtn2: string;
   ctaHref1: string;
   ctaHref2: string;
+  aerialCredit: string;
 };
 
 /**
@@ -215,25 +216,46 @@ export default function BlogIndexClient({
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA — taustalla ilmakuva Helsingistä (CC BY 4.0, attribuutio kortissa) */}
       <section className="px-5 pb-24 md:px-10">
-        <div className="container-narrow flex flex-wrap items-center justify-between gap-8 rounded-[20px] border border-amber-400/35 bg-bark-800 p-7 md:p-10">
-          <div>
-            <h2 className="font-display text-[26px] font-semibold text-cream-50">
-              {t.ctaTitle}
-            </h2>
-            <p className="mt-2.5 max-w-[36em] text-base leading-[1.65] text-cream-300">
-              {t.ctaBody}
-            </p>
+        <div className="container-narrow relative overflow-hidden rounded-[20px] border border-amber-400/35 bg-bark-800">
+          <Image
+            src="/images/helsinki-ilmakuva.jpg"
+            alt=""
+            aria-hidden
+            fill
+            sizes="(max-width: 1200px) 100vw, 1120px"
+            className="object-cover opacity-[0.22] saturate-[0.7]"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(100deg, rgba(26,21,18,0.92) 25%, rgba(26,21,18,0.55))",
+            }}
+          />
+          <div className="relative flex flex-wrap items-center justify-between gap-8 p-7 md:p-10">
+            <div>
+              <h2 className="font-display text-[26px] font-semibold text-cream-50">
+                {t.ctaTitle}
+              </h2>
+              <p className="mt-2.5 max-w-[36em] text-base leading-[1.65] text-cream-300">
+                {t.ctaBody}
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link href={t.ctaHref1} className="btn-primary-sm">
+                {t.ctaBtn1} <span aria-hidden>→</span>
+              </Link>
+              <Link href={t.ctaHref2} className="btn-outline-sm">
+                {t.ctaBtn2}
+              </Link>
+            </div>
           </div>
-          <div className="flex flex-wrap gap-3">
-            <Link href={t.ctaHref1} className="btn-primary-sm">
-              {t.ctaBtn1} <span aria-hidden>→</span>
-            </Link>
-            <Link href={t.ctaHref2} className="btn-outline-sm">
-              {t.ctaBtn2}
-            </Link>
-          </div>
+          <p className="absolute bottom-2 right-4 text-[10.5px] text-cream-400/60">
+            {t.aerialCredit}
+          </p>
         </div>
       </section>
     </>
