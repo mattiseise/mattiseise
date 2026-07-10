@@ -6,7 +6,7 @@ const labels = {
     blog: "Blogi",
     projects: "Projektit",
     training: "Koulutukset",
-    contact: "Yhteys",
+    contact: "Yhteydenotto",
     nav: "Alatunniste",
   },
   en: {

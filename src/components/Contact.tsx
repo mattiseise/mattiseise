@@ -3,7 +3,7 @@ import type { Locale } from "@/lib/blog";
 
 const strings = {
   fi: {
-    eyebrow: "Yhteys",
+    eyebrow: "Yhteydenotto",
     title: "Tekoälyprojekti, jonka pitää toimia tuotannossa?",
     lead: "Otan vastaan koulutus-, konsultointi- ja toteutuspyyntöjä — erityisesti silloin, kun ratkaisun on tarkoitus sopia oikeaan työhön ja jäädä päivittäiseen käyttöön, ei vain demoksi.",
     email: "Sähköposti",

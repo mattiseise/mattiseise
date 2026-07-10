@@ -9,7 +9,7 @@ const labels = {
     training: "Koulutukset",
     projects: "Projektit",
     blog: "Blogi",
-    contact: "Yhteys",
+    contact: "Yhteydenotto",
     cta: "Ota yhteyttä",
   },
   en: {
