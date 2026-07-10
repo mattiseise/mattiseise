@@ -2,12 +2,12 @@
 title: "Tekoäly opettajan hallintotyössä"
 slug: "tekoaly-opettajan-hallintotyossa"
 part: 1
-totalParts: 1
+totalParts: 7
 series: "Tekoäly opettajan hallintotyössä"
 seriesSlug: "tekoaly-opettajan-hallintotyossa"
 topic: "automation"
 upcoming: true
-plannedLabel: "Syksy 2026"
+plannedLabel: "Elokuu 2026"
 description: "Kolme konkreettista esimerkkiä siitä, miten tekoäly keventää opettajan hallinnollista työtä: tarkistettavat asiat näkyviin, näkymän rauhoittaminen ja tiedonsiirto ilman käsin kopioimista — päätösvalta pysyy opettajalla."
 keyword: "tekoäly opettajan työssä"
 date: "2026-09-01T09:00:00+03:00"
