@@ -5,6 +5,47 @@ import type { Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 
+/** Paikallinen kuva näytetään vain jos tiedosto on olemassa publicissa. */
+function imgExists(src: unknown): src is string {
+  if (typeof src !== "string" || src.length === 0) return false;
+  if (!src.startsWith("/")) return true;
+  return fs.existsSync(path.join(process.cwd(), "public", src));
+}
+
+type HastNode = {
+  type: string;
+  tagName?: string;
+  value?: string;
+  properties?: { src?: string; alt?: string; title?: string };
+  children?: HastNode[];
+};
+
+/**
+ * Ennen–jälkeen-kuvapari: kaksi kuvaa samassa markdown-kappaleessa
+ * (peräkkäisillä riveillä ilman tyhjää riviä) renderöityy vierekkäin,
+ * ja kuvan title-attribuutti ('Ennen' / 'Jälkeen') nousee otsakkeeksi.
+ */
+function imagePairFrom(node: HastNode | undefined) {
+  if (!node?.children) return null;
+  const imgs = node.children.filter(
+    (c) => c.type === "element" && c.tagName === "img",
+  );
+  const rest = node.children.filter(
+    (c) => !(c.type === "element" && c.tagName === "img"),
+  );
+  const onlyWhitespace = rest.every(
+    (c) => c.type === "text" && (c.value ?? "").trim() === "",
+  );
+  if (imgs.length < 2 || !onlyWhitespace) return null;
+  const existing = imgs.filter((i) => imgExists(i.properties?.src));
+  if (existing.length < 2) return null;
+  return existing.map((i) => ({
+    src: i.properties?.src as string,
+    alt: i.properties?.alt ?? "",
+    title: i.properties?.title,
+  }));
+}
+
 /**
  * Renderöi markdownin Iltavalo-tyyleillä (bark/cream/amber-paletti,
  * display-otsikot, blockquote-nosto). remark-gfm = listat/taulukot,
@@ -27,9 +68,37 @@ const components: Components = {
       {children}
     </h3>
   ),
-  p: ({ children }) => (
-    <p className="my-6 text-[17.5px] leading-[1.8] text-cream-100">{children}</p>
-  ),
+  p: ({ children, node }) => {
+    const pair = imagePairFrom(node as HastNode | undefined);
+    if (pair) {
+      return (
+        <div className="my-8 grid gap-3.5 sm:grid-cols-2">
+          {pair.map((img) => (
+            <figure
+              key={img.src}
+              className="m-0 overflow-hidden rounded-[14px] border border-cream-50/[0.08] bg-bark-800"
+            >
+              {img.title && (
+                <figcaption className="px-3.5 py-2.5 text-[11.5px] font-bold uppercase tracking-[0.08em] text-cream-400">
+                  {img.title}
+                </figcaption>
+              )}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                className="block w-full"
+              />
+            </figure>
+          ))}
+        </div>
+      );
+    }
+    return (
+      <p className="my-6 text-[17.5px] leading-[1.8] text-cream-100">{children}</p>
+    );
+  },
   a: ({ href, children }) => {
     const external = href?.startsWith("http");
     return (
@@ -74,12 +143,8 @@ const components: Components = {
   ),
   hr: () => <hr className="my-10 border-cream-50/10" />,
   img: ({ src, alt }) => {
-    // Näytä paikallinen kuva vain jos tiedosto on oikeasti olemassa publicissa —
-    // tulevien sarjojen kuvitus voi puuttua vielä julkaisuvaiheessa.
-    if (typeof src === "string" && src.startsWith("/")) {
-      if (!fs.existsSync(path.join(process.cwd(), "public", src))) return null;
-    }
-    if (!src || typeof src !== "string") return null;
+    // Tulevien sarjojen kuvitus voi puuttua vielä julkaisuvaiheessa.
+    if (!imgExists(src)) return null;
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
