@@ -72,7 +72,8 @@ const components: Components = {
     const pair = imagePairFrom(node as HastNode | undefined);
     if (pair) {
       return (
-        <div className="my-8 grid gap-3.5 sm:grid-cols-2">
+        // Pari levenee tekstipalstan (720px) yli kansikuvan leveyteen (880px).
+        <div className="my-8 grid gap-3.5 sm:grid-cols-2 lg:-mx-20">
           {pair.map((img) => (
             <figure
               key={img.src}
