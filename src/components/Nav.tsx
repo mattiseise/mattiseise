@@ -30,12 +30,10 @@ export default function Nav({
   locale = "fi",
   active,
   alternateHref,
-  showCta = false,
 }: {
   locale?: Locale;
   active?: "blog" | "projects";
   alternateHref?: string;
-  showCta?: boolean;
 }) {
   const t = labels[locale];
   const prefix = locale === "en" ? "/en" : "";
@@ -91,21 +89,13 @@ export default function Nav({
           >
             {t.blog}
           </Link>
+          <LangSwitch locale={locale} alternateHref={alternateHref} />
           <Link
             href={`${prefix}/#yhteys`}
-            className="text-cream-300 hover:text-amber-400"
+            className="rounded-[10px] border-[1.5px] border-amber-400 px-[18px] py-[9px] font-bold text-amber-400 hover:bg-amber-400 hover:text-bark-900"
           >
-            {t.contact}
+            {t.cta}
           </Link>
-          <LangSwitch locale={locale} alternateHref={alternateHref} />
-          {showCta && (
-            <Link
-              href={`${prefix}/#yhteys`}
-              className="rounded-[10px] border-[1.5px] border-amber-400 px-[18px] py-[9px] font-bold text-amber-400 hover:bg-amber-400 hover:text-bark-900"
-            >
-              {t.cta}
-            </Link>
-          )}
         </div>
         <div className="flex items-center gap-3 lg:hidden">
           <LangSwitch locale={locale} alternateHref={alternateHref} />

@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 export default function Page() {
   return (
     <main id="sisalto" className="min-h-screen">
-      <Nav locale="fi" alternateHref="/en" showCta />
+      <Nav locale="fi" alternateHref="/en" />
       <Hero locale="fi" />
       <About locale="fi" />
       <Pricing locale="fi" />

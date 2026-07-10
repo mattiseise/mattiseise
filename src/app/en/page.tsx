@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 export default function EnglishHome() {
   return (
     <main id="sisalto" className="min-h-screen" lang="en">
-      <Nav locale="en" alternateHref="/" showCta />
+      <Nav locale="en" alternateHref="/" />
       <Hero locale="en" />
       <About locale="en" />
       <Pricing locale="en" />
