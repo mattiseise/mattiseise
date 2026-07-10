@@ -1,57 +1,59 @@
 ---
-title: "Moodle-kurssin pedagoginen auditointi yhdellä komennolla"
+title: "Miten auditoin oman Moodle-kurssini yhdellä komennolla"
 slug: "moodle-kurssin-pedagoginen-auditointi"
 part: 1
 totalParts: 1
 series: "Moodle-kurssin pedagoginen auditointi"
 seriesSlug: "moodle-kurssin-pedagoginen-auditointi"
 topic: "pedagogy"
-description: "Rakensin agentin, joka lukee Moodle-kurssin varmuuskopion ja kertoo, ovatko tavoitteet, opetus ja arviointi linjassa. Oman kurssini auditointi paljasti 83 duplikaattia ja yhden 137 aktiviteetin hirviöosion."
+description: "Rakensin agentin, joka lukee Moodle-kurssin varmuuskopion ja tarkistaa rakenteen, Bloomin tasot ja ePerusteiden kattavuuden. Oma kurssini sai rehellisen raportin: 289 aktiviteettia, 83 duplikaattia ja yksi 137 aktiviteetin osio."
 keyword: "Moodle-kurssin auditointi"
 date: "2026-07-10T12:30:00+03:00"
-nosto: "Auditoin oman Moodle-kurssini agentilla. Tulos: 289 aktiviteettia, 83 duplikaattia, yksi 137 aktiviteetin hirviöosio — ja analysointitason tehtäviä noin 1 %. Päivän käsityö muuttui minuuttien ajoksi, ja korjauslista tuli valmiiksi priorisoituna. Kirjoitin auki, miten auditointi toimii ja mitä se ei saa päättää. 👇"
+nosto: "Auditoin oman Moodle-kurssini agentilla. Löytyi 83 duplikaattia, yksi 137 aktiviteetin osio ja analysointitason tehtäviä noin prosentti. Mikään näistä ei näkynyt minulle Moodlessa — oman kurssin puutteita on vaikea nähdä samasta syystä kuin oman tekstin virheitä. Kirjoitin auki, miten auditointi toimii ja mitä se ei saa päättää. 👇"
 ---
 
-Ammatillisen koulutuksen Moodle-kurssit ovat harvoin kertaluonteisia rakennelmia. Ne ovat vuosien kerrostumia: aktiviteetteja on lisätty, vanhoja ei ole raaskittu poistaa, ja jossain vaiheessa kukaan ei enää muista, miksi osiossa seitsemän on kolme eri versiota samasta tehtävästä.
+Ammatillisen koulutuksen Moodle-kurssit ovat harvoin yhden suunnittelun tulosta. Ne kasvavat kerroksittain: uusia aktiviteetteja lisätään, vanhoja ei raaskita poistaa, ja parin vuoden päästä kukaan ei enää muista, miksi osiossa seitsemän on kolme versiota samasta tehtävästä.
 
-Tiesin tämän omalta kohdaltani, mutta en tiennyt kuinka pahasti. Selvittääkseni asian rakensin **auditointiagentin** — ja ajoin sen ensimmäiseksi oman kurssini kimppuun.
+Tiesin, että omassa kurssissani on tätä samaa. En vain tiennyt, kuinka paljon.
 
 ## Mitä auditointi tekee
 
-Ajatus on yksinkertainen: opettaja ottaa kurssista Moodlen varmuuskopion (.mbz-tiedosto) ja ajaa yhden komennon. Agentti purkaa varmuuskopion, jäsentää kurssin rakenteen ja ajaa siitä kolme analyysiä:
+Rakensin **auditointiagentin**, joka lukee Moodlen varmuuskopion (.mbz-tiedoston) ja käy kurssin läpi kolmesta suunnasta:
 
-- **Rakenneanalyysi**: osioiden koko, aktiviteettityyppien jakauma, duplikaatit, rikkinäiset linkit ja tyhjät osiot.
-- **Bloomin taksonomian jakauma**: millä ajattelun tasoilla kurssin tehtävät liikkuvat — muistamisesta ja soveltamisesta analysointiin ja arviointiin.
-- **Linjakkuustarkastus**: kattavatko kurssin sisällöt ePerusteiden ammattitaitovaatimukset, ja kertovatko tavoitteet, opetus ja arviointi samaa tarinaa.
+- **Rakenne**: osioiden koko, duplikaatit, rikkinäiset linkit ja tyhjät osiot.
+- **Bloomin taksonomia**: millä ajattelun tasoilla kurssin tehtävät liikkuvat — muistamisesta ja soveltamisesta analysointiin ja arviointiin.
+- **Linjakkuus**: kattaako kurssi ePerusteiden ammattitaitovaatimukset ja kertovatko tavoitteet, opetus ja arviointi samaa tarinaa.
 
-Lopputulos on PDF-raportti. Olennaista on, että raportti on toimenpidelähtöinen, ei kuvaileva: jokaisesta havainnosta seuraa konkreettinen korjausehdotus ja aika-arvio. Opettaja ei saa esseetä kurssinsa tilasta, vaan priorisoidun työlistan.
+Lopputulos on PDF-raportti. Tärkein valinta oli, että raportti ei kuvaile vaan ehdottaa: jokaisesta havainnosta seuraa toimenpide ja aika-arvio. En halunnut esseetä kurssini tilasta. Halusin työlistan.
 
-## Mitä oma kurssini paljasti
+## Mitä omasta kurssistani löytyi
 
-Auditoin 45 osaamispisteen web-ohjelmoinnin kurssini. Numerot puhuvat puolestaan:
+Ajoin auditoinnin 45 osaamispisteen web-ohjelmoinnin kurssilleni. Raportti kertoi muun muassa tämän:
 
-- **289 aktiviteettia**, joista 142 teoriasivua ja 126 tehtävää — runko oli vahva.
-- **Bloomin jakauma vinossa**: soveltamistason tehtäviä 43 %, mutta analysointitason tehtäviä noin 1 %. Kurssi opetti tekemään, mutta ei juuri erittelemään tai perustelemaan.
-- **Yksi osio oli kasvanut 137 aktiviteetin hirviöksi**, jossa opiskelijan navigointi oli käytännössä arpapeliä.
-- **83 duplikaattiaktiviteettia** eri osioissa — pedagoginen polku ei ollut selkeä edes tekijälleen.
-- Viisi opiskelijoiden nimillä nimettyä tyhjää osiota ja muutama rikkinäinen linkki — kerrostumia, joita ei kukaan ollut huomannut.
+- 289 aktiviteettia, joista 142 teoriasivua ja 126 tehtävää. Runko oli kunnossa.
+- Soveltamistason tehtäviä oli 43 prosenttia, analysointitason noin yksi. Kurssi opetti tekemään, mutta ei juuri perustelemaan.
+- Yksi osio oli kasvanut 137 aktiviteetin kokoiseksi. Opiskelija ei löydä sellaisesta mitään.
+- 83 aktiviteettia oli duplikaatteja eri osioissa.
+- Lisäksi viisi tyhjää osiota, jotka oli nimetty opiskelijoiden nimillä, ja muutama rikkinäinen linkki.
 
-> Auditointi, joka aiemmin olisi vaatinut päivän käsityötä, valmistuu nyt minuuteissa — ja tulos on rehellisempi, koska kone ei kaunistele omaa kurssia.
+Mikään näistä ei näkynyt minulle Moodlessa.
 
-Viimeinen kohta on tärkein. Oman kurssin arviointi käsin on vaikeaa samasta syystä kuin oman tekstin oikoluku: silmä liukuu tutun yli. Agentti ei tunne kurssia eikä sen historiaa, joten se laskee ja raportoi ilman selittelyä.
+> Oman kurssin puutteita on vaikea nähdä samasta syystä kuin oman tekstin virheitä: silmä liukuu tutun yli.
 
-Raportin toimenpidelista tuli valmiiksi priorisoituna aika-arvioineen: rakenteen jakaminen ammattitaitovaatimuksittain (4–6 h), duplikaattien ratkaisu (3–4 h), Bloomin tasapainon korjaus analysointitason tehtävillä (8–12 h). Korjaukset saattoi aloittaa sieltä, missä vaikutus opiskelijalle on suurin.
+Agentti ei tunne kurssia eikä sen historiaa, joten se laskee ja raportoi kaunistelematta. Päivän käsityö muuttui minuuttien mittaiseksi ajoksi, ja tulos oli rehellisempi kuin oma arvioni olisi ollut.
 
-## Mitä agentti ei päätä
+Raportin toimenpidelista tuli valmiiksi järjestettynä aika-arvioineen: rakenteen jakaminen ammattitaitovaatimusten mukaan (4–6 tuntia), duplikaattien purku (3–4 tuntia) ja analysointitason tehtävien lisääminen (8–12 tuntia). Pystyin aloittamaan korjaukset sieltä, missä vaikutus opiskelijaan on suurin.
 
-Tässäkin raja on sama kuin kaikessa muussa tekoälyn käytössäni opetustyössä: **agentti analysoi, opettaja päättää.**
+## Raja on sama kuin muuallakin
 
-Raportti voi kertoa, että analysointitason tehtäviä on 1 %. Se ei voi tietää, että osa niistä tehdään lähiopetuksessa ilman Moodle-jälkeä. Se voi laskea duplikaatit, mutta opettaja tietää, mitkä niistä ovat tarkoituksellisia rinnakkaisia polkuja. Siksi raportti on ehdotus, ei tuomio — ja siksi jokainen toimenpide kulkee opettajan harkinnan kautta ennen toteutusta.
+Agentti analysoi, minä päätän.
 
-Agentti ei myöskään koske kurssiin. Se lukee varmuuskopiota, ei tuotantoympäristöä, eikä se muuta mitään. Opiskelijadataa analyysiin ei mene: varmuuskopio otetaan ilman opiskelijatietoja.
+Raportti voi kertoa, että analysointitason tehtäviä on prosentti. Se ei voi tietää, että osa niistä tehdään lähiopetuksessa ilman Moodle-jälkeä. Se laskee duplikaatit, mutta minä tiedän, mitkä niistä ovat tarkoituksella rinnakkain. Siksi raportti on ehdotus, ei tuomio, ja jokainen toimenpide kulkee opettajan harkinnan kautta.
 
-## Miksi tämä kannattaa
+Agentti ei myöskään koske itse kurssiin. Se lukee varmuuskopiota eikä muuta mitään. Opiskelijatietoja analyysiin ei mene — varmuuskopio otetaan ilman niitä.
 
-Kurssin laadun ja opiskelijan oikeusturvan kannalta olennaiset kysymykset — kattaako kurssi vaatimukset, mittaako arviointi oikeita asioita, löytääkö opiskelija perille — ovat juuri niitä, joihin ei arjessa ehdi pysähtyä. Auditointi tekee pysähtymisestä halpaa: kun tarkistus maksaa minuutteja eikä päivää, sen voi tehdä joka lukukausi.
+## Mitä tästä jäi käteen
 
-Tekninen toteutus ja esimerkkiraportti on kuvattu tarkemmin [case-sivulla](/caset/moodle-kurssiauditointi). Ja jos haluat vastaavan auditoinnin omille kursseillesi tai oppilaitoksellesi, se onnistuu — yksittäisestä kurssista oppilaitostason yhteenvetoon.
+Kurssin laadun kannalta tärkeimmät kysymykset — kattaako kurssi vaatimukset, mittaako arviointi oikeita asioita, löytääkö opiskelija perille — ovat juuri niitä, joiden äärelle ei arjessa ehdi pysähtyä. Auditointi teki pysähtymisestä halpaa. Kun tarkistus maksaa minuutteja eikä päivää, sen ehtii tehdä joka lukukausi.
+
+Tekninen toteutus ja esimerkkiraportti on kuvattu tarkemmin [case-sivulla](/caset/moodle-kurssiauditointi). Sama auditointi onnistuu myös muille — yksittäisestä kurssista koko oppilaitoksen yhteenvetoon.

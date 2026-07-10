@@ -1,69 +1,68 @@
 ---
-title: "Tekoäly arvioinnissa: opettajan päätösvalta ei ole neuvottelukysymys"
+title: "Miten käytän tekoälyä arvioinnissa — ja mitä en anna sen päättää"
 slug: "tekoaly-arvioinnissa"
 part: 1
 totalParts: 1
 series: "Tekoäly arvioinnissa"
 seriesSlug: "tekoaly-arvioinnissa"
 topic: "pedagogy"
-description: "Miten tekoälyä käytetään arvioinnin tukena niin, että ammatillinen vastuu säilyy opettajalla. Bloomin taksonomia ja linjakas opetus runkona — ja selkeä raja sille, mitä tekoäly ei saa päättää."
+description: "Käytän tekoälyä palautteen luonnosteluun, kriteerien selkokielistämiseen ja eriyttämiseen. Arvosanasta päättää opettaja — kerron, miten raja pysyy paikallaan käytännössä."
 keyword: "tekoäly arvioinnissa"
 date: "2026-07-10T12:00:00+03:00"
-nosto: "Koulutuksissa kysytään aina sama kysymys: saako tekoälyä käyttää arvioinnissa? Mielestäni kysymys on väärä. Oikea kysymys on, mitä tekoäly saa arvioinnissa tehdä — ja mitä ei ikinä. Kirjoitin auki oman rajanvetoni: missä tekoäly oikeasti auttaa arvioinnissa, missä kulkee raja ja millä tarkistuslistalla pysyn sen oikealla puolella. 👇"
+nosto: "Kun aloin käyttää tekoälyä arvioinnin tukena, tein heti alussa yhden säännön: arvioinnista päätän minä. Sen jälkeen tekoälystä tuli oikeasti hyödyllinen. Kirjoitin auki, mihin käytän sitä omassa arviointityössäni, mitä en anna sille ikinä — ja miksi omat tehtävät kannattaa kokeilla kielimallilla ennen kuin ne antaa opiskelijoille. 👇"
 ---
 
-Jokaisessa opettajille pitämässäni koulutuksessa kysytään sama kysymys: **saako tekoälyä käyttää arvioinnissa?**
+Arviointi on opettajan työn raskaimpia vaiheita. Ei siksi, että se olisi vaikeaa, vaan siksi, että sitä on paljon: kolmenkymmenen opiskelijan tehtävät, palautteet ja arvosanat samalla viikolla kaiken muun työn päälle.
 
-Kysymys on ymmärrettävä, mutta mielestäni väärin muotoiltu. Parempi kysymys kuuluu: **mitä tekoäly saa arvioinnissa tehdä — ja mitä ei ikinä?**
+Kun aloin käyttää **tekoälyä** arvioinnin tukena, tein heti alussa yhden säännön: **arvioinnista päätän minä.** Tekoäly ei anna arvosanaa, ei hyväksy eikä hylkää, eikä tee opiskelijasta johtopäätöksiä. Sama sääntö on kaikissa työkaluissani, ja se on ainoa kohta, josta en jousta.
 
-Vastaus ei ole monimutkainen, mutta se vaatii yhden periaatteen, josta ei tingitä: arvioinnista päättää opettaja. Aina. Tekoäly voi tukea arviointia monessa kohdassa, mutta arvosana, hyväksyntä ja opiskelijaa koskeva johtopäätös eivät ole asioita, joita ulkoistetaan kielimallille.
+Säännön jälkeen tekoälystä tuli arvioinnissa oikeasti hyödyllinen. Kerron, mihin käytän sitä omassa työssäni.
 
-## Missä tekoäly oikeasti auttaa
+## Palautteen luonnostelu
 
-Kun päätösvalta on selvästi opettajalla, tekoälystä tulee arvioinnissa hyödyllinen työpari. Neljä käyttötapaa, jotka olen todennut toimiviksi omassa työssäni:
+Palaute on arvioinnin työläin osa. Tiedän kyllä, mitä sanoa. Mutta saman asian sanallistaminen kolmellekymmenelle opiskelijalle vie illan.
 
-**Nopea palaute opiskelijalle.** Palautteen kirjoittaminen on arvioinnin työläin osa — ei siksi, ettei opettaja tietäisi mitä sanoa, vaan siksi, että saman asian sanallistaminen kolmellekymmenelle opiskelijalle vie aikaa. Tekoäly luonnostelee, opettaja tarkistaa ja muokkaa. Palaute paranee, koska sitä ehtii oikeasti antaa.
+Annan tekoälylle arviointikriteerit ja omat huomioni opiskelijan työstä. Se luonnostelee palautteen, minä tarkistan ja muokkaan. Kriteerit annan aina mukana — en anna kielimallin keksiä omaa käsitystään hyvästä suorituksesta.
 
-**Arviointikriteerien sanallistaminen.** Ammattitaitovaatimukset ja arviointikriteerit ovat usein hallinnollista kieltä, jota opiskelijan on vaikea ymmärtää. Tekoäly kääntää kriteerit opiskelijan kielelle: mitä tämä tarkoittaa käytännössä, miltä hyväksytty suoritus näyttää. Opettaja tarkistaa, että käännös vastaa alkuperäistä.
+Palaute ei parantunut siksi, että kone kirjoittaisi paremmin kuin minä. Se parani, koska palautetta ehtii nyt oikeasti antaa.
 
-**Eriyttäminen.** Sama tehtävä eri vaativuustasoilla, sama sisältö selkokielisenä, sama arviointi eri tavoin osoitettuna. Tämä on työtä, joka jää usein tekemättä ajan puutteen takia — ja juuri siinä tekoäly on parhaimmillaan.
+## Kriteerit opiskelijan kielelle
 
-**Saavutettavuus.** Tekstin rakenteen selkeyttäminen, vaihtoehtoiset suoritustavat, ohjeiden pilkkominen. Erityisopettajana pidän tätä tekoälyn aliarvostetuimpana käyttönä: se madaltaa kynnystä tehdä saavutettavia materiaaleja, koska työmäärä ei enää ole este.
+Ammattitaitovaatimukset ja arviointikriteerit ovat hallinnollista kieltä. Opiskelija ei aina saa niistä selvää, enkä aina minäkään ensimmäisellä lukemisella.
 
-## Missä raja kulkee
+Pyydän tekoälyä kertomaan saman asian opiskelijan kielellä: mitä tässä pitää käytännössä osata ja miltä hyväksytty suoritus näyttää. Tarkistan, että käännös vastaa alkuperäistä. Se on nopeampaa kuin kirjoittaa itse — mutta tarkistamatta sitä ei voi käyttää.
 
-Raja on minulle selvä, ja pidän siitä kiinni myös koulutuksissa:
+## Eriyttäminen ja saavutettavuus
+
+Erityisopettajana pidän tätä tekoälyn tärkeimpänä käyttönä arvioinnissa. Sama tehtävä eri vaativuustasoilla, sama ohje selkokielisenä, sama osaaminen osoitettuna eri tavalla.
+
+Tämä työ jäi ennen usein tekemättä, koska aikaa ei ollut. Nyt se jää tekemättä harvemmin.
+
+## Mitä tekoälylle ei anneta
+
+Opiskelijan henkilötietoja ei anneta tekoälylle. Palautteet ja luonnokset tehdään ilman nimiä ja tunnisteita. Nyrkkisääntöni on yksinkertainen: jos tekstin voisi kiinnittää ilmoitustaululle, sen voi antaa tekoälylle. Jos ei voisi, ei voi.
+
+Toinen periaate on avoimuus. Kerron opiskelijoille, miten käytän tekoälyä arvioinnissa. Samaa avoimuutta odotan heiltäkin.
+
+## Omat tehtävät kannattaa kokeilla kielimallilla
+
+Yksi asia yllätti minut. Kun kokeilin omia tehtäviäni kielimallilla, iso osa niistä ratkesi sekunneissa. Muistamista ja toistamista mittaava tehtävä ei enää mittaa opiskelijan osaamista — se mittaa sitä, onko opiskelijalla pääsy kielimalliin.
+
+Suunnittelun runko ei silti muuttunut mihinkään. Käytän samoja työkaluja kuin ennenkin: Bloomin taksonomiaa ja linjakasta opetusta, jossa tavoitteet, opetus ja arviointi kertovat samaa tarinaa. Tekoäly vain teki näkyväksi, kuinka moni tehtävistäni liikkui alimmilla ajattelun tasoilla. Ja sama työkalu, joka ongelman paljasti, auttaa myös korjaamaan sen: tehtäviä saa nostettua analysoinnin ja perustelun suuntaan nopeammin kuin yksin.
+
+## Mistä kannattaa aloittaa
+
+Jos haluat kokeilla tekoälyä arvioinnin tukena, neljä askelta riittää alkuun:
+
+1. **Päätä raja ensin.** Mihin tekoäly saa osallistua ja mistä päättää vain opettaja? Kirjaa se ylös ennen ensimmäistä kokeilua.
+2. **Anna kriteerit mukana.** Palaute perustuu sinun kriteereihisi, ei kielimallin arvaukseen.
+3. **Pidä henkilötiedot poissa.** Ilmoitustaulusääntö toimii tässä hyvin.
+4. **Kokeile omia tehtäviäsi kielimallilla.** Saat nopeasti selville, mitkä niistä mittaavat vielä jotain.
+
+## Mitä tästä jäi käteen
 
 > Tekoäly ei arvioi opiskelijaa. Se auttaa opettajaa arvioimaan.
 
-Käytännössä tämä tarkoittaa kolmea asiaa. Tekoäly ei anna arvosanaa — se voi luonnostella perusteluja, mutta päätöksen tekee opettaja, joka tuntee opiskelijan tilanteen. Tekoäly ei tee johtopäätöksiä opiskelijasta — se ei arvioi motivaatiota, oppimisvaikeuksia tai tuen tarvetta. Ja tekoälylle ei syötetä opiskelijan henkilötietoja — palaute ja luonnokset tehdään minimidatalla, ilman nimiä ja ilman tunnistetietoja.
+Hyöty ei tullut siitä, että kone osaisi arvioida. Hyöty tuli ajasta: sanallistaminen ja luonnostelu nopeutuivat, ja vapautunut aika menee siihen osaan arviointia, jota kone ei voi tehdä — opiskelijan tilanteen ymmärtämiseen ja päätökseen.
 
-Kolmas kohta on se, joka koulutuksissa yllättää useimmin. Hyvä nyrkkisääntö: jos tekstin voisi julkaista ilmoitustaululla, sen voi antaa tekoälylle. Jos ei voisi, ei voi.
-
-## Runko, joka pitää arvioinnin kasassa
-
-Pelkkä raja ei riitä — tarvitaan myös rakenne, joka pitää arvioinnin linjassa. Käytän kahta työkalua, jotka ovat opettajille tuttuja jo ennestään.
-
-**Linjakas opetus**: tavoitteet, opetus ja arviointi kertovat samaa tarinaa. Jos tekoälyä käytetään palautteen tuottamiseen, palautteen pitää perustua samoihin kriteereihin, joilla arvosana annetaan — ei kielimallin omaan käsitykseen hyvästä suorituksesta. Siksi kriteerit annetaan tekoälylle aina mukana, eikä sen anneta keksiä niitä itse.
-
-**Bloomin taksonomia**: millä ajattelun tasolla opiskelijan osaamista oikeasti mitataan. Tekoälyn aikakaudella tämä on entistä tärkeämpää, koska muistamis- ja toistamistason tehtävät ratkeavat kielimallilla sekunneissa. Arviointi, joka mittaa vain alimpia tasoja, ei enää mittaa opiskelijaa. Tekoäly voi auttaa nostamaan tehtäviä analysoinnin ja arvioinnin tasoille — ja paljastaa samalla, kuinka suuri osa nykyisistä tehtävistä on koneella ratkaistavissa.
-
-## Tarkistuslista
-
-Kun suunnittelen tekoälyä hyödyntävää arviointia, käyn läpi viisi kysymystä:
-
-1. **Kuka päättää?** Jos vastaus ei ole "opettaja", suunnitelma menee uusiksi.
-2. **Mihin kriteereihin palaute perustuu?** Kriteerit annetaan tekoälylle — sitä ei päästetä keksimään omiaan.
-3. **Mitä dataa tekoälylle menee?** Ei nimiä, ei tunnisteita, ei arkaluonteista tietoa.
-4. **Mitä ajattelun tasoa tehtävä mittaa?** Jos tehtävän ratkaisee kielimalli sekunneissa, se ei mittaa opiskelijan osaamista.
-5. **Tietääkö opiskelija, miten tekoälyä on käytetty?** Avoimuus on osa arvioinnin luotettavuutta.
-
-Lista on tarkoituksella lyhyt. Sen tehtävä ei ole tehdä tekoälyn käytöstä byrokratiaa, vaan pitää huoli siitä, että hyöty tulee oikeasta paikasta: opettajan ajasta, ei opettajan vastuusta.
-
-## Mitä tästä jää käteen
-
-Tekoäly ei muuta arvioinnin perusasioita. Linjakas opetus, selkeät kriteerit ja opettajan ammatillinen harkinta olivat hyvän arvioinnin runko ennen kielimalleja, ja ne ovat sitä edelleen.
-
-Se mitä tekoäly muuttaa, on työn jakautuminen: sanallistaminen, luonnostelu ja muokkaaminen nopeutuvat, jolloin opettajan aikaa vapautuu siihen osaan arviointia, jota kone ei voi tehdä — opiskelijan tilanteen ymmärtämiseen ja päätökseen.
-
-Päätösvalta ei ole neuvottelukysymys. Kaikki muu on.
+Se osa ei ollut ongelma ennen tekoälyä, eikä se ole ongelma nytkään. Se on opettajan työtä.

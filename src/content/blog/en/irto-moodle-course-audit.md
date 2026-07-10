@@ -1,56 +1,58 @@
 ---
-title: "A Pedagogical Audit of a Moodle Course with One Command"
+title: "How I Audited My Own Moodle Course with One Command"
 slug: "moodle-course-audit"
 part: 1
 totalParts: 1
 series: "A Pedagogical Audit of a Moodle Course"
 seriesSlug: "moodle-kurssin-pedagoginen-auditointi"
 topic: "pedagogy"
-description: "I built an agent that reads a Moodle course backup and reports whether goals, teaching and assessment are aligned. Auditing my own course revealed 83 duplicates and one monster section of 137 activities."
+description: "I built an agent that reads a Moodle course backup and checks structure, Bloom levels and curriculum coverage. My own course got an honest report: 289 activities, 83 duplicates and one 137-activity section."
 keyword: "Moodle course audit"
 date: "2026-07-10T12:30:00+03:00"
 ---
 
-Moodle courses in vocational education are rarely built in one go. They are layers of years: activities get added, old ones never get deleted, and at some point nobody remembers why section seven has three different versions of the same assignment.
+Moodle courses in vocational education are rarely the result of a single design. They grow in layers: new activities get added, old ones are too dear to delete, and a couple of years later nobody remembers why section seven has three versions of the same assignment.
 
-I knew this applied to my own course too — I just didn't know how badly. To find out, I built an **audit agent** — and pointed it at my own course first.
+I knew my own course had some of this. I just didn't know how much.
 
 ## What the audit does
 
-The idea is simple: the teacher takes a Moodle backup of the course (an .mbz file) and runs one command. The agent unpacks the backup, parses the course structure and runs three analyses:
+I built an **audit agent** that reads a Moodle backup (an .mbz file) and goes through the course from three directions:
 
-- **Structure analysis**: section sizes, distribution of activity types, duplicates, broken links and empty sections.
-- **Bloom's taxonomy distribution**: what levels of thinking the course tasks operate on — from recall and application to analysis and evaluation.
-- **Alignment check**: does the course cover the competence requirements of the national curriculum, and do goals, teaching and assessment tell the same story.
+- **Structure**: section sizes, duplicates, broken links and empty sections.
+- **Bloom's taxonomy**: what levels of thinking the course tasks operate on — from recall and application to analysis and evaluation.
+- **Alignment**: does the course cover the competence requirements of the national curriculum, and do goals, teaching and assessment tell the same story.
 
-The output is a PDF report. Crucially, the report is action-oriented, not descriptive: every finding comes with a concrete fix and a time estimate. The teacher doesn't get an essay about the state of the course — they get a prioritized work list.
+The output is a PDF report. The most important choice was that the report doesn't describe — it proposes: every finding comes with an action and a time estimate. I didn't want an essay about the state of my course. I wanted a work list.
 
-## What my own course revealed
+## What it found in my course
 
-I audited my 45-credit web programming course. The numbers speak for themselves:
+I ran the audit on my 45-credit web programming course. The report told me, among other things:
 
-- **289 activities**, of which 142 theory pages and 126 assignments — the backbone was solid.
-- **Bloom distribution skewed**: 43% of tasks at the application level, but only about 1% at the analysis level. The course taught students to do, but hardly to break down or justify.
-- **One section had grown into a 137-activity monster** where student navigation was effectively a lottery.
-- **83 duplicate activities** across sections — the pedagogical path wasn't clear even to its author.
-- Five empty sections named after students, and a few broken links — sediment nobody had noticed.
+- 289 activities, of which 142 theory pages and 126 assignments. The backbone was fine.
+- 43 percent of tasks were at the application level, about one percent at the analysis level. The course taught doing, but hardly justifying.
+- One section had grown to 137 activities. No student can find anything in that.
+- 83 activities were duplicates across sections.
+- Plus five empty sections named after students, and a few broken links.
 
-> An audit that used to take a day of manual work now finishes in minutes — and the result is more honest, because a machine doesn't flatter its own course.
+None of this had been visible to me in Moodle.
 
-That last point is the most important one. Evaluating your own course by hand is hard for the same reason proofreading your own text is: the eye slides over the familiar. The agent doesn't know the course or its history, so it counts and reports without excuses.
+> Your own course's flaws are hard to see for the same reason as your own text's errors: the eye slides over the familiar.
 
-The report's action list came pre-prioritized with time estimates: restructuring by competence requirement (4–6 h), resolving duplicates (3–4 h), fixing the Bloom balance with analysis-level tasks (8–12 h). Fixes could start where the impact on students is greatest.
+The agent doesn't know the course or its history, so it counts and reports without flattery. A day of manual work became a run of a few minutes, and the result was more honest than my own estimate would have been.
 
-## What the agent doesn't decide
+The report's action list came pre-ordered with time estimates: restructuring by competence requirement (4–6 hours), resolving duplicates (3–4 hours) and adding analysis-level tasks (8–12 hours). I could start the fixes where the impact on students is greatest.
 
-The line here is the same as in everything else I do with AI in teaching: **the agent analyzes, the teacher decides.**
+## The line is the same as everywhere else
 
-The report can say that analysis-level tasks make up 1%. It can't know that some of them happen in classroom teaching with no Moodle trace. It can count duplicates, but the teacher knows which ones are intentional parallel paths. That's why the report is a proposal, not a verdict — and why every action passes through the teacher's judgment before implementation.
+The agent analyzes; I decide.
 
-The agent also never touches the course. It reads a backup, not the production environment, and changes nothing. No student data enters the analysis: the backup is taken without student information.
+The report can say that analysis-level tasks amount to one percent. It can't know that some of them happen in classroom teaching with no Moodle trace. It counts duplicates, but I know which ones are parallel on purpose. That's why the report is a proposal, not a verdict, and every action passes through the teacher's judgment.
 
-## Why this is worth doing
+The agent also never touches the course itself. It reads a backup and changes nothing. No student data enters the analysis — the backup is taken without it.
 
-The questions that matter most for course quality and students' legal protection — does the course cover the requirements, does the assessment measure the right things, can students find their way — are exactly the ones there's never time to stop and check. The audit makes stopping cheap: when a check costs minutes instead of a day, you can do it every term.
+## What I've learned
 
-The technical implementation and an example report are described in more detail on the [case page](/caset/moodle-kurssiauditointi) (in Finnish). And if you'd like a similar audit for your own courses or institution, that can be arranged — from a single course to an institution-level summary.
+The questions that matter most for course quality — does the course cover the requirements, does the assessment measure the right things, can students find their way — are exactly the ones there's never time to stop for. The audit made stopping cheap. When a check costs minutes instead of a day, you have time to do it every term.
+
+The technical implementation and an example report are described in more detail on the [case page](/caset/moodle-kurssiauditointi) (in Finnish). The same audit works for others too — from a single course to an institution-level summary.
