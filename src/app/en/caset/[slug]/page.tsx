@@ -68,12 +68,12 @@ const cases: Record<string, EnCase> = {
             <p className="text-[14.5px] text-cream-400">
               Open site:{" "}
               <a
-                href="https://ai-perusteet.netlify.app/"
+                href="https://aiperusteet.fi/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-amber-400 hover:text-amber-300"
               >
-                ai-perusteet.netlify.app
+                aiperusteet.fi
               </a>{" "}
               · Source:{" "}
               <a

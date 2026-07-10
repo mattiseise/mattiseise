@@ -19,7 +19,7 @@ const strings = {
     liveMsg: "Aamubriiffi lähetetty klo 6.30 ✓",
     stats: [
       { value: "15+ v", label: "ammatillista opetusta" },
-      { value: "27", label: "avointa oppituntia tekoälystä", href: "https://ai-perusteet.netlify.app/" },
+      { value: "27", label: "avointa oppituntia tekoälystä", href: "https://aiperusteet.fi/" },
       { value: "19 000+", label: "opettajan yhteisön ylläpitäjä" },
       { value: "OPH", label: "tekoälytyöryhmän jäsen" },
     ],
@@ -36,7 +36,7 @@ const strings = {
     liveMsg: "Morning brief sent at 6:30 AM ✓",
     stats: [
       { value: "15+ yrs", label: "of vocational teaching" },
-      { value: "27", label: "open AI lessons published", href: "https://ai-perusteet.netlify.app/" },
+      { value: "27", label: "open AI lessons published", href: "https://aiperusteet.fi/" },
       { value: "19,000+", label: "teacher community admin" },
       { value: "EDUFI", label: "national AI working group member" },
     ],

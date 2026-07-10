@@ -110,18 +110,18 @@ export default function Page() {
                     "Erillinen opiskelija- ja opettajamateriaali jokaiselle oppitunnille (itseopiskelu, tehtävät, sanasto, opettajavetoiset tehtävät)",
                     "Sivuston­generaattori muuntaa Markdown-sisällön julkaistavaksi sivustoksi yhdellä komennolla",
                     "Sisältö avoimena lähdekoodina GitHubissa — muut oppilaitokset voivat hyödyntää, muokata ja jatkokehittää",
-                    "Julkinen versio: ai-perusteet.netlify.app",
+                    "Julkinen versio: aiperusteet.fi",
                   ]}
                 />
                 <p className="mt-5 text-sm muted">
                   Avoin sivusto:{" "}
                   <a
                     className="text-amber-400 hover:text-amber-300 hover:underline"
-                    href="https://ai-perusteet.netlify.app/"
+                    href="https://aiperusteet.fi/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    ai-perusteet.netlify.app
+                    aiperusteet.fi
                   </a>{" "}
                   · Lähdekoodi:{" "}
                   <a

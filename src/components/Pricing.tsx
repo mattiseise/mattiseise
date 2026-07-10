@@ -163,7 +163,7 @@ export default function Pricing({ locale = "fi" }: { locale?: Locale }) {
         <p className="mt-3 max-w-[38em] text-[15px] leading-[1.65] text-cream-300">
           {t.courseNote}{" "}
           <a
-            href="https://ai-perusteet.netlify.app/"
+            href="https://aiperusteet.fi/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-amber-400 underline underline-offset-4 hover:text-amber-300"
