@@ -45,7 +45,7 @@ export const metadata: Metadata = {
       "Generatiivinen tekoäly, agentti­arkkitehtuurit ja koulutus — käytännönläheisesti.",
     url: "https://seise.org",
     siteName: "Matti Seise",
-    images: ["/images/mattivaaka.jpg"],
+    images: ["/images/matti-vaaka-kesa.jpg"],
     locale: "fi_FI",
     type: "website",
   },

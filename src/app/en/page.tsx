@@ -26,7 +26,7 @@ export const metadata: Metadata = {
       "Generative AI, agent architectures and training — hands-on and honest.",
     url: "https://seise.org/en",
     siteName: "Matti Seise",
-    images: ["/images/mattivaaka.jpg"],
+    images: ["/images/matti-vaaka-kesa.jpg"],
     locale: "en_US",
     alternateLocale: ["fi_FI"],
     type: "website",

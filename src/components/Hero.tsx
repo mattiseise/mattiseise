@@ -97,7 +97,7 @@ export default function Hero({ locale = "fi" }: { locale?: Locale }) {
         <div className="fade-up fade-up-3 relative md:col-span-5">
           <div className="relative aspect-[4/4.6] w-full overflow-hidden rounded-[20px]">
             <Image
-              src="/images/mattivaaka.jpg"
+              src="/images/matti-hero.jpg"
               alt="Matti Seise"
               fill
               priority
