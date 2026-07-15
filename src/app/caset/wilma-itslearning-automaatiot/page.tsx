@@ -47,8 +47,8 @@ export default function Page() {
       <CaseLayout
         alternateHref={`/en/caset/${slug}`}
         eyebrow="Case · Selainautomaatio"
-        title="Wilma- ja itslearning-automaatiot — tunteja takaisin opettajalle"
-        lead="Wilman ja itslearningin käyttöliittymät eivät ole rakennettu opettajan päivittäisten rutiinien tehokkaaseen suorittamiseen. Skriptit, jotka korvaavat toistuvan klikkailun, tuovat tunteja työaikaa takaisin viikossa — keskittyminen voi siirtyä käyttöliittymän kanssa kamppailusta opettamiseen."
+        title="Wilma- ja itslearning-automaatiot — vähemmän klikkailua, enemmän opetusta"
+        lead="Rakensin skriptejä niihin opetustyön kohtiin, joissa järjestelmä pakottaa tekemään saman asian kymmeniä kertoja. Opintosuunnitelmat, suorituslistat, poissaolot ja palautusten seuranta eivät vaadi sankarillista käsityötä. Ne vaativat paremman työkalun."
         facts={[
           { label: "Aikaväli", value: "2024–" },
           { label: "Järjestelmät", value: "Wilma & itslearning" },
@@ -57,22 +57,20 @@ export default function Page() {
         ]}
         sections={[
           {
-            heading: "Tilanne",
+            heading: "Ongelma",
             body: (
               <>
                 <p>
-                  Opettaja viettää viikoittain useita tunteja Wilmassa ja
-                  itslearningissä tehtävissä, jotka olisi voitu suunnitella
-                  paremmin: opintosuunnitelmien täydentäminen
-                  opiskelijakohtaisesti, suorituslistojen läpikäynti,
-                  poissaolojen seuranta ja palautusten arviointi.
+                  Opettaja käyttää viikoittain tunteja Wilmassa ja
+                  itslearningissä tehtäviin, jotka ovat sisällöltään
+                  mekaanisia: sama opiskelijakohtainen päivitys, sama listan
+                  tarkistus, sama palautusten seuranta.
                 </p>
                 <p>
-                  Käyttöliittymät on suunniteltu ennen kaikkea hallinnon
-                  tarpeisiin, eivät opettajan päivittäiseen työhön.
-                  Niiden työkalut riittävät yksittäiseen klikkaukseen,
-                  mutta kun samaa toimenpidettä tehdään 30 opiskelijalle,
-                  toistuva klikkailu syö tuntikausia.
+                  Käyttöliittymät toimivat yksittäiseen toimenpiteeseen.
+                  Ongelma alkaa, kun sama tehdään 30 opiskelijalle tai monelle
+                  kurssille. Siinä kohtaa käyttöliittymästä tulee työn este,
+                  ei työn väline.
                 </p>
               </>
             ),
@@ -82,12 +80,11 @@ export default function Page() {
             body: (
               <>
                 <p>
-                  Selenium-pohjaiset skriptit suorittavat toistuvat
-                  rutiinit kerralla kaikille opiskelijoille. Skriptit
-                  eivät korvaa opettajan harkintaa — ne hoitavat sen
-                  osan työstä, joka on luonteeltaan mekaanista. Automaatio
-                  ei tee pedagogisia päätöksiä eikä siirrä opiskelijadataa
-                  ulos tilaajan hyväksymästä ympäristöstä.
+                  Selenium-skriptit hoitavat toistuvat rutiinit kerralla.
+                  Ne eivät korvaa opettajan harkintaa. Ne tekevät sen osan,
+                  jossa ihminen on käyttöliittymän takia huono robotti.
+                  Automaatio ei tee pedagogisia päätöksiä eikä vie
+                  opiskelijadataa pois hyväksytystä ympäristöstä.
                 </p>
                 <p>
                   Konkreettiset käyttötapaukset:
@@ -123,19 +120,15 @@ export default function Page() {
             body: (
               <>
                 <p>
-                  Skriptit tuovat tunteja työaikaa takaisin viikossa.
-                  Esimerkiksi 30 opiskelijan toistuvat päivitykset muuttuvat
-                  tuntien klikkailusta yhdeksi tarkistettavaksi ajoksi.
-                  Tärkeintä ei ole pelkkä ajansäästö, vaan se, että
-                  opettaja voi käyttää aikansa siihen, mihin häntä
-                  oikeasti tarvitaan: opetuksen suunnitteluun,
-                  ohjaukseen ja kohtaamisiin.
+                  Skriptit palauttavat tunteja viikossa. Esimerkiksi 30
+                  opiskelijan päivitys muuttuu tuntien klikkailusta yhdeksi
+                  ajoksi, jonka opettaja tarkistaa. Se on oleellinen ero:
+                  automaatio tekee rutiinin, ihminen tarkistaa seuraukset.
                 </p>
                 <p>
-                  Saavutettavuus on lähtökohta myös automaatioissa:
-                  esimerkiksi värikoodattu suorituslista täydennetään
-                  aina myös tekstuaalisella tilatiedolla, jotta
-                  näkövammaiset käyttäjät pärjäävät.
+                  Saavutettavuus ei katoa automaatioon. Jos suorituslista
+                  värikoodataan, mukaan tulee myös tekstimuotoinen tila.
+                  Väri yksin ei riitä.
                 </p>
               </>
             ),

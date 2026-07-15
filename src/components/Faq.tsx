@@ -6,8 +6,8 @@ import type { Locale } from "@/lib/blog";
 
 const strings = {
   fi: {
-    title: "Vastauksia ennen kuin kysyt.",
-    lead: "Yleisimmät kysymykset koulutuksista, agenteista ja yhteistyön käytännöistä. Jos kysymyksesi puuttuu, ota yhteyttä — vastaan mielelläni.",
+    title: "Yleisimmät kysymykset.",
+    lead: "Käytännön asiat koulutuksista, agenteista ja yhteistyöstä. Jos tästä puuttuu olennainen kysymys, lähetä viesti.",
   },
   en: {
     title: "Answers before you ask.",

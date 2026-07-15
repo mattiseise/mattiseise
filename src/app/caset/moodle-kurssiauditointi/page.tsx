@@ -47,8 +47,8 @@ export default function Page() {
       <CaseLayout
         alternateHref={`/en/caset/${slug}`}
         eyebrow="Case · Pedagoginen analyysi"
-        title="Moodle-kurssiauditointi — yhden komennon pedagoginen analyysi"
-        lead="Tekoälyagentti lukee Moodle-kurssin varmuuskopion, ajaa rakenne-, sisältö- ja linjakkuusanalyysit sekä tuottaa PDF-raportin priorisoiduista toimenpiteistä — aika-arvioineen. Käytössä omassa opetustyössäni ja koulutuskonsultoinnissa."
+        title="Moodle-kurssiauditointi — kurssin sotkut näkyviin yhdellä ajolla"
+        lead="Rakensin agentin, joka lukee Moodle-varmuuskopion ja tekee siitä pedagogisen auditoinnin. Ei yleistä tunnelmapuhetta, vaan rakenne, Bloom-tasot, ePerusteiden kattavuus, duplikaatit ja korjausehdotukset aika-arvioineen."
         facts={[
           { label: "Aikaväli", value: "2025" },
           { label: "Kohde", value: "Moodle .mbz" },
@@ -57,23 +57,20 @@ export default function Page() {
         ]}
         sections={[
           {
-            heading: "Tilanne",
+            heading: "Ongelma",
             body: (
               <>
                 <p>
-                  Ammatillisen koulutuksen kurssit ovat usein vuosien
-                  kerrostumia: aktiviteetteja on lisätty, vanhoja ei ole
-                  poistettu ja kokonaisuudesta on tullut vaikeasti
-                  navigoitava. Samaan aikaan opetus­suunnitelmien
-                  ammatti­taito­vaatimukset elävät, ja niiden seuranta
-                  käsin on raskasta.
+                  Moodle-kurssit keräävät vuosien aikana kerroksia. Lisätään
+                  uusi tehtävä, jätetään vanha varmuuden vuoksi näkyviin,
+                  kopioidaan osio seuraavalle toteutukselle ja lopulta kukaan
+                  ei enää näe kokonaisuutta.
                 </p>
                 <p>
-                  Opettaja tarvitsi tavan tarkistaa, kattaako kurssi
-                  ePerusteiden vaatimukset, onko Bloomin taksonomian
-                  jakauma järkevä ja löytyykö rakenteesta selkeitä
-                  ongelmakohtia. Kursseja on monta, eikä jokaisen
-                  käsin auditointiin ollut aikaa.
+                  Käsin auditointi onnistuu, jos kursseja on yksi ja aikaa
+                  liikaa. Todellisuudessa kursseja on monta. Tarvitsin tavan
+                  nähdä nopeasti, mitä kurssissa oikeasti on ja mihin korjaus
+                  kannattaa aloittaa.
                 </p>
               </>
             ),
@@ -83,16 +80,14 @@ export default function Page() {
             body: (
               <>
                 <p>
-                  Auditointiagentti jäsentää Moodlen .mbz-varmuuskopion,
-                  ajaa rakenneanalyysin ja sisällön linjakkuus­tarkastuksen
-                  sekä vertaa kurssia ePerusteiden ammatti­taito­vaatimuksiin.
-                  Lopputuotos on PDF-raportti, jonka opettaja voi lukea
-                  ja jonka korjausehdotuksia voi toteuttaa heti.
+                  Agentti purkaa Moodlen .mbz-varmuuskopion, lukee rakenteen
+                  ja vertaa sisältöä ePerusteiden ammattitaitovaatimuksiin.
+                  Lopuksi se tuottaa PDF-raportin, jossa havainnot on laitettu
+                  tärkeysjärjestykseen.
                 </p>
                 <p>
-                  Olennaista on, että raportti on toimenpide­lähtöinen
-                  — ei kuvaileva. Jokaisesta havainnosta seuraa konkreettinen
-                  ehdotus ja aika-arvio.
+                  Olennaista on, että raportista seuraa työlista. Jos havainto
+                  ei johda toimenpiteeseen, se on lähinnä konsulttirunoutta.
                 </p>
               </>
             ),
@@ -117,13 +112,12 @@ export default function Page() {
                   ]}
                 />
                 <p>
-                  Raportti tuotti priorisoidun toimenpide­listan
+                  Raportti teki priorisoidun toimenpidelistan
                   aika-arvioineen — esimerkiksi rakenteen jakaminen
                   ammatti­taito­vaatimuksittain (4–6 h), duplikaattien
                   ratkaisu (3–4 h) ja Bloomin tasapainon korjaus
                   analysointi­tason tehtävillä (8–12 h). Opettaja sai
-                  konkreettisen suunnitelman, ei pitkää sanallista
-                  arviointia.
+                  konkreettisen suunnitelman, ei pitkää sanallista arviointia.
                 </p>
               </>
             ),
@@ -133,18 +127,15 @@ export default function Page() {
             body: (
               <>
                 <p>
-                  Auditointi, joka aiemmin olisi vaatinut päivän työn,
-                  valmistuu nyt minuuteissa. Opettaja voi auditoida
-                  jokaisen lukukauden kurssin ennen seuraavan
-                  toteutuksen alkua ja tehdä korjauksia priorisoidusti
-                  sieltä, missä vaikutus on suurin.
+                  Auditointi, joka olisi helposti vienyt päivän, valmistuu nyt
+                  minuuteissa. Opettaja näkee nopeasti, kannattaako ensin
+                  korjata rakennetta, tehtäviä, duplikaatteja vai arvioinnin
+                  linjakkuutta.
                 </p>
                 <p>
-                  Sama agentti­paketti on käytettävissä myös
-                  oppilaitos­tason kehittämis­työhön: kun useita
-                  kursseja auditoidaan rinnakkain, syntyy kuva siitä,
-                  millaisia rakenteellisia haasteita oppilaitoksessa
-                  on yleisimmin.
+                  Sama toimii myös oppilaitostasolla. Kun auditoidaan useita
+                  kursseja, nähdään missä ongelma toistuu: tehtävärakenteessa,
+                  arvioinnissa, linkeissä vai opetussuunnitelman kattavuudessa.
                 </p>
               </>
             ),

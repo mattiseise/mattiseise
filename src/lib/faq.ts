@@ -10,11 +10,11 @@ export type FaqItem = { q: string; a: string };
 export const faqItems: FaqItem[] = [
   {
     q: "Mitä tekoälykoulutus opettajille sisältää?",
-    a: "Käytännönläheistä työpajatyöskentelyä: tehtävien suunnittelua, arviointia ja eriyttämistä tekoälyn aikakaudella. Saavutettavuus ja erityispedagogiikka ovat mukana koko ajan. Sisältö räätälöidään koulutusasteen ja kohderyhmän mukaan.",
+    a: "Käytännön työpajaa: tehtävien suunnittelua, arviointia, eriyttämistä ja tekoälyn järkevää käyttöä arjen työssä. Saavutettavuus ja erityispedagogiikka eivät ole lisäkalvo, vaan osa tekemistä. Sisältö sovitetaan koulutusasteeseen ja kohderyhmään.",
   },
   {
     q: "Mitä tekoälyagentti tekee organisaatiossa?",
-    a: "Tekoälyagentti hoitaa toistuvia työnkulkuja, kirjoittaa luonnoksia, tarkistaa rutiinitehtäviä ja keskustelee muiden työkalujen kanssa rajapintojen kautta. Se eroaa chatbotista siinä, että se osaa käyttää työkaluja, päättää seuraavasta askeleesta ja palauttaa tulokset osaksi prosessia. Hyvin rakennettu agentti säästää tunteja viikossa eikä vain vastaa kysymyksiin.",
+    a: "Agentti hoitaa rajattuja työnkulkuja: hakee tietoa, käyttää työkaluja, tarkistaa rutiineja ja palauttaa tuloksen prosessiin. Hyvä agentti ei ole taikuri. Se on tylsä, lokitettu ja hyödyllinen työkalu, joka säästää aikaa juuri siksi, että sen tehtävä on rajattu.",
   },
   {
     q: "Miten tekoälyä voi käyttää arvioinnissa?",

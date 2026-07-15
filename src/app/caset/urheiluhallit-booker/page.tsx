@@ -47,8 +47,8 @@ export default function Page() {
       <CaseLayout
         alternateHref={`/en/caset/${slug}`}
         eyebrow="Case · Selainautomaatio"
-        title="Urheiluhallit-booker — varauksen automatisointi kirjautumisesta peruutukseen"
-        lead="Ryhmäliikuntatuntien varausjärjestelmä avautuu kerralla — ja täyttyy minuuteissa. Selainautomaatio, joka kirjautuu, etsii halutun tunnin ja tekee varauksen ilman manuaalista työtä. Esimerkki kirjautumista vaativan järjestelmän automatisoinnista, jota voi soveltaa myös yrityskäyttöön."
+        title="Urheiluhallit-booker — koska en halunnut päivystää varausnappia"
+        lead="Ryhmäliikuntatunnit täyttyvät nopeasti. Rakensin Playwright-automaatin, joka kirjautuu sisään, etsii oikean tunnin, tekee varauksen ja jättää lokin sekä kuvakaappauksen. Pieni oma työkalu, mutta sama malli toimii monessa kirjautumista vaativassa rutiinissa."
         facts={[
           { label: "Aikaväli", value: "2025" },
           { label: "Toteutus", value: "Playwright" },
@@ -57,28 +57,24 @@ export default function Page() {
         ]}
         sections={[
           {
-            heading: "Tilanne",
+            heading: "Ongelma",
             body: (
               <>
                 <p>
-                  Suosittujen ryhmäliikuntatuntien varaus avautuu
-                  ennalta sovittuna ajankohtana — esimerkiksi 15 päivää
-                  ennen tuntia. Tunnit täyttyvät minuuteissa, ja
-                  varaaminen vaatii joko manuaalista valppautta tai
-                  rutiinia, joka ei sovi vuorovaikutteisen elämän
-                  rytmiin.
+                  Suosittujen ryhmäliikuntatuntien varaus avautuu tiettynä
+                  hetkenä ja paikat menevät nopeasti. Jos haluaa mukaan,
+                  pitäisi muistaa olla oikealla sivulla oikeaan aikaan.
+                  Se on huono käyttöliittymä ihmiselle.
                 </p>
                 <p>
-                  Ratkaisu, jota harkittiin: asettaa puhelimeen muistutus
-                  ja varata käsin. Tämä toimii satunnaisesti mutta ei
-                  skaalaudu. Tarvittiin automaatio, joka hoitaa
-                  varauksen taustalla niinä iltoina, kun käyttäjä on
-                  itse kiireinen.
+                  Puhelinmuistutus toimii joskus. Usein ei. Tarvitsin
+                  automaation, joka tekee saman rutiinin taustalla ja kertoo
+                  jälkeenpäin mitä tapahtui.
                 </p>
                 <p>
-                  Esimerkki ei ole ohitus- tai kuormitustyökalu, vaan malli
-                  siitä, miten käyttäjän oma toistuva kirjautumisrutiini
-                  voidaan automatisoida hallitusti.
+                  Tämä ei ole ohitus- tai kuormitustyökalu. Tämä on esimerkki
+                  siitä, miten oma toistuva kirjautumisrutiini automatisoidaan
+                  hallitusti ja lokitetaan kunnolla.
                 </p>
               </>
             ),
@@ -88,18 +84,15 @@ export default function Page() {
             body: (
               <>
                 <p>
-                  Selainautomaatio tunnistaa kirjautumis- ja varauspolun
-                  tutkimusvaiheessa, tallentaa kirjautumistilan ja
-                  ajaa varauksen ajastetusti. Skripti ottaa kuvakaappauksen
-                  ja kirjoittaa lokin jokaisesta ajosta — niin
-                  onnistumisista kuin epäonnistumisistakin.
+                  Automaatio tunnistaa kirjautumis- ja varauspolun,
+                  tallentaa kirjautumistilan ja ajaa varauksen ajastetusti.
+                  Jokaisesta ajosta jää loki ja kuvakaappaus. Jos jokin
+                  muuttuu, näen mistä se hajosi.
                 </p>
                 <p>
-                  Toteutus on jaettu erillisiin skripteihin: yksi
-                  varauksen tekemiseen, yksi tulevien varausten
-                  listaamiseen ja yksi peruutukseen. Tämä pitää koodin
-                  selkeänä ja tekee uusien tilanteiden lisäämisestä
-                  helppoa.
+                  Toteutus on jaettu erillisiin skripteihin: varaus, tulevien
+                  varausten listaus ja peruutus. Pieni jako, mutta se pitää
+                  työkalun ylläpidettävänä.
                 </p>
               </>
             ),
@@ -122,12 +115,11 @@ export default function Page() {
             heading: "Tulokset",
             body: (
               <p>
-                Varaus toimii itsenäisesti taustalla. Käyttäjälle ei
-                tarvitse muistaa milloin varaus avautuu — tunteja
-                varataan joka tapauksessa. Tärkeämpää on, että ratkaisun
-                runko on suoraan sovellettavissa muihinkin kirjautumista
-                vaativiin järjestelmiin: lippuvarauksiin, sisäänkirjautumispolun
-                seurantaan, asiointipalvelujen rutiinitehtäviin.
+                Varaus toimii taustalla. Minun ei tarvitse päivystää
+                varausikkunaa, mutta näen silti mitä automaatio teki. Tärkein
+                hyöty ei ole yksi liikuntatunti, vaan malli: sama rakenne
+                toimii lippuvarauksissa, asiointipalveluissa ja muissa
+                kirjautumista vaativissa rutiineissa.
               </p>
             ),
           },

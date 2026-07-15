@@ -13,16 +13,16 @@ type ProjectCard = {
 const strings = {
   fi: {
     eyebrow: "Projektit",
-    title: "Toteutettuja, ei vain suunniteltuja.",
-    lead: "Tekoälyagentit, selainautomaatiot ja pedagogiset työkalut — tuotantokäytössä tai aktiivisessa kehityksessä.",
+    title: "Nämä eivät ole konseptikuvia.",
+    lead: "Olen rakentanut nämä omaan työhön tai oikeaan käyttöön. Siksi niissä näkyy myös se tylsä osa: lokit, virheet, ylläpito ja rajat.",
     projects: [
       {
         tag: "Henkilökohtainen AI-agentti",
         year: "2025–",
         title: "Hermes-agentti",
         blurb:
-          "Oma agentti, joka hoitaa rutiinit taustalla: aamubriiffit, sähköpostien luokittelun ja varaukset. Muisti on selattavaa markdownia — ei musta laatikko.",
-        linkLabel: "Lue koko tarina",
+          "Oma arjen agentti. Se tekee aamubriiffit, seuraa asioita, auttaa varauksissa ja pitää muistia markdownissa. Ei mystiikkaa, vaan paljon pieniä työkaluja saman käyttöliittymän takana.",
+        linkLabel: "Lue blogisarja",
         href: "/blog",
       },
       {
@@ -30,7 +30,7 @@ const strings = {
         year: "2025–",
         title: "Tekoälyn perusteet -kurssi",
         blurb:
-          "Avoin 27 oppitunnin kurssi kolmessa kokonaisuudessa: teoria, käyttö ja agentit. Materiaali on tuotettu kokonaan tekoälyllä, agentteja hyödyntäen.",
+          "Avoin kurssi, jossa tekoälyä opetellaan tekemällä. 27 oppituntia, opiskelija- ja opettajamateriaalit sekä sivustogeneraattori. Materiaali on tehty tekoälyllä, eikä sitä peitellä.",
         linkLabel: "Lue case",
         href: "/caset/tekoalyn-perusteet",
       },
@@ -39,7 +39,7 @@ const strings = {
         year: "2025",
         title: "Moodle-kurssiauditointi",
         blurb:
-          "Yhden komennon pedagoginen auditointi: lukee Moodle-varmuuskopion ja tuottaa PDF-raportin Bloom-tasoista, ePerusteiden kattavuudesta ja kurssin koherenssista.",
+          "Työkalu, joka lukee Moodle-varmuuskopion ja kertoo missä kurssi vuotaa: rakenne, Bloom-tasot, ePerusteet, duplikaatit ja korjausten työmäärä. Raportti, ei runoessee.",
         linkLabel: "Lue case",
         href: "/caset/moodle-kurssiauditointi",
       },
@@ -48,7 +48,7 @@ const strings = {
         year: "2024–",
         title: "Wilma- ja itslearning-automaatiot",
         blurb:
-          "Selainautomaatiot, jotka korvaavat toistuvan klikkailun: opintosuunnitelmat, suorituslistat, poissaolot ja palautusten seuranta. Tunteja viikossa takaisin.",
+          "Skriptit niihin hetkiin, kun järjestelmä pakottaa klikkaamaan samaa asiaa 30 opiskelijalle. Opintosuunnitelmat, suorituslistat, poissaolot ja palautusten seuranta.",
         linkLabel: "Lue case",
         href: "/caset/wilma-itslearning-automaatiot",
       },
@@ -56,16 +56,16 @@ const strings = {
   },
   en: {
     eyebrow: "Projects",
-    title: "Built, not just planned.",
-    lead: "AI agents, browser automations and pedagogical tools — in production use or active development.",
+    title: "These are not concept slides.",
+    lead: "I built these for my own work or real use. That means the boring parts matter too: logs, errors, maintenance and limits.",
     projects: [
       {
         tag: "Personal AI agent",
         year: "2025–",
         title: "Hermes agent",
         blurb:
-          "My own agent handling routines in the background: morning briefs, email triage and bookings. Its memory is browsable markdown — not a black box.",
-        linkLabel: "Read the full story",
+          "My everyday agent: morning briefs, monitoring, bookings and markdown memory. No mysticism — just many small tools behind one interface.",
+        linkLabel: "Read the series",
         href: "/en/blog",
       },
       {
@@ -73,7 +73,7 @@ const strings = {
         year: "2025–",
         title: "AI Fundamentals course",
         blurb:
-          "An open 27-lesson course in three parts: theory, practice and agents. The material was produced entirely with AI, using agents.",
+          "An open course where AI is learned by doing. 27 lessons, student and teacher materials, and a site generator. The material was made with AI, and I don't hide that.",
         linkLabel: "Read case",
         href: "/en/caset/tekoalyn-perusteet",
       },
@@ -82,7 +82,7 @@ const strings = {
         year: "2025",
         title: "Moodle course audit",
         blurb:
-          "One-command pedagogical audit: reads a Moodle backup and produces a PDF report on Bloom levels, curriculum coverage and course coherence.",
+          "A tool that reads a Moodle backup and shows where the course leaks: structure, Bloom levels, curriculum coverage, duplicates and fix effort. A report, not a prose exercise.",
         linkLabel: "Read case",
         href: "/en/caset/moodle-kurssiauditointi",
       },
@@ -91,7 +91,7 @@ const strings = {
         year: "2024–",
         title: "Wilma & itslearning automations",
         blurb:
-          "Browser automations replacing repetitive clicking: study plans, completion lists, absences and submission tracking. Hours back every week.",
+          "Scripts for the moments when the system makes you click the same thing for 30 students: study plans, completion lists, absences and submissions.",
         linkLabel: "Read case",
         href: "/en/caset/wilma-itslearning-automaatiot",
       },

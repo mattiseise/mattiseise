@@ -4,8 +4,8 @@ import type { Locale } from "@/lib/blog";
 const strings = {
   fi: {
     eyebrow: "Yhteydenotto",
-    title: "Tekoälyprojekti, jonka pitää toimia tuotannossa?",
-    lead: "Otan vastaan koulutus-, konsultointi- ja toteutuspyyntöjä — erityisesti silloin, kun ratkaisun on tarkoitus sopia oikeaan työhön ja jäädä päivittäiseen käyttöön, ei vain demoksi.",
+    title: "Tarvitsetko koulutuksen, automaation tai agentin?",
+    lead: "Lähetä lyhyt kuvaus: kenelle, mihin tarpeeseen ja millä aikataululla. Vastaan suoraan, jos tässä on järkeä — ja sanon myös jos ei ole.",
     email: "Sähköposti",
   },
   en: {

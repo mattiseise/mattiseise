@@ -15,22 +15,22 @@ type PackageDef = {
 const strings = {
   fi: {
     eyebrow: "Koulutukset & hinnasto",
-    title: "Tekoälykoulutukset, joista jää käteen työkaluja — ei kalvopinoa.",
-    lead: "Sisältö räätälöidään kohderyhmälle: konkreettiset työkalut, oikeat esimerkit ja taidot, jotka jäävät käyttöön koulutuksen jälkeenkin. Aloita kevyellä johdannolla tai tilaa kokonainen agenttisprintti.",
+    title: "Tekoälykoulutus, josta jää käyttöön muutakin kuin kalvot.",
+    lead: "Pidän koulutuksia, joissa tehdään oikeita asioita osallistujien omilla työvälineillä. Ei mystifiointia, ei promptilistoja ilman kontekstia. Ensin ymmärretään mitä kannattaa tehdä, sitten tehdään.",
     courseNote: "Haluatko kokeilla ensin itse?",
     courseLink: "Tekoälyn perusteet",
-    courseRest: "on avoin ja maksuton 27 oppitunnin kurssini. Koulutuksissa sama sisältö räätälöidään teidän työhönne.",
+    courseRest: "on avoin ja maksuton 27 oppitunnin kurssini. Koulutuksissa sama runko sovitetaan teidän työhönne.",
     packages: [
       {
         tier: "Aloitus",
         title: "2 tunnin johdanto",
         price: "300 €",
         unit: "kiinteä hinta + alv",
-        text: "Tiivis työpaja: mitä tekoäly osaa, miten siitä saa hyödyn omaan rooliin ja mitä riskejä on. Sopii tiimeille, joiden tekoälymatka on alussa.",
+        text: "Tiivis aloitus: mitä tekoäly osaa, missä se menee rikki ja miten sitä käytetään omassa työssä ilman turhaa säätöä.",
         includes: [
           "Etänä tai paikan päällä Helsingissä",
-          "Käytännön harjoituksia omilla työkaluilla",
-          "Sisältö räätälöidään tilaajan tarpeisiin",
+          "Harjoituksia osallistujien omilla työkaluilla",
+          "Sisältö sovitetaan kohderyhmän työhön",
         ],
         cta: "Pyydä tarjous",
       },
@@ -41,9 +41,9 @@ const strings = {
         title: "Puolen päivän työpaja",
         price: "600 €",
         unit: "4 tuntia + alv",
-        text: "Syvempi sukellus: promptaus, työkalujen vertailu, agenttien rakenne ja konkreettinen suunnitelma siitä, mitä tiimi ottaa käyttöön heti seuraavana päivänä.",
+        text: "Puoli päivää oikeaa tekemistä: promptaus, työkalujen rajat, agenttien peruslogiikka ja päätös siitä, mitä otetaan käyttöön seuraavaksi.",
         includes: [
-          "Toimialaan räätälöity esimerkkikierros",
+          "Omaan työhön sopivat esimerkit",
           "Materiaalit ja harjoitukset jakoon",
           "Etätallenne sopimuksen mukaan",
         ],
@@ -54,9 +54,9 @@ const strings = {
         title: "1–2 päivän agenttisprintti",
         price: "alk. 1 800 €",
         unit: "per päivä + alv",
-        text: "Suunnittelemme ja rakennamme yhdessä ensimmäisen tekoälyagenttinne: lähtötilanteen kartoitus, työkalujen valinta, tietolähteet ja toimiva pilotti.",
+        text: "Rakennetaan ensimmäinen käyttökelpoinen agentti tai automaatio: tarve, työkalut, tietolähteet, rajat ja toimiva pilotti.",
         includes: [
-          "Tarvekartoitus ja arkkitehtuuri",
+          "Tarve, rajat ja arkkitehtuuri",
           "Toimiva pilotti tilaajan ympäristössä",
           "Dokumentaatio ja jatkopolku",
         ],
@@ -68,14 +68,14 @@ const strings = {
     termsVat: "+ alv 25,5 %",
     termsItems: [
       "Minimiveloitus 2 tuntia",
-      "Sisältää sisällön räätälöinnin",
+      "Sisältää sisällön sovittamisen kohderyhmälle",
       "Etä- tai lähitoteutus sopimuksen mukaan",
       "Matkakulut Helsingin ulkopuolelle erikseen",
     ],
     customEyebrow: "Räätälöity ohjelma",
     customTitle: "Useamman päivän koulutusohjelma",
     customBody:
-      "Esimerkiksi AI-akatemia johdolle tai asiantuntijatiimille. Suunnitellaan yhdessä tarpeen, aikataulun ja budjetin mukaan.",
+      "Esimerkiksi useamman päivän kokonaisuus johdolle, opettajille tai asiantuntijatiimille. Sovitaan tarpeen, aikataulun ja budjetin mukaan.",
     customCta: "Pyydä tarjous",
     privacyLabel: "Tietosuoja:",
     privacyBody:

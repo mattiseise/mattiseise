@@ -13,8 +13,8 @@ import {
 const strings = {
   fi: {
     eyebrow: "Blogi",
-    title: "Rehellistä tuotantokokemusta — ilman hypeä.",
-    desc: "Sarjat ja irtokirjoitukset agenteista, automaatiosta ja pedagogiikasta. Uusin sarja: Oman AI-agentin rakentaminen, 6 osaa.",
+    title: "Mitä tapahtui, kun kokeilin oikeasti.",
+    desc: "Kirjoitan agenteista, automaatiosta ja opetuksesta silloin kun on jotain konkreettista sanottavaa. Uusin sarja: oman AI-agentin rakentaminen, 6 osaa.",
     seriesKicker: (part: number, total: number) => `Sarja · osa ${part}/${total}`,
     standaloneKicker: (topic: string) => `Irtokirjoitus · ${topic}`,
     cta: "Kaikki kirjoitukset",

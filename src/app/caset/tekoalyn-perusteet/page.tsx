@@ -48,8 +48,8 @@ export default function Page() {
       <CaseLayout
         alternateHref={`/en/caset/${slug}`}
         eyebrow="Case · Koulutus"
-        title="Tekoälyn perusteet — 27 oppitunnin kurssi käytäntöön"
-        lead="Kurssi, joka opettaa tekoälyä tekemällä — ei kalvoilla. Sisältää opiskelija- ja opettajamateriaalit jokaiselle 27 oppitunnille, automaattisen sivuston­generaattorin ja avoimen lähdekoodin."
+        title="Tekoälyn perusteet — 27 oppituntia ilman kalvosirkusta"
+        lead="Tein avoimen tekoälykurssin, jossa opiskelija käyttää tekoälyä eikä vain kuuntele siitä. 27 oppituntia, opiskelija- ja opettajamateriaalit, sivustogeneraattori ja lähdekoodi GitHubissa. Materiaali on tehty tekoälyllä, koska se oli osa pointtia."
         facts={[
           { label: "Aikaväli", value: "2025–" },
           { label: "Oppitunteja", value: "27" },
@@ -58,22 +58,20 @@ export default function Page() {
         ]}
         sections={[
           {
-            heading: "Tilanne",
+            heading: "Ongelma",
             body: (
               <>
                 <p>
-                  Tekoälykoulutuksia on tarjolla paljon, mutta liian moni
-                  jää kalvotason esitykseksi. Opiskelija kuulee, mitä
-                  generatiivinen tekoäly on, mutta ei opi käyttämään sitä
-                  itsenäisesti. Toinen ääripää on syvätekninen kurssi, joka
-                  sulkee ulos suurimman osan ammatillisen koulutuksen
-                  opiskelijoista.
+                  Tekoälykoulutuksia on paljon. Ongelma on, että moni niistä
+                  jää tasolle “tässä on ChatGPT ja tässä on prompti”.
+                  Opiskelija kuulee mitä generatiivinen tekoäly on, mutta ei
+                  opi käyttämään sitä omassa työssä.
                 </p>
                 <p>
-                  Tarvittiin kurssi, joka opettaa todellisia taitoja —
-                  promptauksen perusteet, työkalujen käytön, kriittisen
-                  lukutaidon ja agenttien rakenteen — niin, että opiskelija
-                  pärjää tekoälyn kanssa myös kurssin jälkeen.
+                  Halusin kurssin, jossa tehdään asioita: haetaan tietoa,
+                  arvioidaan tulosta, promptataan paremmin, rakennetaan
+                  pieniä agentteja ja opetellaan sanomaan mallille vastaan.
+                  Ilman että kurssi muuttuu ohjelmistokehittäjien sisäpiiriksi.
                 </p>
               </>
             ),
@@ -83,19 +81,18 @@ export default function Page() {
             body: (
               <>
                 <p>
-                  Kurssi on jaettu kolmeen kokonaisuuteen: ensin teoria
+                  Jaoin kurssin kolmeen kokonaisuuteen: ensin teoria
                   (mitä tekoäly on, miten se toimii ja millaiset rajat
                   sillä on), sitten käytäntö (työkalut, promptaus,
                   kriittinen arviointi) ja lopuksi agentit (miten
                   yksinkertaisia automaatioita voi rakentaa itse).
                 </p>
                 <p>
-                  Jokaiseen oppituntiin kuuluu erillinen opiskelija- ja
-                  opettajamateriaali. Opiskelija saa itseopiskelu­materiaalin,
-                  tehtävät ja sanaston; opettaja saa opettajavetoisten
-                  tehtävien rungon ja taustamateriaalin. Sisältö on
-                  saatavilla sekä luettavana sivustona että avoimena
-                  lähdekoodina, joka muut opettajat voivat ottaa pohjaksi.
+                  Jokaiseen oppituntiin kuuluu opiskelijan materiaali ja
+                  opettajan materiaali. Opiskelijalle on itseopiskeluteksti,
+                  tehtävät ja sanasto. Opettajalle on rungot, taustat ja
+                  vetotehtävät. Sisältö on sivustona ja avoimena koodina,
+                  jotta muut voivat ottaa sen pohjaksi eivätkä aloita tyhjästä.
                 </p>
               </>
             ),
@@ -141,21 +138,17 @@ export default function Page() {
             body: (
               <>
                 <p>
-                  Kurssin materiaali on tuotettu kokonaan tekoälyllä,
-                  tekoälyagentteja hyödyntäen. Lopputulokseen on jätetty
-                  tarkoituksella pieniä kummallisuuksia — hassuja kielellisiä
-                  rakenteita ja artefakteja kuvissa. Niitä ei ole siivottu
-                  pois, koska ne ovat osa oppisisältöä: ne osoittavat, että
-                  laadukaskin kielimalli tuottaa ammattitaitoisen promptaajan
-                  käsissä silti virheitä. Kriittinen lukutaito on kurssin
-                  ydintä, ei jälkihuomautus.
+                  Kurssi on tehty tekoälyllä ja agenttiputkilla. En piilota
+                  sitä. Jätin mukaan myös pieniä outouksia: kömpelöitä
+                  lauseita ja kuvien artefakteja. Ne näyttävät opiskelijalle
+                  saman asian, jonka opettajan pitää itsekin hyväksyä:
+                  hyväkin malli tuottaa välillä roskaa.
                 </p>
                 <p>
-                  Ala muuttuu nopeasti, joten osa sisällöstä voi olla jo
-                  julkaisuhetkellä vanhentunutta — ydinasiat pätevät silti.
-                  Jokainen tehtävä on lisäksi suunniteltu tehtäväksi tekoälyn
-                  kanssa: jos tehtävä tuntuu epäselvältä, ensimmäinen kysymys
-                  kuuluu tekoälylle — “mitä minun pitää tässä oikein tehdä?”
+                  Ala muuttuu nopeasti, joten yksittäiset työkalut vanhenevat.
+                  Se ei haittaa, jos perusajattelu on kunnossa. Jokainen
+                  tehtävä on suunniteltu tehtäväksi tekoälyn kanssa: jos
+                  tehtävä on epäselvä, ensimmäinen kysymys kuuluu tekoälylle.
                 </p>
                 <p className="eyebrow mt-6">
                   Kurssin luonnissa käytetyt työkalut
@@ -175,17 +168,15 @@ export default function Page() {
             body: (
               <>
                 <p>
-                  Kurssi on käytössä ammatillisessa koulutuksessa ja
-                  jatkokehitys on aktiivista. Sisältö on jaettavissa
-                  oppitunneittain — tilaaja voi ottaa käyttöön koko paketin
-                  tai poimia siitä työpajaan sopivat osat.
+                  Kurssi on käytössä ammatillisessa koulutuksessa ja kehittyy
+                  edelleen. Sitä voi käyttää kokonaisena kurssina tai purkaa
+                  yksittäisiksi työpajan osiksi.
                 </p>
                 <p>
-                  Avoin lähdekoodi mahdollistaa, että muut opettajat voivat
-                  ottaa kurssin pohjaksi ja muokata sen omaan käyttöönsä.
-                  Sisältö on suunniteltu päivitettäväksi — yksittäisen
-                  oppitunnin sisältö voidaan vaihtaa ilman, että koko
-                  kurssi rikkoutuu.
+                  Avoin lähdekoodi on tarkoituksellinen ratkaisu. En halunnut
+                  tehdä PDF-pinoa, joka kuolee ensimmäiseen työkalumuutokseen.
+                  Yksittäisen oppitunnin voi vaihtaa ilman, että koko kurssi
+                  hajoaa.
                 </p>
               </>
             ),
