@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Locale } from "@/lib/blog";
+import { aiperusteetUrl } from "@/lib/links";
 
 const strings = {
   fi: {
@@ -19,7 +20,7 @@ const strings = {
     liveMsg: "Aamubriiffit, varaukset ja muut rutiinit ✓",
     stats: [
       { value: "15+ v", label: "ammatillista opetusta" },
-      { value: "27", label: "avointa oppituntia tekoälystä", href: "https://aiperusteet.fi/" },
+      { value: "27", label: "avointa oppituntia tekoälystä", href: aiperusteetUrl("hero-stat") },
       { value: "19 000+", label: "opettajan yhteisön ylläpitäjä" },
       { value: "OPH", label: "tekoälytyöryhmän jäsen" },
     ],
@@ -36,7 +37,7 @@ const strings = {
     liveMsg: "Morning briefs, bookings and other routines ✓",
     stats: [
       { value: "15+ yrs", label: "of vocational teaching" },
-      { value: "27", label: "open AI lessons published", href: "https://aiperusteet.fi/" },
+      { value: "27", label: "open AI lessons published", href: aiperusteetUrl("hero-stat-en") },
       { value: "19,000+", label: "teacher community admin" },
       { value: "EDUFI", label: "national AI working group member" },
     ],

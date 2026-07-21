@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import CaseLayout, { CaseList, CaseArticleSchema } from "@/components/CaseLayout";
+import { aiperusteetUrl } from "@/lib/links";
 
 const slug = "tekoalyn-perusteet";
 const title = "Tekoälyn perusteet — 27 oppitunnin kurssi";
@@ -114,7 +115,7 @@ export default function Page() {
                   Avoin sivusto:{" "}
                   <a
                     className="text-amber-400 hover:text-amber-300 hover:underline"
-                    href="https://aiperusteet.fi/"
+                    href={aiperusteetUrl("case-tekoalyn-perusteet")}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

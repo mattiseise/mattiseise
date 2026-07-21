@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import CaseLayout, { CaseList } from "@/components/CaseLayout";
+import { aiperusteetUrl } from "@/lib/links";
 
 /**
  * Englanninkieliset case-tiivistelmät. Täydet caset ovat vain suomeksi
@@ -68,7 +69,7 @@ const cases: Record<string, EnCase> = {
             <p className="text-[14.5px] text-cream-400">
               Open site:{" "}
               <a
-                href="https://aiperusteet.fi/"
+                href={aiperusteetUrl("case-en")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-amber-400 hover:text-amber-300"
