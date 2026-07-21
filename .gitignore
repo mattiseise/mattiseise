@@ -14,3 +14,6 @@ out
 
 # Alkuperäiset valokuvat (vain lähdemateriaali, prosessoidut versiot publicissa)
 /img
+
+# QA-skannausten tulosteet (kertaluontoisia raportteja livesivustosta, ei lähdekoodia)
+/qa
