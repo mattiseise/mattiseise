@@ -8,6 +8,7 @@ const labels = {
     training: "Koulutukset",
     contact: "Yhteydenotto",
     nav: "Alatunniste",
+    aiBadge: "Sisältöä on muokattu tekoälyllä",
   },
   en: {
     blog: "Blog",
@@ -15,6 +16,7 @@ const labels = {
     training: "Training",
     contact: "Contact",
     nav: "Footer",
+    aiBadge: "Content has been modified using AI",
   },
 } as const;
 
@@ -47,9 +49,18 @@ export default function Footer({ locale = "fi" }: { locale?: Locale }) {
             RSS
           </a>
         </nav>
-        <p className="text-[13.5px] text-cream-400">
-          © {new Date().getFullYear()} Matti Seise · Helsinki
-        </p>
+        <div className="flex items-center gap-3">
+          <p className="text-[13.5px] text-cream-400">
+            © {new Date().getFullYear()} Matti Seise · Helsinki
+          </p>
+          <img
+            src="/images/ai-modified-badge.svg"
+            alt={t.aiBadge}
+            width={96}
+            height={32}
+            className="h-6 w-auto opacity-80"
+          />
+        </div>
       </div>
     </footer>
   );
