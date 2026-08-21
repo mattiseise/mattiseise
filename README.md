@@ -4,8 +4,9 @@ I’m a vocational special education teacher (ICT) based in Helsinki, working at
 
 ## 🧠 What I do
 - Teach upper secondary vocational ICT: web technologies, Python, JavaScript, cybersecurity, and IT support
-- Build practical automation to remove everyday friction (Python + Selenium, small browser tools)
+- Build practical automation to remove everyday friction (Python + Playwright, small browser tools)
 - Train and consult on generative AI use for teaching and modern knowledge work
+- Create agentic workflows and multiagent systems
 - Design support structures and tools that help students with diverse learning needs succeed
 
 ## 🔧 Currently focused on
