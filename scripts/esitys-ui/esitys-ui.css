@@ -1,0 +1,55 @@
+/* Esityssivun kehys: paluulinkki, koko näyttö ja mobiilin kääntövihje.
+   Sinihetki-sävyt, pysyy deckin päällä mutta väistyy tyhjäkäynnillä. */
+html, body { background: #080B16; }
+html, body, #dc-root { height: 100dvh; }
+body { overscroll-behavior: none; }
+
+.eui {
+  position: fixed; inset: 0 0 auto 0; z-index: 2147483000;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: max(12px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 0 max(16px, env(safe-area-inset-left));
+  pointer-events: none;
+  opacity: 0; transition: opacity .35s ease;
+  font-family: var(--sh-leipa, Inter, system-ui, sans-serif);
+}
+.eui[data-show] { opacity: 1; }
+.eui-btn {
+  pointer-events: auto;
+  display: inline-flex; align-items: center; gap: 6px;
+  min-height: 40px; min-width: 40px; padding: 0 14px 0 10px;
+  border-radius: 999px; border: 1px solid rgba(34, 211, 238, .28);
+  background: rgba(8, 11, 22, .72); color: #EAF0FF;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  font: 600 14px/1 var(--sh-leipa, Inter, system-ui, sans-serif); letter-spacing: .01em;
+  text-decoration: none; cursor: pointer;
+  transition: border-color .2s, background .2s, color .2s;
+}
+.eui-btn:hover { border-color: #22D3EE; color: #22D3EE; }
+.eui-btn:focus-visible { outline: 2px solid #22D3EE; outline-offset: 2px; }
+.eui-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.eui-fs { padding: 0; justify-content: center; }
+.eui-ico-close { display: none; }
+:root[data-eui-fs] .eui-ico-open { display: none; }
+:root[data-eui-fs] .eui-ico-close { display: block; }
+
+.eui-rotate {
+  position: fixed; z-index: 2147483001;
+  left: max(16px, env(safe-area-inset-left)); right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 8px 12px 14px; border-radius: 14px;
+  background: rgba(16, 22, 42, .94); border: 1px solid rgba(34, 211, 238, .35); color: #EAF0FF;
+  font: 400 14px/1.45 var(--sh-leipa, Inter, system-ui, sans-serif);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .45);
+}
+.eui-rotate[hidden] { display: none; }
+.eui-rotate > svg { flex: none; width: 26px; height: 26px; fill: none; stroke: #22D3EE; stroke-width: 1.7; stroke-linecap: round; }
+.eui-rotate span { flex: 1; }
+.eui-rotate button {
+  flex: none; width: 40px; height: 40px; border: 0; border-radius: 10px;
+  background: transparent; color: #94A3C4; font-size: 24px; line-height: 1; cursor: pointer;
+}
+.eui-rotate button:focus-visible { outline: 2px solid #22D3EE; }
+
+@media (orientation: landscape), (pointer: fine) { .eui-rotate { display: none !important; } }
+@media print { .eui, .eui-rotate { display: none !important; } }

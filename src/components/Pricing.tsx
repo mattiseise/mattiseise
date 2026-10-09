@@ -1,6 +1,9 @@
 import type { Locale } from "@/lib/blog";
 import { aiperusteetUrl } from "@/lib/links";
 
+/** Esityksen kuvaussivu, josta pääsee itse esitykseen. */
+const ESITYS_HREF = "/esitykset";
+
 type PackageDef = {
   tier: string;
   badge?: string;
@@ -21,6 +24,9 @@ const strings = {
     courseNote: "Haluatko kokeilla ensin itse?",
     courseLink: "Tekoälyn perusteet",
     courseRest: "on avoin ja maksuton 27 oppitunnin kurssini. Koulutuksissa sama runko sovitetaan teidän työhönne.",
+    talkNote: "Millainen esitys on käytännössä?",
+    talkLink: "Näin käytän tekoälyä työssä ja arjessa",
+    talkRest: "on selattava esitys omista työkaluistani, oppimateriaaleistani ja automaatioistani.",
     packages: [
       {
         tier: "Aloitus",
@@ -89,6 +95,9 @@ const strings = {
     courseNote: "Want to try it yourself first?",
     courseLink: "AI Fundamentals",
     courseRest: "is my open, free 27-lesson course (in Finnish). In trainings, the same content is tailored to your work.",
+    talkNote: "What does a talk look like?",
+    talkLink: "How I use AI at work and at home",
+    talkRest: "is a browsable presentation (in Finnish) of my own tools, learning materials and automations.",
     packages: [
       {
         tier: "Starter",
@@ -172,6 +181,16 @@ export default function Pricing({ locale = "fi" }: { locale?: Locale }) {
             {t.courseLink}
           </a>{" "}
           {t.courseRest}
+        </p>
+        <p className="mt-2 max-w-[38em] text-[15px] leading-[1.65] text-cream-300">
+          {t.talkNote}{" "}
+          <a
+            href={ESITYS_HREF}
+            className="text-amber-400 underline underline-offset-4 hover:text-amber-300"
+          >
+            {t.talkLink}
+          </a>{" "}
+          {t.talkRest}
         </p>
 
         <div className="mt-12 grid gap-[22px] md:grid-cols-3">
