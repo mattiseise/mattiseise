@@ -4,7 +4,7 @@ import CaseLayout, { CaseList } from "@/components/CaseLayout";
 import { aiperusteetUrl } from "@/lib/links";
 
 /** Staattinen esityssivu, ks. scripts/rakenna-esitys.py. */
-const ESITYS = "/esitykset/tekoaly-tyossa-ja-arjessa";
+const ESITYS = "/esitykset/tekoaly-tyossa-ja-arjessa/";
 const title = "Näin käytän tekoälyä työssä ja arjessa";
 const description =
   "Esitys omista tekoälyllä rakennetuista työkaluista: Wilma- ja itslearning-apuvälineet, agenttiputkella tehdyt oppimateriaalit, oma avustaja ja arjen automaatiot.";
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     locale: "fi_FI",
     images: [
       {
-        url: `${ESITYS}/og.jpg`,
+        url: `${ESITYS}og.jpg`,
         width: 1200,
         height: 630,
         type: "image/jpeg",
@@ -58,7 +58,7 @@ export default function Page() {
               >
                 {/* eslint-disable-next-line @next/next/no-img-element -- staattinen jakokuva public-kansiosta */}
                 <img
-                  src={`${ESITYS}/og.jpg`}
+                  src={`${ESITYS}og.jpg`}
                   width={1200}
                   height={630}
                   alt="Esityksen kansi: Näin käytän tekoälyä työssä ja arjessa"

@@ -65,7 +65,7 @@ ${publishedList}${upcomingList ? `\n\nTulossa:\n${upcomingList}` : ""}
 - [Moodle-kurssiauditointi](${BASE}/caset/moodle-kurssiauditointi): yhden komennon pedagoginen analyysi Moodle-kursseille (Bloom, ePerusteet, koherenssi).
 - [Wilma- ja itslearning-automaatiot](${BASE}/caset/wilma-itslearning-automaatiot): selainautomaatiot opettajan rutiineihin — tunteja työaikaa takaisin viikossa.
 - [Urheiluhallit-booker](${BASE}/caset/urheiluhallit-booker): esimerkki kirjautumista vaativan oman rutiinin hallitusta automatisoinnista.
-- [Esitys: Näin käytän tekoälyä työssä ja arjessa](${BASE}/esitykset): kuvaus selattavasta diaesityksestä omista työkaluista (Wilma, itslearning), agenttiputkella tehdyistä oppimateriaaleista, Claus-avustajasta ja arjen automaatioista. Itse esitys: ${BASE}/esitykset/tekoaly-tyossa-ja-arjessa
+- [Esitys: Näin käytän tekoälyä työssä ja arjessa](${BASE}/esitykset): kuvaus selattavasta diaesityksestä omista työkaluista (Wilma, itslearning), agenttiputkella tehdyistä oppimateriaaleista, Claus-avustajasta ja arjen automaatioista. Itse esitys: ${BASE}/esitykset/tekoaly-tyossa-ja-arjessa/
 - Hermes-agentti: henkilökohtainen AI-agentti tuotannossa (aamubriiffit, sähköpostien luokittelu, varaukset). Koko tarina blogisarjassa.
 
 ## Profiilit

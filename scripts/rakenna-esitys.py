@@ -137,7 +137,8 @@ def main():
         template = template.replace(needle, needle + " data-deck-skip=\"\"", 1)
 
     t, d = html.escape(a.title), html.escape(a.description)
-    canonical = f"https://seise.org{base.rstrip('/')}"
+    # Netlify ohjaa kansio-osoitteet loppukauttaviivaan (301), joten canonical on sen muotoinen.
+    canonical = f"https://seise.org{base}"
     head = f"""<title>{t} · Matti Seise</title>
 <meta name="description" content="{d}">
 <link rel="canonical" href="{canonical}">

@@ -50,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${BASE}/esitykset/tekoaly-tyossa-ja-arjessa`,
+      url: `${BASE}/esitykset/tekoaly-tyossa-ja-arjessa/`,
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: 0.7,
