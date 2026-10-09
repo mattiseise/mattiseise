@@ -6,37 +6,50 @@ totalParts: 7
 series: "Tekoäly opettajan hallintotyössä"
 seriesSlug: "tekoaly-opettajan-hallintotyossa"
 topic: "automation"
-upcoming: true
-plannedLabel: "Elokuu 2026"
-description: "Wilman tieto keskeneräisistä suorituksista hukkuu taulukkoon. Tein tekoälyn avulla Tampermonkey-skriptin, joka korostaa ne vaaleanpunaisella — data ei muutu, vain oma näkymäni."
-keyword: "Wilma-automaatio"
-date: "2026-08-10T09:00:00+03:00"
+description: "Vaaleanpunainen korostus nostaa keskeneräiset suoritukset esiin Wilmasta. Näin rajaan korostuksen ja tarkistan, että se osuu oikeisiin kohtiin."
+keyword: "Wilma- ja itslearning-automaatiot"
+date: "2026-10-10T00:00:00+03:00"
 cover: "/images/blog/kausi-1-opettajan-hallintotyo/02-wilma-suoritus-kesken-vaaleanpunainen-korostus.jpg"
-coverAlt: "Wilman arviointinäkymä, jossa keskeneräinen suoritus on korostettu vaaleanpunaisella."
-nosto: "Wilma kyllä näyttää keskeneräiset suoritukset, mutta ei aina niin, että ne huomaisi nopeasti. Tein tekoälyn avulla Tampermonkey-skriptin, joka korostaa ne vaaleanpunaisella. Ei pedagogisia päätöksiä, ei muutoksia dataan — skripti vain nostaa näkyviin sen, mikä vaatii opettajan huomiota. 👇"
+coverAlt: "Havainnekuva: keskeneräiset suoritukset on korostettu vaaleanpunaisella."
 ---
 
-Wilman ongelma ei tässä tapauksessa ollut se, etteikö tieto olisi olemassa. Tieto oli kyllä siellä. Se vain ei näkynyt sillä tavalla, että sen huomaisi nopeasti.
+Wilman ongelma ei tässä tapauksessa ollut tiedon puute. Keskeneräinen suoritus oli kyllä näkyvissä. Se vain hukkui muiden merkintöjen sekaan.
 
-Minulla oli arviointinäkymä, jossa opiskelijan keskeneräinen suoritus näkyi muiden merkintöjen seassa. Ilman korostusta se oli helppo ohittaa, varsinkin kun rivejä ja soluja on paljon. Tämä on juuri sellaista hallinnollista työtä, joka ei yksittäisenä kertana tunnu isolta, mutta syö aikaa ja tarkkaavaisuutta koko ajan.
+Kun tarkistan yhden opiskelijan tilannetta, löydän sen katsomalla. Kun sama tarkistus toistuu monessa kohdassa, työ muuttuu silmäilyksi. Katso rivi, katso merkintä, katso seuraava rivi. Halusin, että tarkistettava kohta erottuu heti.
 
-Vanha tapa oli käytännössä selaamista ja silmäilyä. Katso rivi, katso merkintä, tarkista päiväys, katso seuraava rivi. Ei erityisen vaikeaa, mutta virhealtista. Ihminen ei ole parhaimmillaan siinä, että hän yrittää huomata yhden pienen poikkeaman ruudun kokoisesta taulukosta.
+![Havainnekuva Wilman opintosuorituksista ilman korostusta](/images/blog/kausi-1-opettajan-hallintotyo/01-wilma-opintosuoritukset-ilman-korostusta.jpg "Ennen")
+![Havainnekuva Wilman opintosuorituksista: ES-merkinnät vaaleanpunaisella](/images/blog/kausi-1-opettajan-hallintotyo/02-wilma-suoritus-kesken-vaaleanpunainen-korostus.jpg "Jälkeen")
 
-![Wilman opintosuoritusnäkymä ilman korostusta](/images/blog/kausi-1-opettajan-hallintotyo/01-wilma-opintosuoritukset-ilman-korostusta.jpg "Ennen")
-![Wilman opintosuoritusnäkymä, jossa keskeneräinen suoritus on korostettu vaaleanpunaisella](/images/blog/kausi-1-opettajan-hallintotyo/02-wilma-suoritus-kesken-vaaleanpunainen-korostus.jpg "Jälkeen")
+*Kuvat ovat havainnekuvia. Alkuperäinen suoritusmerkintä säilyy näkyvissä myös korostuksen jälkeen.*
 
-Ratkaisin tämän **Tampermonkey-skriptillä**. Skripti käy Wilman arviointinäkymää läpi selaimessa ja korostaa vaaleanpunaisella ne kohdat, joissa opiskelijalla on suoritus kesken. Sääntö on yksinkertainen: jos arvosanakentässä on ES eli suoritus on kesken, rivi värjätään.
+## Mitä skripti tekee
 
-Tärkeä kohta: skripti ei muuta Wilman dataa. Se ei tallenna mitään, ei lähetä mitään eikä päätä mitään. Se muuttaa vain sitä, miltä näkymä näyttää minun selaimessani.
+Tein Tampermonkey-käyttäjäskriptin, joka lisää keskeneräisiin suorituksiin vaaleanpunaisen korostuksen. Kuvan esimerkissä tunniste on ES. Omassa näkymässäni korostuksen kohde voidaan tunnistaa myös Wilman käyttämästä elementin luokasta.
 
-Tekoälyn rooli oli käytännöllinen. Annoin sille tavoitteen: haluan korostaa tietyt solut Wilman taulukossa, jotta keskeneräiset suoritukset näkyvät heti. Sen avulla syntyi JavaScript-/Tampermonkey-skripti, jota pystyin testaamaan ja muokkaamaan.
+Siksi toteutusta ei kannata tehdä niin, että koko sivulta etsitään kirjaimet ”ES”. Ehto rajataan suoritusnäkymän oikeaan merkintään. Muuten osumia voi tulla otsikoista tai muusta tekstistä.
 
-Ensimmäistä versiota ei tietenkään oteta käyttöön sokkona. Testasin, mitä se korostaa. Tarkistin, ettei se nappaa mukaan vääriä soluja. Katsoin, että korostus auttaa oikeasti eikä tee näkymästä vain värikkäämpää sekasotkua.
+Korostus muuttaa vain selaimessa näkyvää näkymää. Suoritusmerkintä, päivämäärä ja muut tiedot säilyvät. Minä avaan tilanteen ja päätän, mitä sille tehdään.
 
-> Lopputulos oli yksinkertainen: keskeneräinen suoritus näkyy yhdellä vilkaisulla.
+## Näin teet vastaavan korostuksen
 
-Tämä on minusta hyvä esimerkki järkevästä tekoälyn käytöstä opettajan hallintotyössä. Tekoäly ei tehnyt pedagogista päätöstä. Se ei arvioinut opiskelijaa. Se ei tulkinnut opiskelijan tilannetta. Se auttoi tekemään pienen työkalun, jolla huomaan tarkistettavat asiat nopeammin.
+Skriptin tekemiseen ja asentamiseen on [yhteinen Tampermonkey-ohje](/blog/tampermonkey-tekoaly-kayttajaskripti). Tämän työkalun osalta etenisin näin:
 
-Hallinnollisen työn keventäminen ei aina tarkoita isoa järjestelmäuudistusta. Joskus se tarkoittaa sitä, että yksi tärkeä kohta värjätään niin, ettei se huku taulukkoon.
+1. Avaa opintosuoritusnäkymä ja tunnista yksi varmasti keskeneräinen sekä yksi valmis suoritus.
+2. Katso selaimen kehittäjätyökaluilla, mikä HTML-elementti sisältää merkinnän. Selvitä, onko keskeneräisellä suorituksella oma luokka vai tunnistetaanko se kentän tekstistä.
+3. Tee rakenteesta pieni esimerkki, jossa nimet, tunnisteet ja linkkien opiskelijakohtaiset osat on korvattu keksityillä arvoilla.
+4. Pyydä tekoälyltä skripti, joka korostaa vain määritellyn ehdon täyttävän elementin ja jättää tekstin luettavaksi.
+5. Asenna skripti Tampermonkeyyn ja tarkista osumat alkuperäisistä merkinnöistä.
 
-Seuraavassa jaksossa sama periaate viedään itslearningiin, jossa ongelmana ovat palautukset: ne ovat järjestelmässä, mutta opettaja ei näe niitä ilman erillistä tarkistuskierrosta.
+Tällaisen tehtävänannon antaisin:
+
+> Tee Tampermonkey-käyttäjäskripti vain oman Wilmani opintosuoritusnäkymään. Alla on anonymisoitu HTML-esimerkki keskeneräisestä ja valmiista suorituksesta. Korosta keskeneräinen suoritus vaaleanpunaisella esimerkkien eron perusteella. Älä etsi ES-tekstiä koko sivulta. Säilytä kaikki tekstit ja linkit. Älä tee verkkopyyntöjä, muuta lomakekenttiä tai paina painikkeita. Jos tunniste ei löydy, älä korosta mitään. Kerro, mitä minun pitää muuttaa oman sivuni osoitetta varten.
+
+## Mistä tiedän, että se toimii
+
+Testaan ainakin keskeneräisen, valmiin ja tyhjän merkinnän. Vain ensimmäisen pitää korostua. Tarkistan myös toisen opiskelijan näkymän ja sivun uudelleenlatauksen.
+
+Jos näkymä päivittyy ilman sivulatausta, korostuksen pitää päivittyä mukana. Vanha väri ei saa jäädä valmiiksi muuttuneeseen suoritukseen. Tämän voi lisätä tekoälylle omaksi korjauspyynnökseen.
+
+Skriptin saa pois päältä Tampermonkeyn hallintapaneelista. Kun sen jälkeen lataan sivun uudelleen, näen alkuperäisen näkymän. Jos Wilman rakenne muuttuu, otan korostuksen pois käytöstä ja tarkistan ehdon uudelleen.
+
+Lopputulos on pieni: yksi merkintä ei enää huku taulukkoon. Minulle se on hyödyllisempi kuin uusi raportti, joka pitäisi erikseen muistaa avata.
