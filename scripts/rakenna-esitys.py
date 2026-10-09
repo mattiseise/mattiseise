@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
 """Purkaa Claude Designin standalone-HTML-viennin staattiseksi esityssivuksi.
 
-Käyttö:
-    python3 -I scripts/rakenna-esitys.py <vienti.html> <slug> --title ... --description ... [--skip "Dian nimi"] [--replace "Vanha=Uusi"]
+Käyttö (repon juuresta):
+    python3 -I scripts/rakenna-esitys.py <vienti.html> scripts/esitykset/<slug>.json
+
+Asetustiedosto (JSON): slug, title, description, skip (data-labelit, jotka
+piilotetaan) ja replace ([vanha, uusi] -parit dioihin, esim. oikean henkilön
+nimi pois julkiselta sivulta). Jokaisen korvattavan tekstin on löydyttävä
+viennistä tasan kerran, muuten rakennus pysähtyy — näin muuttunut Claude
+Design -lähde ei ohita korjausta hiljaa.
 
 Tulos: public/esitykset/<slug>/index.html + assets/. Sivu toimii ilman
 ulkoisia latauksia (React, fontit ja kuvat omasta kansiosta), puhujan
@@ -18,7 +24,6 @@ import base64
 import gzip
 import html
 import json
-import os
 import re
 import shutil
 import subprocess
@@ -79,21 +84,18 @@ def to_webp(path: Path) -> Path:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("bundle")
-    ap.add_argument("slug")
-    ap.add_argument("--title", required=True)
-    ap.add_argument("--description", required=True)
-    ap.add_argument("--skip", action="append", default=[], help="data-label, joka piilotetaan (data-deck-skip)")
-    ap.add_argument("--replace", action="append", default=[], metavar="VANHA=UUSI",
-                    help="tekstikorvaus dioihin (esim. oikean henkilön nimi pois julkiselta sivulta)")
-    a = ap.parse_args()
+    ap.add_argument("config", help="scripts/esitykset/<slug>.json")
+    args = ap.parse_args()
+    cfg = json.loads(Path(args.config).read_text(encoding="utf-8"))
+    slug = cfg["slug"]
 
-    src = Path(a.bundle).read_text(encoding="utf-8")
+    src = Path(args.bundle).read_text(encoding="utf-8")
     manifest = block(src, "manifest")
     template = block(src, "template")
     ext = {e["uuid"]: e["id"] for e in block(src, "ext_resources")}
 
-    base = f"/esitykset/{a.slug}/"
-    out = REPO / "public" / "esitykset" / a.slug
+    base = f"/esitykset/{slug}/"
+    out = REPO / "public" / "esitykset" / slug
     # og.jpg on käsin tehty jakokuva — säilytetään, muu rakennetaan uusiksi.
     if (out / "assets").exists():
         shutil.rmtree(out / "assets")
@@ -125,18 +127,18 @@ def main():
     # Puhujan muistiinpanot eivät kuulu julkiselle sivulle.
     template = re.sub(r'\s+data-speaker-notes="[^"]*"', "", template)
     template = re.sub(r'<script[^>]*id="speaker-notes".*?</script>', "", template, flags=re.S)
-    for pair in a.replace:
-        old, new = pair.split("=", 1)
-        if old not in template:
-            sys.exit(f"korvattavaa tekstiä ei löytynyt: {old}")
+    for old, new in cfg.get("replace", []):
+        n = template.count(old)
+        if n != 1:
+            sys.exit(f"korvattava teksti löytyi {n} kertaa (pitää olla 1): {old[:80]}")
         template = template.replace(old, new)
-    for label in a.skip:
+    for label in cfg.get("skip", []):
         needle = f'<section data-label="{label}"'
         if needle not in template:
             sys.exit(f"diaa ei löytynyt: {label}")
         template = template.replace(needle, needle + " data-deck-skip=\"\"", 1)
 
-    t, d = html.escape(a.title), html.escape(a.description)
+    t, d = html.escape(cfg["title"]), html.escape(cfg["description"])
     # Netlify ohjaa kansio-osoitteet loppukauttaviivaan (301), joten canonical on sen muotoinen.
     canonical = f"https://seise.org{base}"
     head = f"""<title>{t} · Matti Seise</title>
