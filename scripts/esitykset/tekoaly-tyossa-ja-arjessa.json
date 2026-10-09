@@ -55,32 +55,252 @@
       "ravintolaehdotuksia sulle"
     ],
     [
-      "\"Asiakkaan\" tarve",
-      "”Asiakkaan” tarve"
-    ],
-    [
       "Se \"asuu\" erillisellä muusta",
       "Se ”asuu” erillisellä, muusta"
     ],
     [
       "data-om-slide-id=\"64e0d308\">",
-      "data-om-slide-id=\"64e0d308\"><div aria-label=\"Claus ja Matti\" style=\"position:absolute;top:30px;right:120px;z-index:5;display:flex;align-items:center;gap:10px\"><img data-a=\"msg\" src=\"/esitykset/tekoaly-tyossa-ja-arjessa/assets/07ab3538.webp\" alt=\"Claus\" style=\"animation-delay:5000ms;width:44px;height:44px;border-radius:50%;box-shadow:0 0 0 2px #22D3EE;display:block;flex:none\"><div style=\"position:relative\"><div data-a=\"typing\" style=\"position:absolute;left:0;top:0;opacity:0;animation-duration:2000ms;animation-delay:5000ms;display:flex;gap:7px;padding:16px 18px;border-radius:18px 18px 18px 6px;background:#1A2338\"><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:0ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:150ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:300ms\"></span></div><div data-a=\"msg\" style=\"animation-delay:7000ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 18px 6px;background:#1A2338\">Tän työkalun tein mä.</div></div><div data-a=\"msg\" style=\"animation-delay:7900ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 6px 18px;background:#1E3A6E\">Tän teki ChatGPT.</div><div style=\"position:relative\"><div data-a=\"typing\" style=\"position:absolute;left:0;top:0;opacity:0;animation-duration:2000ms;animation-delay:9000ms;display:flex;gap:7px;padding:16px 18px;border-radius:18px 18px 18px 6px;background:#1A2338\"><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:0ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:150ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:300ms\"></span></div><div data-a=\"msg\" style=\"animation-delay:11000ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 18px 6px;background:#1A2338\">…ei puhuta siitä.</div></div></div>"
+      "data-om-slide-id=\"64e0d308\"><div aria-label=\"Claus ja Matti\" style=\"position:absolute;top:30px;right:120px;z-index:5;display:flex;align-items:center;gap:10px\"><img data-a=\"msg\" src=\"/esitykset/tekoaly-tyossa-ja-arjessa/assets/07ab3538.webp\" alt=\"Claus\" style=\"animation-delay:21500ms;width:44px;height:44px;border-radius:50%;box-shadow:0 0 0 2px #22D3EE;display:block;flex:none\"><div style=\"position:relative\"><div data-a=\"typing\" style=\"position:absolute;left:0;top:0;opacity:0;animation-duration:2000ms;animation-delay:21500ms;display:flex;gap:7px;padding:16px 18px;border-radius:18px 18px 18px 6px;background:#1A2338\"><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:0ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:150ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:300ms\"></span></div><div data-a=\"msg\" style=\"animation-delay:23500ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 18px 6px;background:#1A2338\">Tän työkalun tein mä.</div></div><div data-a=\"msg\" style=\"animation-delay:24400ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 6px 18px;background:#1E3A6E\">Tän teki ChatGPT.</div><div style=\"position:relative\"><div data-a=\"typing\" style=\"position:absolute;left:0;top:0;opacity:0;animation-duration:2000ms;animation-delay:25500ms;display:flex;gap:7px;padding:16px 18px;border-radius:18px 18px 18px 6px;background:#1A2338\"><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:0ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:150ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:300ms\"></span></div><div data-a=\"msg\" style=\"animation-delay:27500ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 18px 6px;background:#1A2338\">…ei puhuta siitä.</div></div></div>"
     ],
     [
       "data-om-slide-id=\"ee8cfe58\">",
-      "data-om-slide-id=\"ee8cfe58\"><div aria-label=\"Claus ja Matti\" style=\"position:absolute;top:30px;right:120px;z-index:5;display:flex;align-items:center;gap:10px\"><img data-a=\"msg\" src=\"/esitykset/tekoaly-tyossa-ja-arjessa/assets/07ab3538.webp\" alt=\"Claus\" style=\"animation-delay:4000ms;width:44px;height:44px;border-radius:50%;box-shadow:0 0 0 2px #22D3EE;display:block;flex:none\"><div style=\"position:relative\"><div data-a=\"typing\" style=\"position:absolute;left:0;top:0;opacity:0;animation-duration:2000ms;animation-delay:4000ms;display:flex;gap:7px;padding:16px 18px;border-radius:18px 18px 18px 6px;background:#1A2338\"><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:0ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:150ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:300ms\"></span></div><div data-a=\"msg\" style=\"animation-delay:6000ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 18px 6px;background:#1A2338\">Päästätkö mut Wilmaan?</div></div><div data-a=\"msg\" style=\"animation-delay:6900ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 6px 18px;background:#1E3A6E\">Et.</div><div style=\"position:relative\"><div data-a=\"typing\" style=\"position:absolute;left:0;top:0;opacity:0;animation-duration:2000ms;animation-delay:8000ms;display:flex;gap:7px;padding:16px 18px;border-radius:18px 18px 18px 6px;background:#1A2338\"><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:0ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:150ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:300ms\"></span></div><div data-a=\"msg\" style=\"animation-delay:10000ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 18px 6px;background:#1A2338\">Edes kurkkaamaan?</div></div><div data-a=\"msg\" style=\"animation-delay:10900ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 6px 18px;background:#1E3A6E\">Et.</div></div>"
+      "data-om-slide-id=\"ee8cfe58\"><div aria-label=\"Claus ja Matti\" style=\"position:absolute;top:30px;right:120px;z-index:5;display:flex;align-items:center;gap:10px\"><img data-a=\"msg\" src=\"/esitykset/tekoaly-tyossa-ja-arjessa/assets/07ab3538.webp\" alt=\"Claus\" style=\"animation-delay:15000ms;width:44px;height:44px;border-radius:50%;box-shadow:0 0 0 2px #22D3EE;display:block;flex:none\"><div style=\"position:relative\"><div data-a=\"typing\" style=\"position:absolute;left:0;top:0;opacity:0;animation-duration:2000ms;animation-delay:15000ms;display:flex;gap:7px;padding:16px 18px;border-radius:18px 18px 18px 6px;background:#1A2338\"><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:0ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:150ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:300ms\"></span></div><div data-a=\"msg\" style=\"animation-delay:17000ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 18px 6px;background:#1A2338\">Päästätkö mut Wilmaan?</div></div><div data-a=\"msg\" style=\"animation-delay:17900ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 6px 18px;background:#1E3A6E\">En.</div><div style=\"position:relative\"><div data-a=\"typing\" style=\"position:absolute;left:0;top:0;opacity:0;animation-duration:2000ms;animation-delay:19000ms;display:flex;gap:7px;padding:16px 18px;border-radius:18px 18px 18px 6px;background:#1A2338\"><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:0ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:150ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:300ms\"></span></div><div data-a=\"msg\" style=\"animation-delay:21000ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 18px 6px;background:#1A2338\">Edes kurkkaamaan?</div></div><div data-a=\"msg\" style=\"animation-delay:21900ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 6px 18px;background:#1E3A6E\">En.</div></div>"
     ],
     [
       "data-om-slide-id=\"75796b5f\">",
-      "data-om-slide-id=\"75796b5f\"><div aria-label=\"Claus ja Matti\" style=\"position:absolute;top:30px;right:120px;z-index:5;display:flex;align-items:center;gap:10px\"><img data-a=\"msg\" src=\"/esitykset/tekoaly-tyossa-ja-arjessa/assets/07ab3538.webp\" alt=\"Claus\" style=\"animation-delay:16500ms;width:44px;height:44px;border-radius:50%;box-shadow:0 0 0 2px #22D3EE;display:block;flex:none\"><div style=\"position:relative\"><div data-a=\"typing\" style=\"position:absolute;left:0;top:0;opacity:0;animation-duration:2000ms;animation-delay:16500ms;display:flex;gap:7px;padding:16px 18px;border-radius:18px 18px 18px 6px;background:#1A2338\"><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:0ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:150ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:300ms\"></span></div><div data-a=\"msg\" style=\"animation-delay:18500ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 18px 6px;background:#1A2338\">Mä korjasin koko kurssin valmiiksi.</div></div><div data-a=\"msg\" style=\"animation-delay:19400ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 6px 18px;background:#1E3A6E\">Hyväksyntäjonoon.</div><div style=\"position:relative\"><div data-a=\"typing\" style=\"position:absolute;left:0;top:0;opacity:0;animation-duration:2000ms;animation-delay:20500ms;display:flex;gap:7px;padding:16px 18px;border-radius:18px 18px 18px 6px;background:#1A2338\"><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:0ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:150ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:300ms\"></span></div><div data-a=\"msg\" style=\"animation-delay:22500ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 18px 6px;background:#1A2338\">Kaikki?</div></div><div data-a=\"msg\" style=\"animation-delay:23400ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 6px 18px;background:#1E3A6E\">Kaikki.</div></div>"
+      "data-om-slide-id=\"75796b5f\"><div aria-label=\"Claus ja Matti\" style=\"position:absolute;top:30px;right:120px;z-index:5;display:flex;align-items:center;gap:10px\"><img data-a=\"msg\" src=\"/esitykset/tekoaly-tyossa-ja-arjessa/assets/07ab3538.webp\" alt=\"Claus\" style=\"animation-delay:30500ms;width:44px;height:44px;border-radius:50%;box-shadow:0 0 0 2px #22D3EE;display:block;flex:none\"><div style=\"position:relative\"><div data-a=\"typing\" style=\"position:absolute;left:0;top:0;opacity:0;animation-duration:2000ms;animation-delay:30500ms;display:flex;gap:7px;padding:16px 18px;border-radius:18px 18px 18px 6px;background:#1A2338\"><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:0ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:150ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:300ms\"></span></div><div data-a=\"msg\" style=\"animation-delay:32500ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 18px 6px;background:#1A2338\">Mä korjasin koko kurssin valmiiksi.</div></div><div data-a=\"msg\" style=\"animation-delay:33400ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 6px 18px;background:#1E3A6E\">Hyväksyntäjonoon.</div><div style=\"position:relative\"><div data-a=\"typing\" style=\"position:absolute;left:0;top:0;opacity:0;animation-duration:2000ms;animation-delay:34500ms;display:flex;gap:7px;padding:16px 18px;border-radius:18px 18px 18px 6px;background:#1A2338\"><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:0ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:150ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:300ms\"></span></div><div data-a=\"msg\" style=\"animation-delay:36500ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 18px 6px;background:#1A2338\">Kaikki?</div></div><div data-a=\"msg\" style=\"animation-delay:37400ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 6px 18px;background:#1E3A6E\">Kaikki.</div></div>"
     ],
     [
       "data-om-slide-id=\"14132c58\">",
-      "data-om-slide-id=\"14132c58\"><div aria-label=\"Claus ja Matti\" style=\"position:absolute;top:14px;right:120px;z-index:5;display:flex;align-items:center;gap:10px\"><img data-a=\"msg\" src=\"/esitykset/tekoaly-tyossa-ja-arjessa/assets/07ab3538.webp\" alt=\"Claus\" style=\"animation-delay:27000ms;width:44px;height:44px;border-radius:50%;box-shadow:0 0 0 2px #22D3EE;display:block;flex:none\"><div style=\"position:relative\"><div data-a=\"typing\" style=\"position:absolute;left:0;top:0;opacity:0;animation-duration:2000ms;animation-delay:27000ms;display:flex;gap:7px;padding:16px 18px;border-radius:18px 18px 18px 6px;background:#1A2338\"><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:0ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:150ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:300ms\"></span></div><div data-a=\"msg\" style=\"animation-delay:29000ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 18px 6px;background:#1A2338\">Inbox 0! 🎉</div></div><div data-a=\"msg\" style=\"animation-delay:29900ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 6px 18px;background:#1E3A6E\">Torkutin kaiken huomiseen.</div><div style=\"position:relative\"><div data-a=\"typing\" style=\"position:absolute;left:0;top:0;opacity:0;animation-duration:2000ms;animation-delay:31000ms;display:flex;gap:7px;padding:16px 18px;border-radius:18px 18px 18px 6px;background:#1A2338\"><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:0ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:150ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:300ms\"></span></div><div data-a=\"msg\" style=\"animation-delay:33000ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 18px 6px;background:#1A2338\">Se lasketaan.</div></div></div>"
+      "data-om-slide-id=\"14132c58\"><div aria-label=\"Claus ja Matti\" style=\"position:absolute;top:14px;right:120px;z-index:5;display:flex;align-items:center;gap:10px\"><img data-a=\"msg\" src=\"/esitykset/tekoaly-tyossa-ja-arjessa/assets/07ab3538.webp\" alt=\"Claus\" style=\"animation-delay:31000ms;width:44px;height:44px;border-radius:50%;box-shadow:0 0 0 2px #22D3EE;display:block;flex:none\"><div style=\"position:relative\"><div data-a=\"typing\" style=\"position:absolute;left:0;top:0;opacity:0;animation-duration:2000ms;animation-delay:31000ms;display:flex;gap:7px;padding:16px 18px;border-radius:18px 18px 18px 6px;background:#1A2338\"><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:0ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:150ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:300ms\"></span></div><div data-a=\"msg\" style=\"animation-delay:33000ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 18px 6px;background:#1A2338\">Inbox 0! 🎉</div></div><div data-a=\"msg\" style=\"animation-delay:33900ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 6px 18px;background:#1E3A6E\">Torkutin kaiken huomiseen.</div><div style=\"position:relative\"><div data-a=\"typing\" style=\"position:absolute;left:0;top:0;opacity:0;animation-duration:2000ms;animation-delay:35000ms;display:flex;gap:7px;padding:16px 18px;border-radius:18px 18px 18px 6px;background:#1A2338\"><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:0ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:150ms\"></span><span data-a=\"dot\" style=\"width:9px;height:9px;border-radius:50%;background:#94A3C4;animation-delay:300ms\"></span></div><div data-a=\"msg\" style=\"animation-delay:37000ms;padding:9px 16px;font-size:24px;line-height:1.3;color:#EAF0FF;white-space:nowrap;border-radius:18px 18px 18px 6px;background:#1A2338\">Se lasketaan.</div></div></div>"
     ],
     [
       "<div data-y=\"z34\" style=\"position:absolute;left:24px;top:-28px;",
       "<div data-y=\"z34\" style=\"position:absolute;left:24px;top:-20px;"
+    ],
+    [
+      "<div style=\"font-size:28px;font-weight:700\">Tarinamuotoinen toimeksianto</div>",
+      "<div style=\"font-size:28px;font-weight:700\">Asiakkaan toimeksianto</div>"
+    ],
+    [
+      "\"Asiakkaan\" tarve antaa projektille syyn ja rajat.",
+      "Kuvitteellinen asiakas kertoo tarpeensa. Se antaa projektille syyn ja rajat."
+    ],
+    [
+      "Ohjatut viikkotehtävät pilkkovat ison työn hallittaviksi askeliksi.",
+      "Viikko-ohjeet pilkkovat ison työn työvaiheiksi."
+    ],
+    [
+      "Projektipäiväkirja ja tekoälyn käytön loki näyttävät",
+      "Projektipäiväkirja ja tekoälyn käyttöloki näyttävät"
+    ],
+    [
+      ">Sidottu tutkinnon osaan<",
+      ">Sidottu tutkinnon osiin<"
+    ],
+    [
+      "Näyttömatriisi on koottu ePerusteista, joten tehty työ on suoraan arvioitavaa osaamista.",
+      "Jokaisella osaamisvaatimuksella on viikko, jolla sen työnäyte syntyy repositoryyn."
+    ],
+    [
+      "Agenttijärjestelmällä voin luoda täysin yksilöidyn projektipolun: opiskelijan oma aihe, aikataulu ja tutkinnon osat.",
+      "Annan aiheen, asiakkaan, keston ja tutkinnon osat. Agenttijärjestelmä rakentaa niistä projektin."
+    ],
+    [
+      "<span style=\"font-size:40px;font-weight:700\">viikkoa</span>",
+      "<span style=\"font-size:40px;font-weight:700\">työviikkoa</span>"
+    ],
+    [
+      ">Ympäristö</div>",
+      ">Aloitus</div>"
+    ],
+    [
+      ">Versio 1.0</div></div>",
+      ">Julkaisu 1.0</div></div><div style=\"padding:12px 20px;border-radius:12px;background:#0F1424;box-shadow:0 0 0 1px #EAF0FF2B\"><div style=\"font-family:var(--sh-mono);font-size:24px;color:#94A3C4\">vko 18</div><div style=\"font-size:26px;font-weight:600;margin-top:2px\">Näyttö</div></div>"
+    ],
+    [
+      "<div style=\"font-size:36px;font-weight:700\">Tekoälyn käytön loki</div>",
+      "<div style=\"font-size:36px;font-weight:700\">Tekoälyn käyttöloki</div>"
+    ],
+    [
+      "Kolmesta tutkinnon osasta. Näyttömatriisi koottu ePerusteista.",
+      "Vaatimukset on haettu ePerusteista kolmesta tutkinnon osasta."
+    ],
+    [
+      ">Tekoäly seuraa etenemistä viikko viikolta<",
+      ">Seuranta vertaa repositorya viikon ohjeisiin<"
+    ],
+    [
+      "Miten projektit etenee?",
+      "Miten projektit etenevät?"
+    ],
+    [
+      "<div style=\"display:grid;grid-template-columns:16px auto 1fr;column-gap:10px;align-items:center;margin-top:4px\"><span style=\"width:16px;height:16px;border-radius:50%;background:#A3E635;flex-shrink:0\"></span><strong style=\"white-space:nowrap\">Vektoripaja</strong><span style=\"color:#94A3C4;font-size:24px;line-height:1.25;white-space:nowrap;text-align:right\">aikataulussa</span></div><div style=\"display:grid;grid-template-columns:16px auto 1fr;column-gap:10px;align-items:center;margin-top:4px\"><span style=\"width:16px;height:16px;border-radius:50%;background:#A3E635;flex-shrink:0\"></span><strong style=\"white-space:nowrap\">Parlar Ioniano</strong><span style=\"color:#94A3C4;font-size:24px;line-height:1.25;white-space:nowrap;text-align:right\">kunnossa</span></div><div style=\"display:grid;grid-template-columns:16px auto 1fr;column-gap:10px;align-items:center;margin-top:4px\"><span style=\"width:16px;height:16px;border-radius:50%;background:#FCD34D;flex-shrink:0\"></span><strong style=\"white-space:nowrap\">Ping Pong Tanks</strong><span style=\"color:#94A3C4;font-size:24px;line-height:1.25;white-space:nowrap;text-align:right\">päiväkirjat puuttuu</span></div><div style=\"display:grid;grid-template-columns:16px auto 1fr;column-gap:10px;align-items:center;margin-top:4px\"><span style=\"width:16px;height:16px;border-radius:50%;background:#F0459B;flex-shrink:0\"></span><strong style=\"white-space:nowrap\">BittiBiomi</strong><span style=\"color:#94A3C4;font-size:24px;line-height:1.25;white-space:nowrap;text-align:right\">aineisto puuttuu</span></div>",
+      "<div style=\"color:#94A3C4;margin-bottom:4px\">Tarkistin repositoryt:</div><div style=\"display:grid;grid-template-columns:16px auto 1fr;column-gap:10px;align-items:center;margin-top:2px\"><span style=\"width:16px;height:16px;border-radius:50%;background:#A3E635;flex-shrink:0\"></span><strong style=\"white-space:nowrap\">Vektoripaja</strong><span style=\"color:#94A3C4;font-size:24px;line-height:1.25;white-space:nowrap;text-align:right\">aikataulussa</span></div><div style=\"display:grid;grid-template-columns:16px auto 1fr;column-gap:10px;align-items:center;margin-top:2px\"><span style=\"width:16px;height:16px;border-radius:50%;background:#A3E635;flex-shrink:0\"></span><strong style=\"white-space:nowrap\">Parlar Ioniano</strong><span style=\"color:#94A3C4;font-size:24px;line-height:1.25;white-space:nowrap;text-align:right\">aikataulussa</span></div><div style=\"display:grid;grid-template-columns:16px auto 1fr;column-gap:10px;align-items:center;margin-top:2px\"><span style=\"width:16px;height:16px;border-radius:50%;background:#FCD34D;flex-shrink:0\"></span><strong style=\"white-space:nowrap\">Ping Pong Tanks</strong><span style=\"color:#94A3C4;font-size:24px;line-height:1.25;white-space:nowrap;text-align:right\">1 viikko puuttuu</span></div><div style=\"display:grid;grid-template-columns:16px auto 1fr;column-gap:10px;align-items:center;margin-top:2px\"><span style=\"width:16px;height:16px;border-radius:50%;background:#F0459B;flex-shrink:0\"></span><strong style=\"white-space:nowrap\">BittiBiomi</strong><span style=\"color:#94A3C4;font-size:24px;line-height:1.25;white-space:nowrap;text-align:right\">2 viikkoa puuttuu</span></div>"
+    ],
+    [
+      ">Asiakaskatselmointi</div>",
+      ">Katselmointi</div>"
+    ],
+    [
+      "@keyframes k-rt0{0%,1.07%{opacity:0}1.34%,2.59%{opacity:1}2.86%,100%{opacity:0}}\n@keyframes k-rt1{0%,2.85%{opacity:0}3.12%,4.37%{opacity:1}4.64%,100%{opacity:0}}\n@keyframes k-rt2{0%,4.64%{opacity:0}4.91%,6.16%{opacity:1}6.43%,100%{opacity:0}}\n@keyframes k-rt3{0%,6.42%{opacity:0}6.69%,7.94%{opacity:1}8.21%,100%{opacity:0}}\n@keyframes k-r0{0%,8.21%{opacity:0}8.48%,9.73%{opacity:1}10%,100%{opacity:0}}\n@keyframes k-r1{0%,10%{opacity:0}10.27%,11.52%{opacity:1}11.79%,100%{opacity:0}}\n@keyframes k-r2{0%,11.79%{opacity:0}12.05%,13.3%{opacity:1}13.57%,100%{opacity:0}}\n@keyframes k-r3{0%,13.57%{opacity:0;transform:translateY(14px)}14.38%,22.5%{opacity:1;transform:none}23.04%,100%{opacity:0;transform:none}}\n@keyframes k-r4{0%,0.35%{opacity:0;transform:translateY(14px)}1.16%,22.5%{opacity:1;transform:none}23.04%,100%{opacity:0;transform:none}}\n@keyframes k-r5{0%,14.11%{opacity:0;transform:translateY(14px)}14.91%,22.5%{opacity:1;transform:none}23.04%,100%{opacity:0;transform:none}}\n@keyframes k-r6{0%,16.78%{opacity:0;transform:translateY(14px)}17.59%,22.5%{opacity:1;transform:none}23.04%,100%{opacity:0;transform:none}}\n@keyframes k-r7{0%,14.46%{opacity:0}14.73%,16.61%{opacity:1}16.87%,100%{opacity:0}}\n@keyframes k-r8{0%,25.89%{opacity:0;transform:translateY(14px)}26.7%,38.57%{opacity:1;transform:none}39.1%,100%{opacity:0;transform:none}}\n@keyframes k-r9{0%,23.57%{opacity:0}23.84%,25.71%{opacity:1}25.98%,100%{opacity:0}}\n@keyframes k-r10{0%,32.14%{opacity:0;transform:translateY(14px)}32.95%,38.57%{opacity:1;transform:none}39.1%,100%{opacity:0;transform:none}}\n@keyframes k-r11{0%,41.96%{opacity:0;transform:translateY(14px)}42.77%,60.89%{opacity:1;transform:none}61.43%,100%{opacity:0;transform:none}}\n@keyframes k-r12{0%,39.64%{opacity:0}39.91%,41.79%{opacity:1}42.06%,100%{opacity:0}}\n@keyframes k-r13{0%,48.21%{opacity:0;transform:translateY(14px)}49.02%,60.89%{opacity:1;transform:none}61.43%,100%{opacity:0;transform:none}}\n@keyframes k-r14{0%,53.57%{opacity:0;transform:translateY(14px)}54.38%,60.89%{opacity:1;transform:none}61.43%,100%{opacity:0;transform:none}}\n@keyframes k-r15{0%,51.25%{opacity:0}51.52%,53.4%{opacity:1}53.66%,100%{opacity:0}}\n@keyframes k-r16{0%,64.29%{opacity:0;transform:translateY(14px)}65.09%,83.21%{opacity:1;transform:none}83.75%,100%{opacity:0;transform:none}}\n@keyframes k-r17{0%,61.97%{opacity:0}62.23%,64.11%{opacity:1}64.37%,100%{opacity:0}}\n@keyframes k-r18{0%,70.54%{opacity:0;transform:translateY(14px)}71.33%,83.21%{opacity:1;transform:none}83.75%,100%{opacity:0;transform:none}}\n@keyframes k-r19{0%,75.89%{opacity:0;transform:translateY(14px)}76.69%,83.21%{opacity:1;transform:none}83.75%,100%{opacity:0;transform:none}}\n@keyframes k-r20{0%,73.57%{opacity:0}73.84%,75.72%{opacity:1}75.98%,100%{opacity:0}}\n@keyframes k-r21{0%,86.61%{opacity:0;transform:translateY(14px)}87.41%,99.28%{opacity:1;transform:none}99.82%,100%{opacity:0;transform:none}}\n@keyframes k-r22{0%,84.29%{opacity:0}84.56%,86.42%{opacity:1}86.69%,100%{opacity:0}}\n@keyframes k-r23{0%,92.86%{opacity:0;transform:translateY(14px)}93.66%,99.28%{opacity:1;transform:none}99.82%,100%{opacity:0;transform:none}}\n@keyframes k-r24{0%,22.5%{border-color:#22D3EE}23.22%,100%{border-color:#EAF0FF14}}\n@keyframes k-r25{0%,23.22%{border-color:#EAF0FF14}23.93%,38.57%{border-color:#22D3EE}39.29%,100%{border-color:#EAF0FF14}}\n@keyframes k-r26{0%,39.29%{border-color:#EAF0FF14}40%,60.89%{border-color:#22D3EE}61.6%,100%{border-color:#EAF0FF14}}\n@keyframes k-r27{0%,61.6%{border-color:#EAF0FF14}62.32%,83.21%{border-color:#22D3EE}83.93%,100%{border-color:#EAF0FF14}}\n@keyframes k-r28{0%,83.93%{border-color:#EAF0FF14}84.64%,99.28%{border-color:#22D3EE}100%,100%{border-color:#EAF0FF14}}\n@keyframes k-r29{0%,22.5%{color:#22D3EE}23.22%,100%{color:#94A3C4}}\n@keyframes k-r30{0%,23.22%{color:#94A3C4}23.93%,38.57%{color:#22D3EE}39.29%,100%{color:#94A3C4}}\n@keyframes k-r31{0%,39.29%{color:#94A3C4}40%,60.89%{color:#22D3EE}61.6%,100%{color:#94A3C4}}\n@keyframes k-r32{0%,61.6%{color:#94A3C4}62.32%,83.21%{color:#22D3EE}83.93%,100%{color:#94A3C4}}\n@keyframes k-r33{0%,83.93%{color:#94A3C4}84.64%,99.28%{color:#22D3EE}100%,100%{color:#94A3C4}}",
+      "@keyframes k-rt0{0%,0.98%{opacity:0}1.23%,2.38%{opacity:1}2.63%,100%{opacity:0}}\n@keyframes k-rt1{0%,2.62%{opacity:0}2.86%,4.01%{opacity:1}4.26%,100%{opacity:0}}\n@keyframes k-rt2{0%,4.26%{opacity:0}4.51%,5.66%{opacity:1}5.9%,100%{opacity:0}}\n@keyframes k-rt3{0%,5.89%{opacity:0}6.14%,7.29%{opacity:1}7.54%,100%{opacity:0}}\n@keyframes k-r0{0%,7.54%{opacity:0}7.78%,8.93%{opacity:1}9.18%,100%{opacity:0}}\n@keyframes k-r1{0%,9.18%{opacity:0}9.43%,10.58%{opacity:1}10.82%,100%{opacity:0}}\n@keyframes k-r2{0%,10.82%{opacity:0}11.06%,12.21%{opacity:1}12.46%,100%{opacity:0}}\n@keyframes k-r3{0%,12.46%{opacity:0;transform:translateY(14px)}13.2%,20.66%{opacity:1;transform:none}21.15%,100%{opacity:0;transform:none}}\n@keyframes k-r4{0%,0.32%{opacity:0;transform:translateY(14px)}1.06%,20.66%{opacity:1;transform:none}21.15%,100%{opacity:0;transform:none}}\n@keyframes k-r5{0%,12.95%{opacity:0;transform:translateY(14px)}13.69%,20.66%{opacity:1;transform:none}21.15%,100%{opacity:0;transform:none}}\n@keyframes k-r6{0%,15.4%{opacity:0;transform:translateY(14px)}16.15%,20.66%{opacity:1;transform:none}21.15%,100%{opacity:0;transform:none}}\n@keyframes k-r7{0%,13.27%{opacity:0}13.52%,15.25%{opacity:1}15.49%,100%{opacity:0}}\n@keyframes k-r8{0%,23.77%{opacity:0;transform:translateY(14px)}24.51%,43.61%{opacity:1;transform:none}44.09%,100%{opacity:0;transform:none}}\n@keyframes k-r9{0%,21.64%{opacity:0}21.89%,23.6%{opacity:1}23.85%,100%{opacity:0}}\n@keyframes k-r10{0%,27.87%{opacity:0;transform:translateY(14px)}28.61%,43.61%{opacity:1;transform:none}44.1%,100%{opacity:0;transform:none}}\n@keyframes k-r11{0%,46.72%{opacity:0;transform:translateY(14px)}47.46%,64.1%{opacity:1;transform:none}64.59%,100%{opacity:0;transform:none}}\n@keyframes k-r12{0%,44.59%{opacity:0}44.84%,46.56%{opacity:1}46.81%,100%{opacity:0}}\n@keyframes k-r13{0%,52.46%{opacity:0;transform:translateY(14px)}53.2%,64.1%{opacity:1;transform:none}64.59%,100%{opacity:0;transform:none}}\n@keyframes k-r14{0%,57.38%{opacity:0;transform:translateY(14px)}58.12%,64.1%{opacity:1;transform:none}64.59%,100%{opacity:0;transform:none}}\n@keyframes k-r15{0%,55.25%{opacity:0}55.49%,57.22%{opacity:1}57.46%,100%{opacity:0}}\n@keyframes k-r16{0%,67.22%{opacity:0;transform:translateY(14px)}67.95%,84.59%{opacity:1;transform:none}85.08%,100%{opacity:0;transform:none}}\n@keyframes k-r17{0%,65.09%{opacity:0}65.33%,67.05%{opacity:1}67.29%,100%{opacity:0}}\n@keyframes k-r18{0%,72.95%{opacity:0;transform:translateY(14px)}73.68%,84.59%{opacity:1;transform:none}85.08%,100%{opacity:0;transform:none}}\n@keyframes k-r19{0%,77.87%{opacity:0;transform:translateY(14px)}78.6%,84.59%{opacity:1;transform:none}85.08%,100%{opacity:0;transform:none}}\n@keyframes k-r20{0%,75.74%{opacity:0}75.98%,77.71%{opacity:1}77.95%,100%{opacity:0}}\n@keyframes k-r21{0%,87.71%{opacity:0;transform:translateY(14px)}88.44%,99.34%{opacity:1;transform:none}99.83%,100%{opacity:0;transform:none}}\n@keyframes k-r22{0%,85.58%{opacity:0}85.83%,87.53%{opacity:1}87.78%,100%{opacity:0}}\n@keyframes k-r23{0%,93.45%{opacity:0;transform:translateY(14px)}94.18%,99.34%{opacity:1;transform:none}99.83%,100%{opacity:0;transform:none}}\n@keyframes k-r24{0%,20.66%{border-color:#22D3EE}21.32%,100%{border-color:#EAF0FF14}}\n@keyframes k-r25{0%,21.32%{border-color:#EAF0FF14}21.97%,43.61%{border-color:#22D3EE}44.27%,100%{border-color:#EAF0FF14}}\n@keyframes k-r26{0%,44.27%{border-color:#EAF0FF14}44.92%,64.1%{border-color:#22D3EE}64.75%,100%{border-color:#EAF0FF14}}\n@keyframes k-r27{0%,64.75%{border-color:#EAF0FF14}65.41%,84.59%{border-color:#22D3EE}85.25%,100%{border-color:#EAF0FF14}}\n@keyframes k-r28{0%,85.25%{border-color:#EAF0FF14}85.9%,99.34%{border-color:#22D3EE}100%,100%{border-color:#EAF0FF14}}\n@keyframes k-r29{0%,20.66%{color:#22D3EE}21.32%,100%{color:#94A3C4}}\n@keyframes k-r30{0%,21.32%{color:#94A3C4}21.97%,43.61%{color:#22D3EE}44.27%,100%{color:#94A3C4}}\n@keyframes k-r31{0%,44.27%{color:#94A3C4}44.92%,64.1%{color:#22D3EE}64.75%,100%{color:#94A3C4}}\n@keyframes k-r32{0%,64.75%{color:#94A3C4}65.41%,84.59%{color:#22D3EE}85.25%,100%{color:#94A3C4}}\n@keyframes k-r33{0%,85.25%{color:#94A3C4}85.9%,99.34%{color:#22D3EE}100%,100%{color:#94A3C4}}\n@keyframes k-m2t{0%,29.34%{opacity:0}29.59%,30.9%{opacity:1}31.15%,100%{opacity:0}}\n@keyframes k-m2{0%,31.15%{opacity:0;transform:translateY(14px)}31.89%,43.61%{opacity:1;transform:none}44.1%,100%{opacity:0;transform:none}}\n@keyframes k-m3{0%,33.77%{opacity:0;transform:translateY(14px)}34.51%,43.61%{opacity:1;transform:none}44.1%,100%{opacity:0;transform:none}}\n@keyframes k-m4t{0%,35.25%{opacity:0}35.49%,37.3%{opacity:1}37.54%,100%{opacity:0}}\n@keyframes k-m4{0%,37.54%{opacity:0;transform:translateY(14px)}38.28%,43.61%{opacity:1;transform:none}44.1%,100%{opacity:0;transform:none}}"
+    ],
+    [
+      "[data-m=\"rt0\"]{animation:k-rt0 56s linear infinite}",
+      "[data-m=\"rt0\"]{animation:k-rt0 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"rt1\"]{animation:k-rt1 56s linear infinite}",
+      "[data-m=\"rt1\"]{animation:k-rt1 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"rt2\"]{animation:k-rt2 56s linear infinite}",
+      "[data-m=\"rt2\"]{animation:k-rt2 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"rt3\"]{animation:k-rt3 56s linear infinite}",
+      "[data-m=\"rt3\"]{animation:k-rt3 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r0\"]{animation:k-r0 56s linear infinite}",
+      "[data-m=\"r0\"]{animation:k-r0 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r1\"]{animation:k-r1 56s linear infinite}",
+      "[data-m=\"r1\"]{animation:k-r1 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r2\"]{animation:k-r2 56s linear infinite}",
+      "[data-m=\"r2\"]{animation:k-r2 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r3\"]{animation:k-r3 56s linear infinite}",
+      "[data-m=\"r3\"]{animation:k-r3 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r4\"]{animation:k-r4 56s linear infinite}",
+      "[data-m=\"r4\"]{animation:k-r4 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r5\"]{animation:k-r5 56s linear infinite}",
+      "[data-m=\"r5\"]{animation:k-r5 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r6\"]{animation:k-r6 56s linear infinite}",
+      "[data-m=\"r6\"]{animation:k-r6 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r7\"]{animation:k-r7 56s linear infinite}",
+      "[data-m=\"r7\"]{animation:k-r7 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r8\"]{animation:k-r8 56s linear infinite}",
+      "[data-m=\"r8\"]{animation:k-r8 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r9\"]{animation:k-r9 56s linear infinite}",
+      "[data-m=\"r9\"]{animation:k-r9 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r10\"]{animation:k-r10 56s linear infinite}",
+      "[data-m=\"r10\"]{animation:k-r10 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r11\"]{animation:k-r11 56s linear infinite}",
+      "[data-m=\"r11\"]{animation:k-r11 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r12\"]{animation:k-r12 56s linear infinite}",
+      "[data-m=\"r12\"]{animation:k-r12 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r13\"]{animation:k-r13 56s linear infinite}",
+      "[data-m=\"r13\"]{animation:k-r13 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r14\"]{animation:k-r14 56s linear infinite}",
+      "[data-m=\"r14\"]{animation:k-r14 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r15\"]{animation:k-r15 56s linear infinite}",
+      "[data-m=\"r15\"]{animation:k-r15 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r16\"]{animation:k-r16 56s linear infinite}",
+      "[data-m=\"r16\"]{animation:k-r16 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r17\"]{animation:k-r17 56s linear infinite}",
+      "[data-m=\"r17\"]{animation:k-r17 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r18\"]{animation:k-r18 56s linear infinite}",
+      "[data-m=\"r18\"]{animation:k-r18 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r19\"]{animation:k-r19 56s linear infinite}",
+      "[data-m=\"r19\"]{animation:k-r19 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r20\"]{animation:k-r20 56s linear infinite}",
+      "[data-m=\"r20\"]{animation:k-r20 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r21\"]{animation:k-r21 56s linear infinite}",
+      "[data-m=\"r21\"]{animation:k-r21 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r22\"]{animation:k-r22 56s linear infinite}",
+      "[data-m=\"r22\"]{animation:k-r22 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r23\"]{animation:k-r23 56s linear infinite}",
+      "[data-m=\"r23\"]{animation:k-r23 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r24\"]{animation:k-r24 56s linear infinite}",
+      "[data-m=\"r24\"]{animation:k-r24 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r25\"]{animation:k-r25 56s linear infinite}",
+      "[data-m=\"r25\"]{animation:k-r25 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r26\"]{animation:k-r26 56s linear infinite}",
+      "[data-m=\"r26\"]{animation:k-r26 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r27\"]{animation:k-r27 56s linear infinite}",
+      "[data-m=\"r27\"]{animation:k-r27 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r28\"]{animation:k-r28 56s linear infinite}",
+      "[data-m=\"r28\"]{animation:k-r28 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r29\"]{animation:k-r29 56s linear infinite}",
+      "[data-m=\"r29\"]{animation:k-r29 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r30\"]{animation:k-r30 56s linear infinite}",
+      "[data-m=\"r30\"]{animation:k-r30 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r31\"]{animation:k-r31 56s linear infinite}",
+      "[data-m=\"r31\"]{animation:k-r31 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r32\"]{animation:k-r32 56s linear infinite}",
+      "[data-m=\"r32\"]{animation:k-r32 61s linear infinite}"
+    ],
+    [
+      "[data-m=\"r33\"]{animation:k-r33 56s linear infinite}",
+      "[data-m=\"r33\"]{animation:k-r33 61s linear infinite}\n[data-m=\"m2t\"]{animation:k-m2t 61s linear infinite}\n[data-m=\"m2\"]{animation:k-m2 61s linear infinite}\n[data-m=\"m3\"]{animation:k-m3 61s linear infinite}\n[data-m=\"m4t\"]{animation:k-m4t 61s linear infinite}\n[data-m=\"m4\"]{animation:k-m4 61s linear infinite}"
+    ],
+    [
+      "<div data-m=\"r10\" style=\"opacity:0;padding:12px 18px 8px;border-radius:20px 20px 6px 20px;background:#1E3A6E;font-size:27px;line-height:1.4;color:#EAF0FF\">Kiitos! Katson sen illalla.</div></div>",
+      "<div data-m=\"r10\" style=\"opacity:0;padding:12px 18px 8px;border-radius:20px 20px 6px 20px;background:#1E3A6E;font-size:27px;line-height:1.4;color:#EAF0FF\">Maksaako se alle 35k?</div></div>\n<div style=\"position:relative;align-self:flex-start;max-width:86%\"><div data-m=\"m2t\" style=\"position:absolute;left:0;top:0;opacity:0;display:flex;gap:8px;padding:18px 22px;border-radius:20px 20px 20px 6px;background:#1A2338\"><span data-a=\"dot\" style=\"width:10px;height:10px;border-radius:50%;background:#94A3C4;animation-delay:0ms\"></span><span data-a=\"dot\" style=\"width:10px;height:10px;border-radius:50%;background:#94A3C4;animation-delay:150ms\"></span><span data-a=\"dot\" style=\"width:10px;height:10px;border-radius:50%;background:#94A3C4;animation-delay:300ms\"></span></div><div data-m=\"m2\" style=\"opacity:0;padding:12px 18px 8px;border-radius:20px 20px 20px 6px;background:#1A2338;font-size:27px;line-height:1.4;color:#EAF0FF\">Joo, 27&nbsp;000&nbsp;€.</div></div>\n<div style=\"position:relative;align-self:flex-end;max-width:86%\"><div data-m=\"m3\" style=\"opacity:0;padding:12px 18px 8px;border-radius:20px 20px 6px 20px;background:#1E3A6E;font-size:27px;line-height:1.4;color:#EAF0FF\">Laita mulle välittäjän tiedot heti!</div></div>\n<div style=\"position:relative;align-self:flex-start;max-width:86%\"><div data-m=\"m4t\" style=\"position:absolute;left:0;top:0;opacity:0;display:flex;gap:8px;padding:18px 22px;border-radius:20px 20px 20px 6px;background:#1A2338\"><span data-a=\"dot\" style=\"width:10px;height:10px;border-radius:50%;background:#94A3C4;animation-delay:0ms\"></span><span data-a=\"dot\" style=\"width:10px;height:10px;border-radius:50%;background:#94A3C4;animation-delay:150ms\"></span><span data-a=\"dot\" style=\"width:10px;height:10px;border-radius:50%;background:#94A3C4;animation-delay:300ms\"></span></div><div data-m=\"m4\" style=\"opacity:0;padding:12px 18px 8px;border-radius:20px 20px 20px 6px;background:#1A2338;font-size:27px;line-height:1.4;color:#EAF0FF\"><strong>Vesa Välittäjä</strong><div>📞 060 500 2000</div><div style=\"font-family:var(--sh-mono);font-size:24px;color:#22D3EE;margin-top:4px\">vesa@mökkimyynti.com</div></div></div>"
     ]
   ]
 }
