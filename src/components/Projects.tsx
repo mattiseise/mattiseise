@@ -1,6 +1,10 @@
 import Link from "next/link";
 import type { Locale } from "@/lib/blog";
 
+/** Staattinen esityssivu (scripts/rakenna-esitys.py) ja sen kuvaussivu. */
+const ESITYS = "/esitykset/tekoaly-tyossa-ja-arjessa/";
+const ESITYS_KUVAUS = "/esitykset";
+
 type ProjectCard = {
   tag: string;
   year: string;
@@ -53,6 +57,15 @@ const strings = {
         href: "/caset/wilma-itslearning-automaatiot",
       },
     ] as readonly ProjectCard[],
+    talk: {
+      tag: "Esitys · 19 diaa",
+      title: "Näin käytän tekoälyä työssä ja arjessa",
+      blurb:
+        "Kaikki yllä oleva ja vähän enemmän yhdessä esityksessä: opettajan työkalut, agenttiputki, joka tekee kurssin, oma avustaja ja arjen automaatiot. Selattavissa myös puhelimella.",
+      open: "Avaa esitys",
+      read: "Lue kuvaus",
+      imgAlt: "Esityksen kansi: Näin käytän tekoälyä työssä ja arjessa",
+    },
   },
   en: {
     eyebrow: "Projects",
@@ -96,6 +109,15 @@ const strings = {
         href: "/en/caset/wilma-itslearning-automaatiot",
       },
     ] as readonly ProjectCard[],
+    talk: {
+      tag: "Talk · 19 slides · in Finnish",
+      title: "How I use AI at work and at home",
+      blurb:
+        "All of the above and a bit more in one presentation: teacher tools, an agent pipeline that builds a course, my own assistant and everyday automations. Works on a phone too.",
+      open: "Open the presentation",
+      read: "Read the description",
+      imgAlt: "Presentation cover: How I use AI at work and at home",
+    },
   },
 } as const;
 
@@ -136,6 +158,43 @@ export default function Projects({ locale = "fi" }: { locale?: Locale }) {
               </span>
             </Link>
           ))}
+        </div>
+
+        <div className="card mt-[22px] grid items-center gap-7 !p-7 md:grid-cols-12">
+          <a
+            href={ESITYS}
+            className="block overflow-hidden rounded-xl border border-cream-50/10 transition-colors hover:border-amber-400/50 md:col-span-6"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element -- staattinen jakokuva public-kansiosta */}
+            <img
+              src={`${ESITYS}og.jpg`}
+              width={1200}
+              height={630}
+              alt={t.talk.imgAlt}
+              loading="lazy"
+              className="block h-auto w-full"
+            />
+          </a>
+          <div className="md:col-span-6">
+            <p className="eyebrow-sm">{t.talk.tag}</p>
+            <h3 className="mt-2.5 font-display text-[23px] font-semibold text-cream-50">
+              {t.talk.title}
+            </h3>
+            <p className="mt-3 text-[15px] leading-[1.65] text-cream-300">
+              {t.talk.blurb}
+            </p>
+            <div className="mt-[18px] flex flex-wrap items-center gap-x-6 gap-y-3">
+              <a href={ESITYS} className="btn-primary-sm">
+                {t.talk.open} <span aria-hidden>→</span>
+              </a>
+              <Link
+                href={ESITYS_KUVAUS}
+                className="text-[14.5px] font-bold text-amber-400 hover:text-amber-300"
+              >
+                {t.talk.read} <span aria-hidden>→</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>
