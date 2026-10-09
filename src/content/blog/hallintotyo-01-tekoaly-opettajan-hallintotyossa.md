@@ -13,6 +13,8 @@ cover: "/images/blog/kausi-1-opettajan-hallintotyo/02-wilma-suoritus-kesken-vaal
 coverAlt: "Havainnekuva: ES-merkinnät erottuvat vaaleanpunaisella."
 ---
 
+**Päivitetty 10.10.2026:** Aiemmin blogissa ennakkona esitelty sarja on nyt julkaistu kokonaan. Kaikki seitsemän osaa kuvineen ja ohjeineen ovat luettavissa. Alta löydät linkit työkaluihin ja käyttöönottoon.
+
 Opettajan työssä on paljon vaiheita, joissa tieto on jo olemassa mutta sen löytäminen tai siirtäminen vie aikaa. Katson taulukosta, mitä pitää tarkistaa. Etsin palautusta muiden merkintöjen seasta. Kopioin Excelistä saman rakenteen lomakkeelle uudelleen.
 
 Yksittäinen kerta ei tunnu isolta. Toistuvana työnä se alkaa ärsyttää. Rakensin näihin kohtiin pieniä työkaluja tekoälyn avulla.

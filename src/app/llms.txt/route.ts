@@ -63,7 +63,7 @@ ${publishedList}${upcomingList ? `\n\nTulossa:\n${upcomingList}` : ""}
 
 - [Tekoälyn perusteet -kurssi](${BASE}/caset/tekoalyn-perusteet): 27 oppitunnin avoin kurssi (teoria, käyttö, agentit). Materiaali tuotettu kokonaan tekoälyllä, agentteja hyödyntäen. Avoin lähdekoodi: https://github.com/mattiseise/ai-perusteet
 - [Moodle-kurssiauditointi](${BASE}/caset/moodle-kurssiauditointi): yhden komennon pedagoginen analyysi Moodle-kursseille (Bloom, ePerusteet, koherenssi).
-- [Wilma- ja itslearning-automaatiot](${BASE}/caset/wilma-itslearning-automaatiot): selainautomaatiot opettajan rutiineihin — tunteja työaikaa takaisin viikossa.
+- [Wilma- ja itslearning-automaatiot](${BASE}/caset/wilma-itslearning-automaatiot): neljä opettajan selain- ja lomaketyökalua sekä kokonaan julkaistu seitsemänosainen blogisarja kuvineen ja käyttöönotto-ohjeineen.
 - [Urheiluhallit-booker](${BASE}/caset/urheiluhallit-booker): esimerkki kirjautumista vaativan oman rutiinin hallitusta automatisoinnista.
 - [Esitys: Näin käytän tekoälyä työssä ja arjessa](${BASE}/esitykset): kuvaus selattavasta diaesityksestä omista työkaluista (Wilma, itslearning), agenttiputkella tehdyistä oppimateriaaleista, Claus-avustajasta ja arjen automaatioista. Itse esitys: ${BASE}/esitykset/tekoaly-tyossa-ja-arjessa/
 - Hermes-agentti: henkilökohtainen AI-agentti tuotannossa (aamubriiffit, sähköpostien luokittelu, varaukset). Koko tarina blogisarjassa.

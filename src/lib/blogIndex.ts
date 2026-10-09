@@ -30,6 +30,7 @@ const ui = {
     newSeriesKicker: (topic: string) => `Uusi blogisarja · ${topic}`,
     standaloneKicker: (topic: string) => `Irtokirjoitus · ${topic}`,
     seriesEyebrow: (n: number) => `Blogisarja · ${n} osaa`,
+    publishedSeriesEyebrow: (n: number) => `Julkaistu blogisarja · kaikki ${n} osaa`,
     seriesCta: "Aloita osasta 1",
     seriesMeta: (n: number, month: string, min: number) =>
       `${n} osaa · ${month} · yht. n. ${min} min`,
@@ -49,6 +50,7 @@ const ui = {
     newSeriesKicker: (topic: string) => `New blog series · ${topic}`,
     standaloneKicker: (topic: string) => `Standalone · ${topic}`,
     seriesEyebrow: (n: number) => `Blog series · ${n} parts`,
+    publishedSeriesEyebrow: (n: number) => `Published series · all ${n} parts`,
     seriesCta: "Start with part 1",
     seriesMeta: (n: number, month: string, min: number) =>
       `${n} parts · ${month} · ~${min} min total`,
@@ -57,6 +59,10 @@ const ui = {
 
 /** Sarjakohtaiset kuvaukset sarjanostoon; puuttuessa käytetään osan 1 kuvausta. */
 const seriesDescriptions: Record<string, Record<Locale, string>> = {
+  "tekoaly-opettajan-hallintotyossa": {
+    fi: "Kaikki seitsemän osaa ovat nyt luettavissa. Wilman keskeneräiset suoritukset, itslearningin palautukset, sarakkeiden piilotus ja opintosuunnitelman täyttö — mukana kuvat, Tampermonkey-ohje ja sovelluksen käyttöönotto.",
+    en: "All seven parts are available in Finnish: Wilma completion highlights, itslearning submissions, column visibility and study-plan entry, with images and setup instructions.",
+  },
   "oman-ai-agentin-rakentaminen": {
     fi: "Kuusiosainen sarja oman tekoälyagentin viemisestä tuotantoon: chatbotin ja agentin ero, yliarkkitehtuuri, kahdeksan kallista virhettä, autonomian rajat ja alustanvaihto OpenClaw'sta Hermekseen — rehellisesti, ilman AI-hypeä.",
     en: "A six-part series on taking a personal AI agent to production: chatbot vs. agent, over-architecture, eight expensive mistakes, the limits of autonomy and the platform switch from OpenClaw to Hermes — honestly, without AI hype.",
@@ -141,7 +147,9 @@ export function buildBlogIndexData(locale: Locale): {
       .filter((p) => p.cover)
       .map((p) => p.cover as string);
     featured = {
-      eyebrow: t.seriesEyebrow(featuredSeries.posts.length),
+      eyebrow: featuredSeries.posts.every(isPublished)
+        ? t.publishedSeriesEyebrow(featuredSeries.posts.length)
+        : t.seriesEyebrow(featuredSeries.posts.length),
       title: featuredSeries.title,
       description:
         seriesDescriptions[featuredSeries.slug]?.[locale] ?? first.description,
