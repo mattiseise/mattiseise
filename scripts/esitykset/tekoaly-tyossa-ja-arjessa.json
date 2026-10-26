@@ -357,6 +357,42 @@
     [
       ">Teidän vuoronne<",
       ">Sinun vuorosi<"
+    ],
+    [
+      "<section data-label=\"Opintosuunnitelma\"",
+      "<section data-label=\"Esimerkkidemo: kokouskutsu\" style=\"background:linear-gradient(180deg,#0C1226,#080B16);color:#EAF0FF;overflow:hidden;font-family:var(--sh-leipa);box-sizing:border-box;\">\n<div data-a=\"drift\" style=\"position:absolute;width:820px;height:820px;border-radius:50%;background:#22D3EE;filter:blur(110px);opacity:0.28;top:-480px;right:-160px\"></div>\n<div style=\"position:absolute;left:120px;top:100px;right:120px\">\n<div data-a=\"up\" style=\"font-size:24px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:#22D3EE;animation-delay:0ms\">Kaava käytännössä · esimerkkidemo</div>\n<h2 data-a=\"up\" style=\"font-family:var(--sh-display);font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:1.2;margin:20px 0 0;font-size:64px;animation-delay:130ms\">Tarpeesta ensimmäiseen kokeiluun</h2>\n</div>\n<div style=\"position:absolute;left:120px;top:300px;width:900px;display:flex;flex-direction:column;gap:22px\">\n<div data-a=\"up\" style=\"display:flex;gap:20px;align-items:baseline;animation-delay:600ms\"><span style=\"font-family:var(--sh-display);font-size:36px;color:#22D3EE;flex:none\">01</span><div><div style=\"font-size:30px;font-weight:700\">Tarve</div><div style=\"font-size:26px;color:#94A3C4;line-height:1.4\">Kirjoitan joka viikko saman kokouskutsun.</div></div></div>\n<div data-a=\"up\" style=\"display:flex;gap:20px;align-items:baseline;animation-delay:1800ms\"><span style=\"font-family:var(--sh-display);font-size:36px;color:#22D3EE;flex:none\">02</span><div><div style=\"font-size:30px;font-weight:700\">Pyyntö tekoälylle</div><div style=\"font-size:26px;color:#EAF0FF;line-height:1.4;font-style:italic\">”Tee lomake, johon täytän vain aiheen, päivän, kellonajan ja paikan. Muu kutsuteksti pysyy samana.”</div></div></div>\n<div data-a=\"up\" style=\"display:flex;gap:20px;align-items:baseline;animation-delay:3000ms\"><span style=\"font-family:var(--sh-display);font-size:36px;color:#22D3EE;flex:none\">03</span><div><div style=\"font-size:30px;font-weight:700\">Ensimmäinen tulos</div><div style=\"font-size:26px;color:#94A3C4;line-height:1.4\">Lomake, joka kokoaa kutsun kopioitavaksi.</div></div></div>\n<div data-a=\"up\" style=\"display:flex;gap:20px;align-items:baseline;animation-delay:4200ms\"><span style=\"font-family:var(--sh-display);font-size:36px;color:#FCD34D;flex:none\">04</span><div><div style=\"font-size:30px;font-weight:700\">Kokeilen keksityillä tiedoilla</div><div style=\"font-size:26px;color:#94A3C4;line-height:1.4\">Puute: päivä näkyy muodossa 2026-11-05.</div></div></div>\n<div data-a=\"up\" style=\"display:flex;gap:20px;align-items:baseline;animation-delay:5400ms\"><span style=\"font-family:var(--sh-display);font-size:36px;color:#A3E635;flex:none\">05</span><div><div style=\"font-size:30px;font-weight:700\">Pyydän korjauksen ja kokeilen uudelleen</div><div style=\"font-size:26px;color:#EAF0FF;line-height:1.4;font-style:italic\">”Näytä päivä suomalaisittain viikonpäivän kanssa.”</div></div></div>\n</div>\n<div data-a=\"pop\" style=\"position:absolute;left:1100px;right:120px;top:300px;border-radius:22px;overflow:hidden;background:#0B1120;box-shadow:0 0 0 1px #EAF0FF2B;animation-delay:3000ms;z-index:2\">\n  <div style=\"padding:14px 24px;border-bottom:1px solid #EAF0FF14;background:#0F1424;font-family:var(--sh-mono);font-size:24px;color:#94A3C4\">Kutsuteksti · keksityt tiedot</div>\n  <div style=\"padding:22px 24px;font-family:var(--sh-mono);font-size:24px;line-height:1.5;color:#EAF0FF\">\n    <div>Aihe: Tiimin viikkopalaveri</div>\n    <div data-a=\"up\" style=\"animation-delay:4200ms;margin-top:6px;padding:6px 12px;border-radius:10px;box-shadow:inset 0 0 0 2px #FCD34D;color:#FCD34D\">✗ Aika: 2026-11-05 klo 09:00</div>\n    <div data-a=\"up\" style=\"animation-delay:5400ms;margin-top:10px;padding:6px 12px;border-radius:10px;box-shadow:inset 0 0 0 2px #A3E635;color:#A3E635\">✓ Aika: torstaina 5.11.2026 klo 9.00</div>\n    <div style=\"margin-top:6px\">Paikka: Neuvotteluhuone Kuusi</div>\n  </div>\n</div>\n<div data-a=\"up\" style=\"position:absolute;left:1100px;right:120px;top:700px;padding:20px 24px;border-radius:16px;background:#0F1424;box-shadow:inset 4px 0 0 #22D3EE;font-size:24px;line-height:1.5;color:#EAF0FF;animation-delay:6600ms\">Ensimmäinen versio on harvoin valmis. Kokeile, tarkista ja pyydä korjaus. Harjoittele itse keksityillä tiedoilla.</div>\n<div style=\"position:absolute;left:120px;right:120px;bottom:44px;font-family:var(--sh-mono);font-size:22px;color:#94A3C4\">Esimerkkidemo: tiedot on keksitty tätä esitystä varten, ja demo tehtiin ja testattiin erikseen. Ei aito keskusteluhistoria.</div>\n</section>\n<section data-label=\"Opintosuunnitelma\""
+    ],
+    [
+      "Silti mikään niistä ei enää vaadi koodaustaitoa. Riittää, että osaa kuvata tarpeen.",
+      "Silti mikään niistä ei enää vaadi koodaustaitoa. Riittää, että osaa kuvata tarpeen, kokeilla tulosta ja pyytää korjauksia."
+    ],
+    [
+      "</strong>: laatikossa ei ole mitään, ja jokainen asia tulee hoidettua. Kaikki ominaisuudet ohjaavat sinne.",
+      "</strong>: jokainen viesti on käsitelty, eli hoidettu tai ajoitettu. Kaikki ominaisuudet ohjaavat sinne."
+    ],
+    [
+      "Asia, joka ei kuulu tähän päivään, palaa ajallaan.",
+      "Siirtää asian sovittuun päivään. Se ei ole vielä valmis."
+    ],
+    [
+      "Laatikossa ei ole mitään. Jokainen asia on hoidettu.",
+      "Jokainen viesti on käsitelty: hoidettu tai ajoitettu."
+    ],
+    [
+      "· Siirto itslearningiin tarkistetaan</span></div>",
+      "· Siirto itslearningiin tarkistetaan</span></div>\n<div data-u=\"v30\" style=\"margin:14px 28px 0;font-size:22px;line-height:1.4;color:#FCD34D\">Oikeaa työaineistoa vain oman organisaation ohjeen ja luvan mukaan, erillinen kone ei sitä ratkaise. Harjoittele itse keksityllä aineistolla.</div>"
+    ],
+    [
+      "<strong>Siirto on valmis.</strong> Mä tein ajastimet, jotka seuraavat lukkojen tilaa.<div style=\"font-family:var(--sh-mono);font-size:24px;color:#A3E635;margin-top:6px\">✓ Seuranta päällä</div>",
+      "<strong>Siirto on valmis.</strong> Osoitteen seise.org rekisteröinti on nyt uudella operaattorilla."
+    ],
+    [
+      "<span style=\"font-size:29px;font-weight:700\">Seuranta-ajastimet</span><span style=\"font-family:var(--sh-mono);font-size:24px;color:#A3E635\">Avustaja</span></div><div style=\"font-size:24px;color:#94A3C4;margin-top:4px;line-height:1.35\">Lukkojen tilaa seurataan automaattisesti.</div>",
+      "<span style=\"font-size:29px;font-weight:700\">Mikä vaihtui?</span><span style=\"font-family:var(--sh-mono);font-size:24px;color:#A3E635\">Selitys</span></div><div style=\"font-size:24px;color:#94A3C4;margin-top:4px;line-height:1.35\">Verkkotunnus on sivun osoite, tässä seise.org. Sen rekisteröinti siirtyi uudelle palveluntarjoajalle. Siirto ei itsessään siirrä sivustoa tai sähköpostia.</div>"
+    ],
+    [
+      "<div data-a=\"up\" style=\"animation-delay:5400ms;margin-top:10px;padding:6px 12px;border-radius:10px;box-shadow:inset 0 0 0 2px #A3E635;color:#A3E635\">✓ Aika:",
+      "<div data-a=\"up\" style=\"animation-name:k-fade;animation-delay:5400ms;margin-top:10px;padding:6px 12px;border-radius:10px;box-shadow:inset 0 0 0 2px #A3E635;color:#A3E635\">✓ Aika:"
     ]
   ]
 }
