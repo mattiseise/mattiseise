@@ -5,6 +5,8 @@ import { aiperusteetUrl } from "@/lib/links";
 
 /** Staattinen esityssivu, ks. scripts/rakenna-esitys.py. */
 const ESITYS = "/esitykset/tekoaly-tyossa-ja-arjessa/";
+/** Sarjakuvaesitys, ks. scripts/julkaise-sarjakuva.py. */
+const AGENTTIPUTKI = "/esitykset/agenttiputki/";
 const title = "Näin käytän tekoälyä työssä ja arjessa";
 const description =
   "Esitys omista tekoälyllä rakennetuista työkaluista: Wilma- ja itslearning-apuvälineet, agenttiputkella tehdyt oppimateriaalit, oma avustaja ja arjen automaatiot.";
@@ -104,6 +106,37 @@ export default function Page() {
                 <strong className="text-cream-50">Minä päätän.</strong>{" "}
                 Kurssin korjausehdotukset menevät hyväksyntäjonoon, julkaisusta päätän itse, eikä avustaja peru varauksia ilman lupaa.
               </p>
+            </>
+          ),
+        },
+        {
+          heading: "Sarjakuvaesitys: Pedagoginen agenttiputki",
+          body: (
+            <>
+              <p>
+                Noin kahdeksan minuutin sarjakuvaesitys siitä, miten oppimateriaali kulkee agenttiputken läpi. Sune suunnittelee, Rasmus rakentaa, kolme tarkastajaa testaa ja kaksi porttia päättää. Lopuksi opettaja hyväksyy. Hahmot puhuvat, ja luvut voi katsoa yksitellen tai lukea käsikirjoituksena.
+              </p>
+              <a
+                href={AGENTTIPUTKI}
+                className="group block overflow-hidden rounded-[14px] border border-cream-50/10 transition-colors hover:border-amber-400/50"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element -- staattinen jakokuva public-kansiosta */}
+                <img
+                  src={`${AGENTTIPUTKI}og.jpg`}
+                  width={1200}
+                  height={630}
+                  alt="Sarjakuvaesityksen kansi: Pedagoginen agenttiputki"
+                  className="block h-auto w-full transition-transform duration-300 group-hover:scale-[1.01]"
+                />
+              </a>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-3 pt-2">
+                <a href={AGENTTIPUTKI} className="btn-primary-sm">
+                  Avaa sarjakuvaesitys <span aria-hidden>→</span>
+                </a>
+                <p className="text-[15px] leading-[1.6] text-cream-300">
+                  Ääni käynnistyy Aloita-painikkeesta. Esitys toimii myös ilman ääntä tekstitettynä.
+                </p>
+              </div>
             </>
           ),
         },

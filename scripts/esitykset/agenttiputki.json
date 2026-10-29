@@ -1,0 +1,7 @@
+{
+  "slug": "agenttiputki",
+  "title": "Pedagoginen agenttiputki",
+  "description": "Sarjakuvaesitys siitä, miten tekoälyagentit suunnittelevat, rakentavat ja tarkastavat opetusmateriaalia – ja miksi opettaja hyväksyy jokaisen julkaistavan sisällön.",
+  "source": "sarjakuvaesitys-repo (mattiseise/sarjakuvaesitys): python3 tools/build.py --esitys agenttiputki → dist/agenttiputki/standalone.html",
+  "build": "python3 -I scripts/julkaise-sarjakuva.py ~/Projektit/web/sarjakuvaesitys/dist/agenttiputki/standalone.html scripts/esitykset/agenttiputki.json"
+}
