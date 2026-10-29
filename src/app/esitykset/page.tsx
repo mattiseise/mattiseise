@@ -5,8 +5,9 @@ import { aiperusteetUrl } from "@/lib/links";
 
 /** Staattinen esityssivu, ks. scripts/rakenna-esitys.py. */
 const ESITYS = "/esitykset/tekoaly-tyossa-ja-arjessa/";
-/** Sarjakuvaesitys, ks. scripts/julkaise-sarjakuva.py. */
+/** Sarjakuvaesitykset, ks. scripts/julkaise-sarjakuva.py. */
 const AGENTTIPUTKI = "/esitykset/agenttiputki/";
+const APURIT = "/esitykset/opettajan-apurit/";
 const title = "Näin käytän tekoälyä työssä ja arjessa";
 const description =
   "Esitys omista tekoälyllä rakennetuista työkaluista: Wilma- ja itslearning-apuvälineet, agenttiputkella tehdyt oppimateriaalit, oma avustaja ja arjen automaatiot.";
@@ -131,6 +132,37 @@ export default function Page() {
               </a>
               <div className="flex flex-wrap items-center gap-x-5 gap-y-3 pt-2">
                 <a href={AGENTTIPUTKI} className="btn-primary-sm">
+                  Avaa sarjakuvaesitys <span aria-hidden>→</span>
+                </a>
+                <p className="text-[15px] leading-[1.6] text-cream-300">
+                  Ääni käynnistyy Aloita-painikkeesta. Esitys toimii myös ilman ääntä tekstitettynä.
+                </p>
+              </div>
+            </>
+          ),
+        },
+        {
+          heading: "Sarjakuvaesitys: Opettajan apurit",
+          body: (
+            <>
+              <p>
+                Noin kuuden minuutin sarjakuvaesitys pienistä tekoälyn avulla tehdyistä apureista, jotka helpottavat opettajan työtä Wilmassa ja itslearningissa: keskeneräisten suoritusten korostus, Wilman sarakkeiden valinta, odottavien palautusten korostus ja opintosuunnitelmien muokkaaja. Lopuksi näytetään, miten sellaisen voi tehdä itse.
+              </p>
+              <a
+                href={APURIT}
+                className="group block overflow-hidden rounded-[14px] border border-cream-50/10 transition-colors hover:border-amber-400/50"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element -- staattinen jakokuva public-kansiosta */}
+                <img
+                  src={`${APURIT}og.jpg`}
+                  width={1200}
+                  height={630}
+                  alt="Sarjakuvaesityksen kansi: Opettajan apurit"
+                  className="block h-auto w-full transition-transform duration-300 group-hover:scale-[1.01]"
+                />
+              </a>
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-3 pt-2">
+                <a href={APURIT} className="btn-primary-sm">
                   Avaa sarjakuvaesitys <span aria-hidden>→</span>
                 </a>
                 <p className="text-[15px] leading-[1.6] text-cream-300">

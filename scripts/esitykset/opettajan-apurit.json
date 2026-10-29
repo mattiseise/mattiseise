@@ -1,0 +1,7 @@
+{
+  "slug": "opettajan-apurit",
+  "title": "Opettajan apurit",
+  "description": "Sarjakuvaesitys pienistä tekoälyn avulla tehdyistä apureista, jotka helpottavat opettajan työtä Wilmassa ja itslearningissa – ja siitä, miten sellaisen voi tehdä itse.",
+  "source": "sarjakuvaesitys-repo (mattiseise/sarjakuvaesitys): python3 tools/build.py --esitys opettajan-apurit → dist/opettajan-apurit/standalone.html",
+  "build": "python3 -I scripts/julkaise-sarjakuva.py ~/Projektit/web/sarjakuvaesitys/dist/opettajan-apurit/standalone.html scripts/esitykset/opettajan-apurit.json"
+}

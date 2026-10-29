@@ -1127,13 +1127,15 @@ function createSarjakuva(env) {
       const lastWord = clip && clip.words.length ? clip.words[clip.words.length - 1] : null;
       const dur = clip ? (lastWord ? Math.min(clip.duration, lastWord[0] + lastWord[1] + 0.25) : clip.duration) : Math.max(2.4, panel.line.length / 14);
       const start = t, vStart = start + (i === 0 ? LEAD : PRE), vEnd = vStart + dur;
-      const end = vEnd + (i === last ? TAIL : POST);
+      // panel.hold (s): ruutu jää näkyviin puheen jälkeen pidempään, esim. kuvaruudussa (photo).
+      const end = vEnd + (i === last ? TAIL : POST) + (panel.hold || 0);
       t = end;
       const map = wordMap(panel.line, clip && clip.words, dur);
       const said = w => { const hit = map.find(([, e]) => e >= demandEnd(panel.line, w)); return vStart + (hit ? hit[0] : dur); };
       let fxAt = null;
       if (panel.kind === 'entrance') fxAt = start + 0.75;
-      else if (panel.fx) fxAt = panel.fxAt ? said(panel.fxAt) : Math.min(vStart + dur * 0.42, vEnd - 0.3);
+      // fxAt ilman fx-tekstiä ajoittaa pelkän lavasteen tahdin k (esim. photo-ristihäivytys), ei näytä äänisanaa.
+      else if (panel.fx || panel.fxAt) fxAt = panel.fxAt ? said(panel.fxAt) : Math.min(vStart + dur * 0.42, vEnd - 0.3);
       const sfx = [];
       if (panel.kind === 'entrance') {
         sfx.push(['whoosh', start + 0.08]);
