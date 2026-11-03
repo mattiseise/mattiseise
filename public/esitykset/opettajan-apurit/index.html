@@ -978,7 +978,6 @@ function createSarjakuva(env) {
     const midi = m => 440 * Math.pow(2, (m - 69) / 12);
 
     const SFX = {
-      page: t => hiss(t, 0.3, 0.3, 'highpass', 1500, 6500, 0.7),
       whoosh: t => hiss(t, 0.55, 0.5, 'bandpass', 300, 3200, 1.1),
       pop: t => tone('sine', 720, t, 0.12, 0.4, 170),
       chime: t => { [1568, 2093, 2637].forEach((f, i) => tone('sine', f, t + i * 0.07, 1.1, 0.15)); tone('triangle', 3136, t + 0.21, 0.7, 0.05); },
@@ -1197,7 +1196,6 @@ function createSarjakuva(env) {
       if (from < 0.05) Sound.jingle(T + 0.05, a.root, a.motif);
       Sound.bed(T, T + Math.max(from, 0.9), T + tl.total, a.root);
       for (const p of tl.panels) {
-        if (p.i > 0 && p.start >= from - 0.01) Sound.sfx('page', T + p.start);
         for (const [name, s, d] of p.sfx) {
           if (s < from - 0.01) continue;
           if (name === 'sting') Sound.sting(T + s, a.root, a.motif);
@@ -1683,6 +1681,32 @@ function createSarjakuva(env) {
       });
       return { back, front };
     }
+    if (L.top === 'mortarboard') {
+      // Lakki silmävarsien taakse (under): varret nousevat laudan edestä, eivätkä silmät näytä puhkaisevan sitä.
+      return {
+        under: [g({ key: 'mbu' },
+          R(-70, -386, 140, 44, ink(6, { rx: 8, fill: '#1e293b' })),
+          h('polygon', ink(6, { points: '-134,-388 0,-412 134,-388 0,-364', fill: '#1e293b' })),
+          C(0, -388, 7, { fill: '#facc15' }))],
+        back: [],
+        front: [g({ key: 'mbf' },
+          Pth('M0,-388 L104,-382 L106,-332', { stroke: '#facc15', strokeWidth: 5, fill: 'none' }),
+          R(98, -338, 16, 30, ink(3, { rx: 4, fill: '#facc15' })))],
+      };
+    }
+    if (L.top === 'bulb') {
+      // Idealamppu leijuu selvästi silmien yläpuolella, ei kiinni kilvessä.
+      return {
+        back: [],
+        front: [g({ key: 'bulb', transform: 'translate(0 -556) scale(1.2)' },
+          C(0, 0, 50, { className: 'agx-glow', fill: '#fde047' }),
+          R(-13, 19, 26, 18, ink(4, { rx: 4, fill: STEEL })),
+          C(0, 0, 27, ink(6, { fill: '#fef9c3', className: 'agx-bulb' })),
+          Pth('M-9,8 L0,-6 L9,8', { stroke: '#ca8a04', strokeWidth: 4, fill: 'none', strokeLinecap: 'round' }),
+          ...[[-46, -18, -60, -26], [46, -18, 60, -26], [0, -40, 0, -54]].map(([x1, y1, x2, y2], i) =>
+            Ln(x1, y1, x2, y2, { key: 'ray' + i, stroke: '#facc15', strokeWidth: 5, strokeLinecap: 'round' })))],
+      };
+    }
     const acc = topAcc({ top: L.top }, c, -392, mood);
     return {
       back: acc.back.length ? [g({ key: 'hatb', transform: CRAB_HAT }, ...acc.back)] : [],
@@ -1736,6 +1760,7 @@ function createSarjakuva(env) {
     return g({ key: o.key, transform: `translate(${o.x} ${o.y}) scale(${o.s * k})` },
       g(an('agx-bot ' + enter + (talk ? ' is-talk' : ''), o.delay || 0),
         g({ className: 'agx-float', style: { animationDelay: (-rand(seed) * 3).toFixed(2) + 's' } },
+          ...(acc.under || []),
           ...stick(-46, -336, -70, -420, 's1'), ...stick(46, -336, 70, -420, 's2'),
           ...acc.back,
           g({ className: 'agx-legs' }, ...legs),
@@ -1934,7 +1959,9 @@ function createSarjakuva(env) {
   // Avatar korttiin: sama hahmo rajattuna (ihminen ja robotti päähän ja hartioihin, rapu kokonaan).
   // Johdannossa, jolla on vaiheet (steps), kuvake on vaiheiden numeroidut ruudut; muuten juontajan hahmo.
   const iconOf = (a, byId) => (isHosted(a) && !(a.steps && a.steps.length) && byId && byId[a.host] ? byId[a.host] : a);
-  const avatarBox = a => (isChapter(a) ? '-200 -510 400 400' : a.look.body === 'human' || a.look.body === 'robot' ? '-200 -510 400 400' : '-300 -510 600 530');
+  // Rapu: leveä kehys saksille; leijuva idealamppu (top 'bulb') tarvitsee lisäksi tilaa yläpuolelle.
+  const avatarBox = a => (isChapter(a) ? '-200 -510 400 400' : a.look.body === 'human' || a.look.body === 'robot' ? '-200 -510 400 400'
+    : a.look.top === 'bulb' ? '-320 -610 640 630' : '-300 -510 600 530');
   function chapterIcon(a) {
     const cols = a._colors || [], n = Math.min(6, (a.steps || []).length || 6);
     return g(null, ...Array.from({ length: n }, (_, i) => {
