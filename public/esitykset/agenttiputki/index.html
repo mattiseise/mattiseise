@@ -1764,9 +1764,9 @@ function createSarjakuva(env) {
 
   // Ihmishahmo (opettaja, opiskelija): sama rajapinta, mittakaava ja viiva kuin roboteilla
   // (origo alareunan keskellä, pää noin -404..-180), mutta iho, hiukset ja vaatteet.
-  // look: { body: 'human', hairStyle: 'bob' | 'short' | 'bun' | 'buzz', hair, skin, shirt,
-  //         glasses: true | 'round', beard: 'goatee', top: 'hoodie' (+ print: '1981'), outfit: väri,
-  //         lanyard: true, build: 'stocky', cheeks: 'rosy', prop }
+  // look: { body: 'human', hairStyle: 'bob' | 'short' | 'bun' | 'buzz' | 'bald', hair, skin, shirt, eyeColor,
+  //         glasses: true | 'round', beard: 'goatee', top: 'hoodie' (+ print: '1981') | 'tee', outfit: väri,
+  //         logo: 'bc', lanyard: true | väri, build: 'stocky', cheeks: 'rosy', prop }
   const HAIR = {
     bob: 'M-120,-232 C-136,-372 -64,-428 0,-428 C64,-428 136,-372 120,-232 L94,-236 C100,-318 62,-356 0,-354 C-56,-352 -98,-322 -96,-236 Z',
     short: 'M-108,-292 C-114,-384 -56,-420 0,-420 C56,-420 114,-384 108,-292 C84,-344 32,-362 -22,-354 C-62,-348 -94,-326 -108,-292 Z',
@@ -1775,10 +1775,11 @@ function createSarjakuva(env) {
   };
   function human(a, o) {
     const L = a.look, c = a.color, skin = L.skin || SKIN, hair = L.hair || '#4a2c1d';
-    const cloth = L.outfit || c, stocky = L.build === 'stocky', hoodie = L.top === 'hoodie';
+    const cloth = L.outfit || c, stocky = L.build === 'stocky', hoodie = L.top === 'hoodie', tee = L.top === 'tee';
     const mood = o.mood || 'normal', pose = o.pose || 'rest', talk = !!o.talk;
     const seed = a.id.charCodeAt(0) * 0.37 + a.id.length;
-    const style = L.hairStyle || 'bob';
+    const style = L.hairStyle || 'bob', bald = style === 'bald', shaved = bald || style === 'buzz';
+    const iris = L.eyeColor || INK, band = typeof L.lanyard === 'string' ? L.lanyard : '#2563eb';
     const arm = (side, def, withProp) => {
       const [d, hp, cls] = def;
       const path = side > 0 ? d : d.replace(/(-?\d+),/g, (m, n) => (-n) + ',');
@@ -1794,10 +1795,13 @@ function createSarjakuva(env) {
       ? g({ key: 'eh' }, Pth('M-54,-292 Q-38,-312 -22,-292', ink(7, { fill: 'none' })), Pth('M22,-292 Q38,-312 54,-292', ink(7, { fill: 'none' })))
       // Väsynyt (mood 'tired'): puoliksi suljetut luomet ja silmäpussit.
       : mood === 'tired'
-        ? g({ key: 'et' }, C(-38, -294, 10, { fill: INK }), C(38, -294, 10, { fill: INK }),
+        ? g({ key: 'et' }, C(-38, -294, 10, { fill: iris }), C(38, -294, 10, { fill: iris }),
           Pth('M-52,-296 Q-38,-312 -24,-296 Z', ink(5, { fill: L.skin || SKIN })), Pth('M24,-296 Q38,-312 52,-296 Z', ink(5, { fill: L.skin || SKIN })),
           Pth('M-50,-278 Q-38,-270 -26,-278', ink(3, { fill: 'none', strokeOpacity: 0.5 })), Pth('M26,-278 Q38,-270 50,-278', ink(3, { fill: 'none', strokeOpacity: 0.5 })))
-      : g({ key: 'ed', className: 'agx-eyes' }, C(-38, -296, 11, { fill: INK }), C(38, -296, 11, { fill: INK }), C(-41, -300, 3.5, { fill: '#fff' }), C(35, -300, 3.5, { fill: '#fff' }));
+      // Värilliset silmät (eyeColor): iiris, tumma pupilli ja valopiste.
+      : g({ key: 'ed', className: 'agx-eyes' }, C(-38, -296, 11, { fill: iris }), C(38, -296, 11, { fill: iris }),
+        L.eyeColor ? [C(-38, -296, 5, { key: 'p1', fill: INK }), C(38, -296, 5, { key: 'p2', fill: INK })] : null,
+        C(-41, -300, 3.5, { fill: '#fff' }), C(35, -300, 3.5, { fill: '#fff' }));
     const mouthEl = talk
       ? R(-22, -246, 44, 12, { key: 'm', rx: 6, fill: '#7f1d1d', className: 'agx-mouth is-talk' })
       : mood === 'happy'
@@ -1824,7 +1828,10 @@ function createSarjakuva(env) {
             ? g({ key: 'hood' },
               Pth('M-86,-158 Q-96,-222 0,-226 Q96,-222 86,-158 Q50,-180 0,-180 Q-50,-180 -86,-158 Z', ink(6, { fill: mix(cloth, '#ffffff', 0.12) })),
               Pth('M-34,-162 Q0,-138 34,-162', ink(5, { fill: 'none' })))
-            : g({ key: 'cardi' },
+            : tee
+              // Pyöreä pääntie, ei nappeja.
+              ? Pth('M-44,-160 Q0,-122 44,-160', ink(6, { key: 'neck', fill: 'none', stroke: mix(cloth, '#ffffff', 0.25) }))
+              : g({ key: 'cardi' },
               Pth('M-46,-160 L0,-92 L46,-160 Z', ink(6, { fill: L.shirt || CREAM })),
               Ln(0, -92, 0, -2, ink(5)),
               C(-16, -64, 6, ink(3, { fill: CREAM })), C(-16, -28, 6, ink(3, { fill: CREAM }))),
@@ -1832,22 +1839,27 @@ function createSarjakuva(env) {
           hoodie && L.print ? g({ key: 'print', transform: 'translate(70 -92) rotate(-6)' },
             R(-36, -6, 72, 7, { fill: '#facc15' }), R(-36, 3, 72, 7, { fill: '#fdba74' }), R(-36, 12, 72, 7, { fill: '#60a5fa' }),
             Tx(0, -18, L.print, Object.assign(lbl(26, '#fde68a'), { letterSpacing: '0.04em' }))) : null,
+          // Business Collegen vaalea logo rinnassa (kantajan vasemmalla, katsojan oikealla puolella).
+          L.logo === 'bc' ? g({ key: 'logo', transform: 'translate(72 -104)' },
+            Tx(0, 0, 'BC', Object.assign(lbl(30, '#e5e7eb'), { letterSpacing: '0.02em' })),
+            R(-26, 16, 52, 3, { fill: '#e5e7eb', fillOpacity: 0.8 }),
+            Tx(0, 30, 'HELSINKI', Object.assign(lbl(9, '#e5e7eb'), { letterSpacing: '0.12em' }))) : null,
           // Kaulanauha ja kulkukortti.
           L.lanyard ? g({ key: 'lan' },
-            Pth('M-30,-166 L-8,-74 M30,-166 L8,-74', { stroke: '#2563eb', strokeWidth: 9, strokeLinecap: 'round', fill: 'none' }),
+            Pth('M-30,-166 L-8,-74 M30,-166 L8,-74', { stroke: band, strokeWidth: 9, strokeLinecap: 'round', fill: 'none' }),
             R(-24, -78, 48, 58, ink(4, { rx: 6, fill: '#f8fafc' })),
-            R(-24, -78, 48, 14, { rx: 4, fill: '#2563eb' }),
+            R(-24, -78, 48, 14, { rx: 4, fill: band }),
             R(-14, -56, 28, 6, { rx: 3, fill: STEEL }), R(-14, -44, 20, 6, { rx: 3, fill: STEEL })) : null,
           R(-24, -204, 48, 52, ink(6, { rx: 12, fill: skin })),
           g({ className: 'agx-headbob' },
             C(-104, -286, 20, ink(5, { fill: skin })), C(104, -286, 20, ink(5, { fill: skin })),
             E(0, -292, stocky ? 108 : 102, 112, ink(7, { fill: skin })),
-            Pth(HAIR[style] || HAIR.bob, ink(style === 'buzz' ? 5 : 6, { fill: hair, fillOpacity: style === 'buzz' ? 0.9 : 1 })),
+            bald ? null : Pth(HAIR[style] || HAIR.bob, ink(style === 'buzz' ? 5 : 6, { fill: hair, fillOpacity: style === 'buzz' ? 0.9 : 1 })),
             style === 'bun' ? C(0, -432, 36, ink(6, { fill: hair })) : null,
-            style === 'buzz'
+            shaved
               ? Pth('M-52,-392 Q-26,-402 4,-402', { stroke: '#ffffff', strokeOpacity: 0.35, strokeWidth: 7, fill: 'none', strokeLinecap: 'round' })
               : Pth('M-82,-376 Q-54,-404 -14,-408', { stroke: '#ffffff', strokeOpacity: 0.3, strokeWidth: 8, fill: 'none', strokeLinecap: 'round' }),
-            Ln(-56, -326, -22, -330, ink(6, { stroke: style === 'buzz' ? mix(hair, INK, 0.35) : INK })), Ln(22, -330, 56, -326, ink(6, { stroke: style === 'buzz' ? mix(hair, INK, 0.35) : INK })),
+            Ln(-56, -326, -22, -330, ink(6, { stroke: shaved ? mix(hair, INK, 0.35) : INK })), Ln(22, -330, 56, -326, ink(6, { stroke: shaved ? mix(hair, INK, 0.35) : INK })),
             eyes,
             goldGlasses
               ? g({ key: 'gl' }, C(-38, -296, 25, { fill: '#ffffff', fillOpacity: 0.1, stroke: '#c8961e', strokeWidth: 4.5 }),
@@ -3355,11 +3367,11 @@ function createSarjakuva(env) {
   // "cast"-lista tai samanniminen luku ohittaa nämä.
   const BUILTIN = {
     claus: { id: 'claus', name: 'Claus', gen: 'Clausin', role: 'Orkestroija', color: '#ea4a2f', look: { body: 'crab', size: 'big', prop: 'baton' }, root: 60, motif: [0, 4, 7, 12], sfx: { entrance: 'chime', action: 'whoosh' }, set: 'delegate', panels: [] },
-    // Opettaja = Matti karikatyyrinä: ajeltu punaruskea tukka, kultaiset pyöreät lasit, pukinparta,
-    // hiilenharmaa huppari "1981"-printillä, sininen kaulanauha ja kulkukortti.
+    // Opettaja = Matti karikatyyrinä: kalju, ruskeat silmät, kultaiset pyöreät lasit, pukinparta,
+    // musta paita ja rinnassa vaalea Business Collegen logo, viininpunainen kaulanauha ja kulkukortti.
     opettaja: { id: 'opettaja', name: 'Opettaja', gen: 'opettajan', role: 'Päättää', color: '#fbbf24',
-      look: { body: 'human', hairStyle: 'buzz', hair: '#c27c4e', beard: 'goatee', beardColor: '#a0552f', skin: '#f6d2bb', cheeks: 'rosy',
-        glasses: 'round', top: 'hoodie', outfit: '#3a3f4b', print: '1981', lanyard: true, build: 'stocky', prop: 'stamp' },
+      look: { body: 'human', hairStyle: 'bald', hair: '#a0552f', eyeColor: '#7a4a24', beard: 'goatee', beardColor: '#a0552f', skin: '#f6d2bb', cheeks: 'rosy',
+        glasses: 'round', top: 'tee', outfit: '#17171c', logo: 'bc', lanyard: '#7b1e3a', build: 'stocky', prop: 'stamp' },
       root: 57, motif: [0, 4, 7, 12], sfx: {}, panels: [] },
     opiskelija: { id: 'opiskelija', name: 'Opiskelija', gen: 'opiskelijan', role: 'Oppija', color: '#22d3ee', look: { body: 'human', hairStyle: 'short', hair: '#1f2937', shirt: '#e2e8f0' }, root: 62, motif: [0, 3, 7, 10], sfx: {}, panels: [] },
   };
