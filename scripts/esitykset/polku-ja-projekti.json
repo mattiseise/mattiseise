@@ -1,0 +1,7 @@
+{
+  "slug": "polku-ja-projekti",
+  "title": "Polku ja projekti",
+  "description": "Sarjakuvaesitys kolmesta erityisen tuen tavasta: eriytetyistä tehtävänannoista, opiskelijan omasta viikkoaikataulusta ja yksilöllisestä näyttöprojektista.",
+  "source": "sarjakuvaesitys-repo (mattiseise/sarjakuvaesitys): python3 tools/build.py --esitys polku-ja-projekti → dist/polku-ja-projekti/standalone.html",
+  "build": "python3 -I scripts/julkaise-sarjakuva.py ~/Projektit/web/sarjakuvaesitys/dist/polku-ja-projekti/standalone.html scripts/esitykset/polku-ja-projekti.json"
+}
