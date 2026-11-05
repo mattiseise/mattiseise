@@ -11,6 +11,19 @@
   status = 301
   force = true
 
+# Esitys nimettiin uudelleen 5.11.2026: Polku ja projekti -> Esteiden raivaajat
+[[redirects]]
+  from = "/esitykset/polku-ja-projekti/*"
+  to = "/esitykset/esteiden-raivaajat/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/esitykset/polku-ja-projekti"
+  to = "/esitykset/esteiden-raivaajat/"
+  status = 301
+  force = true
+
 # Turvaotsakkeet (X-Content-Type-Options + HSTS tulevat jo Netlifyltä)
 [[headers]]
   for = "/*"

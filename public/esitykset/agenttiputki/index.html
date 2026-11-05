@@ -83,7 +83,10 @@ body {
      --agx-big, --agx-big-w           agentin nimi
      --agx-eyebrow-font               yläotsikot
      --agx-surface, --agx-surface-2, --agx-rule, --agx-accent, --agx-text, --agx-soft   loppurivi ja tekstilaput
-   Display-riviväli on vähintään 1.10, jotta Ä/Ö-pisteet eivät osu ylempään riviin. */
+   Display-riviväli on vähintään 1.10, jotta Ä/Ö-pisteet eivät osu ylempään riviin.
+   Näyttämön tekstien cqw-mitat lasketaan .agx-theaterin sisältöleveydestä, joka on aina näyttämön leveys
+   (koko näytössä kohde kaventaa theaterin näyttämön levyiseksi). --agx-cap-lift nostaa tekstien px-ylärajat:
+   koko näytössä tekstit skaalautuvat näyttämön mukana kuin video (normaalinäkymässä 0px = ennallaan). */
 
 .agx-page, .agp {
   --agx-ink: #0a0a12;
@@ -138,7 +141,10 @@ body {
 
 /* ---------- robottien elekieli */
 .agx-float { animation: agxBob 3.2s ease-in-out infinite; }
-.agx-eyes { transform-box: fill-box; transform-origin: center; animation: agxBlink 4.6s infinite; }
+/* Silmät räpsähtävät noin 0,15 s:ssa; hahmo saa tahdin (A–D, 3,2–6,7 s) ja vaiheen --agx-blink(-d)-muuttujista
+   (core.js blinkVars), joten hahmot eivät räpyttele yhtä aikaa. Puhuva hahmo räpyttelee tiheämmin. */
+.agx-eyes { transform-box: fill-box; transform-origin: center; animation: var(--agx-blink, agxBlinkB 4.3s) var(--agx-blink-d, 0s) infinite; }
+.is-talk .agx-eyes { animation: agxBlinkA 3.2s var(--agx-blink-d, 0s) infinite; }
 .agx-look { animation: agxLook 3.4s ease-in-out infinite; }
 .agx-led { animation: agxLed 1.6s steps(2, jump-none) infinite; }
 .agx-scan { animation: agxScan 1.8s ease-in-out infinite alternate; }
@@ -210,7 +216,7 @@ body {
   box-shadow: 4px 4px 0 rgba(10, 10, 18, 0.55);
   font-family: var(--agx-display);
   font-weight: var(--agx-display-w);
-  font-size: clamp(11px, 1.6cqw, 17px);
+  font-size: clamp(11px, 1.6cqw, calc(17px + var(--agx-cap-lift, 0px)));
   line-height: 1.15;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -222,7 +228,7 @@ body {
   border: 3px solid var(--agx-ink);
   box-shadow: 5px 5px 0 rgba(10, 10, 18, 0.6);
   font-weight: 700;
-  font-size: clamp(12px, 1.95cqw, 21px);
+  font-size: clamp(12px, 1.95cqw, calc(21px + var(--agx-cap-lift, 0px)));
   line-height: 1.3;
 }
 .agx-bubble {
@@ -233,7 +239,7 @@ body {
   border-radius: 1.6em / 1.3em;
   box-shadow: 5px 5px 0 rgba(10, 10, 18, 0.5);
   font-weight: 650;
-  font-size: clamp(12px, 1.95cqw, 21px);
+  font-size: clamp(12px, 1.95cqw, calc(21px + var(--agx-cap-lift, 0px)));
   line-height: 1.32;
   transform-origin: 12% 100%;
 }
@@ -261,7 +267,7 @@ body {
   transform: rotate(-2deg);
   font-family: var(--agx-display);
   font-weight: var(--agx-display-w);
-  font-size: clamp(12px, 2.1cqw, 22px);
+  font-size: clamp(12px, 2.1cqw, calc(22px + var(--agx-cap-lift, 0px)));
   line-height: 1.15;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -306,7 +312,7 @@ body {
   border: 3px solid var(--agx-ink);
   border-radius: 6px;
   box-shadow: 5px 5px 0 rgba(10, 10, 18, 0.5);
-  font-size: clamp(11px, 1.65cqw, 18px);
+  font-size: clamp(11px, 1.65cqw, calc(18px + var(--agx-cap-lift, 0px)));
   line-height: 1.25;
 }
 .agx-demands-title {
@@ -330,11 +336,11 @@ body {
 .agx-demand.is-no .agx-demand-mark { background: #f87171; }
 .agx-k-talk .agx-demands { left: 54%; top: 42%; width: 36%; }
 .agx-k-outro .agx-demands { left: 54%; top: 29%; width: 30%; }
-.agx-k-action .agx-demands { left: 57%; top: 16%; width: 39%; font-size: clamp(10px, 1.45cqw, 16px); }
+.agx-k-action .agx-demands { left: 57%; top: 16%; width: 39%; font-size: clamp(10px, 1.45cqw, calc(16px + var(--agx-cap-lift, 0px))); }
 .agx-k-action .agx-demands ul { gap: 0.2em 0.9em; }
 .agx-k-action.has-demands .agx-fx { top: 1%; left: 80%; font-size: min(5.2cqw, calc(30cqw / var(--len, 6))); }
 /* Keskiruutu ilman lavastetta: vaatimuslappu on ruudun pääkuva. */
-.agx-k-action.no-set .agx-demands { left: 47%; top: 33%; width: 46%; font-size: clamp(12px, 2cqw, 21px); }
+.agx-k-action.no-set .agx-demands { left: 47%; top: 33%; width: 46%; font-size: clamp(12px, 2cqw, calc(21px + var(--agx-cap-lift, 0px))); }
 .agx-k-action.no-set .agx-demands ul { gap: 0.35em 1em; }
 .agx-k-action.has-demands.no-set .agx-fx { top: 5%; left: 70%; font-size: min(6.6cqw, calc(40cqw / var(--len, 6))); }
 /* Pysäytettynä (tauko, loppu, kansikuva) rivit näytetään valmiina eikä animaation ensimmäisenä kuvana. */
@@ -536,7 +542,10 @@ body {
 
 @keyframes agxPanelIn { from { opacity: 0; transform: translateX(6%) rotate(1.2deg) scale(0.97); clip-path: inset(0 0 0 35%); } to { opacity: 1; transform: none; clip-path: inset(0); } }
 @keyframes agxBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
-@keyframes agxBlink { 0%, 93%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.12); } }
+@keyframes agxBlinkA { 0%, 95.3%, 100% { transform: scaleY(1); } 97.7% { transform: scaleY(0.1); } }
+@keyframes agxBlinkB { 0%, 96.5%, 100% { transform: scaleY(1); } 98.3% { transform: scaleY(0.1); } }
+@keyframes agxBlinkC { 0%, 97.3%, 100% { transform: scaleY(1); } 98.6% { transform: scaleY(0.1); } }
+@keyframes agxBlinkD { 0%, 97.8%, 100% { transform: scaleY(1); } 98.9% { transform: scaleY(0.1); } }
 @keyframes agxLook { 0%, 40% { transform: translate(0, 0); } 50%, 70% { transform: translate(-12px, 2px); } 80%, 100% { transform: translate(4px, -4px); } }
 @keyframes agxLed { 0% { opacity: 1; } 50% { opacity: 0.35; } }
 @keyframes agxScan { from { transform: translateX(0); } to { transform: translateX(100px); } }
@@ -683,6 +692,12 @@ body {
 .agx-is-end .agx-bubble, .agx-is-end .agx-narr { left: 3%; right: auto; top: 5%; width: 40%; --tx: 22%; }
 .agx-is-end .agx-cap { display: none; }
 
+/* Esittelyruudun lavaste (panel.set): kapealla näyttämöllä kertojalaatikko on ruudun alla, joten lavaste
+   saa isomman paikan oikealta alhaalta roolilapun alta. */
+@container agx (max-width: 620px) {
+  .agx-art .agx-eset { transform: translate(288px, 150px) scale(0.8); }
+}
+
 /* ================================================================ esityksen kehys */
 .agp { max-width: 1180px; }
 .agp a { color: var(--agp-accent); }
@@ -770,15 +785,21 @@ a.agx-btn { display: inline-flex; align-items: center; text-decoration: none; co
 .agp-foot p { color: var(--agp-muted) !important; margin: 0 0 6px !important; }
 .agp-foot .agp-byline { color: var(--agp-text) !important; }
 
-/* ---------- koko näyttö: näyttämö mahtuu korkeuteen, ohjaimet alla; reunat huomioivat safe-arean */
+/* ---------- koko näyttö: näyttämö mahtuu korkeuteen, ohjaimet alla; reunat huomioivat safe-arean.
+   Näyttämön leveys W = min(tila reunojen välissä, (100vh - 190px) * 16/9). Ylimääräinen leveys menee
+   vaakapaddingiin, jolloin theaterin sisältöleveys = W: theater on näyttämön cqw-kontti (core.css), joten
+   näyttämön tekstit mitoitetaan näyttämön eikä koko ruudun leveydestä, ja @container agx -kyselyt koskevat
+   näyttämöä ja sen alla olevaa dialogia samalla leveydellä. Prosentit = sisältävän lohkon leveys = theaterin leveys.
+   --agx-cap-lift poistaa tekstien px-ylärajat, jotta tekstit pysyvät samassa suhteessa kuvaan kuin normaalinäkymässä. */
 .agx-theater.is-fs, .agx-theater:fullscreen {
+  --agp-fs-spare: max(0px, (100% - var(--agp-gutter-l) - var(--agp-gutter-r) - (100vh - 190px) * 16 / 9) / 2);
+  --agx-cap-lift: 9999px;
   display: flex; flex-direction: column; justify-content: center;
   width: 100%; height: 100%; margin: 0;
-  padding: max(12px, env(safe-area-inset-top, 0px)) var(--agp-gutter-r) max(12px, env(safe-area-inset-bottom, 0px)) var(--agp-gutter-l);
+  padding: max(12px, env(safe-area-inset-top, 0px)) calc(var(--agp-gutter-r) + var(--agp-fs-spare)) max(12px, env(safe-area-inset-bottom, 0px)) calc(var(--agp-gutter-l) + var(--agp-fs-spare));
   background: var(--agp-bg); overflow: auto;
 }
-.agx-theater.is-fs .agx-stage, .agx-theater:fullscreen .agx-stage { width: min(100%, calc((100vh - 190px) * 16 / 9)); margin: 0 auto; flex: 0 0 auto; }
-.agx-theater.is-fs > :not(.agx-stage), .agx-theater:fullscreen > :not(.agx-stage) { width: min(100%, calc((100vh - 190px) * 16 / 9)); margin-left: auto; margin-right: auto; }
+.agx-theater.is-fs .agx-stage, .agx-theater:fullscreen .agx-stage { flex: 0 0 auto; }
 .agx-theater:-webkit-full-screen { background: var(--agp-bg); }
 
 @media (max-width: 560px) {
@@ -899,6 +920,15 @@ function createSarjakuva(env) {
     return '#' + A.map((v, i) => Math.round(v + (B[i] - v) * t).toString(16).padStart(2, '0')).join('');
   }
   function rand(n) { const x = Math.sin(n * 12.9898) * 43758.5453; return x - Math.floor(x); }
+  // Silmien räpyttely: hahmokohtainen tahti (agxBlinkA–D, ks. core.css) ja vaihe tunnuksesta. Vaihe jää
+  // jakson alkuosaan (≤ 85 %), joten ajassa 0 (kansikuva, pysäytys) silmät ovat aina auki.
+  const BLINKS = [['agxBlinkA', 3.2], ['agxBlinkB', 4.3], ['agxBlinkC', 5.5], ['agxBlinkD', 6.7]];
+  function blinkVars(id) {
+    let n = 7;
+    for (let i = 0; i < id.length; i++) n = (n * 31 + id.charCodeAt(i)) % 100003;
+    const [name, dur] = BLINKS[Math.floor(rand(n) * BLINKS.length)];
+    return { '--agx-blink': name + ' ' + dur + 's', '--agx-blink-d': (-rand(n + 1) * 0.85 * dur).toFixed(2) + 's' };
+  }
   function clamp01(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
   function fmt(s) { s = Math.max(0, Math.round(s)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
   function reducedMotion() { return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); }
@@ -1759,7 +1789,7 @@ function createSarjakuva(env) {
     const k = o.fit || L.size === 'big' ? 1 : CRAB_SMALL;
     return g({ key: o.key, transform: `translate(${o.x} ${o.y}) scale(${o.s * k})` },
       g(an('agx-bot ' + enter + (talk ? ' is-talk' : ''), o.delay || 0),
-        g({ className: 'agx-float', style: { animationDelay: (-rand(seed) * 3).toFixed(2) + 's' } },
+        g({ className: 'agx-float', style: Object.assign({ animationDelay: (-rand(seed) * 3).toFixed(2) + 's' }, blinkVars(a.id)) },
           ...(acc.under || []),
           ...stick(-46, -336, -70, -420, 's1'), ...stick(46, -336, 70, -420, 's2'),
           ...acc.back,
@@ -1783,7 +1813,7 @@ function createSarjakuva(env) {
             L.mustache ? Pth('M-48,-270 C-36,-292 -10,-290 0,-276 C10,-290 36,-292 48,-270 C30,-278 12,-270 0,-270 C-12,-270 -30,-278 -48,-270 Z',
               ink(3, { key: 'mu', fill: '#e2e8f0', transform: 'translate(0 44) scale(1.15 1.15)' })) : null,
             ...acc.front,
-            crabEye(-1, L, mood), crabEye(1, L, mood),
+            g({ key: 'eyes', className: 'agx-eyes' }, crabEye(-1, L, mood), crabEye(1, L, mood)),
             crabEyewear(L, c)))));
   }
 
@@ -1842,7 +1872,7 @@ function createSarjakuva(env) {
     const goldGlasses = L.glasses === 'round';
     return g({ key: o.key, transform: `translate(${o.x} ${o.y}) scale(${o.s})` },
       g(an('agx-bot ' + (o.enter || '') + (talk ? ' is-talk' : ''), o.delay || 0),
-        g({ className: 'agx-float', style: { animationDelay: (-rand(seed) * 3).toFixed(2) + 's' } },
+        g({ className: 'agx-float', style: Object.assign({ animationDelay: (-rand(seed) * 3).toFixed(2) + 's' }, blinkVars(a.id)) },
           style === 'bob' ? Pth('M-120,-240 L-128,-150 L128,-150 L120,-240 Z', ink(6, { fill: hair })) : null,
           arm(-1, ARMS.rest, false),
           arm(1, ARMS[pose] || ARMS.rest, showProp),
@@ -1931,7 +1961,7 @@ function createSarjakuva(env) {
     const head = HEAD[L.head] || HEAD.round;
     return g({ key: o.key, transform: `translate(${o.x} ${o.y}) scale(${o.s})` },
       g(an('agx-bot ' + (o.enter || '') + (talk ? ' is-talk' : ''), o.delay || 0),
-        g({ className: 'agx-float', style: { animationDelay: (-rand(seed) * 3).toFixed(2) + 's' } },
+        g({ className: 'agx-float', style: Object.assign({ animationDelay: (-rand(seed) * 3).toFixed(2) + 's' }, blinkVars(a.id)) },
           ...acc.back,
           arm(-1, ARMS.rest, false),
           arm(1, ARMS[pose] || ARMS.rest, showProp),
@@ -2534,8 +2564,591 @@ function createSarjakuva(env) {
         g({ transform: 'translate(1152 800)' }, g(an('agx-pop', tAdd + 0.3), pill('järjestä · muokkaa · lisää', '#5eead4', 22))),
         g({ transform: 'translate(1448 800)' }, g(an('agx-pop', k + 0.6), pill('Opettaja tallentaa', '#fbbf24', 22))));
     },
+
+    // ---------- Polku ja projekti (STORYBOARD "Moottorin uudet osat"). Tahti k = paneelin fxAt.
+
+    // Viikkopolku: kuusi viikkokiveä (kaksi tehty, kolmas nyt), "Tämä viikko" -kortti, jonka toisen rivin
+    // rasti piirtyy k:ssa, ja kaksi edistymispalkkia (Viikko 1/3 → 2/3 k:ssa, Kokonaisuus 34 % → 40 % k + 0.3).
+    weekpath(a, x) {
+      const k = x.k, SY = 392, sx = i => 800 + i * 136, ry = [576, 630, 684], rw = [420, 300, 360];
+      const stone = i => {
+        const done = i < 2, now = i === 2, cx = sx(i);
+        return g({ key: 's' + i },
+          now ? C(cx, SY, 48, { fill: a.color, fillOpacity: 0.3 }) : null,
+          C(cx, SY, 40, done ? ink(6, { fill: '#4ade80' }) : now ? { fill: CREAM, stroke: a.color, strokeWidth: 10 } : ink(6, { fill: 'none', stroke: CREAM, strokeOpacity: 0.85 })),
+          done ? tickPath(cx, SY, 1.5, INK, 7) : null,
+          Tx(cx, SY + 64, 'vk ' + (i + 1), lbl(26, CREAM)));
+      };
+      const bar = (y, label, color, s0, s1, d) => g({ key: 'b' + label },
+        Tx(800, y, label, lbl(28, CREAM, 'start')),
+        R(980, y - 15, 490, 30, { rx: 6, fill: '#1f2937' }),
+        R(980, y - 15, 490, 30, Object.assign({ rx: 6, fill: color }, an('agx-scale', d, { '--s0': s0, '--s1': s1 }))),
+        R(980, y - 15, 490, 30, ink(4, { rx: 6, fill: 'none' })));
+      return g({ key: 'wp' },
+        Pth(`M${sx(0)},${SY} L${sx(5)},${SY}`, { stroke: CREAM, strokeWidth: 6, strokeDasharray: '14 14', strokeOpacity: 0.8, fill: 'none' }),
+        ...[0, 1, 2, 3, 4, 5].map(stone),
+        g({ transform: `translate(${sx(2)} 322)` }, g(an('agx-pop', 0.5), pill('Nyt', a.color, 24))),
+        // Tämä viikko -kortti
+        R(800, 486, 680, 240, ink(8, { rx: 16, fill: CREAM })),
+        Tx(830, 524, 'Tämä viikko', lbl(30, INK, 'start')),
+        ...ry.map((y, i) => g({ key: 'r' + i },
+          R(830, y - 17, 34, 34, ink(4, { rx: 6, fill: '#ffffff' })),
+          R(890, y - 10, rw[i], 20, { rx: 10, fill: STEEL, fillOpacity: i === 2 ? 0.55 : 0.8 }),
+          i === 0 ? tickPath(847, y, 1, '#16a34a', 6) : null,
+          i === 1 ? tickPath(847, y, 1, '#16a34a', 6, an('agx-draw', k)) : null)),
+        bar(780, 'Viikko', a.color, 0.333, 0.667, k),
+        bar(830, 'Kokonaisuus', '#4ade80', 0.34, 0.4, k + 0.3));
+    },
+    // Näyttöprojektin sivusto: selainikkuna, viikkopillerit (Vk 3 nyt), välilehdet ja tehtäväkortti,
+    // jonka neljä osatehtävää rastitetaan porrastetusti (viimeinen k:ssa); k + 0.3 "Valmis".
+    projsite(a, x) {
+      const k = x.k, py = [590, 650, 710, 770], pw = [280, 230, 260, 200];
+      const week = i => {
+        const y = 420 + i * 70, now = i === 2;
+        return g({ key: 'w' + i },
+          R(784, y - 24, 140, 48, now ? ink(5, { rx: 24, fill: a.color }) : ink(4, { rx: 24, fill: '#ffffff' })),
+          Tx(854, y + 2, 'Vk ' + (i + 1), lbl(26, INK)));
+      };
+      return g({ key: 'ps' },
+        R(774, 324, 780, 530, { rx: 18, fill: INK, fillOpacity: 0.35 }),
+        R(760, 310, 780, 530, ink(8, { rx: 18, fill: CREAM })),
+        Pth('M760,364 L760,328 Q760,310 778,310 L1522,310 Q1540,310 1540,328 L1540,364 Z', ink(8, { fill: '#1f2937' })),
+        ...['#f87171', '#fbbf24', '#4ade80'].map((f, i) => C(790 + i * 28, 337, 8, { key: f, fill: f })),
+        R(900, 324, 400, 26, { rx: 13, fill: '#334155' }),
+        // Sivupalkki: viikot
+        R(764, 368, 180, 468, { fill: '#e2e8f0' }),
+        Ln(944, 368, 944, 836, ink(4)),
+        ...[0, 1, 2, 3, 4].map(week),
+        // Välilehdet (staattiset)
+        ...[['Päiväkirja', 1040], ['Tekoälyloki', 1205], ['Näyttö', 1352]].map(([t, cx]) =>
+          g({ key: 't' + t, transform: `translate(${cx} 398)` }, pill(t, a.color, 22))),
+        // Tehtäväkortti
+        R(966, 432, 554, 386, ink(6, { rx: 12, fill: '#ffffff' })),
+        Pth('M966,486 L966,444 Q966,432 978,432 L1508,432 Q1520,432 1520,444 L1520,486 Z', ink(6, { fill: STEEL })),
+        R(990, 451, 240, 16, { rx: 8, fill: INK, fillOpacity: 0.55 }),
+        Tx(990, 526, 'Miksi', lbl(26, INK, 'start')),
+        R(1078, 517, 300, 18, { rx: 9, fill: STEEL, fillOpacity: 0.5 }),
+        Ln(986, 556, 1500, 556, { stroke: STEEL, strokeOpacity: 0.6, strokeWidth: 3 }),
+        ...py.map((y, i) => {
+          const d = Math.max(0.3 + i * 0.3, k - (py.length - 1 - i) * 0.35);
+          return g({ key: 'p' + i },
+            R(990, y - 17, 34, 34, ink(4, { rx: 6, fill: '#ffffff' })),
+            R(1046, y - 9, pw[i], 18, { rx: 9, fill: STEEL, fillOpacity: 0.8 }),
+            tickPath(1007, y, 1, '#16a34a', 6, an('agx-draw', d)));
+        }),
+        g({ transform: 'translate(1436 816)' }, g(an('agx-pop', k + 0.3), pill('Valmis', '#4ade80', 28))));
+    },
+
+    // ---------- Polku ja projekti, kierros 2 (STORYBOARD "Moottori, kierros 2"). Tahti k = paneelin fxAt.
+    // Outro-ruuduissa lavaste piirretään 0,62-mittakaavassa hahmojen väliin: isot muodot, vähän pientä tekstiä.
+
+    // Esteet raivataan: polku ja lippu; neljä estelaatikkoa liukuu k:ssa porrastetusti sivuun ja polku kirkastuu.
+    clearpath(a, x) {
+      const k = x.k, PY = 600, names = ['Tehtävänanto', 'Aloitus', 'Kokonaiskuva', 'Eteneminen'], bx = [850, 1020, 1190, 1360], dy = [-170, 170, -170, 170];
+      return g({ key: 'cp' },
+        Pth(`M770,${PY} L1450,${PY}`, { stroke: CREAM, strokeOpacity: 0.4, strokeWidth: 16, strokeDasharray: '24 20', strokeLinecap: 'round', fill: 'none' }),
+        g(an('agx-fade', k + 0.7), Pth(`M770,${PY} L1450,${PY}`, ink(4, { stroke: '#fde047', strokeWidth: 18, fill: 'none' }))),
+        Ln(1474, PY + 24, 1474, PY - 160, ink(9)),
+        Pth(`M1478,${PY - 160} L1540,${PY - 134} L1478,${PY - 108} Z`, ink(6, { fill: a.color })),
+        ...names.map((t, i) => g({ key: 'b' + i, transform: `translate(${bx[i]} ${PY})` },
+          g(an('agx-move', k + i * 0.22, { '--mx': '0px', '--my': dy[i] + 'px' }),
+            R(-80, -50, 160, 100, ink(7, { rx: 14, fill: '#475569' })),
+            R(-68, 30, 136, 10, { rx: 5, fill: '#fbbf24', fillOpacity: 0.9 }),
+            Tx(0, -4, t, fit(t, 30, 136, lbl(30, CREAM)))))));
+    },
+    // itslearningin pitkä tehtävälista: tumma yläpalkki, 14 riviä, lista jatkuu kortin alareunan yli ja vierii hitaasti.
+    longlist(a, x) {
+      const X0 = 980, X1 = 1440, Y0 = 310, HB = 64, cid = x.uid + 'll', rw = [300, 240, 330, 200, 280];
+      const dur = Math.max(2, x.k + 1.6);
+      const row = i => {
+        const y = Y0 + HB + 40 + i * 66;
+        return g({ key: 'r' + i },
+          Ln(X0 + 16, y + 33, X1 - 16, y + 33, { stroke: STEEL, strokeOpacity: 0.55, strokeWidth: 2 }),
+          R(X0 + 24, y - 16, 32, 32, ink(3, { rx: 7, fill: [a.color, '#fbbf24', '#a78bfa'][i % 3] })),
+          R(X0 + 76, y - 9, rw[i % 5], 18, { rx: 9, fill: STEEL, fillOpacity: 0.85 }),
+          R(X1 - 84, y - 8, 54, 16, { rx: 8, fill: STEEL, fillOpacity: 0.45 }));
+      };
+      return g({ key: 'll' },
+        h('clipPath', { id: cid }, R(X0, Y0 + HB, X1 - X0, 860 - Y0 - HB)),
+        R(X0 + 14, Y0 + 14, X1 - X0, 860 - Y0 - 14, { rx: 16, fill: INK, fillOpacity: 0.35 }),
+        // Kortin alareuna puuttuu: lista jatkuu kuvan alle.
+        Pth(`M${X0},860 L${X0},${Y0 + 16} Q${X0},${Y0} ${X0 + 16},${Y0} L${X1 - 16},${Y0} Q${X1},${Y0} ${X1},${Y0 + 16} L${X1},860`, ink(8, { fill: CREAM })),
+        g({ clipPath: `url(#${cid})` },
+          g(an('agx-move', 0.4, { '--mx': '0px', '--my': '-330px', animationDuration: dur.toFixed(2) + 's', animationTimingFunction: 'linear' }),
+            ...Array.from({ length: 14 }, (_, i) => row(i)))),
+        Pth(`M${X0},${Y0 + HB} L${X0},${Y0 + 16} Q${X0},${Y0} ${X0 + 16},${Y0} L${X1 - 16},${Y0} Q${X1},${Y0} ${X1},${Y0 + 16} L${X1},${Y0 + HB} Z`, ink(8, { fill: '#1f2937' })),
+        R(X0 + 28, Y0 + 22, 170, 20, { rx: 10, fill: CREAM, fillOpacity: 0.75 }),
+        R(X1 - 120, Y0 + 22, 90, 20, { rx: 10, fill: a.color }),
+        g({ transform: 'translate(864 470) rotate(-6)' }, g(an('agx-pop', 0.6), pill('pitkä lista', a.color, 32))),
+        g(an('agx-fade', 0.9), Pth('M864,540 L864,700', { stroke: CREAM, strokeWidth: 12, strokeLinecap: 'round', fill: 'none' }),
+          Pth('M836,690 L864,736 L892,690 Z', ink(5, { fill: CREAM }))));
+    },
+    // Työmäärä viikoille: kuusi tehtäväkorttia saa kestopillerin ja liukuu kolmeen viikkosarakkeeseen (kaksi kuhunkin);
+    // viimeinen on perillä k:ssa, k + 0.4 opettajan vihreä leima "Tarkistettu".
+    workload(a, x) {
+      const k = x.k, mins = [20, 45, 15, 30, 60, 25], col = [2, 0, 1, 2, 1, 0], slot = [0, 0, 0, 1, 1, 1];
+      const CX = [1100, 1270, 1440], SY = [462, 572], LX = 830, ly = i => 352 + i * 88;
+      const tPill = i => 0.3 + i * 0.16, tMove = i => Math.max(tPill(i) + 0.5, k - 0.7 - (5 - i) * 0.22);
+      return g({ key: 'wl' },
+        ...CX.map((cx, j) => g({ key: 'c' + j },
+          R(cx - 80, 380, 160, 270, { rx: 16, fill: '#1f2937', fillOpacity: 0.55, stroke: CREAM, strokeOpacity: 0.6, strokeWidth: 4, strokeDasharray: '14 10' }),
+          Tx(cx, 344, 'vk ' + (j + 1), lbl(34, CREAM)))),
+        ...mins.map((m, i) => g({ key: 't' + i, transform: `translate(${LX} ${ly(i)})` },
+          g(an('agx-move', tMove(i), { '--mx': CX[col[i]] - LX + 'px', '--my': SY[slot[i]] - ly(i) + 'px' }),
+            R(-70, -38, 140, 76, ink(5, { rx: 10, fill: CREAM })),
+            R(-52, -26, 104 - (i % 2) * 24, 14, { rx: 7, fill: STEEL }),
+            g({ transform: 'translate(0 13)' }, g(an('agx-pop', tPill(i)), pill(m + ' min', a.color, 22)))))),
+        g({ transform: 'translate(1270 728) rotate(-7)' }, g(an('agx-stampmark', k + 0.4), stampMark('Tarkistettu'))));
+    },
+    // Kaksi oppimiskokonaisuutta (ammatilliset sininen, yhteiset violetti) virtaa yhteen omaan viikkoon; kaistat
+    // yhtyvät k:ssa (viimeinen yhteisen polun pallo).
+    mergepath(a, x) {
+      const k = x.k, CA = '#60a5fa', CB = '#a78bfa', MY = 580, MX = 1090;
+      const bz = (q, t) => { const u = 1 - t; return [0, 1].map(j => u * u * u * q[0][j] + 3 * u * u * t * q[1][j] + 3 * u * t * t * q[2][j] + t * t * t * q[3][j]); };
+      const lanes = [[CA, [[790, 410], [960, 410], [960, MY], [MX, MY]]], [CB, [[790, 750], [960, 750], [960, MY], [MX, MY]]]];
+      const step = Math.max(0.08, (k - 0.9 - 0.45) / 5);
+      return g({ key: 'mp' },
+        ...lanes.map(([c, q], j) => g({ key: 'l' + j },
+          Pth(`M${q[0]} C${q[1]} ${q[2]} ${q[3]}`, { stroke: c, strokeWidth: 18, strokeLinecap: 'round', fill: 'none', strokeOpacity: 0.85 }),
+          ...[0.1, 0.42, 0.74].map((t, i) => { const p = bz(q, t); return g({ key: 'o' + i, transform: `translate(${p[0].toFixed(1)} ${p[1].toFixed(1)})` }, g(an('agx-pop', 0.3 + j * 0.15 + i * 0.2), C(0, 0, 20, ink(5, { fill: c })))); }))),
+        Pth(`M${MX},${MY} L1500,${MY}`, { stroke: CREAM, strokeWidth: 18, strokeLinecap: 'round', fill: 'none' }),
+        Pth(`M1496,${MY - 26} L1538,${MY} L1496,${MY + 26} Z`, ink(5, { fill: CREAM })),
+        ...[0, 1, 2, 3, 4, 5].map(i => g({ key: 'm' + i, transform: `translate(${1140 + i * 68} ${MY})` },
+          g(an('agx-pop', 0.9 + i * step), C(0, 0, 22, ink(5, { fill: i % 2 ? CB : CA }))))),
+        g({ transform: 'translate(944 350)' }, g(an('agx-pop', 0.25), pill('Ammatilliset opinnot', CA, 26))),
+        g({ transform: 'translate(962 810)' }, g(an('agx-pop', 0.4), pill('Yhteiset tutkinnon osat', CB, 26))),
+        g({ transform: `translate(1310 ${MY - 80})` }, g(an('agx-pop', k + 0.1), pill('Oma viikko', a.color, 34))));
+    },
+    // Ajankäyttö: tehtäväkortti "Osa 3/5" ja arvioitu kesto, päivän mittari täyttyy k:hon mennessä → tähti ja kehu;
+    // oikealla alhaalla kaninkolo puomin takana.
+    timebox(a, x) {
+      const k = x.k;
+      return g({ key: 'tb' },
+        R(800, 332, 420, 168, { rx: 16, fill: INK, fillOpacity: 0.35 }),
+        R(790, 318, 420, 168, ink(7, { rx: 16, fill: CREAM })),
+        Tx(818, 362, 'Osa 3/5', lbl(36, INK, 'start')),
+        g({ transform: 'translate(1094 362)' }, pill('noin 20 min', a.color, 24)),
+        R(818, 408, 360, 12, { rx: 6, fill: STEEL, fillOpacity: 0.4 }),
+        R(818, 408, 150, 12, { rx: 6, fill: a.color }),
+        R(818, 440, 260, 14, { rx: 7, fill: STEEL, fillOpacity: 0.8 }),
+        Tx(790, 560, 'Tänään', lbl(32, CREAM, 'start')),
+        R(920, 540, 430, 40, { rx: 10, fill: '#1f2937' }),
+        R(920, 540, 430, 40, Object.assign({ rx: 10, fill: '#4ade80' }, an('agx-scale', Math.max(0.3, k - 0.9), { '--s0': 0.12, '--s1': 1 }))),
+        R(920, 540, 430, 40, ink(5, { rx: 10, fill: 'none' })),
+        g({ transform: 'translate(1404 560)' }, g(an('agx-pop', k), star(40, '#fde047'))),
+        g({ transform: 'translate(1010 650)' }, g(an('agx-pop', k + 0.15), pill('Hyvä! Päivän työ tehty', '#4ade80', 28))),
+        // Kaninkolo ja puomi
+        E(1390, 806, 128, 42, ink(6, { fill: '#1f2937' })),
+        E(1390, 812, 96, 26, { fill: INK }),
+        Ln(1330, 724, 1330, 772, ink(8, { stroke: '#78350f' })),
+        R(1236, 678, 200, 52, ink(5, { rx: 8, fill: '#92400e' })),
+        Tx(1336, 705, 'Kaninkolo', lbl(30, CREAM)),
+        R(1268, 770, 14, 86, ink(4, { fill: '#e2e8f0' })), R(1498, 770, 14, 86, ink(4, { fill: '#e2e8f0' })),
+        R(1262, 764, 256, 28, ink(5, { rx: 6, fill: CREAM })),
+        ...[0, 1, 2, 3, 4].map(i => R(1276 + i * 50, 766, 24, 24, { key: 'st' + i, fill: '#dc2626' })),
+        R(1262, 764, 256, 28, ink(5, { rx: 6, fill: 'none' })));
+    },
+    // Pilotista koko ryhmään: 6 × 4 pallo-ihmistä; alussa neljä korostettuna ("pilotti"), k:ssa korostus leviää kaikkiin.
+    pilotgrow(a, x) {
+      const k = x.k, X = c => 820 + c * 106, Y = r => 470 + r * 100;
+      const fig = fill => g(null, C(0, -24, 19, ink(4, { fill })), Pth('M-28,30 Q-28,-2 0,-2 Q28,-2 28,30 Z', ink(4, { fill })));
+      const pilot = (c, r) => (c === 1 || c === 2) && (r === 0 || r === 1);
+      const cells = [];
+      for (let r = 0; r < 4; r++) for (let c = 0; c < 6; c++) cells.push([c, r]);
+      return g({ key: 'pg' },
+        ...cells.map(([c, r], i) => {
+          const d = pilot(c, r) ? 0.4 + ((c - 1) + r * 2) * 0.1 : k + Math.hypot(c - 1.5, r - 0.5) * 0.14;
+          return g({ key: 'f' + i, transform: `translate(${X(c)} ${Y(r)})` },
+            g({ opacity: 0.5 }, fig(STEEL)),
+            g(an('agx-pop', d), fig(a.color)));
+        }),
+        R(X(1) - 50, Y(0) - 60, X(2) - X(1) + 100, Y(1) - Y(0) + 104, { rx: 18, fill: 'none', stroke: '#fde047', strokeWidth: 6, strokeDasharray: '16 10' }),
+        g({ transform: `translate(${(X(1) + X(2)) / 2} 372)` }, g(an('agx-pop', 0.5), pill('pilotti', '#fde047', 34))),
+        g({ transform: `translate(${(X(2) + X(3)) / 2} 836)` }, g(an('agx-pop', k + 0.7), pill('koko ryhmä', a.color, 34))));
+    },
+    // Työpaikka (harmaa ✗) → nuoli → oppilaitos, jonka selainikkunassa viikkopillerit; k:ssa oppilaitos korostuu.
+    showplace(a, x) {
+      const k = x.k, roof = 'M1166,476 L1346,372 L1526,476 Z';
+      const windows = [];
+      for (let r = 0; r < 3; r++) for (let c = 0; c < 3; c++) windows.push(R(814 + c * 66, 458 + r * 70, 44, 46, ink(4, { key: 'w' + r + c, fill: '#cbd5e1' })));
+      return g({ key: 'sp' },
+        g(an('agx-dim', 0.5),
+          R(790, 430, 220, 330, ink(7, { fill: '#64748b' })),
+          R(840, 384, 120, 46, ink(6, { fill: '#475569' })),
+          ...windows,
+          R(880, 690, 40, 70, ink(4, { fill: '#334155' }))),
+        Pth('M820,470 L980,720 M980,470 L820,720', Object.assign({ stroke: INK, strokeWidth: 34, strokeLinecap: 'round', fill: 'none', pathLength: 1 }, an('agx-draw', 0.5))),
+        Pth('M820,470 L980,720 M980,470 L820,720', Object.assign({ stroke: '#cbd5e1', strokeWidth: 20, strokeLinecap: 'round', fill: 'none', pathLength: 1 }, an('agx-draw', 0.5))),
+        g({ transform: 'translate(900 814)' }, g(an('agx-pop', 0.35), pill('Työpaikka', '#94a3b8', 34))),
+        Pth('M1036,600 L1120,600', Object.assign({ stroke: CREAM, strokeWidth: 14, strokeLinecap: 'round', fill: 'none', pathLength: 1 }, an('agx-draw', Math.max(0.6, k - 0.5)))),
+        g({ transform: 'translate(1124 600)' }, g(an('agx-pop', Math.max(0.8, k - 0.15)), Pth('M-8,-28 L34,0 L-8,28 Z', ink(5, { fill: CREAM })))),
+        g(an('agx-fade', k), R(1170, 356, 352, 418, { rx: 22, fill: a.color, fillOpacity: 0.22, stroke: a.color, strokeWidth: 10 })),
+        R(1186, 470, 320, 290, ink(7, { fill: '#e2e8f0' })),
+        Pth(roof, ink(7, { fill: '#94a3b8' })),
+        g(an('agx-fade', k), Pth(roof, ink(7, { fill: a.color }))),
+        R(1214, 500, 264, 180, ink(5, { rx: 10, fill: CREAM })),
+        Pth('M1214,532 L1214,510 Q1214,500 1224,500 L1468,500 Q1478,500 1478,510 L1478,532 Z', ink(5, { fill: '#1f2937' })),
+        ...[0, 1, 2].map(i => R(1236 + i * 76, 566, 64, 30, ink(4, { key: 'p' + i, rx: 15, fill: i === 1 ? a.color : '#ffffff' }))),
+        R(1236, 620, 220, 16, { rx: 8, fill: STEEL, fillOpacity: 0.8 }),
+        R(1326, 690, 40, 70, ink(4, { fill: '#475569' })),
+        g({ transform: 'translate(1346 814)' }, g(an('agx-pop', 0.5), pill('Oppilaitos', a.color, 34))));
+    },
+    // Projekti opiskelijan toiveen mukaan: kolme kiinnostuskuplaa ja opiskelijan puhekupla "Toive" virtaavat
+    // projektikorttiin (rivit Aihe ja Toteutus); k:ssa ✓.
+    projmatch(a, x) {
+      const k = x.k, BY = [400, 515, 630], BX = 830;
+      const pad = () => g(null, R(-34, -20, 68, 40, ink(4, { rx: 18, fill: '#334155' })),
+        R(-25, -4, 20, 8, { fill: CREAM }), R(-19, -10, 8, 20, { fill: CREAM }), C(14, -4, 5, { fill: '#f87171' }), C(24, 5, 5, { fill: '#4ade80' }));
+      const note = () => g(null, E(-8, 14, 13, 10, ink(3, { fill: INK, transform: 'rotate(-20 -8 14)' })),
+        Ln(4, 12, 4, -26, ink(5)), Pth('M4,-26 Q22,-20 20,-2', ink(5, { fill: 'none' })));
+      const puzzle = () => Pth('M-22,-22 L-7,-22 A7,7 0 1 1 7,-22 L22,-22 L22,-7 A7,7 0 1 1 22,7 L22,22 L-22,22 Z', ink(4, { fill: '#fbbf24' }));
+      const wish = sc => g({ transform: `scale(${sc})` }, Pth('M-36,22 L-48,46 L-14,26 Z', ink(5, { fill: '#fff7ec' })),
+        R(-66, -32, 132, 62, ink(5, { rx: 28, fill: '#fff7ec' })), R(-40, 18, 30, 10, { fill: '#fff7ec' }), Tx(0, 0, 'Toive', lbl(34, INK)));
+      const tA = Math.max(0.7, k - 1.1), tB = Math.max(0.9, k - 0.8);
+      return g({ key: 'pm' },
+        ...[pad, note, puzzle].map((ic, i) => g({ key: 'i' + i, transform: `translate(${BX} ${BY[i]})` },
+          g(an('agx-pop', 0.3 + i * 0.15), C(0, 0, 46, ink(5, { fill: CREAM })), ic()))),
+        g({ transform: `translate(${BX + 10} 756)` }, g(an('agx-pop', 0.75), wish(1))),
+        g({ transform: `translate(${BX} 330)` }, g(an('agx-pop', 0.3), pill('Kiinnostus', '#fbbf24', 26))),
+        Pth('M884,515 C990,515 1000,520 1096,520', Object.assign({ stroke: CREAM, strokeWidth: 10, strokeLinecap: 'round', fill: 'none', pathLength: 1 }, an('agx-draw', tA))),
+        Pth('M912,756 C1010,756 1016,632 1096,628', Object.assign({ stroke: CREAM, strokeWidth: 10, strokeLinecap: 'round', fill: 'none', pathLength: 1 }, an('agx-draw', tB))),
+        R(1124, 414, 400, 340, { rx: 16, fill: INK, fillOpacity: 0.35 }),
+        R(1110, 400, 400, 340, ink(7, { rx: 16, fill: CREAM })),
+        Pth('M1110,462 L1110,416 Q1110,400 1126,400 L1494,400 Q1510,400 1510,416 L1510,462 Z', ink(7, { fill: a.color })),
+        g({ transform: 'translate(1290 400)' }, g(an('agx-pop', 0.4), pill('Projekti', a.color, 28))),
+        Tx(1140, 524, 'Aihe', lbl(32, INK, 'start')),
+        Tx(1140, 628, 'Toteutus', lbl(32, INK, 'start')),
+        g({ transform: 'translate(1300 524)' }, g(an('agx-pop', tA + 0.45), pad())),
+        g({ transform: 'translate(1330 628)' }, g(an('agx-pop', tB + 0.45), R(-26, -22, 52, 40, ink(4, { rx: 14, fill: '#fff7ec' })), Pth('M-12,16 L-18,30 L-2,18', ink(4, { fill: '#fff7ec' })), C(0, -2, 5, { fill: a.color }))),
+        R(1366, 515, 116, 18, { rx: 9, fill: STEEL, fillOpacity: 0.8 }),
+        R(1376, 619, 106, 18, { rx: 9, fill: STEEL, fillOpacity: 0.8 }),
+        R(1140, 690, 300, 16, { rx: 8, fill: STEEL, fillOpacity: 0.5 }),
+        tickPath(1466, 432, 1.9, CREAM, 9, an('agx-draw', k)));
+    },
+    // Tekoälyloki: kolme riviä ilmestyy porrastetusti, kynä kirjoittaa viimeistä; k:ssa "kirjattu".
+    ailog(a, x) {
+      const k = x.k, ry = [486, 584, 682], rw = [380, 300, 340], X0 = 966;
+      const tW = Math.max(1.3, k - 1.3), wDur = Math.max(0.4, k - 0.1 - tW);
+      const icon = () => g(null, R(-24, -18, 48, 32, ink(4, { rx: 10, fill: a.color })), Pth('M-10,12 L-14,24 L2,13', ink(4, { fill: a.color })));
+      return g({ key: 'al' },
+        R(874, 334, 580, 480, { rx: 14, fill: INK, fillOpacity: 0.35 }),
+        R(860, 320, 580, 480, ink(8, { rx: 14, fill: CREAM })),
+        ...[0, 1, 2, 3, 4, 5].map(i => C(860, 362 + i * 80, 12, ink(4, { key: 'ring' + i, fill: '#1f2937' }))),
+        Tx(900, 378, 'Tekoälyloki', lbl(42, INK, 'start')),
+        g({ transform: 'translate(1304 378)' }, g(an('agx-pop', 0.35), pill('Mihin käytin', a.color, 24))),
+        Ln(900, 414, 1410, 414, { stroke: STEEL, strokeWidth: 3 }),
+        ...ry.map((y, i) => g({ key: 'r' + i },
+          g({ transform: `translate(920 ${y})` }, g(an('agx-pop', 0.45 + i * 0.4), icon())),
+          i < 2 ? g(an('agx-fade', 0.6 + i * 0.4), R(X0, y - 10, rw[i], 20, { rx: 10, fill: STEEL, fillOpacity: 0.85 }))
+            : R(X0, y - 10, rw[i], 20, Object.assign({ rx: 10, fill: STEEL, fillOpacity: 0.85 }, an('agx-grow', tW, { animationDuration: wDur.toFixed(2) + 's', animationTimingFunction: 'linear' }))))),
+        g({ key: 'pen', transform: `translate(${X0} ${ry[2] - 14})` },
+          g(an('agx-move', tW, { '--mx': rw[2] + 'px', '--my': '0px', animationDuration: wDur.toFixed(2) + 's', animationTimingFunction: 'linear' }),
+            g({ transform: 'rotate(35)' }, R(-9, -74, 18, 58, ink(3, { rx: 3, fill: '#fbbf24' })), Pth('M-9,-16 L9,-16 L0,0 Z', ink(3, { fill: CREAM }))))),
+        g({ transform: 'translate(1340 756)' }, g(an('agx-pop', k), pill('kirjattu', '#4ade80', 30))));
+    },
+    // Tuki arvosanassa: kriteerikortin rivi "Ohjaus ja tuki" korostuu ennen k:ta; k:ssa nuoli arvosanakorttiin
+    // ja asteikko 1–5 välähtää (mitään arvosanaa ei korosteta).
+    criteria(a, x) {
+      const k = x.k, ry = [462, 542, 622, 702], rw = [290, 0, 250, 280];
+      return g({ key: 'cr' },
+        R(774, 344, 400, 430, { rx: 16, fill: INK, fillOpacity: 0.35 }),
+        R(760, 330, 400, 430, ink(8, { rx: 16, fill: CREAM })),
+        Tx(790, 384, 'Arviointikriteerit', lbl(36, INK, 'start')),
+        Ln(790, 418, 1130, 418, { stroke: STEEL, strokeWidth: 3 }),
+        g(an('agx-fade', Math.max(0.4, k - 0.8)), R(776, ry[1] - 30, 368, 60, ink(4, { rx: 12, fill: '#fde047', fillOpacity: 0.7 }))),
+        ...ry.map((y, i) => g({ key: 'r' + i },
+          R(792, y - 14, 28, 28, ink(4, { rx: 6, fill: '#ffffff' })),
+          i === 1 ? Tx(838, y + 1, 'Ohjaus ja tuki', lbl(30, INK, 'start')) : R(838, y - 9, rw[i], 18, { rx: 9, fill: STEEL, fillOpacity: 0.85 }))),
+        Pth('M1168,542 C1220,542 1226,580 1262,580', Object.assign({ stroke: CREAM, strokeWidth: 12, strokeLinecap: 'round', fill: 'none', pathLength: 1 }, an('agx-draw', k))),
+        g({ transform: 'translate(1266 580)' }, g(an('agx-pop', k + 0.3), Pth('M-14,-22 L18,0 L-14,22 Z', ink(5, { fill: CREAM })))),
+        R(1300, 454, 240, 240, { rx: 16, fill: INK, fillOpacity: 0.35 }),
+        R(1288, 440, 240, 240, ink(7, { rx: 16, fill: CREAM })),
+        Tx(1408, 494, 'Arvosana', lbl(34, INK)),
+        g(an('agx-fade', k + 0.45), R(1300, 554, 216, 72, { rx: 36, fill: '#fde047', fillOpacity: 0.45, stroke: '#ca8a04', strokeWidth: 5 })),
+        ...[0, 1, 2, 3, 4].map(i => g({ key: 'n' + i, transform: `translate(${1324 + i * 42} 590)` },
+          C(0, 0, 18, ink(4, { fill: '#ffffff' })), Tx(0, 1, String(i + 1), lbl(24, INK)))),
+        R(1316, 640, 184, 14, { rx: 7, fill: STEEL, fillOpacity: 0.6 }));
+    },
+    // Muut opettajat pyytävät: kolme opettajaa, joilta puhekuplat "Saisinko minäkin?" lentävät porrastetusti
+    // keskellä olevan projektikortin luo.
+    requests(a, x) {
+      const k = x.k, TX = [875, 1100, 1325], TY = 800, BB = [[875, 652], [1100, 566], [1325, 652]];
+      const cols = ['#60a5fa', '#4ade80', '#f472b6'];
+      const teacher = i => g({ key: 't' + i, transform: `translate(${TX[i]} ${TY})` },
+        Pth('M-44,44 Q-44,-20 0,-20 Q44,-20 44,44 Z', ink(5, { fill: cols[i] })),
+        C(0, -56, 30, ink(5, { fill: '#fcd9b6' })),
+        Pth('M-30,-62 Q-28,-92 0,-90 Q28,-92 30,-62 Q14,-74 -30,-62 Z', ink(4, { fill: ['#78350f', '#1f2937', '#a16207'][i] })),
+        C(-10, -54, 3.5, { fill: INK }), C(10, -54, 3.5, { fill: INK }));
+      const tFly = i => Math.max(0.5 + i * 0.3, k - 0.9 + i * 0.3);
+      return g({ key: 'rq' },
+        R(974, 344, 280, 170, { rx: 14, fill: INK, fillOpacity: 0.35 }),
+        R(960, 330, 280, 170, ink(7, { rx: 14, fill: CREAM })),
+        Pth('M960,384 L960,344 Q960,330 974,330 L1226,330 Q1240,330 1240,344 L1240,384 Z', ink(7, { fill: a.color })),
+        R(986, 408, 200, 16, { rx: 8, fill: STEEL, fillOpacity: 0.85 }),
+        R(986, 440, 150, 16, { rx: 8, fill: STEEL, fillOpacity: 0.6 }),
+        R(986, 472, 180, 12, { rx: 6, fill: STEEL, fillOpacity: 0.5 }),
+        ...[0, 1, 2].map(teacher),
+        ...BB.map(([bx, by], i) => {
+          const tx = Math.max(-36, Math.min(36, (1100 - bx) * 0.25));
+          return g({ key: 'b' + i, transform: `translate(${bx} ${by})` },
+            g(an('agx-from', tFly(i), { '--mx': TX[i] - bx + 'px', '--my': TY - 90 - by + 'px' }),
+              Pth(`M${tx - 14},-30 L${tx * 1.6},-62 L${tx + 14},-30 Z`, ink(5, { fill: '#fff7ec' })),
+              R(-135, -32, 270, 64, ink(5, { rx: 30, fill: '#fff7ec' })),
+              R(tx - 12, -34, 24, 8, { fill: '#fff7ec' }),
+              Tx(0, 1, 'Saisinko minäkin?', lbl(28, INK))));
+        }));
+    },
+    // Polun alku: lähtöviiva, iso "Aloita"-painike ja hohtava ensimmäinen kivi; k:ssa painike painuu ja kivi rastittuu.
+    startline(a, x) {
+      const k = x.k, SY = 712, sx = [930, 1060, 1190, 1320, 1450];
+      return g({ key: 'sl' },
+        ...Array.from({ length: 8 }, (_, i) => g({ key: 'q' + i },
+          R(800, 560 + i * 34, 22, 34, { fill: i % 2 ? CREAM : INK }), R(822, 560 + i * 34, 22, 34, { fill: i % 2 ? INK : CREAM }))),
+        R(800, 560, 44, 272, ink(5, { fill: 'none' })),
+        Pth(`M852,${SY} L1490,${SY}`, { stroke: STEEL, strokeWidth: 8, strokeDasharray: '14 14', strokeOpacity: 0.7, fill: 'none' }),
+        E(sx[0], SY, 72, 46, { fill: a.color, fillOpacity: 0.35, stroke: a.color, strokeWidth: 6 }),
+        ...sx.map((cx, i) => E(cx, SY, 48, 28, ink(5, { key: 's' + i, fill: i === 0 ? '#e2e8f0' : '#64748b' }))),
+        tickPath(sx[0], SY - 2, 1.9, '#16a34a', 9, an('agx-draw', k + 0.25)),
+        R(980, 400, 340, 130, ink(7, { rx: 30, fill: mix(a.color, INK, 0.45) })),
+        g(an('agx-move', Math.max(0.3, k - 0.12), { '--mx': '0px', '--my': '14px', animationDuration: '0.18s' }),
+          R(980, 384, 340, 124, ink(7, { rx: 30, fill: a.color })),
+          Tx(1150, 448, 'Aloita', big(70, CREAM))),
+        g({ transform: 'translate(1262 478) scale(2.4)' }, g(an('agx-pop', Math.max(0.3, k - 0.5)),
+          Pth('M0,0 L0,24 L6,18 L11,28 L16,26 L11,16 L19,16 Z', ink(2, { fill: '#ffffff' })))));
+    },
+    // Koko talon pohjat: pohjakortti vasemmalla, siitä kolme kopiota porrastetusti oikealle (eri sävy ja eri rivi
+    // korostettuna), kopioiden alla "oma opiskelija".
+    template(a, x) {
+      const k = x.k, BX = 830, BY = 560, FX = [990, 1110, 1230], FY = [520, 560, 600];
+      const tones = ['#38bdf8', '#f59e0b', '#4ade80'], rw = [104, 84, 112, 72];
+      const card = (head, hi, title) => g(null,
+        R(-80, -110, 160, 220, ink(7, { rx: 14, fill: CREAM })),
+        Pth('M-80,-56 L-80,-96 Q-80,-110 -66,-110 L66,-110 Q80,-110 80,-96 L80,-56 Z', ink(7, { fill: head })),
+        title ? Tx(0, -82, title, lbl(36, INK)) : null,
+        ...rw.map((w, i) => g({ key: 'r' + i },
+          hi === i ? R(-66, -36 + i * 40, 132, 30, { rx: 8, fill: '#fde047', fillOpacity: 0.8 }) : null,
+          R(-56, -28 + i * 40, w, 14, { rx: 7, fill: STEEL, fillOpacity: 0.9 }))));
+      return g({ key: 'tp' },
+        g({ transform: `translate(${BX} ${BY})` }, card(a.color, -1, 'Pohja')),
+        ...FX.map((fx, i) => g({ key: 'k' + i, transform: `translate(${BX} ${BY})` },
+          g(an('agx-move', Math.max(0.4 + i * 0.3, k - 0.8 + i * 0.3), { '--mx': fx - BX + 'px', '--my': FY[i] - BY + 'px' }),
+            g({ transform: 'scale(0.72)' }, card(tones[i], i + 1, null))))),
+        g({ transform: 'translate(1110 762)' }, g(an('agx-pop', k + 0.4), pill('oma opiskelija', a.color, 30))));
+    },
+
+    // ---------- Polku ja projekti, kierros 3 (STORYBOARD "Moottori, kierros 3"): Eriyttäjä ja loppuruutu.
+
+    // Yksi tehtäväkortti "Sama tehtävä", josta viuhkana kolme versiota: tekstirivit, kuvakortti, tarkistuslista.
+    onetomany(a, x) {
+      const k = x.k, VX = [1090, 1270, 1450], VY = [560, 600, 560], rot = [-7, 0, 7];
+      const t = i => Math.max(0.5 + i * 0.25, k - (2 - i) * 0.3);
+      const variant = i => g(null,
+        R(-80, -115, 160, 230, ink(6, { rx: 14, fill: CREAM })),
+        i === 0 ? g(null, ...[0, 1, 2, 3, 4].map(j => R(-58, -84 + j * 38, [116, 96, 110, 80, 104][j], 16, { key: j, rx: 8, fill: STEEL, fillOpacity: 0.9 }))) : null,
+        i === 1 ? g(null,
+          R(-58, -92, 116, 84, ink(4, { rx: 8, fill: '#bfdbfe' })),
+          Pth('M-54,-12 L-20,-50 L6,-24 L22,-40 L54,-12 Z', ink(3, { fill: '#4ade80' })), C(32, -70, 10, { fill: '#fbbf24' }),
+          ...[0, 1].map(j => g({ key: 'n' + j, transform: `translate(-40 ${26 + j * 50})` }, C(0, 0, 17, ink(4, { fill: a.color })), Tx(0, 1, String(j + 1), lbl(24, INK)),
+            R(28, -8, 70, 16, { rx: 8, fill: STEEL, fillOpacity: 0.9 })))) : null,
+        i === 2 ? g(null, ...[0, 1, 2].map(j => g({ key: 'c' + j },
+          R(-60, -86 + j * 66, 34, 34, ink(4, { rx: 6, fill: '#ffffff' })),
+          j < 2 ? tickPath(-43, -69 + j * 66, 1.2, '#16a34a', 6) : null,
+          R(-12, -78 + j * 66, 72, 16, { rx: 8, fill: STEEL, fillOpacity: 0.9 })))) : null);
+      return g({ key: 'om' },
+        ...VX.map((vx, i) => Pth(`M960,600 C1000,600 ${vx - 120},${VY[i]} ${vx - 84},${VY[i]}`, Object.assign({ key: 'ln' + i, stroke: CREAM, strokeWidth: 8, strokeDasharray: '12 10', strokeOpacity: 0.8, fill: 'none' }))),
+        g({ transform: 'translate(860 600)' },
+          R(-100, -150, 200, 300, ink(7, { rx: 16, fill: CREAM })),
+          Pth('M-100,-92 L-100,-134 Q-100,-150 -84,-150 L84,-150 Q100,-150 100,-134 L100,-92 Z', ink(7, { fill: a.color })),
+          ...[0, 1, 2, 3, 4, 5].map(j => R(-74, -64 + j * 34, [148, 120, 140, 100, 136, 90][j], 14, { key: j, rx: 7, fill: STEEL, fillOpacity: 0.9 }))),
+        g({ transform: 'translate(860 396)' }, g(an('agx-pop', 0.35), pill('Sama tehtävä', a.color, 34))),
+        ...VX.map((vx, i) => g({ key: 'v' + i, transform: `translate(${vx} ${VY[i]}) rotate(${rot[i]})` }, g(an('agx-pop', t(i)), variant(i)))));
+    },
+    // Eri sanoin: tiheä alkuperäinen tekstikortti → nuoli → lyhyt kortti, jossa kolme numeroitua askelta
+    // (viimeinen k:ssa); "Selkokieli" ja "Vaihe kerrallaan".
+    wording(a, x) {
+      const k = x.k, sy = [478, 584, 690], sw = [190, 150, 176];
+      const t = i => Math.max(0.6 + i * 0.3, k - (2 - i) * 0.4);
+      return g({ key: 'wd' },
+        R(784, 344, 320, 460, { rx: 14, fill: INK, fillOpacity: 0.35 }),
+        R(770, 330, 320, 460, ink(7, { rx: 14, fill: CREAM })),
+        ...Array.from({ length: 12 }, (_, i) => R(794, 360 + i * 34, [272, 250, 266, 230, 270, 244, 262, 208, 268, 240, 256, 150][i], 10, { key: 'l' + i, rx: 5, fill: STEEL, fillOpacity: 0.85 })),
+        g({ transform: 'translate(930 832)' }, pill('Alkuperäinen', '#94a3b8', 26)),
+        Pth('M1110,566 L1170,566', Object.assign({ stroke: CREAM, strokeWidth: 14, strokeLinecap: 'round', fill: 'none', pathLength: 1 }, an('agx-draw', 0.4))),
+        g({ transform: 'translate(1176 566)' }, g(an('agx-pop', 0.6), Pth('M-8,-26 L30,0 L-8,26 Z', ink(5, { fill: CREAM })))),
+        R(1224, 384, 310, 390, { rx: 16, fill: INK, fillOpacity: 0.35 }),
+        R(1210, 370, 310, 390, ink(7, { rx: 16, fill: CREAM })),
+        g({ transform: 'translate(1365 372)' }, g(an('agx-pop', 0.5), pill('Selkokieli', a.color, 30))),
+        ...sy.map((y, i) => g({ key: 's' + i }, g(an('agx-slide-r', t(i)),
+          C(1262, y, 30, ink(5, { fill: a.color })), Tx(1262, y + 1, String(i + 1), lbl(40, INK)),
+          R(1308, y - 14, sw[i], 28, { rx: 14, fill: STEEL, fillOpacity: 0.95 })))),
+        g({ transform: 'translate(1365 816)' }, g(an('agx-pop', k + 0.2), pill('Vaihe kerrallaan', '#4ade80', 28))));
+    },
+    // Eri muodossa: kolme korttia porrastetusti, viimeinen k:ssa: Kuvaohje (kuvat 1–2), Tarkistuslista (rastit
+    // polkuina) ja Iso teksti ("Aa" ja kaksi paksua riviä).
+    formats(a, x) {
+      const k = x.k, CX = [885, 1140, 1395], Y0 = 390, Y1 = 780;
+      // Kortit jakautuvat tasaisesti ruudun alusta tahtiin k, ettei ruutu ole pitkään tyhjä.
+      const t = i => 0.35 + i * Math.max(0.4, (k - 0.35) / 2);
+      const pic = (w, hh) => g(null, R(-w / 2, -hh / 2, w, hh, ink(4, { rx: 8, fill: '#bfdbfe' })),
+        Pth(`M${-w / 2 + 4},${hh / 2 - 4} L${-w / 6},${-hh / 6} L${w / 12},${hh / 6} L${w / 4},${0} L${w / 2 - 4},${hh / 2 - 4} Z`, ink(3, { fill: '#4ade80' })),
+        C(w / 4, -hh / 4, 8, { fill: '#fbbf24' }));
+      const body = [
+        () => g(null, ...[0, 1].map(j => g({ key: 'p' + j, transform: `translate(0 ${490 + j * 150})` },
+          g({ transform: 'translate(20 0)' }, pic(150, 104)),
+          g({ transform: 'translate(-74 -40)' }, C(0, 0, 20, ink(4, { fill: a.color })), Tx(0, 1, String(j + 1), lbl(28, INK)))))),
+        i => g(null, ...[0, 1, 2].map(j => g({ key: 'c' + j },
+          R(-86, 476 + j * 96, 42, 42, ink(4, { rx: 8, fill: '#ffffff' })),
+          tickPath(-65, 497 + j * 96, 1.5, '#16a34a', 7, an('agx-draw', t(i) + 0.3 + j * 0.2)),
+          R(-28, 488 + j * 96, 112, 18, { rx: 9, fill: STEEL, fillOpacity: 0.9 })))),
+        () => g(null, Tx(0, 540, 'Aa', lbl(120, INK)),
+          R(-84, 640, 168, 30, { rx: 15, fill: STEEL }), R(-84, 696, 120, 30, { rx: 15, fill: STEEL })),
+      ];
+      const names = ['Kuvaohje', 'Tarkistuslista', 'Iso teksti'], cols = ['#60a5fa', '#4ade80', '#fbbf24'];
+      return g({ key: 'fm' }, ...CX.map((cx, i) => g({ key: 'f' + i, transform: `translate(${cx} 0)` }, g(an('agx-rise-s', t(i)),
+        R(-101, Y0 + 14, 230, Y1 - Y0, { rx: 16, fill: INK, fillOpacity: 0.35 }),
+        R(-115, Y0, 230, Y1 - Y0, ink(7, { rx: 16, fill: CREAM })),
+        g({ transform: `translate(0 ${Y0})` }, pill(names[i], cols[i], 26)),
+        body[i](i)))));
+    },
+    // Ohjelman käyttöohje kuvina: osoitin klikkaa ohjelmaikkunan kolmea kohtaa, jokaisesta salama ja pikkukuva
+    // lentää ohjekortin vaiheeseen 1–3; viimeinen perillä k:ssa.
+    screenguide(a, x) {
+      const k = x.k, B = [[840, 420], [1046, 560], [900, 690]], S = [[1420, 430], [1420, 570], [1420, 710]];
+      const tc = i => Math.max(0.5 + i * 0.9, k - 0.55 - (2 - i) * 0.9);
+      const cursor = Pth('M0,0 L0,24 L6,18 L11,28 L16,26 L11,16 L19,16 Z', ink(2, { fill: '#ffffff' }));
+      const thumb = i => g(null, R(-62, -38, 124, 76, ink(4, { rx: 6, fill: '#1f2937' })), R(-58, -24, 116, 58, { fill: '#e2e8f0' }),
+        R(B[i][0] > 1000 ? 4 : -40, i === 2 ? 6 : -16, 40, 20, ink(3, { rx: 5, fill: a.color })));
+      return g({ key: 'sg' },
+        R(774, 344, 390, 420, { rx: 14, fill: INK, fillOpacity: 0.35 }),
+        R(760, 330, 390, 420, ink(8, { rx: 14, fill: '#e2e8f0' })),
+        Pth('M760,382 L760,346 Q760,330 776,330 L1134,330 Q1150,330 1150,346 L1150,382 Z', ink(8, { fill: '#1f2937' })),
+        ...['#f87171', '#fbbf24', '#4ade80'].map((f, i) => C(790 + i * 28, 356, 8, { key: f, fill: f })),
+        R(964, 450, 160, 16, { rx: 8, fill: STEEL }), R(964, 480, 120, 16, { rx: 8, fill: STEEL }),
+        R(784, 620, 60, 16, { rx: 8, fill: STEEL }), R(984, 680, 140, 16, { rx: 8, fill: STEEL }),
+        ...B.map(([bx, by], i) => R(bx - 60, by - 24, 120, 48, ink(5, { key: 'b' + i, rx: 12, fill: a.color }))),
+        g({ transform: 'translate(955 790)' }, pill('Ohjelma', '#94a3b8', 28)),
+        R(1214, 344, 316, 450, { rx: 14, fill: INK, fillOpacity: 0.35 }),
+        R(1200, 330, 316, 450, ink(8, { rx: 14, fill: CREAM })),
+        g({ transform: 'translate(1358 334)' }, g(an('agx-pop', 0.3), pill('Kuvaohje', a.color, 28))),
+        ...S.map(([sx, sy], i) => g({ key: 's' + i },
+          C(1252, sy, 24, ink(5, { fill: a.color })), Tx(1252, sy + 1, String(i + 1), lbl(30, INK)),
+          R(sx - 62, sy - 38, 124, 76, { rx: 6, fill: STEEL, fillOpacity: 0.3 }),
+          g({ transform: `translate(${sx} ${sy})` }, g(an('agx-from', tc(i) + 0.1, { '--mx': B[i][0] - sx + 'px', '--my': B[i][1] - sy + 'px' }), thumb(i))))),
+        ...B.map(([bx, by], i) => g({ key: 'fl' + i, transform: `translate(${bx} ${by})` }, g(an('agx-out', tc(i) + 0.35), g(an('agx-pop', tc(i)),
+          Pth(burst(0, 0, 70, 40, 10), ink(4, { fill: '#ffffff', fillOpacity: 0.9 })))))),
+        g({ transform: `translate(${B[0][0] + 20} ${B[0][1] + 6})` },
+          chain([[tc(1) - 0.75, B[1][0] - B[0][0], B[1][1] - B[0][1]], [tc(2) - 0.75, B[2][0] - B[1][0], B[2][1] - B[1][1]]],
+            g({ transform: 'scale(2.2)' }, g(an('agx-pop', 0.3), cursor)))));
+    },
+    // Sama tavoite: kolme eriväristä polkua eri lähtöpisteistä yhtyy samaan lippuun (viimeinen perillä k:ssa).
+    samegoal(a, x) {
+      const k = x.k, cols = ['#60a5fa', '#f472b6', '#fbbf24'], Y = [380, 600, 820], GX = 1430, GY = 640;
+      const t = i => Math.max(0.4 + i * 0.3, k - 0.45 - (2 - i) * 0.3);
+      return g({ key: 'sm' },
+        ...Y.map((y, i) => g({ key: 'p' + i },
+          Pth(`M800,${y} C1060,${y} 1180,${GY} ${GX - 20},${GY}`, Object.assign({ stroke: cols[i], strokeWidth: 16, strokeLinecap: 'round', fill: 'none', pathLength: 1 }, an('agx-draw', t(i)))),
+          C(800, y, 26, ink(6, { fill: cols[i] })))),
+        Ln(GX, GY + 30, GX, 410, ink(10)),
+        Pth(`M${GX + 4},410 L${GX + 100},442 L${GX + 4},474 Z`, ink(7, { fill: a.color })),
+        g({ transform: `translate(${GX} ${GY + 10})` }, g(an('agx-pop', k), star(44, '#fde047'))),
+        g({ transform: 'translate(1200 352)' }, g(an('agx-pop', k + 0.2), pill('Sama tavoite', a.color, 36))));
+    },
+    // ---------- Esteiden raivaajat, kierros 4 (STORYBOARD "Moottori, kierros 4").
+    // Kaninkolo: pääpolku vasemmalta lippuun "Tavoite"; polulta haarautuu kiemurteleva sivupolku tummaan kaninkoloon
+    // (kyltti), varrella houkutukset (?, lamppu, kirja). Opiskelijapallo kulkee sivupolulle; k:ssa katkoviivanuoli
+    // "Takaisin tehtävään", ja pallo palaa pääpolulle ja jatkaa kohti lippua.
+    sidetrack(a, x) {
+      const k = x.k, PY = 400;
+      const t1 = 0.4, t2 = t1 + 0.6, t3 = t2 + 0.9, tb = Math.max(k, t3 + 0.8);
+      const lamp = g(null, C(0, -6, 22, ink(5, { fill: '#fef9c3' })), R(-10, 14, 20, 14, ink(4, { rx: 3, fill: STEEL })),
+        ...[[-30, -26, -40, -34], [30, -26, 40, -34], [0, -36, 0, -48]].map(([x1, y1, x2, y2], i) =>
+          Ln(x1, y1, x2, y2, { key: 'r' + i, stroke: '#facc15', strokeWidth: 5, strokeLinecap: 'round' })));
+      const book = g({ transform: 'rotate(-8)' }, R(-30, -20, 60, 40, ink(5, { rx: 4, fill: '#a78bfa' })), Ln(0, -20, 0, 20, ink(4)));
+      const lure = [[1062, 478, badge('?', '#fde047', 26)], [896, 622, lamp], [1080, 792, book]];
+      return g({ key: 'st' },
+        // Sivupolku, houkutukset ja kaninkolo
+        Pth('M930,400 C900,470 1010,480 990,540 S900,620 1000,670 S1150,700 1220,752', { stroke: '#d6b483', strokeOpacity: 0.85, strokeWidth: 14, strokeDasharray: '2 20', strokeLinecap: 'round', fill: 'none' }),
+        ...lure.map(([lx, ly, el], i) => g({ key: 'h' + i, transform: `translate(${lx} ${ly})` }, g(an('agx-pop', 0.6 + i * 0.3), el))),
+        E(1300, 770, 120, 40, ink(6, { fill: '#1f2937' })),
+        E(1300, 778, 90, 24, { fill: INK }),
+        Ln(1450, 696, 1450, 806, ink(8, { stroke: '#78350f' })),
+        R(1360, 640, 180, 56, ink(6, { rx: 10, fill: '#92400e' })),
+        Tx(1450, 669, 'Kaninkolo', lbl(30, CREAM)),
+        // Pääpolku ja tavoite
+        Pth(`M790,${PY} L1440,${PY}`, { stroke: CREAM, strokeWidth: 18, strokeLinecap: 'round', fill: 'none' }),
+        Ln(1470, PY + 24, 1470, PY - 136, ink(9)),
+        Pth(`M1474,${PY - 136} L1536,${PY - 110} L1474,${PY - 84} Z`, ink(6, { fill: a.color })),
+        g({ transform: `translate(1300 ${PY - 70})` }, g(an('agx-pop', 0.3), pill('Tavoite', a.color, 30))),
+        // Takaisin tehtävään (k)
+        g(an('agx-fade', tb),
+          Pth('M1190,700 Q1100,560 1190,440', { stroke: CREAM, strokeWidth: 8, strokeDasharray: '18 14', strokeLinecap: 'round', fill: 'none' }),
+          Pth('M1200,426 L1194,459 L1170,441 Z', ink(4, { fill: CREAM }))),
+        g({ transform: 'translate(1390 560)' }, g(an('agx-pop', tb + 0.1), pill('Takaisin tehtävään', a.color, 26))),
+        // Opiskelijapallo: sivupolulle, kaninkolon reunalle, k:ssa takaisin pääpolulle ja kohti lippua.
+        g({ transform: `translate(820 ${PY})` },
+          chain([[t1, 110, 0], [t2, 60, 140], [t2 + 0.45, 10, 130], [t3, 190, 60], [tb + 0.1, 10, -330], [tb + 0.9, 180, 0]],
+            g(null, C(0, 0, 24, ink(6, { fill: a.color })), C(-8, -8, 6, { fill: '#ffffff', fillOpacity: 0.7 })))));
+    },
+    // Tuen yhdistelmä: kortti "Tämän opiskelijan tuki" ja kolme pystysäädintä, jotka asettuvat porrastetusti eri
+    // korkeuksille (viimeinen k:ssa); k + 0.3 lappu "oma yhdistelmä".
+    supportmix(a, x) {
+      const k = x.k, X = [930, 1150, 1370], V = [0.8, 0.4, 0.65], names = ['Aloittaminen', 'Ylläpitäminen', 'Jaksottaminen'];
+      const cols = [a.color, '#4ade80', '#fde047'], Y0 = 720, H = 290, S0 = 0.1;
+      const ease = { animationDuration: '0.9s', animationTimingFunction: 'cubic-bezier(0.3, 1.1, 0.4, 1)' };
+      return g({ key: 'sm' },
+        R(800, 332, 720, 520, { rx: 18, fill: INK, fillOpacity: 0.35 }),
+        R(786, 318, 720, 520, ink(8, { rx: 18, fill: CREAM })),
+        Tx(816, 366, 'Tämän opiskelijan tuki', lbl(36, INK, 'start')),
+        g({ transform: 'translate(1384 366)' }, g(an('agx-pop', k + 0.3), pill('oma yhdistelmä', a.color, 24))),
+        ...X.map((cx, i) => {
+          const d = Math.max(0.3 + i * 0.35, k - (2 - i) * 0.4);
+          // Säädin piirretään vaakaan ja käännetään pystyyn: täyttö kasvaa alhaalta (scaleX vasemmasta reunasta).
+          return g({ key: 's' + i },
+            g({ transform: `translate(${cx} ${Y0}) rotate(-90)` },
+              R(0, -16, H, 32, { rx: 16, fill: '#1f2937' }),
+              R(0, -16, H, 32, Object.assign({ rx: 16, fill: cols[i] }, an('agx-scale', d, Object.assign({ '--s0': S0, '--s1': V[i] }, ease)))),
+              R(0, -16, H, 32, ink(5, { rx: 16, fill: 'none' })),
+              g({ transform: `translate(${H * S0} 0)` },
+                g(an('agx-move', d, Object.assign({ '--mx': (H * (V[i] - S0)).toFixed(1) + 'px', '--my': '0px' }, ease)),
+                  C(0, 0, 28, ink(6, { fill: '#ffffff' })), Ln(0, -12, 0, 12, ink(4))))),
+            Tx(cx, 774, names[i], fit(names[i], 28, 200, lbl(28, INK))));
+        }));
+    },
+    // Loppuruudun kaninkolo: kyltti ja ensimmäinen puomi paikallaan, toinen puomi laskeutuu sen eteen k:ssa.
+    rabbithole(a, x) {
+      const k = x.k;
+      const barrier = (x0, x1, y) => g(null,
+        R(x0 + 6, y - 6, 16, 96, ink(4, { fill: '#e2e8f0' })), R(x1 - 22, y - 6, 16, 96, ink(4, { fill: '#e2e8f0' })),
+        R(x0, y - 18, x1 - x0, 36, ink(5, { rx: 6, fill: CREAM })),
+        ...Array.from({ length: Math.floor((x1 - x0 - 20) / 56) }, (_, i) => R(x0 + 14 + i * 56, y - 16, 28, 32, { key: 'r' + i, fill: '#dc2626' })),
+        R(x0, y - 18, x1 - x0, 36, ink(5, { rx: 6, fill: 'none' })));
+      return g({ key: 'rh' },
+        Ln(1140, 500, 1140, 660, ink(9, { stroke: '#78350f' })),
+        R(1000, 440, 280, 66, ink(6, { rx: 10, fill: '#92400e' })),
+        Tx(1140, 474, 'Kaninkolo', lbl(40, CREAM)),
+        E(1140, 720, 240, 74, ink(7, { fill: '#1f2937' })),
+        E(1140, 728, 186, 48, { fill: INK }),
+        barrier(900, 1380, 668),
+        g(an('agx-fade', k), g(an('agx-drop-s', k), barrier(860, 1420, 770))),
+        g({ transform: 'translate(1140 360)' }, g(an('agx-pop', 0.5), pill('Clausin viikkopolku', '#ea4a2f', 34))));
+    },
   };
   const SHAKE = { stamp: 1, build: 1 };
+  // Vaatimuslapun alle mahtumattomat lavasteet (alareuna yli 840): pienennys, jotta alin rivi ei leikkaudu ruudun reunaan.
+  const DEMANDS_FIT = { weekpath: 'translate(80 70) scale(0.9)' };
+  // Loppuruudun lavasteen paikka [x, y, mittakaava] tietyille lavasteille, ks. Art/outro.
+  const OUTRO_AT = { clearpath: [1225, 465, 0.72], template: [1317, 442, 0.8], samegoal: [1240, 460, 0.62] };
+  // Opettajan vihreä leima (lopputilassa paikallaan; agx-stampmark-kääre tuo sen esiin).
+  function stampMark(text) {
+    return g(null,
+      R(-180, -50, 360, 100, { rx: 16, fill: INK, fillOpacity: 0.35, stroke: '#16a34a', strokeWidth: 10 }),
+      Tx(0, 4, text, Object.assign(big(56, '#4ade80'), { strokeWidth: 6, textLength: Math.min(300, text.length * 28), lengthAdjust: 'spacingAndGlyphs' })));
+  }
+  // Piirretty rasti (polku, ei ✓-merkkiä) keskipisteen (cx, cy) ympärille; sc = koko, extra = esim. an('agx-draw', t).
+  function tickPath(cx, cy, sc, color, w, extra) {
+    const p = (dx, dy) => (cx + dx * sc).toFixed(1) + ',' + (cy + dy * sc).toFixed(1);
+    return Pth(`M${p(-10, 0)} L${p(-3, 8)} L${p(11, -9)}`, Object.assign({ stroke: color, strokeWidth: w, fill: 'none', strokeLinecap: 'round', strokeLinejoin: 'round' }, extra ? Object.assign({ pathLength: 1 }, extra) : null));
+  }
 
   // Lineupin sarakkeet: peräkkäiset saman groupin askeleet yhdeksi sarakkeeksi; opettaja ilman numeroa.
   function lineupCols(steps, byId) {
@@ -3081,6 +3694,30 @@ function createSarjakuva(env) {
         g({ key: 'fixed', transform: 'translate(1000 812)' }, g(an('agx-pop', b3 + 0.4), pill('Korjattu ✓', '#4ade80', 30))),
       ];
     },
+
+    // ---------- Polku ja projekti (STORYBOARD "Moottorin uudet osat").
+
+    // Kertojaruutu: opiskelija pöydän ääressä, iso näyttö ja kurssin tehtävälista. 1) yhdeksän riviä
+    // ilmestyy nopeasti, viimeiset valuvat yli reunan 2) iso "?" ja "Mistä aloitan?" 3) ilme väsyy, lista nytkähtää.
+    overload(a, x) {
+      if (x.panel.calm) return overloadCalm(a, x);
+      const [b1, b2, b3] = beats(x, 3), S = x.byId.opiskelija, n = OVL.n;
+      const t0 = Math.max(0.3, b1 - 0.4), gap = 0.11, spill = { 7: 26, 8: 56 };
+      return box(x, [
+        overloadScreen(),
+        g({ key: 'list' }, g(an('agx-shake', b3 + 0.2),
+          ...Array.from({ length: n }, (_, i) => {
+            const row = g(an('agx-pop', t0 + i * gap), overloadRow(i));
+            return g({ key: 'r' + i }, spill[i] ? g(an('agx-move', t0 + n * gap + 0.1, { '--mx': '0px', '--my': spill[i] + 'px' }), row) : row);
+          }))),
+        S ? g({ key: 'stu' },
+          g(an('agx-out', b3 + 0.2), bot(S, { x: 176, y: 500, s: 0.62, pose: 'rest', mood: 'normal', enter: 'agx-rise', delay: 0.2 })),
+          g(an('agx-fade', b3 + 0.2), bot(S, { x: 176, y: 500, s: 0.62, pose: 'rest', mood: 'tired' }))) : null,
+        overloadDesk(),
+        g({ key: 'q', transform: 'translate(176 66)' }, g(an('agx-pop', b2), Tx(0, 0, '?', big(120, '#fde047')))),
+        g({ key: 'where', transform: 'translate(176 204)' }, g(an('agx-pop', b2 + 0.25), pill('Mistä aloitan?', '#fde047', 26))),
+      ]);
+    },
   };
 
   // chores-kohtauksen rauhallinen versio (panel.calm, lopetus peilaa avausta): sama opettaja ja näyttö,
@@ -3119,6 +3756,51 @@ function createSarjakuva(env) {
     ]);
   }
 
+  // overload-kohtauksen yhteiset osat: näyttö (otsikkopalkki ilman tekstiä), tehtävärivi ja pöytä.
+  // Rivi: tyhjä valintaruutu, STEEL-palkki ja pieni päivämääräpilleri (värikoodi, ei tekstiä).
+  const OVL = { n: 9, y: i => 104 + i * 30, dates: ['#fca5a5', '#fdba74', '#fde047', '#fca5a5', '#86efac', '#fdba74', '#fca5a5', '#fde047', '#fdba74'] };
+  function overloadScreen() {
+    return g({ key: 'mon' }, g(an('agx-pop', 0.15),
+      R(330, 20, 450, 340, ink(7, { rx: 14, fill: '#1f2937' })),
+      R(348, 38, 414, 304, { rx: 6, fill: CREAM }),
+      R(348, 38, 414, 44, { rx: 6, fill: '#1e293b' }),
+      R(546, 360, 38, 72, ink(6, { fill: '#475569' })), R(500, 426, 130, 18, ink(6, { rx: 6, fill: '#475569' }))));
+  }
+  function overloadRow(i) {
+    const y = OVL.y(i);
+    return g(null,
+      R(362, y - 10, 20, 20, { rx: 4, fill: '#ffffff', stroke: STEEL, strokeWidth: 2.5 }),
+      R(396, y - 7, 210 - (i % 3) * 40, 14, { rx: 7, fill: STEEL, fillOpacity: 0.8 }),
+      R(668, y - 8, 70, 16, { rx: 8, fill: OVL.dates[i], stroke: INK, strokeWidth: 2 }));
+  }
+  function overloadDesk() {
+    return g({ key: 'desk' },
+      R(20, 452, 760, 44, ink(7, { rx: 10, fill: '#a16207' })),
+      Ln(64, 496, 64, 552, ink(10)), Ln(736, 496, 736, 552, ink(10)));
+  }
+  // overload-kohtauksen rauhallinen versio (panel.calm, lopetus peilaa avausta): sama opiskelija ja näyttö,
+  // otsikkona "Tämä viikko". 1) muut rivit häipyvät, kolme jää ja liukuu ylös 2) ilme ilahtuu
+  // 3) ensimmäiseen riviin piirtyy rasti ja lappu "aloitettu".
+  function overloadCalm(a, x) {
+    const [b1, b2, b3] = beats(x, 3), S = x.byId.opiskelija, keep = [2, 5, 7], slot = [120, 170, 220];
+    return box(x, [
+      overloadScreen(),
+      g({ key: 'title' }, g(an('agx-fade', Math.max(0.3, b1 - 0.2)), Tx(555, 61, 'Tämä viikko', lbl(28, CREAM)))),
+      ...Array.from({ length: OVL.n }, (_, i) => {
+        const j = keep.indexOf(i);
+        return g({ key: 'r' + i }, j < 0
+          ? g(an('agx-out', b1 + 0.05 * i), overloadRow(i))
+          : g(an('agx-move', b1 + 0.5 + j * 0.1, { '--mx': '0px', '--my': (slot[j] - OVL.y(i)) + 'px' }), overloadRow(i)));
+      }),
+      g({ key: 'tick' }, tickPath(372, slot[0], 0.9, '#16a34a', 5, an('agx-draw', b3))),
+      S ? g({ key: 'stu' },
+        g(an('agx-out', b2), bot(S, { x: 176, y: 500, s: 0.62, pose: 'rest', mood: 'normal', enter: 'agx-rise', delay: 0.2 })),
+        g(an('agx-fade', b2), bot(S, { x: 176, y: 500, s: 0.62, pose: 'rest', mood: 'happy' }))) : null,
+      overloadDesk(),
+      g({ key: 'started', transform: 'translate(555 290)' }, g(an('agx-pop', b3 + 0.25), pill('aloitettu', '#4ade80', 26))),
+    ]);
+  }
+
   // askai-kohtauksen kuvakaappaus (panel.snap): pieni ikkuna, taulukko, punainen käsin piirretty ympyrä
   // yhden solun ympärillä ja kaksi mustaa peitepalkkia nimisarakkeessa ("nimet peitetty").
   function snapThumb() {
@@ -3152,7 +3834,7 @@ function createSarjakuva(env) {
     const crew = all.filter(b => !isHosted(b) && b.id !== 'opettaja');
     const n = crew.length, X0 = 470, X1 = 1560, DX = n > 1 ? Math.min(130, (X1 - X0) / (n - 1)) : 0, sc = n > 9 ? 0.27 : 0.32;
     const rowX0 = (X0 + X1) / 2 - ((n - 1) * DX) / 2;
-    return [
+    const out = [
       Pth(rays(1100, 300, 40, 260, 23), { key: 'ray', fill: INK, fillOpacity: 0.2, className: 'agx-rays' }),
       g(Object.assign({ key: 'shake' }, an('agx-shake', tS)),
         g({ key: 'title', transform: 'translate(1100 205)' }, g(an('agx-pop', 0.3), Tx(0, 0, 'LOPPU', big(210, CREAM)))),
@@ -3169,6 +3851,11 @@ function createSarjakuva(env) {
         C(0, -190, 36, ink(7, { fill: '#7f1d1d' })), R(-20, -160, 40, 86, ink(6, { fill: '#b91c1c' })),
         R(-150, -78, 300, 78, ink(7, { rx: 10, fill: '#fbbf24' })), R(-140, -6, 280, 14, { fill: '#7f1d1d' })))),
     ];
+    // panel.set: lavaste 0,6-kokoisena juontajan, kaartin ja opettajan väliin leiman alle; tahti k = leiman hetki.
+    // Ilman set-kenttää loppuruutu on ennallaan.
+    const piece = panel.set && SETS[panel.set] ? SETS[panel.set](a, { k: tS, panel, byId, uid: x.uid }) : null;
+    if (piece) out.push(g({ key: 'eset', transform: `translate(${(930 - 1140 * 0.6).toFixed(1)} ${(603 - 587 * 0.6).toFixed(1)}) scale(0.6)` }, g(an('agx-pop', 0.6), piece)));
+    return out;
   }
 
   function cameos(a, panel, byId, start) {
@@ -3216,6 +3903,13 @@ function createSarjakuva(env) {
         g({ key: 'burst', transform: 'translate(440 560)' }, g(an('agx-burst', 0.05), Pth(burst(0, 0, 330, 228, 14), ink(8, { fill: mix(c, '#ffffff', 0.12) })))),
         bot(a, { key: 'hero', x: 440, y: 935, s: 1.28, pose: 'wave', mood: 'happy', enter: 'agx-drop', delay: 0.1 }),
       ];
+      // panel.set: lavaste pienennettynä oikealle nimiotsikon ja kertojalaatikon väliin (ei SUJUU/HOPS-tehosteen alle).
+      // Tahti k = panel.fxAt-sana tai oletuksena noin 1,2 s kertojan alusta. Ilman set-kenttää esittely on ennallaan.
+      if (panel.set && SETS[panel.set]) {
+        const eK = panel.fxAt ? wordAt(P, panel.fxAt) : P.vStart - P.start + 1.2, ES = 0.5;
+        const piece = SETS[panel.set](a, { k: eK, panel, byId, uid });
+        if (piece) scene.push(g({ key: 'eset', className: 'agx-eset', transform: `translate(${(1190 - 1140 * ES).toFixed(1)} ${(412 - 580 * ES).toFixed(1)}) scale(${ES})` }, g(an('agx-pop', 0.45), piece)));
+      }
     } else if (kind === 'talk') {
       scene = [
         g({ key: 'push', className: 'agx-push' }, bot(host, { key: 'hero', x: 400, y: 975, s: 1.45, pose: 'point', talk: true })),
@@ -3230,8 +3924,8 @@ function createSarjakuva(env) {
         g(Object.assign({ key: 'set' }, set && SHAKE[setName] ? an('agx-shake', k) : {}),
           // Ilman lavastetta ja vaatimuslappua sankari siirtyy keskelle kuplan alle (esim. juontajan "HMM."-ruutu).
           bot(host, { key: 'hero', x: set || panel.demands ? 300 : 800, y: 950, s: 1.12, pose: 'hold', talk: true }),
-          // Vaatimuslappu vie yläkulman, joten lavaste laskeutuu sen alle.
-          panel.demands ? g({ transform: 'translate(0 60)' }, set) : set),
+          // Vaatimuslappu vie yläkulman, joten lavaste laskeutuu sen alle (korkeat lavasteet pienennettyinä, DEMANDS_FIT).
+          panel.demands ? g({ transform: DEMANDS_FIT[setName] || 'translate(0 60)' }, set) : set),
       ];
     } else {
       // Pieni toinen hahmo vain luovutuksessa seuraavalle agentille; muuten sankari keskemmälle.
@@ -3240,14 +3934,17 @@ function createSarjakuva(env) {
       // Lavasteiden koordinaatisto on noin 740..1540 x 300..860 (keskipiste 1140, 580).
       const outroK = P.vStart - P.start + P.dur * 0.45;
       const piece = panel.set && SETS[panel.set] ? SETS[panel.set](a, { k: outroK, panel, byId, uid }) : null;
-      const [cx, sc] = ids.length ? [860, 0.62] : [1150, 0.8];
+      const at = ids.length && OUTRO_AT[panel.set];
+      const [cx, sc] = at ? [at[0], at[2]] : ids.length ? [860, 0.62] : [1150, 0.8];
+      // OUTRO_AT [x, y, mittakaava]: osa uusista lavasteista sijoitetaan sankarin saksien ohi oikealle cameoiden
+      // yläpuolelle (lavasteen keskipiste 1140, 580 → x, y); muut lavasteet ennallaan.
       // Luovutushetki: esine liukuu kohti seuraavaa agenttia repliikin loppupuolella.
       const handT = P.vStart - P.start + P.dur * 0.62;
       const hand = panel.handoff && HANDOFFS[panel.handoff] ? HANDOFFS[panel.handoff](a) : null;
       scene = [
         Pth(rays(heroX + 20, 580, 36, 300, a.root + 5), { key: 'ray', fill: INK, fillOpacity: 0.14 }),
         bot(host, { key: 'hero', x: heroX, y: 955, s: 1.24, pose: 'wave', mood: 'happy', talk: true }),
-        piece ? g({ key: 'piece', transform: `translate(${(cx - 1140 * sc).toFixed(1)} ${(620 - 580 * sc).toFixed(1)}) scale(${sc})` },
+        piece ? g({ key: 'piece', transform: at ? `translate(${(at[0] - 1140 * sc).toFixed(1)} ${(at[1] - 580 * sc).toFixed(1)}) scale(${sc})` : `translate(${(cx - 1140 * sc).toFixed(1)} ${(620 - 580 * sc).toFixed(1)}) scale(${sc})` },
           g(an('agx-pop', 0.35), g(an('agx-handoff', handT, { '--hx': (ids.length ? 30 / sc : 0) + 'px' }), piece))) : null,
         hand ? g({ key: 'hand' }, ids.length
           ? g(an('agx-pop', 0.35), g(an('agx-handoff', handT, { '--hx': '70px' }), hand))
@@ -3337,6 +4034,29 @@ function createSarjakuva(env) {
     formfill: () => ['Excel', 'Wilma', 'Opettaja tallentaa'],
     photo: (a, p) => (p.images || []).slice(0, 2).map(im => im && im.label).concat([p.imageNote]),
     planedit: () => ['Wilma: solu kerrallaan', 'Muokkaaja', 'järjestä · muokkaa · lisää', 'Opettaja tallentaa'],
+    weekpath: () => ['Tämä viikko', 'Viikko', 'Kokonaisuus'],
+    projsite: () => ['Vk 3', 'Valmis', 'Päiväkirja', 'Tekoälyloki'],
+    clearpath: () => ['Tehtävänanto', 'Aloitus', 'Kokonaiskuva', 'Eteneminen'],
+    longlist: () => ['pitkä lista'],
+    workload: () => ['20 min', 'vk 1', 'Tarkistettu'],
+    mergepath: () => ['Ammatilliset opinnot', 'Yhteiset tutkinnon osat', 'Oma viikko'],
+    timebox: () => ['noin 20 min', 'Tänään', 'Kaninkolo', 'Päivän työ tehty'],
+    pilotgrow: () => ['pilotti', 'koko ryhmä'],
+    showplace: () => ['Työpaikka', 'Oppilaitos'],
+    projmatch: () => ['Toive', 'Kiinnostus', 'Projekti'],
+    ailog: () => ['Tekoälyloki', 'Mihin käytin', 'kirjattu'],
+    criteria: () => ['Arviointikriteerit', 'Ohjaus ja tuki', 'Arvosana'],
+    requests: () => ['Saisinko minäkin?'],
+    startline: () => ['Aloita'],
+    template: () => ['Pohja', 'oma opiskelija'],
+    onetomany: () => ['Sama tehtävä'],
+    wording: () => ['Alkuperäinen', 'Selkokieli', 'Vaihe kerrallaan'],
+    formats: () => ['Kuvaohje', 'Tarkistuslista', 'Iso teksti'],
+    screenguide: () => ['Ohjelma', 'Kuvaohje'],
+    samegoal: () => ['Sama tavoite'],
+    rabbithole: () => ['Kaninkolo', 'Clausin viikkopolku'],
+    sidetrack: () => ['Tavoite', 'Kaninkolo', 'Takaisin tehtävään'],
+    supportmix: () => ['Aloittaminen', 'Ylläpitäminen', 'Jaksottaminen'],
   };
   const HANDOFF_TAGS = {
     ready: ['JULKAISUVALMIS'], taskdoc: ['Tehtävä ✓'], approved: ['HYVÄKSYTTY'], package: ['Paketti ✓'],
@@ -3361,10 +4081,14 @@ function createSarjakuva(env) {
     },
     install: () => ['Tampermonkey', 'vain tällä sivulla'],
     tryfix: () => ['Kesken → väri ✓', 'Valmis → ei väriä', 'Valmis suoritus korostuu myös.', 'Korjattu ✓'],
+    overload: (a, byId, p) => (p && p.calm ? ['Tämä viikko', 'aloitettu'] : ['Mistä aloitan?']),
   };
   function panelTags(a, panel, byId) {
     let out = [];
-    if (isEnd(a)) out = ['LOPPU', 'Opettaja: ' + ((panel.stamp && panel.stamp.text) || 'HYVÄKSYTTY')];
+    if (isEnd(a)) {
+      out = ['LOPPU', 'Opettaja: ' + ((panel.stamp && panel.stamp.text) || 'HYVÄKSYTTY')];
+      if (panel.set && SET_TAGS[panel.set]) out = out.concat(SET_TAGS[panel.set](a, panel));
+    }
     else if (isChapter(a) && SCENE_TAGS[panel.scene]) out = SCENE_TAGS[panel.scene](a, byId, panel);
     else if (panel.kind === 'action') {
       const set = panel.set || (panel.images ? 'photo' : a.set);
@@ -3374,6 +4098,8 @@ function createSarjakuva(env) {
       if (panel.handoff && HANDOFF_TAGS[panel.handoff]) out = out.concat(HANDOFF_TAGS[panel.handoff]);
       const ids = panel.cameos || [];
       if (ids.length && ids[0] !== '*') out = out.concat(ids.map(id => nameOf(byId, id)).filter(Boolean).map(n => '→ ' + n));
+    } else if (panel.kind === 'entrance' && panel.set && SET_TAGS[panel.set]) {
+      out = SET_TAGS[panel.set](a, panel);
     }
     return out.filter((t, i, arr) => t && arr.indexOf(t) === i);
   }

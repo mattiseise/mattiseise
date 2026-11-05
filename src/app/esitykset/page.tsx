@@ -8,7 +8,7 @@ const ESITYS = "/esitykset/tekoaly-tyossa-ja-arjessa/";
 /** Sarjakuvaesitykset, ks. scripts/julkaise-sarjakuva.py. */
 const AGENTTIPUTKI = "/esitykset/agenttiputki/";
 const APURIT = "/esitykset/opettajan-apurit/";
-const POLKU = "/esitykset/polku-ja-projekti/";
+const RAIVAAJAT = "/esitykset/esteiden-raivaajat/";
 const title = "Näin käytän tekoälyä työssä ja arjessa";
 const description =
   "Esitys omista tekoälyllä rakennetuista työkaluista: Wilma- ja itslearning-apuvälineet, agenttiputkella tehdyt oppimateriaalit, oma avustaja ja arjen automaatiot.";
@@ -174,27 +174,27 @@ export default function Page() {
           ),
         },
         {
-          heading: "Sarjakuvaesitys: Polku ja projekti",
+          heading: "Sarjakuvaesitys: Esteiden raivaajat",
           body: (
             <>
               <p>
-                Noin viiden minuutin sarjakuvaesitys kolmesta erityisen tuen tavasta: oppimissisältöjen eriyttämisestä opiskelijalle sopivaksi, Viikkopolusta, joka kokoaa monen oppimiskokonaisuuden tehtävät opiskelijan omaksi viikkoaikatauluksi, ja yksilöllisistä näyttöprojekteista. Tavoitteista ei tingitä, vaan oppimisen esteitä raivataan.
+                Noin viiden minuutin sarjakuvaesitys erityisestä tuesta. Raivaajatiimi eriyttää tehtävänannot opiskelijalle sopiviksi, kokoaa Viikkopolulla monen oppimiskokonaisuuden tehtävät opiskelijan omaksi viikkoaikatauluksi ja rakentaa yksilöllisen näyttöprojektin. Tuki auttaa aloittamaan, ylläpitämään ja jaksottamaan työtä, eikä tavoitteista tingitä.
               </p>
               <a
-                href={POLKU}
+                href={RAIVAAJAT}
                 className="group block overflow-hidden rounded-[14px] border border-cream-50/10 transition-colors hover:border-amber-400/50"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element -- staattinen jakokuva public-kansiosta */}
                 <img
-                  src={`${POLKU}og.jpg`}
+                  src={`${RAIVAAJAT}og.jpg`}
                   width={1200}
                   height={630}
-                  alt="Sarjakuvaesityksen kansi: Polku ja projekti"
+                  alt="Sarjakuvaesityksen kansi: Esteiden raivaajat"
                   className="block h-auto w-full transition-transform duration-300 group-hover:scale-[1.01]"
                 />
               </a>
               <div className="flex flex-wrap items-center gap-x-5 gap-y-3 pt-2">
-                <a href={POLKU} className="btn-primary-sm">
+                <a href={RAIVAAJAT} className="btn-primary-sm">
                   Avaa sarjakuvaesitys <span aria-hidden>→</span>
                 </a>
                 <p className="text-[15px] leading-[1.6] text-cream-300">
