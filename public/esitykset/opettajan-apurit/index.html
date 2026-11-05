@@ -295,6 +295,14 @@ body {
 .agx-k-talk .agx-bubble { left: 47%; top: 9%; right: 3.5%; }
 .agx-k-talk .agx-bubble { --tx: 8%; }
 .agx-k-action .agx-bubble { left: 3%; top: 5%; width: 52%; --tx: 14%; }
+/* Keskiruudussa puhuja seisoo kuplan alla oikealla (x ≈ 19 %): häntä peilataan osoittamaan alas oikealle sen päähän.
+   Ilman lavastetta ja lappua sankari on keskellä (x = 50 %), joten häntä siirtyy sinne. */
+.agx-k-action .agx-tail { transform: scaleX(-1); }
+.agx-k-action .agx-bubble { --tx: 20%; }
+.agx-k-action.hero-mid .agx-bubble { --tx: 86%; }
+/* Johdannon kohtauksessa puhuja ei ole ruudussa: häntä ennallaan. */
+.agx-k-action.is-scene .agx-bubble { --tx: 14%; }
+.agx-k-action.is-scene .agx-tail { transform: none; }
 .agx-k-action .agx-fx { left: 71%; top: 4%; }
 .agx-k-outro .agx-cap { left: 2.5%; top: 6%; }
 .agx-k-outro .agx-bubble { left: 37%; top: 7%; right: 3.5%; --tx: 4%; }
@@ -1820,7 +1828,7 @@ function createSarjakuva(env) {
   // Ihmishahmo (opettaja, opiskelija): sama rajapinta, mittakaava ja viiva kuin roboteilla
   // (origo alareunan keskellä, pää noin -404..-180), mutta iho, hiukset ja vaatteet.
   // look: { body: 'human', hairStyle: 'bob' | 'short' | 'bun' | 'buzz' | 'bald', hair, skin, shirt, eyeColor,
-  //         glasses: true | 'round', beard: 'goatee', top: 'hoodie' (+ print: '1981') | 'tee', outfit: väri,
+  //         glasses: true | 'round', beard: 'goatee' | 'full', top: 'hoodie' (+ print: '1981') | 'tee', outfit: väri,
   //         logo: 'bc', lanyard: true | väri, build: 'stocky', cheeks: 'rosy', prop }
   const HAIR = {
     bob: 'M-120,-232 C-136,-372 -64,-428 0,-428 C64,-428 136,-372 120,-232 L94,-236 C100,-318 62,-356 0,-354 C-56,-352 -98,-322 -96,-236 Z',
@@ -1929,6 +1937,10 @@ function createSarjakuva(env) {
             L.beard === 'goatee' ? g({ key: 'beard' },
               Pth('M-30,-240 Q-34,-202 0,-196 Q34,-202 30,-240 Q30,-250 26,-254 L20,-236 Q16,-218 0,-216 Q-16,-218 -20,-236 L-26,-254 Q-30,-250 -30,-240 Z', ink(4, { fill: beardCol })),
               Pth('M-38,-252 Q-20,-270 0,-260 Q20,-270 38,-252 Q20,-256 0,-250 Q-20,-256 -38,-252 Z', ink(4, { fill: beardCol }))) : null,
+            // Kokoparta (beard 'full'): leuan ja poskien parta suun alla sekä viikset.
+            L.beard === 'full' ? g({ key: 'beard' },
+              Pth('M-100,-290 Q-104,-196 0,-170 Q104,-196 100,-290 Q92,-232 44,-222 Q0,-214 -44,-222 Q-92,-232 -100,-290 Z', ink(5, { fill: beardCol })),
+              Pth('M-40,-254 Q-20,-272 0,-260 Q20,-272 40,-254 Q20,-256 0,-250 Q-20,-256 -40,-254 Z', ink(4, { fill: beardCol }))) : null,
             mouthEl,
             // Hikipisara väsyneelle (vain mood 'tired').
             mood === 'tired' ? Pth('M118,-352 Q104,-326 118,-318 Q132,-326 118,-352 Z', ink(4, { key: 'sw', fill: '#7dd3fc' })) : null))));
@@ -2016,6 +2028,19 @@ function createSarjakuva(env) {
   }
   function doc(w, hh, label, color) {
     return g(null, paper(w, hh, 5), label ? g({ transform: `translate(0 ${hh / 2 + 40})` }, pill(label, color, 26)) : null);
+  }
+
+  // Opettajamuunnelmat (ei kaikki Matteja): teacherVariant(i) palauttaa ihmishahmon (i kiertää muunnelmia),
+  // sisäänrakennettuina cast-hahmoina opettaja2, opettaja3 ja opettaja4. extra korvaa kenttiä (esim. { name }).
+  const TEACHER_LOOKS = [
+    { color: '#0f766e', look: { hairStyle: 'bob', hair: '#6b3f22', glasses: true, top: 'tee', outfit: '#0f766e', skin: '#f6d2bb', eyeColor: '#4b5563' } },
+    { color: '#9f1239', look: { hairStyle: 'bun', hair: '#9ca3af', glasses: 'round', outfit: '#7f1d3a', shirt: '#fde2e4', skin: '#f1c9a8' } },
+    { color: '#2563eb', look: { hairStyle: 'buzz', hair: '#3b2a20', beard: 'full', beardColor: '#4a3426', top: 'hoodie', outfit: '#2563eb', skin: '#d9a27a', eyeColor: '#3f2a1d' } },
+  ];
+  function teacherVariant(i, extra) {
+    const n = TEACHER_LOOKS.length, j = ((i % n) + n) % n, v = TEACHER_LOOKS[j];
+    return Object.assign({ id: 'opettaja' + (j + 2), name: 'Opettaja', gen: 'opettajan', role: 'Opettaja', color: v.color,
+      look: Object.assign({ body: 'human' }, v.look), root: 55 + j * 2, motif: [0, 4, 7, 12], sfx: {}, panels: [] }, extra);
   }
 
   const SETS = {
@@ -2484,6 +2509,10 @@ function createSarjakuva(env) {
       const fx0 = ix - P, fy0 = iy - P, fw = iw + 2 * P, fh = ih + 2 * P;
       const img = (im, i) => h('image', { key: 'im' + i, href: im.src, x: ix, y: iy, width: iw, height: ih, preserveAspectRatio: 'xMidYMid meet' });
       const slow = { animationDuration: '0.8s' };
+      // panel.highlights [{at, x, y, w, h}] (osuudet kuvasta 0–1): sanan at kohdalla hahmon värinen kehys ja
+      // himmennys muualle; edellinen kehys häipyy. Lopputilassa (myös vähennetty liike) näkyy viimeinen.
+      const highlights = (x.panel.highlights || []).filter(hl => hl && hl.w > 0 && hl.h > 0);
+      const hlT = highlights.map(hl => (x.at ? x.at(hl.at) : k));
       const tag = (t, col) => g({ transform: `translate(${fx0 + 24 + (t.length * 30 * 0.5 + 45) / 2} ${fy0 - 12})` }, pill(t, col, 30));
       return g({ key: 'photo' },
         R(fx0 + 14, fy0 + 14, fw, fh, { rx: 20, fill: INK, fillOpacity: 0.35 }),
@@ -2492,6 +2521,14 @@ function createSarjakuva(env) {
         two ? g({ key: 'a' }, g(an('agx-out', k, slow), img(im0, 0))) : img(im0, 0),
         two ? g({ key: 'b' }, g(an('agx-fade', k, slow), img(imgs[1], 1))) : null,
         R(ix, iy, iw, ih, { fill: 'none', stroke: INK, strokeWidth: 3 }),
+        ...highlights.map((hl, i) => {
+          const rx = ix + hl.x * iw, ry = iy + hl.y * ih, rw = hl.w * iw, rh = hl.h * ih;
+          const inner = g(an('agx-fade', hlT[i]),
+            Pth(`M${ix},${iy} h${iw} v${ih} h${-iw} Z M${rx},${ry} v${rh} h${rw} v${-rh} Z`, { fill: INK, fillOpacity: 0.3, fillRule: 'evenodd' }),
+            R(rx - 5, ry - 5, rw + 10, rh + 10, { rx: 16, fill: 'none', stroke: INK, strokeWidth: 16 }),
+            R(rx - 5, ry - 5, rw + 10, rh + 10, { rx: 16, fill: 'none', stroke: a.color, strokeWidth: 9 }));
+          return g({ key: 'hl' + i }, i < highlights.length - 1 ? g(an('agx-out', hlT[i + 1]), inner) : inner);
+        }),
         im0.label ? g({ key: 'la' }, two ? g(an('agx-out', k), tag(im0.label, '#94a3b8')) : g(an('agx-pop', 0.4), tag(im0.label, '#94a3b8'))) : null,
         two && imgs[1].label ? g({ key: 'lb' }, g(an('agx-pop', k + 0.1), tag(imgs[1].label, '#4ade80'))) : null,
         note ? Tx(cx, Y1 + 24, note, Object.assign(fit(note, 24, fw, lbl(24, CREAM)), { key: 'note', fillOpacity: 0.85 })) : null);
@@ -2869,32 +2906,29 @@ function createSarjakuva(env) {
           C(0, 0, 18, ink(4, { fill: '#ffffff' })), Tx(0, 1, String(i + 1), lbl(24, INK)))),
         R(1316, 640, 184, 14, { rx: 7, fill: STEEL, fillOpacity: 0.6 }));
     },
-    // Muut opettajat pyytävät: kolme opettajaa, joilta puhekuplat "Saisinko minäkin?" lentävät porrastetusti
-    // keskellä olevan projektikortin luo.
+    // Muut opettajat pyytävät: projektikortti keskellä, kolme opettajaa (teacherVariant 0–2) sen ympärillä ja
+    // jokaisen suusta puhekupla "Saisinko minäkin?" (häntä opettajan suuhun) porrastetusti, viimeinen k:n tienoilla.
+    // Sijoitus pysyy x ≤ ~1420, jotta loppuruudun kaveri (cameo oikealla) jää vapaaksi.
     requests(a, x) {
-      const k = x.k, TX = [875, 1100, 1325], TY = 800, BB = [[875, 652], [1100, 566], [1325, 652]];
-      const cols = ['#60a5fa', '#4ade80', '#f472b6'];
-      const teacher = i => g({ key: 't' + i, transform: `translate(${TX[i]} ${TY})` },
-        Pth('M-44,44 Q-44,-20 0,-20 Q44,-20 44,44 Z', ink(5, { fill: cols[i] })),
-        C(0, -56, 30, ink(5, { fill: '#fcd9b6' })),
-        Pth('M-30,-62 Q-28,-92 0,-90 Q28,-92 30,-62 Q14,-74 -30,-62 Z', ink(4, { fill: ['#78350f', '#1f2937', '#a16207'][i] })),
-        C(-10, -54, 3.5, { fill: INK }), C(10, -54, 3.5, { fill: INK }));
+      const k = x.k, S = 0.5;
+      const T = [[800, 880], [1060, 900], [1320, 880]], BB = [[800, 620], [1060, 560], [1320, 620]];
       const tFly = i => Math.max(0.5 + i * 0.3, k - 0.9 + i * 0.3);
       return g({ key: 'rq' },
-        R(974, 344, 280, 170, { rx: 14, fill: INK, fillOpacity: 0.35 }),
-        R(960, 330, 280, 170, ink(7, { rx: 14, fill: CREAM })),
-        Pth('M960,384 L960,344 Q960,330 974,330 L1226,330 Q1240,330 1240,344 L1240,384 Z', ink(7, { fill: a.color })),
-        R(986, 408, 200, 16, { rx: 8, fill: STEEL, fillOpacity: 0.85 }),
-        R(986, 440, 150, 16, { rx: 8, fill: STEEL, fillOpacity: 0.6 }),
-        R(986, 472, 180, 12, { rx: 6, fill: STEEL, fillOpacity: 0.5 }),
-        ...[0, 1, 2].map(teacher),
+        R(944, 384, 240, 150, { rx: 14, fill: INK, fillOpacity: 0.35 }),
+        R(930, 370, 240, 150, ink(7, { rx: 14, fill: CREAM })),
+        Pth('M930,418 L930,384 Q930,370 944,370 L1156,370 Q1170,370 1170,384 L1170,418 Z', ink(7, { fill: a.color })),
+        R(952, 440, 170, 14, { rx: 7, fill: STEEL, fillOpacity: 0.85 }),
+        R(952, 468, 130, 14, { rx: 7, fill: STEEL, fillOpacity: 0.6 }),
+        R(952, 494, 154, 10, { rx: 5, fill: STEEL, fillOpacity: 0.5 }),
+        ...T.map(([tx, ty], i) => bot(teacherVariant(i), { key: 't' + i, x: tx, y: ty, s: S, pose: 'rest', mood: 'happy', enter: 'agx-rise', delay: 0.2 + i * 0.12 })),
         ...BB.map(([bx, by], i) => {
-          const tx = Math.max(-36, Math.min(36, (1100 - bx) * 0.25));
+          // Häntä kuplan alareunasta opettajan suuhun (suu noin 240 * S pohjasta ylöspäin).
+          const mx = T[i][0] - bx, my = T[i][1] - 238 * S - by - 14, W = 258, H = 58;
           return g({ key: 'b' + i, transform: `translate(${bx} ${by})` },
-            g(an('agx-from', tFly(i), { '--mx': TX[i] - bx + 'px', '--my': TY - 90 - by + 'px' }),
-              Pth(`M${tx - 14},-30 L${tx * 1.6},-62 L${tx + 14},-30 Z`, ink(5, { fill: '#fff7ec' })),
-              R(-135, -32, 270, 64, ink(5, { rx: 30, fill: '#fff7ec' })),
-              R(tx - 12, -34, 24, 8, { fill: '#fff7ec' }),
+            g(an('agx-pop', tFly(i)),
+              Pth(`M-16,${H / 2 - 4} L${mx},${my} L16,${H / 2 - 4} Z`, ink(5, { fill: '#fff7ec' })),
+              R(-W / 2, -H / 2, W, H, ink(5, { rx: 28, fill: '#fff7ec' })),
+              R(-13, H / 2 - 5, 26, 9, { fill: '#fff7ec' }),
               Tx(0, 1, 'Saisinko minäkin?', lbl(28, INK))));
         }));
     },
@@ -3122,17 +3156,70 @@ function createSarjakuva(env) {
         R(x0, y - 18, x1 - x0, 36, ink(5, { rx: 6, fill: CREAM })),
         ...Array.from({ length: Math.floor((x1 - x0 - 20) / 56) }, (_, i) => R(x0 + 14 + i * 56, y - 16, 28, 32, { key: 'r' + i, fill: '#dc2626' })),
         R(x0, y - 18, x1 - x0, 36, ink(5, { rx: 6, fill: 'none' })));
+      // Polku Clausin luota (vasemmalta alhaalta) kaninkololle; puomit katkaisevat sen (ensimmäinen kolon suulla,
+      // toinen polulla sen edessä).
+      const road = 'M300,890 C520,880 760,860 900,810 C980,782 1040,762 1100,748';
       return g({ key: 'rh' },
+        Pth(road, { key: 'rd0', stroke: INK, strokeWidth: 104, fill: 'none', strokeLinecap: 'round' }),
+        Pth(road, { key: 'rd1', stroke: '#b45309', strokeWidth: 88, fill: 'none', strokeLinecap: 'round' }),
+        Pth(road, { key: 'rd2', stroke: '#fde68a', strokeOpacity: 0.75, strokeWidth: 8, strokeDasharray: '26 22', fill: 'none' }),
         Ln(1140, 500, 1140, 660, ink(9, { stroke: '#78350f' })),
         R(1000, 440, 280, 66, ink(6, { rx: 10, fill: '#92400e' })),
         Tx(1140, 474, 'Kaninkolo', lbl(40, CREAM)),
         E(1140, 720, 240, 74, ink(7, { fill: '#1f2937' })),
         E(1140, 728, 186, 48, { fill: INK }),
         barrier(900, 1380, 668),
-        g(an('agx-fade', k), g(an('agx-drop-s', k), barrier(860, 1420, 770))),
+        g(an('agx-fade', k), g(an('agx-drop-s', k), barrier(770, 1070, 800))),
         g({ transform: 'translate(1140 360)' }, g(an('agx-pop', 0.5), pill('Clausin viikkopolku', '#ea4a2f', 34))));
     },
+    // Puhelin, viestiketju "Claus" (pieni rapuavatar): "Näyttöprojektit, tilanne" ja neljä projektiriviä
+    // liikennevaloin (vihreä, vihreä, keltainen, punainen) porrastetusti, viimeinen k:ssa.
+    phonestatus(a, x) {
+      const k = x.k, lit = ['#22c55e', '#22c55e', '#facc15', '#ef4444'], pos = [2, 2, 1, 0];
+      const tRow = i => Math.max(0.6 + i * 0.35, k - (3 - i) * 0.45);
+      return g({ key: 'ps' }, phone(x.byId),
+        g(an('agx-pop', 0.35),
+          R(916, 416, 400, 368, ink(5, { rx: 26, fill: '#e2e8f0' })),
+          Tx(944, 456, 'Näyttöprojektit, tilanne', fit('Näyttöprojektit, tilanne', 30, 340, lbl(30, INK, 'start')))),
+        ...[0, 1, 2, 3].map(i => {
+          const y = 524 + i * 66;
+          return g({ key: 'pr' + i }, g(an('agx-pop', tRow(i)),
+            R(932, y - 28, 368, 56, { rx: 16, fill: '#ffffff', stroke: STEEL, strokeWidth: 2.5 }),
+            Tx(952, y + 1, 'Projekti ' + (i + 1), lbl(30, INK, 'start')),
+            R(1160, y - 20, 120, 40, ink(4, { rx: 20, fill: '#1f2937' })),
+            ...['#ef4444', '#facc15', '#22c55e'].map((col, j) => C(1182 + j * 38, y, 13, { key: 'l' + j, fill: j === pos[i] ? col : '#4b5563', stroke: j === pos[i] ? '#ffffff' : 'none', strokeWidth: 3 })),
+            C(1182 + pos[i] * 38, y, 21, { fill: 'none', stroke: lit[i], strokeOpacity: 0.55, strokeWidth: 6 })));
+        }));
+    },
+    // Sama puhelin: opettajan kupla "Missä projekti 4 jumittaa?" ja Clausin vastaus kahdella rivillä
+    // porrastetusti (vastaus valmis k:ssa); pieni lappu "Opettaja päättää".
+    askclaus(a, x) {
+      const k = x.k, t1 = Math.max(0.9, k - 0.7), t2 = Math.max(t1 + 0.3, k);
+      const l1 = 'Vaihe 2: testit eivät mene läpi.', l2 = 'Syy: tallennusreitti puuttuu.', q = 'Missä projekti 4 jumittaa?';
+      return g({ key: 'ac' }, phone(x.byId),
+        g(an('agx-pop', 0.4),
+          R(1012, 420, 350, 72, ink(5, { rx: 26, fill: '#fde68a' })),
+          Tx(1187, 457, q, fit(q, 28, 316, lbl(28, INK)))),
+        g(an('agx-pop', t1),
+          R(916, 520, 446, 170, ink(5, { rx: 26, fill: '#e2e8f0' })),
+          Tx(940, 568, l1, fit(l1, 28, 400, lbl(28, INK, 'start')))),
+        g(an('agx-pop', t2), Tx(940, 638, l2, fit(l2, 28, 400, lbl(28, INK, 'start')))),
+        g({ key: 'dec', transform: 'translate(1140 780)' }, g(an('agx-pop', t2 + 0.4), pill('Opettaja päättää', '#fbbf24', 28))));
+    },
   };
+  // phonestatus / askclaus: puhelimen runko ja viestiketjun otsikko "Claus" pienellä rapuavatarilla (ei emojia).
+  function phone(byId) {
+    const cl = byId.claus;
+    return g({ key: 'ph' },
+      R(900, 316, 520, 570, { rx: 54, fill: INK, fillOpacity: 0.35 }),
+      R(880, 300, 520, 570, ink(8, { rx: 54, fill: '#111827' })),
+      R(898, 318, 484, 534, { rx: 38, fill: '#f8fafc' }),
+      R(1090, 326, 100, 14, { rx: 7, fill: '#111827' }),
+      C(948, 372, 30, ink(4, { fill: '#fee2e2' })),
+      cl ? h('svg', { key: 'av', x: 920, y: 344, width: 56, height: 56, viewBox: avatarBox(cl), overflow: 'hidden' }, bot(cl, { x: 0, y: 0, s: 1, mood: 'happy', pose: 'rest' })) : null,
+      Tx(994, 374, 'Claus', lbl(34, INK, 'start')),
+      Ln(898, 404, 1382, 404, { stroke: STEEL, strokeOpacity: 0.6, strokeWidth: 3 }));
+  }
   const SHAKE = { stamp: 1, build: 1 };
   // Vaatimuslapun alle mahtumattomat lavasteet (alareuna yli 840): pienennys, jotta alin rivi ei leikkaudu ruudun reunaan.
   const DEMANDS_FIT = { weekpath: 'translate(80 70) scale(0.9)' };
@@ -3358,9 +3445,9 @@ function createSarjakuva(env) {
         g({ key: 'rasn', transform: 'translate(220 868)' }, g(an('agx-pop', 0.5), pill(ras.name, ras.color, 26))),
         gate(760, lin, tL),
         gate(1160, wil, tW),
-        // Paluunuoli Linnean portilta Rasmukselle ja sen nimilappu.
+        // Paluunuoli Linnean portilta Rasmukselle ja sen nimilappu; kärki käyrän lopputangentin suuntaan (alas Rasmuksen puolelle).
         Pth(`M${stopX - 10},540 C${stopX - 40},400 ${docX + 40},400 ${docX},530`, Object.assign({ key: 'arc', fill: 'none', stroke: '#f87171', strokeWidth: 10, strokeLinecap: 'round', pathLength: 1 }, an('agx-draw', tBack))),
-        g({ key: 'head', transform: `translate(${docX} 530) rotate(200)` }, g(an('agx-pop', tBack + 0.35), Pth('M0,0 L-30,-16 L-30,16 Z', ink(5, { fill: '#f87171' })))),
+        g({ key: 'head', transform: `translate(${docX} 530) rotate(${(Math.atan2(530 - 400, docX - (docX + 40)) * 180 / Math.PI).toFixed(1)})` }, g(an('agx-pop', tBack + 0.35), Pth('M0,0 L-30,-16 L-30,16 Z', ink(5, { fill: '#f87171' })))),
         g({ key: 'fix', transform: `translate(${(docX + stopX) / 2} 380)` }, g(an('agx-pop', tBack + 0.2), pill('korjattavaksi', '#f87171', 26))),
         // Dokumentti: Rasmukselta portille, hylkäys ja takaisin.
         g({ key: 'doc', transform: `translate(${docX} 640)` },
@@ -3703,13 +3790,22 @@ function createSarjakuva(env) {
       if (x.panel.calm) return overloadCalm(a, x);
       const [b1, b2, b3] = beats(x, 3), S = x.byId.opiskelija, n = OVL.n;
       const t0 = Math.max(0.3, b1 - 0.4), gap = 0.11, spill = { 7: 26, 8: 56 };
+      // Lista rajataan näytön sisään (clipPath): ylivuotavat rivit liukuvat alareunan häivytyksen alle ja
+      // "+ 12 lisää" -pilleri kertoo loput. Rauhallinen versio (calm) ennallaan.
+      const cid = x.uid + 'ovc', fid = x.uid + 'ovf';
       return box(x, [
         overloadScreen(),
-        g({ key: 'list' }, g(an('agx-shake', b3 + 0.2),
+        h('defs', { key: 'ovd' },
+          h('clipPath', { id: cid }, R(348, 82, 414, 260)),
+          h('linearGradient', { id: fid, x1: 0, y1: 0, x2: 0, y2: 1 },
+            h('stop', { offset: 0, stopColor: CREAM, stopOpacity: 0 }), h('stop', { offset: 0.75, stopColor: CREAM, stopOpacity: 1 }))),
+        g({ key: 'list', clipPath: `url(#${cid})` }, g(an('agx-shake', b3 + 0.2),
           ...Array.from({ length: n }, (_, i) => {
             const row = g(an('agx-pop', t0 + i * gap), overloadRow(i));
             return g({ key: 'r' + i }, spill[i] ? g(an('agx-move', t0 + n * gap + 0.1, { '--mx': '0px', '--my': spill[i] + 'px' }), row) : row);
           }))),
+        R(348, 282, 414, 60, { key: 'ovfade', fill: `url(#${fid})` }),
+        g({ key: 'more', transform: 'translate(555 316)' }, g(an('agx-pop', t0 + n * gap + 0.45), pill('+ 12 lisää', '#fca5a5', 24))),
         S ? g({ key: 'stu' },
           g(an('agx-out', b3 + 0.2), bot(S, { x: 176, y: 500, s: 0.62, pose: 'rest', mood: 'normal', enter: 'agx-rise', delay: 0.2 })),
           g(an('agx-fade', b3 + 0.2), bot(S, { x: 176, y: 500, s: 0.62, pose: 'rest', mood: 'tired' }))) : null,
@@ -3853,7 +3949,7 @@ function createSarjakuva(env) {
     ];
     // panel.set: lavaste 0,6-kokoisena juontajan, kaartin ja opettajan väliin leiman alle; tahti k = leiman hetki.
     // Ilman set-kenttää loppuruutu on ennallaan.
-    const piece = panel.set && SETS[panel.set] ? SETS[panel.set](a, { k: tS, panel, byId, uid: x.uid }) : null;
+    const piece = panel.set && SETS[panel.set] ? SETS[panel.set](a, { k: tS, panel, byId, uid: x.uid, at: x.at }) : null;
     if (piece) out.push(g({ key: 'eset', transform: `translate(${(930 - 1140 * 0.6).toFixed(1)} ${(603 - 587 * 0.6).toFixed(1)}) scale(0.6)` }, g(an('agx-pop', 0.6), piece)));
     return out;
   }
@@ -3907,7 +4003,7 @@ function createSarjakuva(env) {
       // Tahti k = panel.fxAt-sana tai oletuksena noin 1,2 s kertojan alusta. Ilman set-kenttää esittely on ennallaan.
       if (panel.set && SETS[panel.set]) {
         const eK = panel.fxAt ? wordAt(P, panel.fxAt) : P.vStart - P.start + 1.2, ES = 0.5;
-        const piece = SETS[panel.set](a, { k: eK, panel, byId, uid });
+        const piece = SETS[panel.set](a, { k: eK, panel, byId, uid, at: w => wordAt(P, w) });
         if (piece) scene.push(g({ key: 'eset', className: 'agx-eset', transform: `translate(${(1190 - 1140 * ES).toFixed(1)} ${(412 - 580 * ES).toFixed(1)}) scale(${ES})` }, g(an('agx-pop', 0.45), piece)));
       }
     } else if (kind === 'talk') {
@@ -3918,7 +4014,7 @@ function createSarjakuva(env) {
       // panel.set voi ohittaa agentin lavasteen; "none" = keskiruudussa vain vaatimuslappu.
       // panel.images ilman set-kenttää valitsee kuvalavasteen (photo).
       const setName = panel.set || (panel.images ? 'photo' : a.set);
-      const set = SETS[setName] ? SETS[setName](a, { k, panel, byId, uid }) : null;
+      const set = SETS[setName] ? SETS[setName](a, { k, panel, byId, uid, at: w => wordAt(P, w) }) : null;
       scene = [
         Pth(rays(1170, 580, 36, 300, a.root + 3), { key: 'ray', fill: INK, fillOpacity: 0.16 }),
         g(Object.assign({ key: 'set' }, set && SHAKE[setName] ? an('agx-shake', k) : {}),
@@ -3933,7 +4029,7 @@ function createSarjakuva(env) {
       // Loppuruudun lavaste (panel.set): keskiruudusta siirretty kuva, pienennettynä sankarin ja kaverin väliin.
       // Lavasteiden koordinaatisto on noin 740..1540 x 300..860 (keskipiste 1140, 580).
       const outroK = P.vStart - P.start + P.dur * 0.45;
-      const piece = panel.set && SETS[panel.set] ? SETS[panel.set](a, { k: outroK, panel, byId, uid }) : null;
+      const piece = panel.set && SETS[panel.set] ? SETS[panel.set](a, { k: outroK, panel, byId, uid, at: w => wordAt(P, w) }) : null;
       const at = ids.length && OUTRO_AT[panel.set];
       const [cx, sc] = at ? [at[0], at[2]] : ids.length ? [860, 0.62] : [1150, 0.8];
       // OUTRO_AT [x, y, mittakaava]: osa uusista lavasteista sijoitetaan sankarin saksien ohi oikealle cameoiden
@@ -3979,8 +4075,9 @@ function createSarjakuva(env) {
     } else {
       out.push(h('div', Object.assign({ key: 'bub' }, an('agx-bubble agx-in-bubble', vs)),
         h('span', { className: 'agx-bubble-text' }, revealText(panel.line, reveal, reduce)),
+        // Hännän täyttö jatkuu tyven yli kuplan reunaviivan päälle (ei poikkiviivaa); sivujen viiva yhtyy kuplan reunaan.
         h('svg', { className: 'agx-tail', viewBox: '0 0 60 52', 'aria-hidden': true },
-          Pth('M2,0 L58,0 L10,50 Z', { fill: '#fff7ec' }), Pth('M2,0 L10,50 L58,0', { fill: 'none', stroke: INK, strokeWidth: 4, strokeLinejoin: 'round' }))));
+          Pth('M2,-8 L58,-8 L58,0 L10,50 L2,0 Z', { fill: '#fff7ec' }), Pth('M2,0 L10,50 L58,0', { fill: 'none', stroke: INK, strokeWidth: 4, strokeLinejoin: 'round' }))));
       if (kind === 'outro' && panel.caption) out.push(h('div', Object.assign({ key: 'cap' }, an('agx-cap agx-in-down', Math.max(0.3, P.vEnd - P.start - 0.6))), panel.caption));
     }
     if (panel.demands) {
@@ -3999,7 +4096,12 @@ function createSarjakuva(env) {
 
   function Panel({ a, pi, P, byId, all, reveal, offset, reduce, nonce }) {
     const style = { '--seek': (-offset).toFixed(2) + 's' };
-    return h('div', { key: a.id + '-' + pi + '-' + nonce, className: 'agx-panel agx-k-' + a.panels[pi].kind + (isEnd(a) ? ' agx-is-end' : '') + (a.panels[pi].demands ? ' has-demands' : '') + (a.panels[pi].set === 'none' ? ' no-set' : ''), style },
+    // Kuplan hännän suunta: is-scene = johdannon kohtaus (puhuja ei ruudussa, häntä ennallaan), hero-mid = keskiruudun
+    // sankari keskellä (ei lavastetta eikä lappua), muuten sankari vasemmalla kuplan alla.
+    const pn = a.panels[pi], scene = isChapter(a) && !!SCENES[pn.scene];
+    const setName = pn.set || (pn.images ? 'photo' : a.set);
+    const heroMid = pn.kind === 'action' && !scene && !isEnd(a) && !pn.demands && (pn.set === 'none' || !SETS[setName]);
+    return h('div', { key: a.id + '-' + pi + '-' + nonce, className: 'agx-panel agx-k-' + pn.kind + (isEnd(a) ? ' agx-is-end' : '') + (pn.demands ? ' has-demands' : '') + (pn.set === 'none' ? ' no-set' : '') + (scene ? ' is-scene' : '') + (heroMid ? ' hero-mid' : ''), style },
       h(Art, { a, pi, P, byId, all }),
       h(Overlays, { a, pi, P, reveal, reduce }));
   }
@@ -4055,6 +4157,8 @@ function createSarjakuva(env) {
     screenguide: () => ['Ohjelma', 'Kuvaohje'],
     samegoal: () => ['Sama tavoite'],
     rabbithole: () => ['Kaninkolo', 'Clausin viikkopolku'],
+    phonestatus: () => ['Claus', 'Projekti 1', 'liikennevalot'],
+    askclaus: () => ['Missä jumittaa?', 'Opettaja päättää'],
     sidetrack: () => ['Tavoite', 'Kaninkolo', 'Takaisin tehtävään'],
     supportmix: () => ['Aloittaminen', 'Ylläpitäminen', 'Jaksottaminen'],
   };
@@ -4081,7 +4185,7 @@ function createSarjakuva(env) {
     },
     install: () => ['Tampermonkey', 'vain tällä sivulla'],
     tryfix: () => ['Kesken → väri ✓', 'Valmis → ei väriä', 'Valmis suoritus korostuu myös.', 'Korjattu ✓'],
-    overload: (a, byId, p) => (p && p.calm ? ['Tämä viikko', 'aloitettu'] : ['Mistä aloitan?']),
+    overload: (a, byId, p) => (p && p.calm ? ['Tämä viikko', 'aloitettu'] : ['Mistä aloitan?', '+ 12 lisää']),
   };
   function panelTags(a, panel, byId) {
     let out = [];
@@ -4126,6 +4230,8 @@ function createSarjakuva(env) {
       look: { body: 'human', hairStyle: 'bald', hair: '#a0552f', eyeColor: '#7a4a24', beard: 'goatee', beardColor: '#a0552f', skin: '#f6d2bb', cheeks: 'rosy',
         glasses: 'round', top: 'tee', outfit: '#17171c', logo: 'bc', lanyard: '#7b1e3a', build: 'stocky', prop: 'stamp' },
       root: 57, motif: [0, 4, 7, 12], sfx: {}, panels: [] },
+    // Opettajamuunnelmat (teacherVariant): polkkatukka + mustat lasit, nuttura + pyöreät lasit, lyhyt tukka + parta.
+    opettaja2: teacherVariant(0), opettaja3: teacherVariant(1), opettaja4: teacherVariant(2),
     opiskelija: { id: 'opiskelija', name: 'Opiskelija', gen: 'opiskelijan', role: 'Oppija', color: '#22d3ee', look: { body: 'human', hairStyle: 'short', hair: '#1f2937', shirt: '#e2e8f0' }, root: 62, motif: [0, 3, 7, 10], sfx: {}, panels: [] },
   };
 
@@ -4598,7 +4704,7 @@ function createSarjakuva(env) {
   return {
     Theater, Panel, Avatar, InfoCard, ScriptList, DemandList, EndRow,
     prepCast, buildTimeline, timelineFor, clipsFor, prefetch, voiceKey, unlockAudio, Sound,
-    fmt, minutes, store, reducedMotion, linkify, isChapter, isEnd, isHosted, speakerName, revealAt, wordAt,
+    fmt, minutes, store, reducedMotion, linkify, isChapter, isEnd, isHosted, speakerName, revealAt, wordAt, teacherVariant,
   };
 }
 
