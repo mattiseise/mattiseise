@@ -1,23 +1,21 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Bricolage_Grotesque, Atkinson_Hyperlegible } from "next/font/google";
+import { Anton, Inter } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import JsonLd from "@/components/JsonLd";
 import ConsentBanner from "@/components/ConsentBanner";
 
-// Iltavalo-typografia: Bricolage Grotesque otsikoille, Atkinson Hyperlegible
-// (saavutettavuusfontti — osa brändiä) leipätekstille.
-const bricolage = Bricolage_Grotesque({
+// Sarjakuvatyylin typografia (sama kuin sarjakuvaesityksissä): Anton otsikoille,
+// Inter leipätekstille. Antonilla on vain yksi paino, joten otsikoita ei lihavoida.
+const anton = Anton({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-bricolage",
+  weight: "400",
+  variable: "--font-anton",
 });
-const atkinson = Atkinson_Hyperlegible({
+const inter = Inter({
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-atkinson",
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -42,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Matti Seise — Tekoälykouluttaja & rakentaja",
     description:
-      "Generatiivinen tekoäly, agentti­arkkitehtuurit ja koulutus — käytännönläheisesti.",
+      "Generatiivinen tekoäly, agentti­arkkitehtuurit ja koulutus käytännön työhön.",
     url: "https://seise.org",
     siteName: "Matti Seise",
     images: ["/images/matti-vaaka-kesa.jpg"],
@@ -65,7 +63,7 @@ export default function RootLayout({
   return (
     <html
       lang="fi"
-      className={`scroll-smooth ${bricolage.variable} ${atkinson.variable}`}
+      className={`scroll-smooth ${anton.variable} ${inter.variable}`}
     >
       <body className="antialiased font-sans">
         <Script id="ga-consent-default" strategy="beforeInteractive">
@@ -88,7 +86,7 @@ gtag('consent', 'default', {
         </form>
         <a
           href="#sisalto"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-amber-400 focus:text-bark-900 focus:px-3 focus:py-2 focus:rounded-md"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-syaani-400 focus:text-yo-900 focus:px-3 focus:py-2 focus:rounded-md"
         >
           Hyppää sisältöön
         </a>

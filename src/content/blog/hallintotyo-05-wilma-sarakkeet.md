@@ -52,6 +52,6 @@ Piilotan yhden keskellä olevan sarakkeen ja palautan sen. Kokeilen myös ensimm
 
 Jos otsikko siirtyy eri kohtaan kuin luvut, työkalu pitää ottaa pois käytöstä. Väärin kohdistuva taulukko on huonompi kuin leveä taulukko.
 
-Kytken skriptin pois Tampermonkeystä ja lataan sivun uudelleen, kun haluan alkuperäisen näkymän. Asetuksia kannattaa tarkistaa myös silloin, kun siirryn toiseen työvaiheeseen: aiemmin piilotettu sarake voi nyt olla olennainen.
+Kytken skriptin pois Tampermonkeystä ja lataan sivun uudelleen, kun haluan alkuperäisen näkymän. Tarkistan asetukset myös silloin, kun siirryn toiseen työvaiheeseen: aiemmin piilotettu sarake voi nyt olla olennainen.
 
 Tämä ei ole näyttävä automaatio. Ruudulla on vain vähemmän asioita. Juuri sitä tarvitsin.

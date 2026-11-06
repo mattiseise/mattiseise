@@ -27,7 +27,7 @@ Wilmasta katson suoritukset. itslearningista palautukset. Opintosuunnitelma voi 
 
 Lista ei tarkoita, että kaikki vaiheet pitää tehdä joka päivä. Valitsen työtilanteeseen kuuluvat kohdat. Arviointikierroksella painottuvat suoritukset ja palautukset, suunnitelmapäivityksessä lomake.
 
-## Tekoäly voi auttaa järjestyksen tekemisessä
+## Tekoäly voi auttaa rutiinin kokoamisessa
 
 Tällaisen tehtävänannon antaisin, jos oma rutiini on vielä hajallaan:
 
@@ -41,6 +41,6 @@ Kun näkymä muuttuu, katson vielä, että korostus osuu oikeaan merkintään ja
 
 Sama koskee lomakkeen täyttöä. Jos kenttäkartoitus ei vastaa nykyistä lomaketta, en jatka täyttöä ennen korjausta.
 
-Sarjan kirjoitukset ovat [yhteisen case-sivun](/caset/wilma-itslearning-automaatiot) kautta saatavilla. Siitä löydät erikseen korostukset, saraketyökalun, Tampermonkey-ohjeen ja opintosuunnitelman muokkaajan.
+Sarjan kirjoitukset on koottu [yhteiselle case-sivulle](/caset/wilma-itslearning-automaatiot). Sieltä löydät erikseen korostukset, saraketyökalun, Tampermonkey-ohjeen ja opintosuunnitelman muokkaajan.
 
 Näissä ratkaisuissa minua kiinnostaa sama asia: jääkö mekaanista työtä vähemmän ja löydänkö oikean kohdan nopeammin? Jos vastaus on kyllä, pieni työkalu on tehnyt tehtävänsä.

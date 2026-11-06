@@ -24,7 +24,7 @@ Kun tarkistan yhden opiskelijan tilannetta, löydän sen katsomalla. Kun sama ta
 
 ## Mitä skripti tekee
 
-Tein Tampermonkey-käyttäjäskriptin, joka lisää keskeneräisiin suorituksiin vaaleanpunaisen korostuksen. Kuvan esimerkissä tunniste on ES. Omassa näkymässäni korostuksen kohde voidaan tunnistaa myös Wilman käyttämästä elementin luokasta.
+Tein Tampermonkey-käyttäjäskriptin, joka lisää keskeneräisiin suorituksiin vaaleanpunaisen korostuksen. Kuvan esimerkissä tunniste on ES. Omassa näkymässäni korostettavan kohdan voi tunnistaa myös Wilman käyttämästä elementin luokasta.
 
 Siksi toteutusta ei kannata tehdä niin, että koko sivulta etsitään kirjaimet ”ES”. Ehto rajataan suoritusnäkymän oikeaan merkintään. Muuten osumia voi tulla otsikoista tai muusta tekstistä.
 
@@ -32,7 +32,7 @@ Korostus muuttaa vain selaimessa näkyvää näkymää. Suoritusmerkintä, päiv
 
 ## Näin teet vastaavan korostuksen
 
-Skriptin tekemiseen ja asentamiseen on [yhteinen Tampermonkey-ohje](/blog/tampermonkey-tekoaly-kayttajaskripti). Tämän työkalun osalta etenisin näin:
+Skriptin tekemiseen ja asentamiseen on [yhteinen Tampermonkey-ohje](/blog/tampermonkey-tekoaly-kayttajaskripti). Tässä työkalussa etenisin näin:
 
 1. Avaa opintosuoritusnäkymä ja tunnista yksi varmasti keskeneräinen sekä yksi valmis suoritus.
 2. Katso selaimen kehittäjätyökaluilla, mikä HTML-elementti sisältää merkinnän. Selvitä, onko keskeneräisellä suorituksella oma luokka vai tunnistetaanko se kentän tekstistä.

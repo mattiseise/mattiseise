@@ -14,7 +14,7 @@ const posts = [
   ["opintosuunnitelma-excelista-wilmaan", "Opintosuunnitelma Excelistä Wilmaan", "Valmis sovellus Macille ja Windowsille, esikatselu ja täyttötavat."],
   ["opettajan-aloitustarkistukset", "Työkalut yhdeksi tarkistusrutiiniksi", "Lyhyt työjärjestys omiin tarkistuksiin."],
 ];
-const linkStyle = "font-semibold text-amber-400 underline underline-offset-4";
+const linkStyle = "font-semibold text-syaani-400 underline underline-offset-4";
 
 export const metadata: Metadata = {
   title: title + " · Matti Seise", description,

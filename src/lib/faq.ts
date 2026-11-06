@@ -10,7 +10,7 @@ export type FaqItem = { q: string; a: string };
 export const faqItems: FaqItem[] = [
   {
     q: "Mitä tekoälykoulutus opettajille sisältää?",
-    a: "Käytännön työpajaa: tehtävien suunnittelua, arviointia, eriyttämistä ja tekoälyn järkevää käyttöä arjen työssä. Saavutettavuus ja erityispedagogiikka eivät ole lisäkalvo, vaan osa tekemistä. Sisältö sovitetaan koulutusasteeseen ja kohderyhmään.",
+    a: "Käytännön työpajaa: tehtävien suunnittelua, arviointia, eriyttämistä ja tekoälyn järkevää käyttöä arjen työssä. Saavutettavuus ja erityispedagogiikka eivät ole lisäkalvo vaan osa tekemistä. Sisältö sovitetaan koulutusasteeseen ja kohderyhmään.",
   },
   {
     q: "Mitä tekoälyagentti tekee organisaatiossa?",
@@ -18,11 +18,11 @@ export const faqItems: FaqItem[] = [
   },
   {
     q: "Miten tekoälyä voi käyttää arvioinnissa?",
-    a: "Tekoäly soveltuu hyvin arvioinnin tueksi: nopea palaute opiskelijalle, arviointikriteerien sanallistaminen, eriyttäminen ja saavutettavuuden parantaminen. Tärkeintä on suunnitella arviointi niin, että opettajalla säilyy ammatillinen päätösvalta ja tekoäly toimii laadun varmistajana, ei korvaajana. Bloomin taksonomia ja linjakas opetus toimivat suunnittelun runkona.",
+    a: "Tekoäly sopii arvioinnin tueksi: nopeaan palautteeseen opiskelijalle, arviointikriteerien sanallistamiseen, eriyttämiseen ja saavutettavuuden parantamiseen. Arviointi kannattaa suunnitella niin, että ammatillinen päätösvalta säilyy opettajalla. Tekoäly auttaa tarkistamaan laatua, mutta se ei korvaa opettajaa. Suunnittelun runkona ovat Bloomin taksonomia ja linjakas opetus.",
   },
   {
     q: "Miten tietosuoja hoidetaan koulutuksissa ja automaatioissa?",
-    a: "Työ tehdään tietosuojalähtöisesti: minimidatalla, tilaajan ympäristössä ja ilman opiskelijatietojen tarpeetonta siirtämistä ulkopuolisiin palveluihin. Automaatiot eivät tee pedagogisia päätöksiä eivätkä siirrä opiskelijadataa ulos tilaajan hyväksymästä ympäristöstä. Koulutusten harjoitukset suunnitellaan niin, ettei niissä tarvitse käsitellä henkilötietoja.",
+    a: "Työ tehdään tilaajan ympäristössä ja mahdollisimman vähällä datalla. Opiskelijatietoja ei siirretä turhaan ulkopuolisiin palveluihin. Automaatiot eivät tee pedagogisia päätöksiä eivätkä siirrä opiskelijadataa ulos tilaajan hyväksymästä ympäristöstä. Koulutusten harjoitukset suunnitellaan niin, ettei niissä tarvitse käsitellä henkilötietoja.",
   },
   {
     q: "Mikä on minimiveloitus ja miten matkakulut lasketaan?",
@@ -30,11 +30,11 @@ export const faqItems: FaqItem[] = [
   },
   {
     q: "Toimiiko etänä toteutettu koulutus?",
-    a: "Kyllä — etäkoulutus toimii hyvin, kun ryhmässä on enintään noin 20 osallistujaa ja sisältö on suunniteltu vuorovaikutteiseksi. Etätoteutus mahdollistaa harjoitukset osallistujien omilla työkaluilla ja säästää matkakulut.",
+    a: "Kyllä. Etäkoulutus toimii hyvin, kun ryhmässä on enintään noin 20 osallistujaa ja sisältö on suunniteltu vuorovaikutteiseksi. Etänä harjoitukset voi tehdä osallistujien omilla työkaluilla, ja matkakulut jäävät pois.",
   },
   {
     q: "Miten varaan koulutuksen tai pyydän tarjouksen?",
-    a: "Lähetä viesti osoitteeseen seise@seise.org tai LinkedInin kautta. Kerro lyhyesti kohderyhmä, tavoite ja toivottu aikataulu — vastaan yleensä saman tai seuraavan arkipäivän aikana.",
+    a: "Lähetä viesti osoitteeseen seise@seise.org tai LinkedInin kautta. Kerro lyhyesti kohderyhmä, tavoite ja toivottu aikataulu. Vastaan yleensä saman tai seuraavan arkipäivän aikana.",
   },
 ];
 

@@ -19,7 +19,7 @@ Opettajan työssä on paljon vaiheita, joissa tieto on jo olemassa mutta sen lö
 
 Yksittäinen kerta ei tunnu isolta. Toistuvana työnä se alkaa ärsyttää. Rakensin näihin kohtiin pieniä työkaluja tekoälyn avulla.
 
-## Neljä työkalua, neljä rajattua tehtävää
+## Neljä työkalua
 
 1. [Wilman keskeneräiset suoritukset näkyviin](/blog/wilma-keskeneraiset-suoritukset-nakyviin). Vaaleanpunainen korostus auttaa löytämään tarkistettavan kohdan.
 2. [itslearningin arvioimattomat palautukset näkyviin](/blog/itslearning-arvioimattomat-palautukset). Keltainen korostus nostaa esiin palautuksen, jonka arviointi näyttää puuttuvan.

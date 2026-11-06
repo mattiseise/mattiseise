@@ -14,7 +14,7 @@ const strings = {
   fi: {
     eyebrow: "Blogi",
     title: "Mitä tapahtui, kun kokeilin oikeasti.",
-    desc: "Kirjoitan agenteista, automaatiosta ja opetuksesta silloin kun on jotain konkreettista sanottavaa. Uusin sarja: oman AI-agentin rakentaminen, 6 osaa.",
+    desc: "Kirjoitan agenteista, automaatiosta ja opetuksesta silloin, kun on jotain konkreettista sanottavaa. Uusin sarja: oman AI-agentin rakentaminen, 6 osaa.",
     seriesKicker: (part: number, total: number) => `Sarja · osa ${part}/${total}`,
     standaloneKicker: (topic: string) => `Irtokirjoitus · ${topic}`,
     cta: "Kaikki kirjoitukset",
@@ -43,21 +43,21 @@ export default function BlogTeaser({ locale = "fi" }: { locale?: Locale }) {
   return (
     <section
       id="blogi"
-      className="border-t border-cream-50/[0.08] px-5 py-14 md:px-10 md:py-[72px]"
+      className="border-t border-teksti-50/[0.08] px-5 py-14 md:px-10 md:py-[72px]"
     >
-      <div className="container-narrow grid items-center gap-9 rounded-[20px] border border-cream-50/[0.08] bg-bark-800 p-7 md:grid-cols-12 md:px-10 md:py-9">
+      <div className="container-narrow card-glow grid items-center gap-9 p-7 md:grid-cols-12 md:px-10 md:py-9">
         <div className="md:col-span-5">
           <p className="eyebrow-sm">{t.eyebrow}</p>
-          <h2 className="mt-2.5 font-display text-[26px] font-semibold leading-[1.25] text-cream-50">
+          <h2 className="mt-2.5 font-display text-[26px] leading-[1.25] text-teksti-50">
             {t.title}
           </h2>
-          <p className="mt-3 text-[15px] leading-[1.65] text-cream-300">
+          <p className="mt-3 text-[15px] leading-[1.65] text-teksti-300">
             {t.desc}
           </p>
         </div>
         <Link
           href={blogPath(locale, latest.slug)}
-          className="flex items-center gap-4 rounded-[14px] border border-cream-50/10 p-3.5 transition-colors hover:border-amber-400/45 md:col-span-4"
+          className="flex items-center gap-4 card card-hover-lift !p-3.5 md:col-span-4"
         >
           {latest.cover && (
             <span className="relative block w-[92px] shrink-0 overflow-hidden rounded-[9px]" style={{ aspectRatio: "16/11" }}>
@@ -71,13 +71,13 @@ export default function BlogTeaser({ locale = "fi" }: { locale?: Locale }) {
             </span>
           )}
           <span className="block">
-            <span className="block text-[11.5px] font-bold uppercase tracking-[0.1em] text-amber-400">
+            <span className="block text-[11.5px] font-bold uppercase tracking-[0.1em] text-syaani-400">
               {kicker(latest)}
             </span>
-            <span className="mt-1.5 block text-[14.5px] font-bold leading-[1.4] text-cream-50">
+            <span className="mt-1.5 block text-[14.5px] font-bold leading-[1.4] text-teksti-50">
               {latest.title}
             </span>
-            <span className="mt-1.5 block text-[12.5px] text-cream-400">
+            <span className="mt-1.5 block text-[12.5px] text-teksti-400">
               {formatDate(latest.date, locale)} · {latest.readingMinutes} min
             </span>
           </span>

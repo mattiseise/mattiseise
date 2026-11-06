@@ -13,7 +13,7 @@ coverAlt: "Läppärin terminaalissa pitkä lista launchd-palveluita, osa punaise
 nosto: "Rakensin ensimmäisen AI-assistenttini 30 taustapalvelusta ja kolmesta rinnakkaisesta tehtävälistasta. Lopulta jokaisella osalla oli oma tapansa hajota — ja yksi unohtunut watchdog lähetti 63 turhaa hälytystä peräkkäin. Osa 2 kertoo, miksi liian monimutkainen arkkitehtuuri voi olla agentin pahin vihollinen. 👇"
 ---
 
-Edellisessä osassa kuvasin agentin, joka herää ennen minua ja pysyy hiljaa, kun kaikki toimii. Tässä osassa kerron, mitä rakensin ensimmäiseksi **OpenClaw'lla** — ja miksi se karkasi lopulta käsistä.
+Edellisessä osassa kuvasin agentin, joka herää ennen minua ja pysyy hiljaa, kun kaikki toimii. Tässä osassa kerron, mitä rakensin ensimmäiseksi **OpenClaw'lla** ja miksi se lopulta karkasi käsistä.
 
 Ongelma ei ollut se, ettei tekoäly olisi osannut. Ongelma oli se, että rakensin järjestelmän liian monesta liikkuvasta osasta. Tämä ei ole kovin ylevä tarina. Lähinnä sellainen, jossa ihminen tekee itselleen lisää ylläpitotyötä ja kutsuu sitä hetken arkkitehtuuriksi.
 
@@ -21,7 +21,7 @@ Ongelma ei ollut se, ettei tekoäly olisi osannut. Ongelma oli se, että rakensi
 
 Ensimmäinen agenttialustani oli **OpenClaw**. Se on itse hostattu **Node.js**-gateway, joka yhdistää viestisovellukset, kuten Telegramin ja Slackin, tekoälyagentteihin.
 
-Ajatus oli hyvä, ja alusta oli pätevä. Ongelma ei ollut OpenClaw itsessään. Ongelma oli se, mitä rakensin sen päälle.
+Ajatus oli hyvä, ja alusta oli pätevä. Vika oli siinä, mitä rakensin sen päälle.
 
 ## Ensimmäinen automaatio: jumppavaraukset
 
@@ -29,7 +29,7 @@ OpenClaw'n vahvuus näkyi parhaiten ensimmäisessä automaatiossani. Rakensin se
 
 Käyn Urheiluhalleilla **Les Mills** -tunneilla: **BodyCombatissa** sunnuntaisin, maanantaisin ja torstaisin sekä **BodyPumpissa** sunnuntaisin. Varausikkuna avautuu vain noin 15 päivää etukäteen. Jos paikan haluaa saada, pitää muistaa kirjautua oikeana iltana joka viikko.
 
-Tämä on juuri sellainen pieni rutiini, joka ei ole vaikea mutta joka unohtuu helposti — usein juuri silloin, kun tunti ehtii täyttyä.
+Tämä on juuri sellainen pieni rutiini, joka ei ole vaikea mutta joka unohtuu helposti, ja usein juuri silloin, kun tunti ehtii täyttyä.
 
 Tämän olisi voinut tehdä heti alusta alkaen yksinkertaisella skriptillä. Silti tein siitä ensin agentin tehtävän. Jälkikäteen se oli ihan järkevää, koska ongelmaa ei vielä alussa tunnettu tarpeeksi hyvin.
 
@@ -50,7 +50,7 @@ Claus laski päivämäärät, teki varaukset ja kuittasi Telegramiin lyhyesti:
 - 🥋 BodyCombat varattu
 - 🏋️‍♀️ BodyPump varattu
 
-Jos tunti oli täynnä tai sitä ei esimerkiksi pyhien takia löydy kalenterista, Claus ei esittänyt tilannetta virheenä. Se kertoi asian sellaisena kuin se oli: "❌ Varausta ei saatu tehtyä. Tuntia ei löydy kalenterista.".
+Jos tunti oli täynnä tai sitä ei esimerkiksi pyhien takia löydy kalenterista, Claus ei esittänyt tilannetta virheenä. Se kertoi asian sellaisena kuin se oli: "❌ Varausta ei saatu tehtyä. Tuntia ei löydy kalenterista."
 
 Yhden turvallisuussäännön kirjasin heti alussa. Peruutusta ei voi perua. Siksi Claus pyytää aina vahvistuksen ennen kuin se peruu varauksen.
 
@@ -106,9 +106,7 @@ Kun myöhemmin siirryin uuteen järjestelmään, vanha OpenClaw-watchdog jäi va
 
 Sen jälkeen se lähetti Telegramiin viestin: "🔴 OpenClaw Gateway alhaalla!". Sitten se lähetti saman viestin uudelleen. Ja uudelleen. Lopulta ilmoituksia tuli 63 peräkkäin.
 
-Vanha koira haukkui omaa ruumistaan, eikä kukaan ollut kertonut sille, että se oli jo kuollut.
-
-Tästä jäi yksinkertainen sääntö: **automaation purkaminen on yhtä tärkeää kuin sen rakentaminen**. Kun järjestelmä korvataan uudella, vanha pitää sammuttaa kunnolla. Muuten ympärille jää zombeja valvomaan haamuja.
+Tästä jäi yksinkertainen sääntö: **automaation purkaminen on yhtä tärkeää kuin sen rakentaminen**. Kun järjestelmä korvataan uudella, vanha pitää sammuttaa kunnolla.
 
 ## Konfiguraatio ei aina ole lähdekoodi
 
@@ -122,7 +120,7 @@ Syy selvisi myöhemmin. Gateway piti ajastettuja töitä omassa muistissaan ja k
 
 Käsin tehty muutos näytti onnistuneelta, mutta katosi ensimmäisessä uudelleenkäynnistyksessä.
 
-Tästä jäi pysyvä sääntö: **ajastetut työt luodaan käyttöliittymän tai komentorivin kautta, ei muokkaamalla tiedostoa käsin**. Jos järjestelmällä on oma ajonaikainen tilansa, tiedoston muokkaaminen on kuin yrittäisi korjata peilikuvaa partakoneella.
+Tästä jäi pysyvä sääntö: **ajastetut työt luodaan käyttöliittymän tai komentorivin kautta, ei muokkaamalla tiedostoa käsin**.
 
 ## Mitä näillä virheillä oli yhteistä?
 
@@ -139,11 +137,11 @@ Agenttijärjestelmässä tällaiset virheet ovat tavallista hankalampia, koska n
 
 OpenClaw oli hyvä alusta, mutta rakensin sen päälle liikaa: 30 palvelua, kolme tehtävälistaa ja joukon watchdogeja, joista jokaisella oli oma tapansa epäonnistua.
 
-Mitä enemmän liikkuvia osia lisäsin, sitä enemmän syntyi paikkoja hiljaiselle hajoamiselle. Monimutkaisuus ei ollut pakollinen hinta tehokkuudesta. Se oli lasku, jonka järjestelmä alkoi lähettää joka päivä.
+Mitä enemmän liikkuvia osia lisäsin, sitä enemmän syntyi paikkoja hiljaiselle hajoamiselle.
 
-**Agentti kannattaa rakentaa niin yksinkertaiseksi kuin mahdollista — ja lisätä monimutkaisuutta vain sinne, missä siitä on oikeasti hyötyä.**
+Agentti kannattaa rakentaa niin yksinkertaiseksi kuin mahdollista ja lisätä monimutkaisuutta vain sinne, missä siitä on oikeasti hyötyä.
 
-Seuraavassa osassa mennään konkreettisiin virheisiin: kahdeksaan tilanteeseen, joissa tämä koneisto oli vähällä tyhjentää lompakon tai hajottaa itsensä. Aloitan kalleimmasta — siitä, miten 22 prosenttia viikon tekoälybudjetista kului yhdessä yössä.
+Seuraavassa osassa mennään konkreettisiin virheisiin: kahdeksaan tilanteeseen, joissa tämä koneisto oli vähällä tyhjentää lompakon tai hajottaa itsensä. Aloitan kalleimmasta eli siitä, miten 22 prosenttia viikon tekoälybudjetista kului yhdessä yössä.
 
 ---
 

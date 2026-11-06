@@ -72,15 +72,15 @@ export default function BlogIndexClient({
           className="pointer-events-none absolute inset-0 animate-pulse-glow"
           style={{
             background:
-              "radial-gradient(50% 55% at 15% 0%, rgba(224,164,88,0.12), transparent 65%)",
+              "radial-gradient(50% 55% at 15% 0%, rgba(34,211,238,0.12), transparent 65%)",
           }}
         />
         <div className="container-narrow relative">
           <p className="eyebrow fade-up fade-up-1">{t.eyebrow}</p>
-          <h1 className="h1 fade-up fade-up-2 mt-[18px] text-cream-50">
+          <h1 className="h1 fade-up fade-up-2 mt-[18px] text-teksti-50">
             {t.title}
           </h1>
-          <p className="fade-up fade-up-3 mt-[22px] max-w-[36em] text-lg leading-[1.7] text-cream-200">
+          <p className="fade-up fade-up-3 mt-[22px] max-w-[36em] text-lg leading-[1.7] text-teksti-200">
             {t.lead}
           </p>
           <div className="fade-up fade-up-4 mt-[34px] flex flex-wrap gap-2.5">
@@ -95,8 +95,8 @@ export default function BlogIndexClient({
                   className={
                     "rounded-full px-5 py-[9px] text-sm font-bold transition-colors " +
                     (active
-                      ? "border border-amber-400 bg-amber-400 text-bark-900"
-                      : "border border-cream-50/[0.18] text-cream-300 hover:border-amber-400/60 hover:text-amber-400")
+                      ? "border border-syaani-400 bg-syaani-400 text-yo-900"
+                      : "border border-teksti-50/[0.18] text-teksti-300 hover:border-syaani-400/60 hover:text-syaani-400")
                   }
                 >
                   {c.label}
@@ -113,28 +113,28 @@ export default function BlogIndexClient({
           <div className="container-narrow card-glow grid items-center gap-8 rounded-[20px] p-7 md:grid-cols-12 md:gap-11 md:p-10">
             <div className="md:col-span-7">
               <p className="eyebrow-sm">{featured.eyebrow}</p>
-              <h2 className="mt-3 font-display text-[26px] font-semibold leading-[1.2] text-cream-50 md:text-[32px]">
+              <h2 className="mt-3 font-display text-[26px] leading-[1.2] text-teksti-50 md:text-[32px]">
                 {featured.title}
               </h2>
-              <p className="mt-3.5 text-base leading-[1.7] text-cream-300">
+              <p className="mt-3.5 text-base leading-[1.7] text-teksti-300">
                 {featured.description}
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-[18px]">
                 <Link href={featured.ctaHref} className="btn-primary-sm">
                   {featured.ctaLabel} <span aria-hidden>→</span>
                 </Link>
-                <span className="text-sm text-cream-400">{featured.meta}</span>
+                <span className="text-sm text-teksti-400">{featured.meta}</span>
               </div>
             </div>
             {featured.covers.length >= 3 && (
               <div className="grid grid-cols-2 gap-3 md:col-span-5">
-                <span className="relative col-span-2 block overflow-hidden rounded-xl" style={{ aspectRatio: "16/10" }}>
+                <span className="relative col-span-2 block overflow-hidden rounded-[6px] border-2 border-ruutu/70" style={{ aspectRatio: "16/10" }}>
                   <Image src={featured.covers[0]} alt="" fill sizes="(max-width: 768px) 100vw, 420px" className="object-cover" />
                 </span>
-                <span className="relative block overflow-hidden rounded-xl" style={{ aspectRatio: "16/10" }}>
+                <span className="relative block overflow-hidden rounded-[6px] border-2 border-ruutu/70" style={{ aspectRatio: "16/10" }}>
                   <Image src={featured.covers[1]} alt="" fill sizes="210px" className="object-cover" />
                 </span>
-                <span className="relative block overflow-hidden rounded-xl" style={{ aspectRatio: "16/10" }}>
+                <span className="relative block overflow-hidden rounded-[6px] border-2 border-ruutu/70" style={{ aspectRatio: "16/10" }}>
                   <Image src={featured.covers[2]} alt="" fill sizes="210px" className="object-cover" />
                 </span>
               </div>
@@ -150,7 +150,7 @@ export default function BlogIndexClient({
             {visible.map((p) => {
               const inner = (
                 <>
-                  <span className="relative block bg-bark-900">
+                  <span className="relative block bg-yo-900">
                     {p.cover ? (
                       <span className="relative block" style={{ aspectRatio: "16/9" }}>
                         <Image
@@ -170,34 +170,34 @@ export default function BlogIndexClient({
                         style={{
                           aspectRatio: "16/9",
                           background:
-                            "linear-gradient(150deg, rgba(224,164,88,0.16), #241d18 70%)",
+                            "linear-gradient(150deg, rgba(34,211,238,0.16), #0f1424 70%)",
                         }}
                       />
                     )}
                     {p.upcoming && (
-                      <span className="absolute left-3 top-3 rounded-full border border-amber-400/40 bg-bark-900/85 px-3 py-1 text-[11.5px] font-bold uppercase tracking-[0.08em] text-amber-400">
+                      <span className="absolute left-3 top-3 rounded-full border border-syaani-400/40 bg-yo-900/85 px-3 py-1 text-[11.5px] font-bold uppercase tracking-[0.08em] text-syaani-400">
                         {t.upcomingLabel}
                       </span>
                     )}
                   </span>
                   <span className="flex flex-1 flex-col p-[22px]">
-                    <span className="block text-[11.5px] font-bold uppercase tracking-[0.11em] text-amber-400">
+                    <span className="block text-[11.5px] font-bold uppercase tracking-[0.11em] text-syaani-400">
                       {p.kicker}
                     </span>
-                    <span className="mt-2.5 block font-display text-[19px] font-semibold leading-[1.35] text-cream-50">
+                    <span className="mt-2.5 block font-sans text-[19px] font-bold leading-[1.35] text-teksti-50">
                       {p.title}
                     </span>
-                    <span className="mt-2.5 block flex-1 text-sm leading-[1.6] text-cream-300">
+                    <span className="mt-2.5 block flex-1 text-sm leading-[1.6] text-teksti-300">
                       {p.description}
                     </span>
-                    <span className="mt-3.5 block text-[13px] text-cream-400">
+                    <span className="mt-3.5 block text-[13px] text-teksti-400">
                       {p.meta}
                     </span>
                   </span>
                 </>
               );
               const cls =
-                "flex flex-col overflow-hidden rounded-2xl border border-cream-50/[0.08] bg-bark-800 transition-[border-color,transform] duration-200";
+                "card flex flex-col overflow-hidden !p-0";
               return p.upcoming ? (
                 <div key={p.slug} className={cls}>
                   {inner}
@@ -206,7 +206,7 @@ export default function BlogIndexClient({
                 <Link
                   key={p.slug}
                   href={p.href}
-                  className={cls + " hover:-translate-y-[3px] hover:border-amber-400/45"}
+                  className={cls + " card-hover-lift"}
                 >
                   {inner}
                 </Link>
@@ -218,7 +218,7 @@ export default function BlogIndexClient({
 
       {/* CTA — taustalla ilmakuva Helsingistä (CC BY 4.0, attribuutio kortissa) */}
       <section className="px-5 pb-24 md:px-10">
-        <div className="container-narrow relative overflow-hidden rounded-[20px] border border-amber-400/35 bg-bark-800">
+        <div className="container-narrow relative overflow-hidden rounded-[20px] border border-syaani-400/35 bg-yo-800">
           <Image
             src="/images/helsinki-ilmakuva.jpg"
             alt=""
@@ -232,15 +232,15 @@ export default function BlogIndexClient({
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(100deg, rgba(26,21,18,0.92) 25%, rgba(26,21,18,0.55))",
+                "linear-gradient(100deg, rgba(8,11,22,0.92) 25%, rgba(8,11,22,0.55))",
             }}
           />
           <div className="relative flex flex-wrap items-center justify-between gap-8 p-7 md:p-10">
             <div>
-              <h2 className="font-display text-[26px] font-semibold text-cream-50">
+              <h2 className="font-display text-[26px] text-teksti-50">
                 {t.ctaTitle}
               </h2>
-              <p className="mt-2.5 max-w-[36em] text-base leading-[1.65] text-cream-300">
+              <p className="mt-2.5 max-w-[36em] text-base leading-[1.65] text-teksti-300">
                 {t.ctaBody}
               </p>
             </div>
@@ -253,7 +253,7 @@ export default function BlogIndexClient({
               </Link>
             </div>
           </div>
-          <p className="absolute bottom-2 right-4 text-[10.5px] text-cream-400/60">
+          <p className="absolute bottom-2 right-4 text-[10.5px] text-teksti-400/60">
             {t.aerialCredit}
           </p>
         </div>

@@ -18,7 +18,7 @@ const strings = {
     sending: "Lähetetään…",
     sentTitle: "Kiitos viestistä! 🦀",
     sentBody: "Vastaan yleensä saman tai seuraavan arkipäivän aikana.",
-    errorPrefix: "Lähetys epäonnistui — laita viesti suoraan osoitteeseen",
+    errorPrefix: "Lähetys epäonnistui. Laita viesti suoraan osoitteeseen",
     honeypot: "Älä täytä tätä kenttää:",
   },
   en: {
@@ -77,11 +77,11 @@ export default function ContactForm({ locale = "fi" }: { locale?: Locale }) {
   if (status === "sent") {
     return (
       <div
-        className="rounded-2xl border border-amber-400/40 bg-bark-800 p-7"
+        className="ruutu bg-yo-800 p-7"
         role="status"
       >
-        <p className="font-bold text-cream-50">{t.sentTitle}</p>
-        <p className="mt-2 text-[14.5px] leading-[1.65] text-cream-300">
+        <p className="font-bold text-teksti-50">{t.sentTitle}</p>
+        <p className="mt-2 text-[14.5px] leading-[1.65] text-teksti-300">
           {t.sentBody}
         </p>
       </div>
@@ -95,7 +95,7 @@ export default function ContactForm({ locale = "fi" }: { locale?: Locale }) {
       data-netlify="true"
       netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
-      className="flex flex-col gap-4 rounded-2xl border border-cream-50/[0.08] bg-bark-800 p-7"
+      className="flex flex-col gap-4 card !p-7"
     >
       <input type="hidden" name="form-name" value="contact" />
       <p className="hidden">
@@ -149,7 +149,7 @@ export default function ContactForm({ locale = "fi" }: { locale?: Locale }) {
           {status === "sending" ? t.sending : t.send}
         </button>
         {status === "error" && (
-          <p className="text-sm text-amber-300" role="alert">
+          <p className="text-sm text-syaani-300" role="alert">
             {t.errorPrefix}{" "}
             <a href="mailto:seise@seise.org" className="underline">
               seise@seise.org

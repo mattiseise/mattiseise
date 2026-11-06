@@ -51,17 +51,15 @@ export default function CaseLayout({
       <article className="px-5 pb-0 pt-14 md:px-10 md:pt-[72px]">
         <div className="container-case">
           {banner && (
-            <div className="mb-7 rounded-xl border border-amber-400/40 bg-amber-400/[0.08] px-5 py-3.5 text-[14.5px] text-amber-400">
+            <div className="ruutu-sm mb-7 bg-yo-800 px-5 py-3.5 text-[14.5px] font-semibold text-syaani-300">
               {banner}
             </div>
           )}
-          <p className="text-[12.5px] font-bold uppercase tracking-[0.14em] text-amber-400">
-            {eyebrow}
-          </p>
-          <h1 className="mt-[18px] font-display text-[32px] font-semibold leading-[1.12] tracking-[-0.015em] text-cream-50 md:text-[44px]">
+          <p className="eyebrow">{eyebrow}</p>
+          <h1 className="mt-5 font-display text-[36px] leading-[1.12] tracking-[0.01em] text-teksti-50 md:text-[50px]">
             {title}
           </h1>
-          <p className="mt-[22px] max-w-[40em] text-lg leading-[1.7] text-cream-200">
+          <p className="mt-[22px] max-w-[40em] text-lg leading-[1.7] text-teksti-200">
             {lead}
           </p>
 
@@ -70,12 +68,12 @@ export default function CaseLayout({
               {facts.map((f) => (
                 <div
                   key={f.label}
-                  className="rounded-[14px] border border-cream-50/[0.08] bg-bark-800 px-5 py-[18px]"
+                  className="card !px-5 !py-[18px]"
                 >
-                  <dt className="text-[11.5px] font-bold uppercase tracking-[0.11em] text-cream-400">
+                  <dt className="text-[11.5px] font-bold uppercase tracking-[0.11em] text-teksti-400">
                     {f.label}
                   </dt>
-                  <dd className="mt-1.5 font-display text-[19px] font-semibold text-amber-400">
+                  <dd className="mt-1.5 font-sans text-[19px] font-bold text-syaani-400">
                     {f.value}
                   </dd>
                 </div>
@@ -83,10 +81,10 @@ export default function CaseLayout({
             </dl>
           )}
 
-          <div className="mt-14 flex flex-col gap-12 text-[17px] leading-[1.75] text-cream-100">
+          <div className="mt-14 flex flex-col gap-12 text-[17px] leading-[1.75] text-teksti-100">
             {sections.map((s) => (
               <section key={s.heading}>
-                <h2 className="mb-4 font-display text-[26px] font-semibold text-cream-50">
+                <h2 className="mb-4 font-display text-[30px] leading-[1.12] text-teksti-50">
                   {s.heading}
                 </h2>
                 <div className="space-y-4">{s.body}</div>
@@ -95,8 +93,8 @@ export default function CaseLayout({
           </div>
 
           {cta && (
-            <div className="card-glow mt-14 flex flex-wrap items-center justify-between gap-7 rounded-[18px] p-8">
-              <p className="max-w-[34em] text-base leading-[1.65] text-cream-200">
+            <div className="card-glow mt-14 flex flex-wrap items-center justify-between gap-7 p-8">
+              <p className="max-w-[34em] text-base leading-[1.65] text-teksti-200">
                 {cta.label}
               </p>
               <Link href={cta.href} className="btn-primary-sm shrink-0">
@@ -113,12 +111,12 @@ export default function CaseLayout({
               {prev ? (
                 <Link
                   href={prev.href}
-                  className="rounded-[14px] border border-cream-50/10 bg-bark-800 px-6 py-5 transition-colors hover:border-amber-400/50"
+                  className="card card-hover-lift !px-6 !py-5"
                 >
-                  <span className="block text-xs font-bold uppercase tracking-[0.11em] text-cream-400">
+                  <span className="block text-xs font-bold uppercase tracking-[0.11em] text-teksti-400">
                     {t.prev}
                   </span>
-                  <span className="mt-1.5 block text-[15px] font-bold text-cream-50">
+                  <span className="mt-1.5 block text-[15px] font-bold text-teksti-50">
                     {prev.label}
                   </span>
                 </Link>
@@ -128,12 +126,12 @@ export default function CaseLayout({
               {next && (
                 <Link
                   href={next.href}
-                  className="rounded-[14px] border border-cream-50/10 bg-bark-800 px-6 py-5 text-right transition-colors hover:border-amber-400/50"
+                  className="card card-hover-lift !px-6 !py-5 text-right"
                 >
-                  <span className="block text-xs font-bold uppercase tracking-[0.11em] text-cream-400">
+                  <span className="block text-xs font-bold uppercase tracking-[0.11em] text-teksti-400">
                     {t.next}
                   </span>
-                  <span className="mt-1.5 block text-[15px] font-bold text-cream-50">
+                  <span className="mt-1.5 block text-[15px] font-bold text-teksti-50">
                     {next.label}
                   </span>
                 </Link>
@@ -152,7 +150,7 @@ export default function CaseLayout({
 
 export function CaseList({ items }: { items: string[] }) {
   return (
-    <ul className="flex list-disc flex-col gap-2.5 pl-6 marker:text-amber-400">
+    <ul className="flex list-disc flex-col gap-2.5 pl-6 marker:text-syaani-400">
       {items.map((i) => (
         <li key={i} className="pl-1">
           {i}

@@ -26,7 +26,7 @@ Tämä on sama näkyvyysongelma kuin [Wilman keskeneräisissä suorituksissa](/b
 
 Tampermonkey-skriptini etsii solua, jossa näkyy palautukseen viittaava tiedostokuvake ja arvioinnin kohdalla pelkkä viiva. Kun molemmat löytyvät samasta solusta, tausta muuttuu keltaiseksi.
 
-Pelkkä viiva ei riitä: se voi tarkoittaa myös sitä, ettei palautusta ole. Pelkkä tiedostokuvake ei riitä: palautus voi olla jo arvioitu. Juuri näiden kahden ehdon yhdistelmä on tässä olennainen.
+Pelkkä viiva ei riitä: se voi tarkoittaa myös sitä, ettei palautusta ole. Pelkkä tiedostokuvake ei riitä: palautus voi olla jo arvioitu. Siksi skripti vaatii molemmat.
 
 Skripti ei lue työn sisältöä eikä arvioi sitä. Se ei myöskään merkitse tehtävää käsitellyksi. Minä avaan korostetun palautuksen, katson työn ja annan palautteen tavalliseen tapaan.
 
@@ -52,4 +52,4 @@ Kun olen arvioinut työn, tarkistan vielä, että korostus poistuu näkymän pä
 
 Tämä ei ole täydellinen lista kaikesta arvioitavasta. Se on yksi tapa nostaa tietty tarkistettava tilanne näkyviin. Kun itslearning muuttaa näkymää, myös tunnistus pitää tarkistaa uudelleen.
 
-Minulle hyöty on siinä, että löydän palautteen odottajan nopeammin. Varsinainen palaute on edelleen minun työtäni.
+Minulle hyöty on siinä, että löydän palautetta odottavan työn nopeammin. Varsinainen palaute on edelleen minun työtäni.

@@ -24,7 +24,7 @@ Säännön jälkeen tekoälystä tuli arvioinnissa oikeasti hyödyllinen. Kerron
 
 Palaute on arvioinnin työläin osa. Tiedän kyllä, mitä sanoa. Mutta saman asian sanallistaminen kolmellekymmenelle opiskelijalle vie illan.
 
-Annan tekoälylle arviointikriteerit ja omat huomioni opiskelijan työstä. Se luonnostelee palautteen, minä tarkistan ja muokkaan. Kriteerit annan aina mukana — en anna kielimallin keksiä omaa käsitystään hyvästä suorituksesta.
+Annan tekoälylle arviointikriteerit ja omat huomioni opiskelijan työstä. Se luonnostelee palautteen, minä tarkistan ja muokkaan. Kriteerit annan aina mukana. En anna kielimallin keksiä omaa käsitystään hyvästä suorituksesta.
 
 Palaute ei parantunut siksi, että kone kirjoittaisi paremmin kuin minä. Se parani, koska palautetta ehtii nyt oikeasti antaa.
 
@@ -32,7 +32,7 @@ Palaute ei parantunut siksi, että kone kirjoittaisi paremmin kuin minä. Se par
 
 Ammattitaitovaatimukset ja arviointikriteerit ovat hallinnollista kieltä. Opiskelija ei aina saa niistä selvää, enkä aina minäkään ensimmäisellä lukemisella.
 
-Pyydän tekoälyä kertomaan saman asian opiskelijan kielellä: mitä tässä pitää käytännössä osata ja miltä hyväksytty suoritus näyttää. Tarkistan, että käännös vastaa alkuperäistä. Se on nopeampaa kuin kirjoittaa itse — mutta tarkistamatta sitä ei voi käyttää.
+Pyydän tekoälyä kertomaan saman asian opiskelijan kielellä: mitä tässä pitää käytännössä osata ja miltä hyväksytty suoritus näyttää. Tarkistan, että käännös vastaa alkuperäistä. Se on nopeampaa kuin kirjoittaa itse, mutta tarkistamatta sitä ei voi käyttää.
 
 ## Eriyttäminen ja saavutettavuus
 
@@ -48,7 +48,7 @@ Toinen periaate on avoimuus. Kerron opiskelijoille, miten käytän tekoälyä ar
 
 ## Omat tehtävät kannattaa kokeilla kielimallilla
 
-Yksi asia yllätti minut. Kun kokeilin omia tehtäviäni kielimallilla, iso osa niistä ratkesi sekunneissa. Muistamista ja toistamista mittaava tehtävä ei enää mittaa opiskelijan osaamista — se mittaa sitä, onko opiskelijalla pääsy kielimalliin.
+Yksi asia yllätti minut. Kun kokeilin omia tehtäviäni kielimallilla, iso osa niistä ratkesi sekunneissa. Muistamista ja toistamista mittaava tehtävä ei enää mittaa opiskelijan osaamista. Se mittaa sitä, onko opiskelijalla pääsy kielimalliin.
 
 Suunnittelun runko ei silti muuttunut mihinkään. Käytän samoja työkaluja kuin ennenkin: Bloomin taksonomiaa ja linjakasta opetusta, jossa tavoitteet, opetus ja arviointi kertovat samaa tarinaa. Tekoäly vain teki näkyväksi, kuinka moni tehtävistäni liikkui alimmilla ajattelun tasoilla. Ja sama työkalu, joka ongelman paljasti, auttaa myös korjaamaan sen: tehtäviä saa nostettua analysoinnin ja perustelun suuntaan nopeammin kuin yksin.
 
@@ -63,8 +63,6 @@ Jos haluat kokeilla tekoälyä arvioinnin tukena, neljä askelta riittää alkuu
 
 ## Mitä tästä jäi käteen
 
-> Tekoäly ei arvioi opiskelijaa. Se auttaa opettajaa arvioimaan.
-
-Hyöty ei tullut siitä, että kone osaisi arvioida. Hyöty tuli ajasta: sanallistaminen ja luonnostelu nopeutuivat, ja vapautunut aika menee siihen osaan arviointia, jota kone ei voi tehdä — opiskelijan tilanteen ymmärtämiseen ja päätökseen.
+Hyöty ei tullut siitä, että kone osaisi arvioida. Hyöty tuli ajasta: sanallistaminen ja luonnostelu nopeutuivat, ja vapautunut aika menee siihen osaan arviointia, jota kone ei voi tehdä: opiskelijan tilanteen ymmärtämiseen ja päätökseen.
 
 Se osa ei ollut ongelma ennen tekoälyä, eikä se ole ongelma nytkään. Se on opettajan työtä.

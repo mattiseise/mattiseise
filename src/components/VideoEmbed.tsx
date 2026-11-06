@@ -38,7 +38,7 @@ export default function VideoEmbed({
   return (
     <figure className="my-0">
       <div
-        className="relative w-full overflow-hidden rounded-[18px] border border-cream-50/[0.08] bg-bark-800"
+        className="relative w-full overflow-hidden ruutu bg-yo-800"
         style={{ aspectRatio: "16/9" }}
       >
         {loaded ? (
@@ -57,21 +57,21 @@ export default function VideoEmbed({
             className="group absolute inset-0 flex h-full w-full flex-col items-center justify-center gap-4 p-6 text-center"
             style={{
               background:
-                "linear-gradient(150deg, rgba(224,164,88,0.14), #241d18 65%)",
+                "linear-gradient(150deg, rgba(34,211,238,0.14), #0f1424 65%)",
             }}
           >
             <span
               aria-hidden
-              className="flex h-16 w-16 items-center justify-center rounded-full bg-amber-400 text-bark-900 transition-transform duration-200 group-hover:scale-105"
+              className="flex h-16 w-16 items-center justify-center rounded-full bg-syaani-400 text-yo-900 transition-transform duration-200 group-hover:scale-105"
             >
               <svg width="22" height="26" viewBox="0 0 22 26" fill="currentColor">
                 <path d="M0 0 L22 13 L0 26 Z" />
               </svg>
             </span>
-            <span className="font-display text-lg font-semibold text-cream-50 md:text-xl">
+            <span className="font-sans text-lg font-bold text-teksti-50 md:text-xl">
               {title}
             </span>
-            <span className="text-[12.5px] text-cream-400">{t.note}</span>
+            <span className="text-[12.5px] text-teksti-400">{t.note}</span>
           </button>
         )}
       </div>

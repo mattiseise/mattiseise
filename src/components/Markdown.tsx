@@ -55,7 +55,7 @@ const components: Components = {
   h2: ({ children, id }) => (
     <h2
       id={id}
-      className="mb-4 mt-12 scroll-mt-28 font-display text-[26px] font-semibold text-cream-50 md:text-[27px]"
+      className="mb-4 mt-12 scroll-mt-28 font-display text-[26px] text-teksti-50 md:text-[27px]"
     >
       {children}
     </h2>
@@ -63,7 +63,7 @@ const components: Components = {
   h3: ({ children, id }) => (
     <h3
       id={id}
-      className="mb-3 mt-8 scroll-mt-28 font-display text-xl font-semibold text-cream-50"
+      className="mb-3 mt-8 scroll-mt-28 font-sans text-xl font-bold text-teksti-50"
     >
       {children}
     </h3>
@@ -77,10 +77,10 @@ const components: Components = {
           {pair.map((img) => (
             <figure
               key={img.src}
-              className="m-0 overflow-hidden rounded-[14px] border border-cream-50/[0.08] bg-bark-800"
+              className="ruutu-sm m-0 overflow-hidden bg-yo-800"
             >
               {img.title && (
-                <figcaption className="px-3.5 py-2.5 text-[11.5px] font-bold uppercase tracking-[0.08em] text-cream-400">
+                <figcaption className="px-3.5 py-2.5 text-[11.5px] font-bold uppercase tracking-[0.08em] text-teksti-400">
                   {img.title}
                 </figcaption>
               )}
@@ -97,7 +97,7 @@ const components: Components = {
       );
     }
     return (
-      <p className="my-6 text-[17.5px] leading-[1.8] text-cream-100">{children}</p>
+      <p className="my-6 text-[17.5px] leading-[1.8] text-teksti-100">{children}</p>
     );
   },
   a: ({ href, children }) => {
@@ -105,7 +105,7 @@ const components: Components = {
     return (
       <a
         href={href}
-        className="text-amber-400 underline underline-offset-4 decoration-amber-400/40 hover:text-amber-300 hover:decoration-amber-300"
+        className="text-syaani-400 underline underline-offset-4 decoration-syaani-400/40 hover:text-syaani-300 hover:decoration-syaani-300"
         {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
         {children}
@@ -113,36 +113,36 @@ const components: Components = {
     );
   },
   ul: ({ children }) => (
-    <ul className="my-6 list-disc space-y-3 pl-6 text-[17.5px] leading-[1.8] text-cream-100 marker:text-amber-400">
+    <ul className="my-6 list-disc space-y-3 pl-6 text-[17.5px] leading-[1.8] text-teksti-100 marker:text-syaani-400">
       {children}
     </ul>
   ),
   ol: ({ children }) => (
-    <ol className="my-6 list-decimal space-y-3 pl-6 text-[17.5px] leading-[1.8] text-cream-100 marker:font-semibold marker:text-amber-400">
+    <ol className="my-6 list-decimal space-y-3 pl-6 text-[17.5px] leading-[1.8] text-teksti-100 marker:font-semibold marker:text-syaani-400">
       {children}
     </ol>
   ),
   li: ({ children }) => <li className="pl-1">{children}</li>,
   strong: ({ children }) => (
-    <strong className="font-bold text-cream-50">{children}</strong>
+    <strong className="font-bold text-teksti-50">{children}</strong>
   ),
-  em: ({ children }) => <em className="italic text-cream-200">{children}</em>,
+  em: ({ children }) => <em className="italic text-teksti-200">{children}</em>,
   code: ({ children }) => (
-    <code className="rounded border border-cream-50/10 bg-bark-800 px-1.5 py-0.5 font-mono text-[0.85em] text-amber-300">
+    <code className="rounded border border-teksti-50/10 bg-yo-800 px-1.5 py-0.5 font-mono text-[0.85em] text-syaani-300">
       {children}
     </code>
   ),
   pre: ({ children }) => (
-    <pre className="my-6 overflow-x-auto rounded-xl border border-cream-50/10 bg-bark-800/80 p-5 font-mono text-sm text-cream-100">
+    <pre className="my-6 overflow-x-auto rounded-[8px] border-2 border-ruutu/20 bg-yo-800 p-5 font-mono text-sm text-teksti-100">
       {children}
     </pre>
   ),
   blockquote: ({ children }) => (
-    <blockquote className="my-8 border-l-[3px] border-amber-400 py-1 pl-6 font-display text-[21px] leading-[1.5] text-cream-50 [&_p]:my-0 [&_p]:text-[21px] [&_p]:leading-[1.5] [&_p]:text-cream-50 [&_strong]:font-semibold">
+    <blockquote className="my-8 border-l-[3px] border-syaani-400 py-1 pl-6 font-sans text-[21px] leading-[1.5] text-teksti-50 [&_p]:my-0 [&_p]:text-[21px] [&_p]:leading-[1.5] [&_p]:text-teksti-50 [&_strong]:font-bold">
       {children}
     </blockquote>
   ),
-  hr: () => <hr className="my-10 border-cream-50/10" />,
+  hr: () => <hr className="my-10 border-teksti-50/10" />,
   img: ({ src, alt }) => {
     // Tulevien sarjojen kuvitus voi puuttua vielä julkaisuvaiheessa.
     if (!imgExists(src)) return null;
@@ -152,7 +152,7 @@ const components: Components = {
         src={src}
         alt={alt ?? ""}
         loading="lazy"
-        className="my-8 w-full rounded-[18px] border border-cream-50/[0.08]"
+        className="ruutu-sm my-8 w-full"
       />
     );
   },

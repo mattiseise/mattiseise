@@ -14,8 +14,8 @@ const strings = {
     cards: [
       {
         e: "Tekoäly ja agentit",
-        t: "Ei demoksi, vaan käyttöön",
-        b: "Rakennan agentteja, jotka hakevat tietoa, käyttävät työkaluja ja jättävät jäljen siitä mitä tekivät. Jos ratkaisu toimii vain lavalla, se ei ole valmis.",
+        t: "Tehty oikeaan työhön",
+        b: "Rakennan agentteja, jotka hakevat tietoa, käyttävät työkaluja ja jättävät jäljen siitä, mitä tekivät. Jos ratkaisu toimii vain lavalla, se ei ole valmis.",
       },
       {
         e: "Automaatio",
@@ -25,7 +25,7 @@ const strings = {
       {
         e: "Pedagogiikka",
         t: "Kurssi pitää myös opettaa",
-        b: "Bloomin taksonomia, linjakkuus, saavutettavuus ja eriyttäminen. Ei koristeena, vaan rakenteessa: tehtävissä, arvioinnissa ja opiskelijan ohjeissa.",
+        b: "Bloomin taksonomia, linjakkuus, saavutettavuus ja eriyttäminen kuuluvat itse rakenteeseen: tehtäviin, arviointiin ja opiskelijan ohjeisiin.",
       },
     ],
   },
@@ -57,17 +57,27 @@ const strings = {
   },
 } as const;
 
+/** Osaamiskorttien hahmot ja värit (samat ravut kuin videoissa). */
+const PILLARS = [
+  { hahmo: "claus", color: "#ff7a5c" },
+  { hahmo: "es-korostin", color: "#fbbf24" },
+  { hahmo: "linnea", color: "#2dd4bf" },
+] as const;
+
 export default function About({ locale = "fi" }: { locale?: Locale }) {
   const t = strings[locale];
   const blogHref = locale === "en" ? "/en/blog" : "/blog";
   return (
-    <section id="osaaminen" className="section-pad border-t border-cream-50/[0.08]">
+    <section id="osaaminen" className="section-pad border-t border-teksti-50/[0.08]">
       <div className="container-narrow grid items-start gap-10 md:grid-cols-12 md:gap-14">
         <div className="md:col-span-5">
           <p className="eyebrow">{t.eyebrow}</p>
-          <h2 className="h2 mt-3.5 text-cream-50">{t.title}</h2>
+          <h2 className="h2 mt-3.5 text-teksti-50">{t.title}</h2>
 
-          <div className="relative mt-[30px] aspect-[3/4] w-full max-w-[380px] overflow-hidden rounded-[18px]">
+          <div
+            className="ruutu relative mt-[30px] aspect-[3/4] w-full max-w-[380px] overflow-hidden"
+            style={{ ["--c" as string]: "#f0459b" }}
+          >
             <Image
               src="/images/seisepontossa.jpg"
               alt="Matti Seise"
@@ -78,31 +88,44 @@ export default function About({ locale = "fi" }: { locale?: Locale }) {
           </div>
         </div>
 
-        <div className="flex flex-col gap-5 text-[17.5px] leading-[1.75] text-cream-200 md:col-span-7">
+        <div className="flex flex-col gap-5 text-[17.5px] leading-[1.75] text-teksti-200 md:col-span-7">
           <p>{t.p1}</p>
           <p>
             {t.p2}{" "}
             <Link
               href={blogHref}
-              className="text-amber-400 underline underline-offset-4 hover:text-amber-300"
+              className="text-syaani-400 underline underline-offset-4 hover:text-syaani-300"
             >
               {t.blogLink}
             </Link>
             .
           </p>
-          <p className="text-[15px] text-cream-400">{t.p3}</p>
-          <p className="text-[15px] text-cream-400">{t.p4}</p>
+          <p className="text-[15px] text-teksti-400">{t.p3}</p>
+          <p className="text-[15px] text-teksti-400">{t.p4}</p>
         </div>
       </div>
 
       <div className="container-narrow mt-14 grid gap-[22px] md:grid-cols-3">
-        {t.cards.map((c) => (
-          <div key={c.e} className="card card-hover-lift">
-            <p className="eyebrow-sm">{c.e}</p>
-            <p className="mt-2.5 font-display text-[21px] font-semibold text-cream-50">
+        {t.cards.map((c, i) => (
+          <div
+            key={c.e}
+            className="card card-hover-lift relative"
+            style={{ ["--c" as string]: PILLARS[i].color }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`/hahmot/${PILLARS[i].hahmo}.svg`}
+              alt=""
+              aria-hidden
+              width={56}
+              height={56}
+              className="absolute -top-5 right-5 h-14 w-14 rounded-full border-[2.5px] border-muste bg-yo-700"
+            />
+            <p className="eyebrow-sm pr-14" style={{ color: PILLARS[i].color }}>{c.e}</p>
+            <p className="mt-2.5 font-sans text-[21px] font-bold text-teksti-50">
               {c.t}
             </p>
-            <p className="mt-2.5 text-[14.5px] leading-[1.65] text-cream-300">
+            <p className="mt-2.5 text-[14.5px] leading-[1.65] text-teksti-300">
               {c.b}
             </p>
           </div>

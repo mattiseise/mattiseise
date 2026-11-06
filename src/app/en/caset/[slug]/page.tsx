@@ -66,13 +66,13 @@ const cases: Record<string, EnCase> = {
               development. Content is shareable lesson by lesson, and the
               open source license lets other teachers adopt and adapt it.
             </p>
-            <p className="text-[14.5px] text-cream-400">
+            <p className="text-[14.5px] text-teksti-400">
               Open site:{" "}
               <a
                 href={aiperusteetUrl("case-en")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-amber-400 hover:text-amber-300"
+                className="text-syaani-400 hover:text-syaani-300"
               >
                 aiperusteet.fi
               </a>{" "}
@@ -81,7 +81,7 @@ const cases: Record<string, EnCase> = {
                 href="https://github.com/mattiseise/ai-perusteet"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-amber-400 hover:text-amber-300"
+                className="text-syaani-400 hover:text-syaani-300"
               >
                 github.com/mattiseise/ai-perusteet
               </a>
@@ -327,7 +327,7 @@ export default async function Page({
       banner={
         <>
           This is a short English summary — the full case study is available{" "}
-          <Link href={`/caset/${slug}`} className="underline underline-offset-4 hover:text-amber-300">
+          <Link href={`/caset/${slug}`} className="underline underline-offset-4 hover:text-syaani-300">
             in Finnish
           </Link>
           .

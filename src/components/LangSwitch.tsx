@@ -15,7 +15,7 @@ export default function LangSwitch({
   const seg = (active: boolean, label: string, href?: string) => {
     const cls =
       "rounded-full px-3 py-[5px] text-[12.5px] font-bold " +
-      (active ? "bg-amber-400 text-bark-900" : "text-cream-300 hover:text-amber-400");
+      (active ? "bg-syaani-400 text-yo-900" : "text-teksti-300 hover:text-syaani-400");
     if (active || !href) {
       return (
         <span className={cls} aria-current={active ? "true" : undefined}>
@@ -31,7 +31,7 @@ export default function LangSwitch({
   };
 
   return (
-    <div className="flex items-center gap-0.5 rounded-full border border-cream-50/15 p-[3px]">
+    <div className="flex items-center gap-0.5 rounded-full border border-teksti-50/15 p-[3px]">
       {seg(locale === "fi", "FI", locale === "fi" ? undefined : alternateHref ?? "/")}
       {seg(locale === "en", "EN", locale === "en" ? undefined : alternateHref ?? "/en")}
     </div>

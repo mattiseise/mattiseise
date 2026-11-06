@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://seise.org/seisemail/tietosuoja" },
 };
 
-const link = "text-amber-400 underline underline-offset-4 hover:text-amber-300";
+const link = "text-syaani-400 underline underline-offset-4 hover:text-syaani-300";
 
 export default function Page() {
   return (

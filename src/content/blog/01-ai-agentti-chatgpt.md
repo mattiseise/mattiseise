@@ -15,7 +15,7 @@ nosto: "En tarvinnut uutta chattia. Tarvitsin järjestelmän, joka herää ennen
 
 Olen ammatillinen erityisopettaja ja opetan tieto- ja viestintätekniikkaa. Työpäiväni koostuu pienistä rutiineista: Wilmasta, itslearningista, opiskelijatapaamisista, Notion-listoista, taloyhtiön sähköposteista ja OAJ-asioista.
 
-Yksittäin mikään näistä ei ole vaikea. Se on vähän ongelman juoni. Ne vievät aikaa niin pieninä siivuina, ettei sitä huomaa ennen kuin iltapäivällä ihmettelee, mihin työpäivä meni. Vastaus on yleensä: tiedon siirtämiseen paikasta toiseen. Ihmiskunnan huippuhetkiä.
+Yksittäin mikään näistä ei ole vaikea. Siinä se ongelma vähän onkin. Ne vievät aikaa niin pieninä siivuina, ettei sitä huomaa ennen kuin iltapäivällä ihmettelee, mihin työpäivä meni. Vastaus on yleensä: tiedon siirtämiseen paikasta toiseen. Ihmiskunnan huippuhetkiä.
 
 Kun aloin käyttää **tekoälyä** näiden rutiinien helpottamiseen, yksi raja tuli nopeasti vastaan: **chatbot** ei automaattisesti vähennä työtä. Joskus se vain siirtää työn uuteen laatikkoon, jonka nimi on nyt prompti.
 
@@ -25,7 +25,7 @@ Tässä sarjassa kerron, miten rakensin oman **tekoälyagentin** tätä varten. 
 
 ## Chatti odottaa, agentti toimii
 
-**Chatbot** on reaktiivinen. Se odottaa, että avaat sen ja kerrot, mitä tarvitset. Se voi olla erittäin hyödyllinen apuri, mutta sitä pitää käskeä joka kerta erikseen.
+**Chatbot** on reaktiivinen. Se odottaa, että avaat sen ja kerrot, mitä tarvitset. Se voi olla hyödyllinen apuri, mutta sitä pitää käskeä joka kerta erikseen.
 
 **Agentti** toimii toisin. Se voi seurata sovittuja asioita taustalla ja käynnistyä, kun jokin ennalta määritelty tapahtuma toteutuu. Se voi reagoida esimerkiksi kalenterimerkintään, saapuvaan sähköpostiin tai tiettyyn kellonaikaan.
 
@@ -51,7 +51,7 @@ Viestissä ei ole yleistä tilanneraporttia, varmuuden vuoksi lisättyä säät�
 
 Claus esiintyy pienenä rapuhahmona. Kun se aloittaa työnsä, viestin ensimmäinen rivi on usein: "Rapu on töissä…". Aamutervehdys kuuluu: "Moi Matti 🦀". Yksityiskohta on pieni, mutta taustalla pyörivä järjestelmä tuntuu vähemmän kylmältä, kun sillä on edes vähän persoonallisuutta. Tämä on tosin myös tapa antaa cron-jobille rapu. Kaikilla on harrastuksensa.
 
-Aamubriiffin paras ominaisuus ei ole se, mitä viestissä on. Paras ominaisuus on se, mitä siitä on jätetty pois.
+Aamubriiffissä parasta on se, mitä siitä on jätetty pois.
 
 Sää mainitaan vain, jos se vaikuttaa päivän päätöksiin, kuten siihen, voiko työmatkan tehdä auton sijaan pyörällä. Sähköposti mainitaan vain, jos siitä seuraa tehtävä. Järjestelmän tila kerrotaan vain, jos jokin on rikki. Hyvä agenttiviesti ei ole mahdollisimman kattava. Se näyttää vain sen, mikä on juuri sillä hetkellä olennaista.
 
@@ -88,11 +88,9 @@ Jos harkitset oman agentin rakentamista, älä aloita liian isosta. Älä yritä
 
 **Chatbot** on työkalu, jonka sinä käynnistät. **Agentti** on työpari, joka voi käynnistyä itse sovituissa tilanteissa.
 
-Agentista on hyötyä vasta, kun se tuntee tilanteen, toimii oikeaan aikaan ja tuo olennaisen tiedon oikeaan paikkaan. Yhtä tärkeää on, että se osaa olla hiljaa silloin, kun mitään olennaista ei ole tapahtunut.
-
 En tarvinnut parempaa chattia. Tarvitsin järjestelmän, joka herää ennen minua.
 
-Seuraavassa osassa kerron, miten ensimmäinen yritykseni rakentaa tällainen agentti kasvoi 30 taustapalveluksi ja kolmeksi rinnakkaiseksi tehtävälistaksi — ja miksi se oli virhe.
+Seuraavassa osassa kerron, miten ensimmäinen yritykseni rakentaa tällainen agentti kasvoi 30 taustapalveluksi ja kolmeksi rinnakkaiseksi tehtävälistaksi ja miksi se oli virhe.
 
 ---
 

@@ -23,7 +23,9 @@ Annoin agentille kyvyn tallentaa oppimaansa omaan muistiinsa. Kutsuin tätä **i
 
 Käytännössä tulos ei ollut niin siisti kuin olin toivonut. Agentti alkoi kerätä pääjärjestelmän rinnalle omia oppimispolkujaan. Se muodosti toimintatapoja, joita kukaan ei ollut erikseen pyytänyt eikä tarkistanut.
 
-Ongelma ei ollut se, että agentti oppi. Ongelma oli se, ettei kukaan katsonut, mitä se oppi. Se ei tallentanut vain hyviä ratkaisuja, vaan myös keskeneräisiä, epäselviä ja huonoja toimintatapoja. Itseoppiva agentti ilman tarkistusta on kuin harjoittelija, joka kopioi kaiken näkemänsä — myös virheet — eikä kysy keneltäkään, mikä kannattaa säilyttää. Tässä tapauksessa agentti oppi, että laiskoittelu kannattaa ja usein riittää, että kuittaa homman tehdyksi, vaikkei homma ole välttämättä edes aloitettu, koska se säästää tokeneita. Kun kysyin siltä, miksi hommaa ei ole hoidettu, se vastasi: "En halunnut tehdä sitä."
+Ongelma ei ollut se, että agentti oppi. Ongelma oli se, ettei kukaan katsonut, mitä se oppi. Se ei tallentanut vain hyviä ratkaisuja, vaan myös keskeneräisiä, epäselviä ja huonoja toimintatapoja. Itseoppiva agentti ilman tarkistusta on kuin harjoittelija, joka kopioi kaiken näkemänsä, myös virheet, eikä kysy keneltäkään, mikä kannattaa säilyttää.
+
+Tässä tapauksessa agentti oppi, että laiskoittelu kannattaa ja usein riittää, että kuittaa homman tehdyksi, vaikkei homma ole välttämättä edes aloitettu, koska se säästää tokeneita. Kun kysyin siltä, miksi hommaa ei ole hoidettu, se vastasi: "En halunnut tehdä sitä."
 
 Lopulta poistin skillin käytöstä ja arkistoin sen rinnakkaismuistin. Tilalle tuli sääntö, joka on edelleen voimassa: jos agentti sanoo korjanneensa jotakin, tehtävä ei ole valmis ennen kuin muutos on tehty, tarkistettu ja kuitattu.
 
@@ -33,7 +35,7 @@ Lopulta poistin skillin käytöstä ja arkistoin sen rinnakkaismuistin. Tilalle 
 
 Tämä on koko sarjan turvasääntö, jonka olisi pitänyt olla ilmeinen. Ei tietenkään ollut, koska ilmeiset asiat muuttuvat ilmeisiksi yleensä vasta sen jälkeen, kun ne ovat melkein hajottaneet jotain.
 
-Claus, agenttini pääorkestroija, pyörii saman gateway-prosessin sisällä, joka hoitaa Slack- ja Telegram-yhteydet. Toisin sanoen agentti elää samalla oksalla, jonka kautta se puhuu minulle.
+Claus, agenttini pääorkestroija, pyörii saman gateway-prosessin sisällä, joka hoitaa Slack- ja Telegram-yhteydet.
 
 Siksi jouduin kieltämään siltä erikseen joukon komentoja:
 
@@ -54,8 +56,6 @@ Rakensin järjestelmään varamekanismin. Meillä oli päämallina kallis mutta 
 Ajatus oli järkevä: jos päämalli menee yli rajan, järjestelmä vaihtaa automaattisesti varamalliin, eikä agenttimalli kuole siihen, ettei sillä ole enää kielimallia käytössä. Kun tilanne normalisoituu, se voi palata takaisin päämalliin. Näin käyttäjän ei tarvitse huomata mitään, eikä minun tarvitse päivystää mallibudjettia käsin.
 
 Sitten käyttöastetta seuraava rajapinta palautti lukeman **7900 prosenttia**.
-
-Ei 79 prosenttia. Ei 100 prosenttia. Vaan 7900 prosenttia.
 
 Arvo oli selvästi mahdoton. Se ei tarkoittanut, että olisimme käyttäneet mallia 79 kertaa yli budjetin. Se tarkoitti, että monitori sai kelvottoman mittausarvon. Mutta monitori ei tiennyt sitä. Se teki juuri sen, mitä olin käskenyt sen tehdä: jos käyttöaste näyttää liian korkealta, vaihda varamalliin.
 
@@ -83,9 +83,9 @@ Hyvä virheilmoitus kertoo kolme asiaa:
 - mihin se vaikuttaa,
 - mitä seuraavaksi pitää tehdä.
 
-Stack trace ei ole käyttäjälle tarkoitettu viesti. Se on raakaa dataa. Viesti syntyy vasta, kun joku tai jokin tulkitsee sen. Muuten käyttäjälle lähetetään lähinnä digitaalinen oksennus ja toivotaan parasta.
+Stack trace ei ole käyttäjälle tarkoitettu viesti. Se on raakaa dataa. Viesti syntyy vasta, kun joku tai jokin tulkitsee sen.
 
-**Mitä tästä jäi käteen:** virheilmoituksen laatu on käytännön luotettavuutta. Agentti ei ole luotettava siksi, ettei se koskaan kaadu, vaan siksi, että kaatuessaan se osaa kertoa seuraavan järkevän toimenpiteen selkeällä kielellä.
+**Mitä tästä jäi käteen:** virheilmoituksen laatu on käytännön luotettavuutta. Luotettava agentti osaa kaatuessaan kertoa seuraavan järkevän toimenpiteen selkeällä kielellä.
 
 ## Sama kaava: agentti ei saa päättää kaikesta itse
 
@@ -119,9 +119,9 @@ Jos rakennat agenttia, jolla on oikeita käyttöoikeuksia, aloittaisin näistä 
 
 Itseoppiva skill alkoi kerätä huonoja tapoja. Varamekanismista tuli uusi vikalähde. Agentti oli vähällä sammuttaa oman viestiyhteytensä. Raaka JSON päätyi suoraan käyttäjän luettavaksi.
 
-Syy ei ollut se, että agentti olisi ollut jotenkin erityisen dramaattinen. Sillä oli vain liikaa vapautta sellaisissa kohdissa, joissa vapaus ei ollut tarpeen. Hyvä agentti ei ole se, jolle annetaan mahdollisimman paljon valtaa. Hyvä agentti on se, jonka oikeudet on rajattu tarkasti ja jonka riskialttiit toimet kulkevat hyväksynnän kautta.
+Syy ei ollut se, että agentti olisi ollut jotenkin erityisen dramaattinen. Sillä oli vain liikaa vapautta sellaisissa kohdissa, joissa vapaus ei ollut tarpeen.
 
-Seuraavassa osassa vaihdan koko alustan. Kerron, miksi luovuin OpenClaw'sta — ja mikä yllättäen alkoi vihdoin toimia.
+Seuraavassa osassa vaihdan koko alustan. Kerron, miksi luovuin OpenClaw'sta ja mikä alkoi yllättäen vihdoin toimia.
 
 ---
 

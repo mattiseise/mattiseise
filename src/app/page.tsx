@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Pricing from "@/components/Pricing";
 import Projects from "@/components/Projects";
+import Videos from "@/components/Videos";
 import BlogTeaser from "@/components/BlogTeaser";
 import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
@@ -16,6 +17,7 @@ export default function Page() {
       <About locale="fi" />
       <Pricing locale="fi" />
       <Projects locale="fi" />
+      <Videos locale="fi" />
       <BlogTeaser locale="fi" />
       <Faq locale="fi" />
       <Contact locale="fi" />

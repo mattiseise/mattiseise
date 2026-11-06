@@ -2,80 +2,169 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Sarjakuvatyyli: sama ilme kuin sarjakuvaesityksissä (seise.org/esitykset).
+   Yö-pohja #080b16, syaani pääaksentti, Anton-otsikot ja Inter-leipäteksti.
+   Sarjakuvaruutu = kerman värinen paksu reuna + kova värillinen varjo (--c), jonka ympärillä on musteviiva.
+   Display-riviväli on vähintään 1.10, jotta Antonin Ä/Ö-pisteet eivät osu ylempään riviin. */
+
 :root {
   color-scheme: dark;
+  --c: #22d3ee;
+  --display-lh: 1.12;
 }
 
 html, body {
-  background: #1a1512;
-  color: #f2ece4;
+  background: #080b16;
+  color: #eaf0ff;
 }
 
-::selection { background: #e0a458; color: #1a1512; }
+::selection { background: #22d3ee; color: #080b16; }
 
 a { @apply transition-colors duration-200; }
 
-/* Iltavalo-layout: sisältöleveys 1120px, osioiden pystypadding 96px (desktop). */
+/* Antonilla on yksi paino: estä selainta lihavoimasta sitä keinotekoisesti. */
+.font-display { font-weight: 400; font-synthesis: none; letter-spacing: 0.01em; }
+
+@layer components {
+/* Layout: sisältöleveys 1120px, osioiden pystypadding 96px (desktop). */
 .section-pad { @apply py-16 md:py-24 px-5 md:px-10; }
 .container-narrow { @apply max-w-[1120px] mx-auto; }
 .container-article { @apply max-w-[720px] mx-auto; }
 .container-case { @apply max-w-[840px] mx-auto; }
 
-.eyebrow { @apply uppercase tracking-[0.16em] text-[13px] font-bold text-amber-400; }
-.eyebrow-sm { @apply uppercase tracking-[0.13em] text-xs font-bold text-amber-400; }
-.h1 { @apply font-display text-4xl md:text-[52px] font-semibold tracking-[-0.015em] leading-[1.1]; }
-.h2 { @apply font-display text-3xl md:text-[38px] font-semibold tracking-[-0.01em] leading-[1.15]; }
-.h3 { @apply font-display text-[21px] md:text-[23px] font-semibold; }
-.lead { @apply text-lg text-cream-200 leading-[1.7]; }
-.muted { @apply text-cream-400; }
+/* Yläotsikko kertojalaatikkona: kerman värinen laatikko, mustereuna ja kova varjo kuten sarjakuvan kertojalla. */
+.eyebrow {
+  @apply inline-block w-fit -rotate-1 border-[2.5px] border-muste bg-ruutu px-2.5 py-1
+         font-sans text-[12.5px] font-extrabold uppercase tracking-[0.14em] text-muste;
+  box-shadow: 3px 3px 0 0 var(--c);
+  line-height: 1.3;
+}
+.eyebrow-sm { @apply uppercase tracking-[0.13em] text-xs font-bold text-syaani-400; }
+.h1 { @apply font-display text-[40px] md:text-[60px] tracking-[0.01em]; line-height: var(--display-lh); }
+.h2 { @apply font-display text-[32px] md:text-[44px] tracking-[0.01em]; line-height: var(--display-lh); }
+.h3 { @apply font-sans text-[20px] md:text-[21px] font-bold leading-[1.3]; }
+.lead { @apply text-lg text-teksti-200 leading-[1.7]; }
+.muted { @apply text-teksti-400; }
 
-/* Kortti: bark-800-tausta, hento kermaborderi, hover nostaa ja lämmittää borderin. */
+/* Kortti: hillitty ruutu, joka "ponnahtaa" sarjakuvaruuduksi hoverissa (kova varjo väriltään --c). */
 .card {
-  @apply rounded-2xl border border-cream-50/[0.08] bg-bark-800 p-6 md:p-7
-         transition-[border-color,transform] duration-200
-         hover:border-amber-400/45;
+  @apply rounded-[10px] border-2 bg-yo-800 p-6 md:p-7
+         transition-[border-color,transform,box-shadow] duration-200;
+  border-color: rgba(255, 230, 203, 0.16);
 }
-.card-hover-lift { @apply hover:-translate-y-[3px]; }
+.card:hover { border-color: #ffe6cb; }
+.card-hover-lift:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 0 var(--c), 6px 6px 0 2px #0a0a12;
+}
 
-/* Korostuskortti / CTA-laatikko: amber-gradientti + amber-border. */
+/* Sarjakuvaruutu: näyttämön kehys (3px kerma + kova varjo). Käytä kuville ja nostoille. */
+.ruutu {
+  @apply rounded-[6px] bg-yo-900;
+  border: 3px solid #ffe6cb;
+  box-shadow: 7px 7px 0 0 var(--c), 7px 7px 0 3px #0a0a12;
+}
+.ruutu-sm {
+  @apply rounded-[6px];
+  border: 2.5px solid #ffe6cb;
+  box-shadow: 4px 4px 0 0 var(--c), 4px 4px 0 2.5px #0a0a12;
+}
+
+/* Korostuskortti / CTA-laatikko: sarjakuvaruutu pisterasterilla ja magentavarjolla. */
 .card-glow {
-  border: 1px solid rgba(224, 164, 88, 0.35);
-  background: linear-gradient(150deg, rgba(224, 164, 88, 0.12), #241d18 60%);
+  --c: #f0459b;
+  border: 3px solid #ffe6cb;
+  border-radius: 10px;
+  background-color: #0f1424;
+  background-image: radial-gradient(rgba(34, 211, 238, 0.13) 1.3px, transparent 1.7px);
+  background-size: 14px 14px;
+  box-shadow: 7px 7px 0 0 var(--c), 7px 7px 0 3px #0a0a12;
 }
 
-.btn-primary {
-  @apply inline-flex items-center gap-2 rounded-[10px] bg-amber-400 text-bark-900
-         px-6 py-3.5 text-[15px] font-bold hover:bg-amber-300 transition-colors;
+/* Pisterasteri (halftone) ja säteet: sarjakuvanäyttämön taustat. */
+.pisteet {
+  background-image: radial-gradient(rgba(234, 240, 255, 0.07) 1.3px, transparent 1.7px);
+  background-size: 14px 14px;
 }
-.btn-primary-sm {
-  @apply inline-flex items-center gap-2 rounded-[10px] bg-amber-400 text-bark-900
-         px-5 py-3 text-[14.5px] font-bold hover:bg-amber-300 transition-colors;
+.sateet {
+  background-image: repeating-conic-gradient(from 0deg at 50% 50%, rgba(34, 211, 238, 0.07) 0deg 6deg, transparent 6deg 18deg);
 }
-.btn-outline {
-  @apply inline-flex items-center gap-2 rounded-[10px] border-[1.5px] border-cream-50/25
-         text-cream-50 px-6 py-3.5 text-[15px] font-bold
-         hover:border-amber-400 hover:text-amber-400 transition-colors;
+
+/* Puhekupla: paperinvalkoinen, musteviiva, häntä alhaalla vasemmalla (.kupla-oikea kääntää hännän). */
+.kupla {
+  @apply relative inline-block rounded-[18px] bg-paperi px-4 py-2.5 font-sans text-[15px] font-bold leading-[1.4] text-muste;
+  border: 3px solid #0a0a12;
+  box-shadow: 4px 4px 0 0 rgba(10, 10, 18, 0.55);
 }
-.btn-outline-sm {
-  @apply inline-flex items-center gap-2 rounded-[10px] border-[1.5px] border-cream-50/25
-         text-cream-50 px-5 py-3 text-[14.5px] font-bold
-         hover:border-amber-400 hover:text-amber-400 transition-colors;
+.kupla::after {
+  content: "";
+  position: absolute;
+  left: 26px;
+  bottom: -15px;
+  width: 22px;
+  height: 18px;
+  background: #fff7ec;
+  border-right: 3px solid #0a0a12;
+  border-bottom: 3px solid #0a0a12;
+  transform: skewX(-35deg) rotate(8deg);
+  border-bottom-right-radius: 6px;
 }
-.btn-outline-amber {
-  @apply inline-flex items-center gap-2 rounded-[10px] border-[1.5px] border-amber-400
-         text-amber-400 px-5 py-3 text-[14.5px] font-bold
-         hover:bg-amber-400 hover:text-bark-900 transition-colors;
+.kupla-oikea::after { left: auto; right: 26px; transform: skewX(35deg) rotate(-8deg) scaleX(-1); }
+
+/* Napit: pilleri, mustereuna ja kova varjo kuten esitysten Aloita-nappi. */
+.btn-primary, .btn-primary-sm {
+  @apply inline-flex items-center gap-2 rounded-full bg-syaani-400 font-display uppercase text-yo-900
+         transition-transform duration-150;
+  border: 3px solid #0a0a12;
+  box-shadow: 4px 4px 0 0 #f0459b, 4px 4px 0 3px #0a0a12;
+  letter-spacing: 0.05em;
+  line-height: var(--display-lh);
+}
+.btn-primary { @apply px-6 py-3 text-[19px]; }
+.btn-primary-sm { @apply px-5 py-2.5 text-[17px]; }
+.btn-primary:hover, .btn-primary-sm:hover { @apply bg-syaani-300; transform: translate(-2px, -2px); box-shadow: 6px 6px 0 0 #f0459b, 6px 6px 0 3px #0a0a12; }
+.btn-primary:active, .btn-primary-sm:active { transform: translate(2px, 2px); box-shadow: 2px 2px 0 0 #f0459b, 2px 2px 0 3px #0a0a12; }
+
+.btn-outline, .btn-outline-sm, .btn-outline-amber {
+  @apply inline-flex items-center gap-2 rounded-full font-bold transition-[transform,background-color,color] duration-150;
+  border: 2.5px solid #ffe6cb;
+}
+.btn-outline { @apply px-6 py-3.5 text-[15px] text-teksti-50; }
+.btn-outline-sm { @apply px-5 py-3 text-[14.5px] text-teksti-50; }
+.btn-outline-amber { @apply px-5 py-3 text-[14.5px] text-syaani-400; border-color: #22d3ee; }
+.btn-outline:hover, .btn-outline-sm:hover { @apply bg-ruutu text-muste; transform: translate(-2px, -2px); box-shadow: 4px 4px 0 0 var(--c); }
+.btn-outline-amber:hover { @apply bg-syaani-400 text-yo-900; transform: translate(-2px, -2px); box-shadow: 4px 4px 0 0 #f0459b; }
+
+.btn-primary:focus-visible, .btn-primary-sm:focus-visible, .btn-outline:focus-visible,
+.btn-outline-sm:focus-visible, .btn-outline-amber:focus-visible {
+  outline: 3px solid #22d3ee; outline-offset: 3px;
 }
 
 .input-field {
-  @apply mt-[7px] w-full rounded-[9px] border border-cream-50/15 bg-bark-900/70
-         px-3.5 py-[11px] text-[14.5px] text-cream-50 placeholder:text-cream-400
-         focus:border-amber-400/60 focus:outline-none;
+  @apply mt-[7px] w-full rounded-[9px] bg-yo-900/70
+         px-3.5 py-[11px] text-[14.5px] text-teksti-50 placeholder:text-teksti-400
+         focus:outline-none;
+  border: 2px solid rgba(255, 230, 203, 0.2);
 }
+.input-field:focus { border-color: #22d3ee; box-shadow: 3px 3px 0 0 #22d3ee; }
 
 .tag {
-  @apply inline-flex items-center rounded-full border border-cream-50/15
-         bg-bark-800/40 px-2.5 py-1 text-xs text-cream-200;
+  @apply inline-flex items-center rounded-full bg-yo-900 px-2.5 py-1 text-xs font-semibold text-teksti-100;
+  border: 1.5px solid rgba(255, 230, 203, 0.3);
+}
+
+/* Sarjakuvahahmo: kevyt sisääntulo (pomppaus) heroon. */
+@keyframes hahmoSisaan {
+  0% { opacity: 0; transform: translateY(40px) scale(0.92); }
+  70% { opacity: 1; transform: translateY(-6px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.hahmo-sisaan { animation: hahmoSisaan 0.7s cubic-bezier(0.3, 1.4, 0.5, 1) both; }
+@keyframes kuplaPop {
+  0% { opacity: 0; transform: scale(0.4) rotate(-6deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+.kupla-pop { animation: kuplaPop 0.45s cubic-bezier(0.3, 1.7, 0.5, 1) both; transform-origin: 80% 100%; }
 }
 
 /* Sisääntuloanimaatio above-the-fold-sisällölle; porrastus delay-luokilla. */
@@ -89,10 +178,15 @@ a { @apply transition-colors duration-200; }
 .fade-up-3 { animation-delay: 0.35s; }
 .fade-up-4 { animation-delay: 0.5s; }
 .fade-up-5 { animation-delay: 0.6s; }
+.viive-6 { animation-delay: 0.75s; }
+.viive-8 { animation-delay: 1s; }
+.viive-10 { animation-delay: 1.25s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .fade-up { animation: none; }
+  .fade-up, .hahmo-sisaan, .kupla-pop { animation: none; }
   .animate-word-cycle { animation: none; }
   .animate-pulse-glow { animation: none; }
   .animate-blink-dot { animation: none; }
+  .card-hover-lift:hover, .btn-primary:hover, .btn-primary-sm:hover, .btn-outline:hover,
+  .btn-outline-sm:hover, .btn-outline-amber:hover { transform: none; }
 }

@@ -4,7 +4,7 @@ import CaseLayout, { CaseList, CaseArticleSchema } from "@/components/CaseLayout
 const slug = "urheiluhallit-booker";
 const title = "Urheiluhallit-booker — varauksen automatisointi";
 const description =
-  "Selainautomaatio, joka kirjautuu, etsii ryhmäliikuntatunnin ja varaa sen ajastetusti — esimerkki kirjautumista vaativan oman rutiinin hallitusta automatisoinnista.";
+  "Selainautomaatio, joka kirjautuu, etsii ryhmäliikuntatunnin ja varaa sen ajastetusti. Esimerkki siitä, miten kirjautumista vaativan oman rutiinin voi automatisoida hallitusti.";
 
 export const metadata: Metadata = {
   title: title + " · Matti Seise",
@@ -102,11 +102,11 @@ export default function Page() {
             body: (
               <CaseList
                 items={[
-                  "Python + Playwright — moderni selainautomaatio, joka kestää JavaScript-painotteiset käyttöliittymät",
-                  "Tutkimuspohjainen toteutus: skripti tunnistaa kirjautumis- ja varauspolut automaattisesti — ei kovakoodattuja selektoreita, jotka rikkoutuisivat ensimmäisen päivityksen yhteydessä",
+                  "Python + Playwright: selainautomaatio, joka kestää JavaScript-painotteiset käyttöliittymät",
+                  "Tutkimuspohjainen toteutus: skripti tunnistaa kirjautumis- ja varauspolut automaattisesti eikä käytä kovakoodattuja selektoreita, jotka hajoaisivat ensimmäisessä päivityksessä",
                   "Kirjautumistila tallennetaan: yksi kirjautuminen riittää, varauksia ei keskeytä uudelleenkirjautuminen",
                   "Manuaalinen tallennustila näkyvässä selaimessa, kun varauspolku muuttuu — opetustila uudelle käyttötapaukselle",
-                  "Lokit ja kuvakaappaukset jokaisesta ajosta — vianetsintä on nopeaa kun jokin järjestelmäpäivityksen jälkeen muuttuu",
+                  "Lokit ja kuvakaappaukset jokaisesta ajosta, joten vika löytyy nopeasti, kun jokin muuttuu järjestelmäpäivityksen jälkeen",
                 ]}
               />
             ),
@@ -130,8 +130,8 @@ export default function Page() {
                 items={[
                   "Vastaava varaus- tai asiointiautomaatio organisaatiollesi",
                   "Olemassa olevan rutiinin kartoitus: mikä on automatisoitavissa, mikä ei",
-                  "Kirjautumis- ja työnkulun tunnistus tutkimuspohjaisesti — kestää käyttöliittymäpäivityksiä paremmin",
-                  "Kestävä toteutus: virhetilanteiden hallinta, lokitus ja ihmisen rajapinta päätöksiin, jotka eivät kuulu automaatiolle",
+                  "Kirjautumis- ja työnkulun tunnistus tutkimuspohjaisesti, jolloin toteutus kestää käyttöliittymäpäivityksiä paremmin",
+                  "Kestävä toteutus: virhetilanteiden hallinta, lokitus ja ihminen mukaan päätöksiin, jotka eivät kuulu automaatiolle",
                 ]}
               />
             ),

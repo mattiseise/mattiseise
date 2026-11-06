@@ -107,14 +107,14 @@ export default function Page() {
                     "27 oppituntia jaettuna kolmeen kokonaisuuteen: teoria, käyttö ja agentit",
                     "Erillinen opiskelija- ja opettajamateriaali jokaiselle oppitunnille (itseopiskelu, tehtävät, sanasto, opettajavetoiset tehtävät)",
                     "Sivuston­generaattori muuntaa Markdown-sisällön julkaistavaksi sivustoksi yhdellä komennolla",
-                    "Sisältö avoimena lähdekoodina GitHubissa — muut oppilaitokset voivat hyödyntää, muokata ja jatkokehittää",
+                    "Sisältö on avoimena lähdekoodina GitHubissa, joten muut oppilaitokset voivat käyttää, muokata ja jatkokehittää sitä",
                     "Julkinen versio: aiperusteet.fi",
                   ]}
                 />
                 <p className="mt-5 text-sm muted">
                   Avoin sivusto:{" "}
                   <a
-                    className="text-amber-400 hover:text-amber-300 hover:underline"
+                    className="text-syaani-400 hover:text-syaani-300 hover:underline"
                     href={aiperusteetUrl("case-tekoalyn-perusteet")}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -123,7 +123,7 @@ export default function Page() {
                   </a>{" "}
                   · Lähdekoodi:{" "}
                   <a
-                    className="text-amber-400 hover:text-amber-300 hover:underline"
+                    className="text-syaani-400 hover:text-syaani-300 hover:underline"
                     href="https://github.com/mattiseise/ai-perusteet"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -188,8 +188,8 @@ export default function Page() {
               <>
                 <CaseList
                   items={[
-                    "Tekoälykoulutus organisaatiollesi käyttäen näiden materiaalien runkoa, räätälöitynä toimialaan",
-                    "Pedagoginen suunnittelu ja sisältö omaan koulutukseen — Bloomin taksonomian ja linjakkaan opetuksen periaattein",
+                    "Tekoälykoulutus organisaatiollesi näiden materiaalien rungolla ja toimialaan sovitettuna",
+                    "Pedagoginen suunnittelu ja sisältö omaan koulutukseen Bloomin taksonomian ja linjakkaan opetuksen pohjalta",
                     "Sivuston­generaattori avoimena lähdekoodina, jos haluat vastaavan Markdown-pohjaisen sivuston",
                     "Yhteistyö koulutusvientiin: kurssin englanninkielinen versio on suunnitteilla",
                   ]}
@@ -198,7 +198,7 @@ export default function Page() {
                   Katso{" "}
                   <Link
                     href="/#koulutukset"
-                    className="text-amber-400 hover:text-amber-300 hover:underline"
+                    className="text-syaani-400 hover:text-syaani-300 hover:underline"
                   >
                     koulutuspaketit ja hinnasto
                   </Link>{" "}
@@ -210,7 +210,7 @@ export default function Page() {
         ]}
         cta={{
           label:
-            "Räätälöidään koulutus tai työpaja tarpeesi mukaan — yhden työpajan kestosta useamman päivän ohjelmaan.",
+            "Räätälöidään koulutus tai työpaja tarpeesi mukaan. Laajuus voi olla yksi työpaja tai useamman päivän ohjelma.",
           href: "/#yhteys",
         }}
         prev={{

@@ -48,7 +48,7 @@ export default function Page() {
         alternateHref={`/en/caset/${slug}`}
         eyebrow="Case · Pedagoginen analyysi"
         title="Moodle-kurssiauditointi — kurssin sotkut näkyviin yhdellä ajolla"
-        lead="Rakensin agentin, joka lukee Moodle-varmuuskopion ja tekee siitä pedagogisen auditoinnin. Ei yleistä tunnelmapuhetta, vaan rakenne, Bloom-tasot, ePerusteiden kattavuus, duplikaatit ja korjausehdotukset aika-arvioineen."
+        lead="Rakensin agentin, joka lukee Moodle-varmuuskopion ja tekee siitä pedagogisen auditoinnin. Raportti käy läpi rakenteen, Bloom-tasot, ePerusteiden kattavuuden, duplikaatit ja korjausehdotukset aika-arvioineen."
         facts={[
           { label: "Aikaväli", value: "2025" },
           { label: "Kohde", value: "Moodle .mbz" },
@@ -104,16 +104,16 @@ export default function Page() {
                 </p>
                 <CaseList
                   items={[
-                    "289 aktiviteettia: 142 teoriasivua (49 %) ja 126 tehtävää (44 %) — runko vahva",
+                    "289 aktiviteettia: 142 teoriasivua (49 %) ja 126 tehtävää (44 %), eli runko oli vahva",
                     "Bloomin jakauma painottui voimakkaasti soveltamis­tasolle (43 %), mutta analysointi­tason tehtäviä oli vain noin 1 %",
                     "Yksi pääosio oli kasvanut 137 aktiviteetin kokonaisuudeksi, joka vaikeutti opiskelijan navigointia",
-                    "83 duplikaattiaktiviteettia eri osioissa — pedagoginen polku ei ollut selkeä",
+                    "83 duplikaattiaktiviteettia eri osioissa, joten pedagoginen polku ei ollut selkeä",
                     "Viisi opiskelijoiden nimillä nimettyä tyhjää osiota ja muutama rikkinäinen linkki",
                   ]}
                 />
                 <p>
                   Raportti teki priorisoidun toimenpidelistan
-                  aika-arvioineen — esimerkiksi rakenteen jakaminen
+                  aika-arvioineen. Mukana oli esimerkiksi rakenteen jakaminen
                   ammatti­taito­vaatimuksittain (4–6 h), duplikaattien
                   ratkaisu (3–4 h) ja Bloomin tasapainon korjaus
                   analysointi­tason tehtävillä (8–12 h). Opettaja sai
@@ -156,7 +156,7 @@ export default function Page() {
         ]}
         cta={{
           label:
-            "Auditoidaan teidän kurssinne — yksi tai useita. PDF-raportti ja konkreettiset toimenpide-ehdotukset.",
+            "Auditoidaan teidän kurssinne, yksi tai useampi. Saatte PDF-raportin ja konkreettiset toimenpide-ehdotukset.",
           href: "/#yhteys",
         }}
         prev={{

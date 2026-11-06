@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Pricing from "@/components/Pricing";
 import Projects from "@/components/Projects";
+import Videos from "@/components/Videos";
 import BlogTeaser from "@/components/BlogTeaser";
 import Faq from "@/components/Faq";
 import Contact from "@/components/Contact";
@@ -41,6 +42,7 @@ export default function EnglishHome() {
       <About locale="en" />
       <Pricing locale="en" />
       <Projects locale="en" />
+      <Videos locale="en" />
       <BlogTeaser locale="en" />
       <Faq locale="en" />
       <Contact locale="en" />

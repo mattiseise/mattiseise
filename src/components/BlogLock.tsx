@@ -78,15 +78,15 @@ export function PublishGate({
         {children}
       </div>
       <div className="absolute inset-x-0 top-0 flex justify-center px-4 pt-10 sm:pt-16">
-        <div className="max-w-sm rounded-2xl border border-amber-400/40 bg-bark-800 p-7 text-center">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-amber-400/40 bg-bark-900/60 text-xl">
+        <div className="max-w-sm ruutu bg-yo-800 p-7 text-center">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-syaani-400/40 bg-yo-900/60 text-xl">
             🔒
           </div>
           <p className="eyebrow-sm mt-4">{labels.publishes}</p>
-          <p className="mt-1 text-lg font-bold text-cream-50">{publishLabel}</p>
+          <p className="mt-1 text-lg font-bold text-teksti-50">{publishLabel}</p>
           <Link
             href={backHref}
-            className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-amber-400 hover:text-amber-300"
+            className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-syaani-400 hover:text-syaani-300"
           >
             {labels.backToSeries}
           </Link>

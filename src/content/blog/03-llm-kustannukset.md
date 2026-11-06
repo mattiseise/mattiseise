@@ -13,7 +13,7 @@ coverAlt: "Läppärin dashboard, jossa token-käyttögraafi piikkaa punaisena �
 nosto: "Yhdessä yössä taustatyö käytti 22 prosenttia viikon AI-budjetistani — ilman varoitusta ja ilman näkyvää virheilmoitusta. Se ei ollut yksittäinen poikkeus, vaan yksi neljästä kalliista virheestä, joissa ongelma ei ollut kaatuminen vaan hiljaisuus. Osa 3 käsittelee agentin vaarallisinta vikaa: sitä, että se voi epäonnistua niin siististi, ettei kukaan huomaa mitään. 👇"
 ---
 
-Agentteja rakentaessa parhaat muistijäljet eivät yleensä synny niistä kerroista, kun kaikki meni oikein. Ne syntyvät niistä kerroista, kun järjestelmä teki väärän asian, liian kalliin asian tai ei tehnyt mitään — ja näytti silti ulospäin ihan tyytyväiseltä itseensä.
+Agentteja rakentaessa parhaat muistijäljet eivät yleensä synny niistä kerroista, kun kaikki meni oikein. Ne syntyvät niistä kerroista, kun järjestelmä teki väärän asian, liian kalliin asian tai ei tehnyt mitään mutta näytti silti ulospäin ihan tyytyväiseltä itseensä.
 
 Minulle näitä kertyi kahdeksan. Tässä osassa on niistä ensimmäiset neljä. Ne olivat erilaisia virheitä, mutta sama vaiva toistui: sain tietää ongelmasta liian myöhään tai en ollenkaan.
 
@@ -21,7 +21,7 @@ Seuraavassa osassa mennään astetta ikävämpiin tapauksiin: niihin, joissa age
 
 ## 1. Kun 22 prosenttia viikkobudjetista kului yhdessä yössä
 
-Tämä oli koko sarjan kallein läksy. Ei näyttävä katastrofi, vaan sellainen tavallinen automaatiovirhe, jossa laskuri tekee yön aikana oman pienen performanssinsa.
+Tämä oli koko sarjan kallein läksy, vaikka kyse oli ihan tavallisesta automaatiovirheestä.
 
 Eräs tekoälyistunto oli ajastettu heräämään taustalla joka toinen tunti ja tekemään lyhyen tilannekatsauksen. Ajatus oli ihan järkevä: agentti tarkistaa tilanteen säännöllisesti ja kertoo vain, jos jokin vaatii huomiota.
 
@@ -31,7 +31,7 @@ Yksittäinen ajo ei näyttänyt dramaattiselta. Mutta kun sama raskas ajo toistu
 
 Teknisesti mikään ei ollut rikki. Järjestelmä teki juuri sen, mitä olin käskenyt sen tehdä. Se vain teki sen tavalla, joka oli tuhansia kertoja kalliimpi kuin olin tarkoittanut. Pieni ero, jos sattuu pitämään rahasta.
 
-**Mitä tästä jäi käteen:** muisti ei saa olla näkymätön kustannus. Jokainen automaattinen herätys, joka lataa suuren kontekstin, on toistuva lasku. Kustannus pitää nähdä ajoa kohti, ei vasta kuukauden lopussa. Kuukausiraportti on tässä kohtaa lähinnä kuolinilmoitus.
+**Mitä tästä jäi käteen:** muisti ei saa olla näkymätön kustannus. Jokainen automaattinen herätys, joka lataa suuren kontekstin, on toistuva lasku. Kustannus pitää nähdä ajoa kohti, ei vasta kuukauden lopussa.
 
 ## 2. Kun väärä Python-versio teki virheistä satunnaisen näköisiä
 
@@ -97,10 +97,8 @@ Nämä neljä virhettä olivat kalliita eri tavoilla. Yhdessä tapauksessa paloi
 
 Agentin luotettavuus ei synny siitä, ettei se koskaan epäonnistu. Se syntyy siitä, että epäonnistuminen huomataan heti.
 
-Hiljainen onnistuminen on hyvä ominaisuus. Hiljainen epäonnistuminen on riski.
-
 Seuraavassa osassa siirrytään kustannuksista selviytymiseen: neljään tilanteeseen, joissa agentti oli vähällä kääntyä itseään vastaan.
 
 ---
 
-**Jos rakennat agenttia ja haluat välttää nämä samat kuopat, se on ihan järkevä tavoite.** Teen tätä työtä konsulttina ja kouluttajana — [pyydä tarjous agenttisprintistä](https://seise.org/#yhteys).
+**Rakennatko agenttia ja haluat välttää nämä samat kuopat?** Teen tätä työtä konsulttina ja kouluttajana: [pyydä tarjous agenttisprintistä](https://seise.org/#yhteys).

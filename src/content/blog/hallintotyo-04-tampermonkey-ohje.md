@@ -72,6 +72,6 @@ Tarkista ensin, että skripti on päällä ja sivun osoite sopii `@match`-rajauk
 
 Avaa Tampermonkeyn hallintapaneeli, kytke kyseinen skripti pois ja lataa sivu uudelleen. Tyylimuutos katoaa. Saraketyökalun tallennettu valinta voi jäädä selaimeen, mutta pois päältä oleva skripti ei käytä sitä.
 
-Näihin kirjoituksiin ei ole liitetty alkuperäisten korostus- ja sarakeskriptieni ladattavaa pakettia. Ohje on niiden toimintaperiaatteen toteuttamiseen omaan näkymään. Wilman ja itslearningin rakenteet sekä osoitteet vaihtelevat, joten oma testaus kuuluu käyttöönottoon.
+Näihin kirjoituksiin ei ole liitetty alkuperäisten korostus- ja sarakeskriptieni ladattavaa pakettia. Ohjeella voi toteuttaa saman toimintaperiaatteen omaan näkymään. Wilman ja itslearningin rakenteet sekä osoitteet vaihtelevat, joten oma testaus kuuluu käyttöönottoon.
 
 Minulle tämä on ollut käytännöllinen tapa käyttää tekoälyä. Kuvaan yhden ärsyttävän työvaiheen ja rakennan siihen pienen apurin. Kun se toimii, minun ei tarvitse ajatella sitä joka kerta uudelleen.

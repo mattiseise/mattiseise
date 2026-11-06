@@ -29,9 +29,9 @@ const text = {
     previous: "Edellinen osa",
     next: "Seuraava osa",
     ctaTitle: "Rakennatko omaa agenttia?",
-    ctaBody: "Voin auttaa suunnittelemaan sen niin, ettei ensimmäinen versio muutu omaksi pikku käyttöjärjestelmäkseen. Katso koulutukset — tai verkostoidutaan LinkedInissä, jos haluat seurata sarjaa.",
+    ctaBody: "Voin auttaa suunnittelemaan sen niin, ettei ensimmäinen versio muutu omaksi pikku käyttöjärjestelmäkseen. Katso koulutukset. Jos haluat seurata sarjaa, löydät minut LinkedInistä.",
     ctaTitlePedagogy: "Haluatko tästä koulutuksen omalle porukallesi?",
-    ctaBodyPedagogy: "Pidän aiheesta käytännönläheisiä työpajoja opettajille ja organisaatioille — harjoitukset tehdään omilla työkaluilla ja sisältö räätälöidään kohderyhmälle. Katso koulutuspaketit tai verkostoidutaan LinkedInissä.",
+    ctaBodyPedagogy: "Pidän aiheesta käytännön työpajoja opettajille ja organisaatioille. Harjoitukset tehdään omilla työkaluilla, ja sisältö sovitetaan kohderyhmälle. Katso koulutuspaketit tai ota yhteyttä LinkedInissä.",
     ctaBtn: "Katso koulutukset",
     videoHeading: "Katso toteutus videolta",
     lock: {
@@ -129,21 +129,21 @@ export default function PostLayout({
 
       <article className="px-5 pb-0 pt-14 md:px-10 md:pt-[72px]">
         <div className="container-article">
-          <p className="text-[12.5px] font-bold uppercase tracking-[0.14em] text-amber-400">
+          <p className="text-[12.5px] font-bold uppercase tracking-[0.14em] text-syaani-400">
             {inSeries ? (
               <>
-                <Link href={blogPath(locale)} className="text-amber-400 hover:text-amber-300">
+                <Link href={blogPath(locale)} className="text-syaani-400 hover:text-syaani-300">
                   {t.series}: {post.series}
                 </Link>
                 {" "}· {t.part} {post.part}/{post.totalParts}
               </>
             ) : (
-              <Link href={blogPath(locale)} className="text-amber-400 hover:text-amber-300">
+              <Link href={blogPath(locale)} className="text-syaani-400 hover:text-syaani-300">
                 {t.standalone} · {topicLabels[locale][post.topic ?? "agents"]}
               </Link>
             )}
           </p>
-          <h1 className="mt-[18px] font-display text-[32px] font-semibold leading-[1.15] tracking-[-0.015em] text-cream-50 md:text-[42px]">
+          <h1 className="mt-[18px] font-display text-[32px] leading-[1.15] tracking-[0.01em] text-teksti-50 md:text-[42px]">
             {post.title}
           </h1>
           <div className="mt-[22px] flex items-center gap-3.5">
@@ -152,10 +152,10 @@ export default function PostLayout({
               alt="Matti Seise"
               width={44}
               height={44}
-              className="h-11 w-11 rounded-full object-cover"
+              className="h-11 w-11 rounded-full border-2 border-ruutu object-cover"
             />
-            <div className="text-sm text-cream-400">
-              <p className="font-bold text-cream-50">Matti Seise</p>
+            <div className="text-sm text-teksti-400">
+              <p className="font-bold text-teksti-50">Matti Seise</p>
               <p className="mt-0.5">
                 <time dateTime={post.date}>{formatDate(post.date, locale)}</time>
                 {" "}· {post.readingMinutes} {t.readingTime}
@@ -166,7 +166,7 @@ export default function PostLayout({
 
         {post.cover && (
           <div className="mx-auto mt-10 max-w-[880px]">
-            <div className="relative w-full overflow-hidden rounded-[18px]" style={{ aspectRatio: "16/8.5" }}>
+            <div className="ruutu relative w-full overflow-hidden" style={{ aspectRatio: "16/8.5" }}>
               <Image
                 src={post.cover}
                 alt={post.coverAlt ?? post.title}
@@ -195,7 +195,7 @@ export default function PostLayout({
             <Markdown>{post.content}</Markdown>
             {post.videoId && (
               <section className="mt-12">
-                <h2 className="mb-4 font-display text-[26px] font-semibold text-cream-50 md:text-[27px]">
+                <h2 className="mb-4 font-display text-[26px] text-teksti-50 md:text-[27px]">
                   {t.videoHeading}
                 </h2>
                 <VideoEmbed
@@ -216,17 +216,17 @@ export default function PostLayout({
             {prev ? (
               <Link
                 href={blogPath(locale, prev.slug)}
-                className="rounded-[14px] border border-cream-50/10 bg-bark-800 px-6 py-5 transition-colors hover:border-amber-400"
+                className="card card-hover-lift !px-6 !py-5"
               >
-                <span className="block text-xs font-bold uppercase tracking-[0.11em] text-amber-400">
+                <span className="block text-xs font-bold uppercase tracking-[0.11em] text-syaani-400">
                   {t.previous}
                 </span>
-                <span className="mt-1.5 block text-[15px] font-bold leading-[1.4] text-cream-50">
+                <span className="mt-1.5 block text-[15px] font-bold leading-[1.4] text-teksti-50">
                   {prev.title}
                 </span>
               </Link>
             ) : (
-              <span className="rounded-[14px] border border-cream-50/10 px-6 py-5 text-cream-600">
+              <span className="rounded-[10px] border-2 border-dashed border-teksti-50/10 px-6 py-5 text-teksti-400">
                 <span className="block text-xs font-bold uppercase tracking-[0.11em]">
                   {t.previous}
                 </span>
@@ -236,17 +236,17 @@ export default function PostLayout({
             {next ? (
               <Link
                 href={blogPath(locale, next.slug)}
-                className="rounded-[14px] border border-amber-400/40 bg-bark-800 px-6 py-5 text-right transition-colors hover:border-amber-400"
+                className="card card-hover-lift !px-6 !py-5 text-right"
               >
-                <span className="block text-xs font-bold uppercase tracking-[0.11em] text-amber-400">
+                <span className="block text-xs font-bold uppercase tracking-[0.11em] text-syaani-400">
                   {t.next}
                 </span>
-                <span className="mt-1.5 block text-[15px] font-bold leading-[1.4] text-cream-50">
+                <span className="mt-1.5 block text-[15px] font-bold leading-[1.4] text-teksti-50">
                   {next.title}
                 </span>
               </Link>
             ) : (
-              <span className="rounded-[14px] border border-cream-50/10 px-6 py-5 text-right text-cream-600">
+              <span className="rounded-[10px] border-2 border-dashed border-teksti-50/10 px-6 py-5 text-right text-teksti-400">
                 <span className="block text-xs font-bold uppercase tracking-[0.11em]">
                   {t.next}
                 </span>
@@ -256,11 +256,11 @@ export default function PostLayout({
           </nav>
         )}
 
-        <div className="container-article card-glow mt-10 rounded-[18px] p-8">
-          <h2 className="font-display text-[23px] font-semibold text-cream-50">
+        <div className="container-article card-glow mt-10 p-8">
+          <h2 className="font-sans text-[23px] font-bold text-teksti-50">
             {ctaTitle}
           </h2>
-          <p className="mt-2.5 text-[15.5px] leading-[1.65] text-cream-300">
+          <p className="mt-2.5 text-[15.5px] leading-[1.65] text-teksti-300">
             {ctaBody}
           </p>
           <div className="mt-5 flex flex-wrap gap-3">

@@ -18,11 +18,11 @@ const ui = {
   fi: {
     eyebrow: "Blogi",
     title: "Kirjoituksia agenteista, automaatiosta ja opettamisesta.",
-    lead: "Sarjat ja irtokirjoitukset — tuotantokokemusta ilman hypeä. Kalliit virheet kerrotaan yhtä tarkasti kuin onnistumiset.",
+    lead: "Sarjoja ja irtokirjoituksia siitä, miten asiat ovat toimineet oikeassa käytössä. Kalliit virheet kerron yhtä tarkasti kuin onnistumiset.",
     allLabel: "Kaikki",
     upcomingLabel: "Tulossa",
     ctaTitle: "Rakennatko omaa agenttia?",
-    ctaBody: "Autan suunnittelusta tuotantoon — kevyestä koulutusjohdannosta kokonaiseen 1–2 päivän agenttisprinttiin.",
+    ctaBody: "Autan suunnittelusta tuotantoon asti: kevyestä koulutusjohdannosta 1–2 päivän agenttisprinttiin.",
     ctaBtn1: "Katso koulutukset",
     ctaBtn2: "Ota yhteyttä",
     aerialCredit: "Ilmakuva: Helsingin kaupunginmuseo / Suomen Ilmakuva Oy (CC BY 4.0)",
@@ -60,11 +60,11 @@ const ui = {
 /** Sarjakohtaiset kuvaukset sarjanostoon; puuttuessa käytetään osan 1 kuvausta. */
 const seriesDescriptions: Record<string, Record<Locale, string>> = {
   "tekoaly-opettajan-hallintotyossa": {
-    fi: "Kaikki seitsemän osaa ovat nyt luettavissa. Wilman keskeneräiset suoritukset, itslearningin palautukset, sarakkeiden piilotus ja opintosuunnitelman täyttö — mukana kuvat, Tampermonkey-ohje ja sovelluksen käyttöönotto.",
+    fi: "Kaikki seitsemän osaa ovat nyt luettavissa. Wilman keskeneräiset suoritukset, itslearningin palautukset, sarakkeiden piilotus ja opintosuunnitelman täyttö. Mukana ovat kuvat, Tampermonkey-ohje ja sovelluksen käyttöönotto.",
     en: "All seven parts are available in Finnish: Wilma completion highlights, itslearning submissions, column visibility and study-plan entry, with images and setup instructions.",
   },
   "oman-ai-agentin-rakentaminen": {
-    fi: "Kuusiosainen sarja oman tekoälyagentin viemisestä tuotantoon: chatbotin ja agentin ero, yliarkkitehtuuri, kahdeksan kallista virhettä, autonomian rajat ja alustanvaihto OpenClaw'sta Hermekseen — rehellisesti, ilman AI-hypeä.",
+    fi: "Kuusiosainen sarja oman tekoälyagentin viemisestä tuotantoon: chatbotin ja agentin ero, yliarkkitehtuuri, kahdeksan kallista virhettä, autonomian rajat ja alustanvaihto OpenClaw'sta Hermekseen.",
     en: "A six-part series on taking a personal AI agent to production: chatbot vs. agent, over-architecture, eight expensive mistakes, the limits of autonomy and the platform switch from OpenClaw to Hermes — honestly, without AI hype.",
   },
 };

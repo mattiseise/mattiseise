@@ -23,7 +23,7 @@ Tiesin, että omassa kurssissani on tätä samaa. En vain tiennyt, kuinka paljon
 Rakensin **auditointiagentin**, joka lukee Moodlen varmuuskopion (.mbz-tiedoston) ja käy kurssin läpi kolmesta suunnasta:
 
 - **Rakenne**: osioiden koko, duplikaatit, rikkinäiset linkit ja tyhjät osiot.
-- **Bloomin taksonomia**: millä ajattelun tasoilla kurssin tehtävät liikkuvat — muistamisesta ja soveltamisesta analysointiin ja arviointiin.
+- **Bloomin taksonomia**: millä ajattelun tasoilla kurssin tehtävät liikkuvat, muistamisesta ja soveltamisesta analysointiin ja arviointiin.
 - **Linjakkuus**: kattaako kurssi ePerusteiden ammattitaitovaatimukset ja kertovatko tavoitteet, opetus ja arviointi samaa tarinaa.
 
 Lopputulos on PDF-raportti. Tärkein valinta oli, että raportti ei kuvaile vaan ehdottaa: jokaisesta havainnosta seuraa toimenpide ja aika-arvio. En halunnut esseetä kurssini tilasta. Halusin työlistan.
@@ -52,10 +52,10 @@ Agentti analysoi, minä päätän.
 
 Raportti voi kertoa, että analysointitason tehtäviä on prosentti. Se ei voi tietää, että osa niistä tehdään lähiopetuksessa ilman Moodle-jälkeä. Se laskee duplikaatit, mutta minä tiedän, mitkä niistä ovat tarkoituksella rinnakkain. Siksi raportti on ehdotus, ei tuomio, ja jokainen toimenpide kulkee opettajan harkinnan kautta.
 
-Agentti ei myöskään koske itse kurssiin. Se lukee varmuuskopiota eikä muuta mitään. Opiskelijatietoja analyysiin ei mene — varmuuskopio otetaan ilman niitä.
+Agentti ei myöskään koske itse kurssiin. Se lukee varmuuskopiota eikä muuta mitään. Opiskelijatietoja analyysiin ei mene, koska varmuuskopio otetaan ilman niitä.
 
 ## Mitä tästä jäi käteen
 
-Kurssin laadun kannalta tärkeimmät kysymykset — kattaako kurssi vaatimukset, mittaako arviointi oikeita asioita, löytääkö opiskelija perille — ovat juuri niitä, joiden äärelle ei arjessa ehdi pysähtyä. Auditointi teki pysähtymisestä halpaa. Kun tarkistus maksaa minuutteja eikä päivää, sen ehtii tehdä joka lukukausi.
+Kurssin laadun kannalta tärkeimmät kysymykset ovat juuri niitä, joiden äärelle ei arjessa ehdi pysähtyä: kattaako kurssi vaatimukset, mittaako arviointi oikeita asioita ja löytääkö opiskelija perille. Auditointi teki pysähtymisestä halpaa. Kun tarkistus maksaa minuutteja eikä päivää, sen ehtii tehdä joka lukukausi.
 
-Tekninen toteutus ja esimerkkiraportti on kuvattu tarkemmin [case-sivulla](/caset/moodle-kurssiauditointi). Sama auditointi onnistuu myös muille — yksittäisestä kurssista koko oppilaitoksen yhteenvetoon.
+Tekninen toteutus ja esimerkkiraportti on kuvattu tarkemmin [case-sivulla](/caset/moodle-kurssiauditointi). Sama auditointi onnistuu myös muille, yksittäisestä kurssista koko oppilaitoksen yhteenvetoon.

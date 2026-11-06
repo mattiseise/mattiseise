@@ -5,7 +5,7 @@ part: 5
 totalParts: 6
 series: "Oman AI-agentin rakentaminen"
 seriesSlug: "oman-ai-agentin-rakentaminen"
-description: "Vaihdoin agenttini OpenClaw'sta Hermekseen: yksi gateway, selattava muisti ja automaatiot, jotka vihdoin toimivat. Kaaoksesta kontrolliin."
+description: "Vaihdoin agenttini OpenClaw'sta Hermekseen: yksi gateway, selattava muisti ja automaatiot, jotka vihdoin toimivat."
 keyword: "AI-agenttialusta"
 date: "2026-06-18T08:00:00+03:00"
 cover: "/images/blog/05-kaaos_kontrolli.jpg"
@@ -13,7 +13,7 @@ coverAlt: "Kaksi läppäriä: vasemmalla OpenClawin sekava punainen järjestelm�
 nosto: "Vaihdoin agenttini koko alustan yhdestä syystä: halusin käyttää järjestelmää, en korjata sitä joka toinen ilta. OpenClaw'sta Hermekseen siirtyminen tarkoitti matkaa 30 erillisestä palvelusta yhteen gatewayhin ja mustasta laatikosta kohti selattavaa muistia. Osa 5 kertoo, mitä muuttui — ja miksi paras merkki onnistumisesta oli se, että järjestelmä alkoi tuntua tylsältä. 👇"
 ---
 
-Edellisissä osissa kerroin, miten ensimmäinen agenttijärjestelmäni kasvoi liian monimutkaiseksi. Se ei romahtanut komeasti savukoneen kanssa, vaan alkoi hiljalleen keksiä uusia tapoja epäonnistua: osa virheistä oli kalliita, osa hiljaisia ja osa suoraan vaarallisia.
+Edellisissä osissa kerroin, miten ensimmäinen agenttijärjestelmäni kasvoi liian monimutkaiseksi. Se ei romahtanut kerralla, vaan alkoi hiljalleen keksiä uusia tapoja epäonnistua: osa virheistä oli kalliita, osa hiljaisia ja osa suoraan vaarallisia.
 
 Tässä osassa tullaan käännekohtaan. Jossain vaiheessa tajusin, etten enää rakentanut assistenttia. Ylläpidin infrastruktuuria. Se on hieno sana sille, että iltaisin saa tuijottaa lokia ja miettiä, miksi oma robotti taas murjottaa.
 
@@ -133,7 +133,7 @@ Käytännössä keskeneräisyys näkyy kolmessa paikassa:
 
 Tämä ei ole epäonnistuminen. Se on välivaihe, jonka tunnistaminen on hyödyllisempää kuin sen lakaisu maton alle.
 
-Kun joku seuraavan kerran esittelee "täysin kivutonta migraatiota", kannattaa kysyä, mikä osa vanhasta jäi elämään pinnan alle. Jotakin jää lähes aina. Olennaisinta on tietää, mitä jäi — ei teeskennellä, ettei mitään jäänyt.
+Kun joku seuraavan kerran esittelee "täysin kivutonta migraatiota", kannattaa kysyä, mikä osa vanhasta jäi elämään pinnan alle. Jotakin jää lähes aina. Olennaisinta on tietää, mitä jäi, eikä teeskennellä, ettei mitään jäänyt.
 
 ## Mitä tekisin uudelleen?
 
@@ -151,7 +151,7 @@ Se onnistui suurelta osin. Yksi gateway, pääosin selattava muisti ja pienempi 
 
 Samalla on rehellistä sanoa, ettei "kaaoksesta kontrolliin" tarkoittanut "kaaoksesta valmiiksi". Kontrolli parani, mutta järjestelmä ei muuttunut täydelliseksi. Harmillista kyllä, tekninen velka ei ymmärtänyt poistua kohteliaasti takaovesta.
 
-Viimeisessä osassa kokoan, mitä tästä kaikesta jäi käteen — ja mikä on edelleen kesken.
+Viimeisessä osassa kokoan, mitä tästä kaikesta jäi käteen ja mikä on edelleen kesken.
 
 ---
 

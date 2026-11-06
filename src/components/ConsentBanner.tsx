@@ -39,10 +39,10 @@ export default function ConsentBanner() {
       role="dialog"
       aria-live="polite"
       aria-label="Evästesuostumus"
-      className="fixed bottom-3 left-3 right-3 z-50 mx-auto max-w-2xl rounded-xl border border-cream-50/15 bg-bark-800/95 p-4 shadow-lg backdrop-blur md:bottom-5 md:p-5"
+      className="fixed bottom-3 left-3 right-3 z-50 mx-auto max-w-2xl ruutu-sm bg-yo-800 p-4 md:bottom-5 md:p-5"
     >
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <p className="text-sm leading-relaxed text-cream-100">
+        <p className="text-sm leading-relaxed text-teksti-100">
           Käytän anonyymiä kävijäseurantaa (Google Analytics) sivuston
           kehittämiseen. Analytiikkaevästeet otetaan käyttöön vain
           suostumuksellasi.
@@ -51,14 +51,14 @@ export default function ConsentBanner() {
           <button
             type="button"
             onClick={() => decide("denied")}
-            className="rounded-md border border-cream-50/25 px-4 py-2 text-sm text-cream-100 transition hover:bg-cream-50/10"
+            className="rounded-md border border-teksti-50/25 px-4 py-2 text-sm text-teksti-100 transition hover:bg-teksti-50/10"
           >
             Vain välttämättömät
           </button>
           <button
             type="button"
             onClick={() => decide("granted")}
-            className="rounded-md bg-amber-400 px-4 py-2 text-sm font-bold text-bark-900 transition hover:bg-amber-300"
+            className="rounded-md bg-syaani-400 px-4 py-2 text-sm font-bold text-yo-900 transition hover:bg-syaani-300"
           >
             Hyväksy
           </button>

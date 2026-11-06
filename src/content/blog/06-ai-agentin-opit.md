@@ -1,5 +1,5 @@
 ---
-title: "Agenttijärjestelmä ei ole projekti vaan prosessi: mitä vuodesta jäi käteen"
+title: "Vuosi oman AI-agentin kanssa: mitä jäi käteen"
 slug: "ai-agentin-opit"
 part: 6
 totalParts: 6
@@ -13,7 +13,7 @@ coverAlt: "Läppärin näytöllä kaksi saraketta: vihreä 'Mikä toimii' ja kel
 nosto: "Vuosi oman AI-agentin rakentamista opetti ainakin tämän: järjestelmä ei tule lopullisesti valmiiksi. Tässä osassa kokoan, mitä opin luotettavuudesta ja luottamuksesta — sekä listaan rehellisesti, mikä on edelleen kesken. Jos en halua agenttini piilottelevan virheitä, en voi tehdä niin itsekään. 👇"
 ---
 
-Olen käyttänyt reilun vuoden oman tekoälyagentin rakentamiseen, hajottamiseen ja rakentamiseen uudelleen. Tämä on sarjan viimeinen osa, joten kokoan tähän ne asiat, jotka matkasta jäivät käteen — ja ne kohdat, joissa työ on edelleen kesken.
+Olen käyttänyt reilun vuoden oman tekoälyagentin rakentamiseen, hajottamiseen ja rakentamiseen uudelleen. Tämä on sarjan viimeinen osa, joten kokoan tähän ne asiat, jotka matkasta jäivät käteen, ja myös ne kohdat, joissa työ on edelleen kesken.
 
 Yksi havainto nousi muita sitkeämmin esiin: **agenttijärjestelmä ei ole projekti, jolla on selkeä valmistumispäivä**. Se elää, muuttuu ja vaatii huomiota myös sen jälkeen, kun ensimmäinen toimiva versio on käytössä. Tämä ei ole epäonnistuminen. Se on sitä, mitä tapahtuu, kun järjestelmää käytetään oikeassa arjessa eikä vain demossa, jossa kaikki toimii tasan sen kolme minuuttia.
 
@@ -81,7 +81,7 @@ Automaattinen mallinvaihto ei ole enää vapaa tekemään mitä haluaa. Osassa 4
 
 Korjaus ei ollut se, että fallbackista tehtiin entistä älykkäämpi ja rohkeampi. Korjaus oli tylsempi: automaattista vaihtoa rajoitettiin, mittareille lisättiin järkevyystarkistuksia ja epäselvässä tilanteessa järjestelmän pitää mieluummin jäädyttää tila ja ilmoittaa ihmiselle kuin vaihtaa mallia omin päin.
 
-Toisin sanoen järjestelmässä on nykyään enemmän käsijarrua. Se on hyvä asia. Kaikkien turvamekanismien ei tarvitse olla näyttäviä. Osa saa olla vain estoja, jotka estävät konetta olemasta liian itsevarma.
+Toisin sanoen järjestelmässä on nykyään enemmän käsijarrua. Se on hyvä asia. Kaikkien turvamekanismien ei tarvitse olla näyttäviä. Osa saa olla pelkkiä jarruja, jotka estävät konetta olemasta liian itsevarma.
 
 ### Legacy-OpenClaw elää vielä joissakin kohdissa
 
@@ -139,15 +139,13 @@ Yksi asia jää helposti taka-alalle, ellei sitä sano ääneen: agenttini ei ko
 
 Se ei kirjoita sähköpostejani puolestani, koska haluan tehdä sen itse. Se ei tee päätöksiä puolestani. Se ei ole esimies eikä automaattinen korvike omalle ajattelulleni.
 
-Sen sijaan se tekee jotakin paljon hyödyllisempää. Se muistaa ne asiat, jotka itse helposti unohdan. Se hoitaa rutiinit, joita en mielelläni tee. Ja se pysyy hiljaa silloin, kun kaikki on kunnossa.
+Se muistaa ne asiat, jotka itse helposti unohdan. Se hoitaa rutiinit, joita en mielelläni tee. Ja se pysyy hiljaa silloin, kun kaikki on kunnossa.
 
 Siksi en ajattele sitä pomona enkä orjana. Ajattelen sitä **työparina**.
 
-Jos tästä sarjasta jäisi mieleen vain yksi ajatus, toivoisin sen olevan tämä: **älä rakenna tekoälyä, joka tekee vaikutuksen — rakenna tekoälyä, johon voit luottaa**. Ja kun se toimii hyvin, anna sen olla hiljaa.
+Jos tästä sarjasta jäisi mieleen vain yksi ajatus, toivoisin sen olevan tämä: **tekoälyn ei tarvitse tehdä vaikutusta, mutta siihen pitää voida luottaa**. Ja kun se toimii hyvin, anna sen olla hiljaa.
 
 ## Mitä tästä jäi jäljelle?
-
-Vuosi oman agentin kanssa opetti, että näyttävyys on huono mittari. Paljon hyödyllisempiä ovat selkeät ja rehelliset statukset, selattava muisti, yksinkertainen rakenne ja virhekäytännöt, jotka eivät anna ongelmien jäädä piiloon.
 
 Järjestelmä ei tule koskaan täysin valmiiksi, eikä sen tarvitsekaan. Riittää, että se ansaitsee luottamuksen vähän kerrallaan.
 
@@ -155,4 +153,4 @@ Kiitos, että luit koko sarjan.
 
 ---
 
-**Haluatko rakentaa oman agentin — tai mieluummin välttää nämä kuopat ennen kuin ajat itse niihin?** [Katso koulutukset ja agenttisprintti](https://seise.org/#koulutukset), [ota yhteyttä](https://seise.org/#yhteys) tai [verkostoidutaan LinkedInissä](https://www.linkedin.com/in/mattiseise/), jos aihe kiinnostaa.
+**Haluatko rakentaa oman agentin ja välttää nämä kuopat ennen kuin ajat itse niihin?** [Katso koulutukset ja agenttisprintti](https://seise.org/#koulutukset), [ota yhteyttä](https://seise.org/#yhteys) tai [verkostoidutaan LinkedInissä](https://www.linkedin.com/in/mattiseise/), jos aihe kiinnostaa.
