@@ -1,7 +1,7 @@
 {
   "slug": "esteiden-raivaajat",
   "title": "Esteiden raivaajat",
-  "description": "Video erityisestä tuesta. Raivaajatiimi eriyttää tehtävänannot, kokoaa opiskelijan oman viikkoaikataulun ja rakentaa yksilöllisen näyttöprojektin. Tavoitteista ei tingitä.",
+  "description": "Video erityisestä tuesta. Raivaajatiimi eriyttää tehtävänannot, nostaa katon osaavalta opiskelijalta, kokoaa opiskelijan oman viikkoaikataulun ja rakentaa yksilöllisen näyttöprojektin. Tavoitteista ei tingitä.",
   "source": "sarjakuvaesitys-repo (mattiseise/sarjakuvaesitys): python3 tools/build.py --esitys esteiden-raivaajat → dist/esteiden-raivaajat/standalone.html",
   "build": "python3 -I scripts/julkaise-sarjakuva.py ~/Projektit/web/sarjakuvaesitys/dist/esteiden-raivaajat/standalone.html scripts/esitykset/esteiden-raivaajat.json"
 }
