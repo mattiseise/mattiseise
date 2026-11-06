@@ -62,21 +62,21 @@ export const VIDEOS: readonly Video[] = [
   {
     slug: "esteiden-raivaajat",
     href: "/esitykset/esteiden-raivaajat/",
-    minutes: 6,
-    chapters: 5,
-    cast: ["eriyttaja", "viikkopolku", "nayttoprojekti"],
+    minutes: 7,
+    chapters: 6,
+    cast: ["eriyttaja", "nopeuttaja", "viikkopolku", "nayttoprojekti"],
     color: "#a3e635",
     fi: {
       title: "Esteiden raivaajat",
       tagline: "Erityinen tuki ilman tavoitteista tinkimistä",
       blurb:
-        "Raivaajatiimi eriyttää tehtävänannot, kokoaa opiskelijan oman viikkoaikataulun ja rakentaa yksilöllisen näyttöprojektin. Tuki auttaa opiskelijaa pääsemään alkuun, pitämään työn käynnissä ja jakamaan sen sopiviin osiin.",
+        "Raivaajatiimi eriyttää tehtävänannot, nostaa katon osaavalta opiskelijalta, kokoaa opiskelijan oman viikkoaikataulun ja rakentaa yksilöllisen näyttöprojektin. Tuki auttaa opiskelijaa pääsemään alkuun, pitämään työn käynnissä ja jakamaan sen sopiviin osiin.",
     },
     en: {
       title: "Esteiden raivaajat",
       tagline: "Clearing obstacles in special needs support",
       blurb:
-        "A team of AI helpers that differentiates assignments, builds a student's own weekly schedule and an individual skills demonstration project, without lowering the goals.",
+        "A team of AI helpers that differentiates assignments both ways, lets advanced students move faster, builds a student's own weekly schedule and an individual skills demonstration project, without lowering the goals.",
     },
   },
 ];

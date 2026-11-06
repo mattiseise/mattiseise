@@ -66,7 +66,7 @@ const finish = (svg) => svg
 
 // Pääkuvat (avatarit): moottorin oma rajaus.
 const AVATARS = ['claus', 'opettaja', 'sune', 'rasmus', 'viggo', 'oskar', 'ingrid', 'linnea', 'wilhelm', 'alfred', 'borje',
-  'eriyttaja', 'viikkopolku', 'nayttoprojekti', 'es-korostin', 'sarakevalitsin', 'muokkaaja'];
+  'eriyttaja', 'nopeuttaja', 'viikkopolku', 'nayttoprojekti', 'es-korostin', 'sarakevalitsin', 'muokkaaja'];
 for (const id of AVATARS) {
   const c = cast[id];
   if (!c) { console.warn('puuttuu:', id); continue; }
