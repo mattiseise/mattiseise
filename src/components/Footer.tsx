@@ -36,12 +36,18 @@ export default function Footer({ locale = "fi" }: { locale?: Locale }) {
   ];
   return (
     <footer className="relative border-t-2 border-ruutu/15 px-5 pb-10 pt-12 md:px-10">
-      {/* Rapurivi alatunnisteen yläreunalla: samat hahmot kuin videoissa. */}
+      {/* Rapurivi alatunnisteen yläreunalla: samat hahmot kuin videoissa. Ravut heittävät palloa rivin
+          päästä päähän ja takaisin, ja jokainen hypähtää kopin kohdalla (globals.css: rapuleikki). */}
       <div aria-hidden className="pointer-events-none absolute -top-[30px] right-5 flex gap-1 md:right-10">
-        {FOOTER_CAST.map((id) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img key={id} src={`/hahmot/${id}.svg`} alt="" width={56} height={56} className="h-14 w-14" />
+        {FOOTER_CAST.map((id, i) => (
+          <span key={id} className={`rapuleikki rapuleikki-${i}`}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={`/hahmot/${id}.svg`} alt="" width={56} height={56} className="h-14 w-14" />
+          </span>
         ))}
+        <span className="rapupallo">
+          <span className="rapupallo-y" />
+        </span>
       </div>
       <div className="container-narrow flex flex-wrap items-center justify-between gap-5">
         <nav
