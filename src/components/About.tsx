@@ -24,7 +24,7 @@ const strings = {
       },
       {
         e: "Pedagogiikka",
-        t: "Kurssi pitää myös opettaa",
+        t: "Kurssin pitää myös opettaa",
         b: "Bloomin taksonomia, linjakkuus, saavutettavuus ja eriyttäminen kuuluvat itse rakenteeseen: tehtäviin, arviointiin ja opiskelijan ohjeisiin.",
       },
     ],
